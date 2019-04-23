@@ -1,0 +1,16 @@
+@define-mixin aspect-ratio $selector, $width: 16, $height: 9 {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc(($height / $width) * 100%);
+  }
+  > $(selector) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

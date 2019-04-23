@@ -268,23 +268,7 @@ export default {
 </script>
 
 <style lang="postcss">
-/* TODO: Find a way to make it global on first building attemp */
-@define-mixin aspect-ratio $selector, $width: 16, $height: 9 {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: calc(($height / $width) * 100%);
-  }
-  > $(selector) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
+@import "~/assets/styles/mixins.pcss";
 
 .header {
   @apply w-full relative;
