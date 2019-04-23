@@ -1,0 +1,181 @@
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: all .3s cubic-bezier(.55, 0, .1, 1);
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+}
+
+.layout, .page {
+  @extend .fade
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply break-words text-lg;
+  background-color: var(--bg);
+  color: var(--textNormal);
+  font-family: 'Merriweather Sans', sans-serif;
+
+  &.light {
+    --bg: config('colors.grey-lightest');
+    --textNormal: config('colors.grey-darkest');
+    --textTitle: config('colors.grey-darkest');
+    --textLink: config('colors.orange');
+    --card-bg: config('colors.white');
+    --inlineCode-bg: config('colors.grey-lighter');
+    --inlineCode-border: config('colors.grey-lighter');
+    --inlineCode-text: config('colors.grey-darker');
+  }
+
+  &.dark {
+    --bg: config('colors.black');
+    --textNormal: config('colors.grey-light');
+    --textTitle: config('colors.grey-lightest');
+    --textLink: config('colors.orange-light');
+    --card-bg: config('colors.grey-darkest');
+    --inlineCode-bg: config('colors.black');
+    --inlineCode-border: config('colors.grey-darker');
+    --inlineCode-text: config('colors.grey-light');
+  }
+}
+
+hr {
+  @apply h-px mb-8;
+  background-color: var(--textNormal);
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply leading-normal mt-12 mb-5;
+  font-family: 'Bitter', serif;
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h5 + h6 {
+  @apply mt-5;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h4 {
+  @apply text-base;
+}
+
+h5 {
+  @apply text-sm;
+}
+
+h6 {
+  @apply text-xs;
+}
+
+a {
+  color: var(--textLink);
+
+  &:hover {
+    @apply no-underline;
+  }
+}
+
+:not(pre) > code {
+  @apply text-left whitespace-pre py-0 px-1 rounded border;
+  background-color: var(--inlineCode-bg);
+  border-color: var(--inlineCode-border);
+  color: var(--inlineCode-text);
+  hyphens: none;
+  tab-size: 4;
+}
+
+
+blockquote,
+ol,
+p,
+ul,
+pre {
+  @apply leading-normal mb-8;
+}
+
+blockquote,
+quote {
+  @apply leading-normal mb-8 py-3 px-4 border-l border-l-4;
+  border-color: var(--inlineCode-border);
+
+  p:only-child {
+    @apply mb-0;
+  }
+}
+
+* {
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1),
+    background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1),
+    box-shadow 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* Taken from https://github.com/twbs/bootstrap/blob/master/scss/utilities/_embed.scss#L3 */
+.embed-responsive {
+  @apply relative block w-full h-full overflow-hidden;
+  padding: 0;
+
+  &-16by9 {
+    padding-top: 56.25%;
+  }
+
+  &::before {
+    @apply block;
+    content: "";
+  }
+
+  iframe, object, embed, video {
+    @apply absolute pin-t pin-b pin-l w-full h-full;
+    border: 0;
+  }
+}
+
+img {
+  &.lazy {
+    &.initial,
+    &.loading {
+      filter: blur(0.5rem);
+    }
+  }
+}
+
+img.lazy[data-src],
+img.lazy[data-srcset] {
+  display: block;
+  min-height: 1px;
+}

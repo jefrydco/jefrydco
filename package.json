@@ -1,0 +1,126 @@
+{
+  "name": "jefrydco",
+  "version": "1.0.0",
+  "description": "A personal website of Jefry Dewangga",
+  "private": true,
+  "keywords": [
+    "jefrydco",
+    "Jefry Dewangga",
+    "nuxt",
+    "nuxt pwa",
+    "nuxt.js",
+    "nuxtjs",
+    "vue",
+    "vue pwa",
+    "vue ssr",
+    "vue universal",
+    "vue.js",
+    "vuejs",
+    "tailwindcss"
+  ],
+  "homepage": "https://github.com/jefrydco/jefrydco#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jefrydco/jefrydco.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jefrydco/jefrydco/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jefry Dewangga",
+    "url": "https://jefrydco.id"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "coverage": "codecov",
+    "heroku-postbuild": "yarn build",
+    "test": "yarn test:unit",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:unit": "jest"
+  },
+  "dependencies": {
+    "@nuxtjs/component-cache": "^1.1.4",
+    "@nuxtjs/dotenv": "^1.3.0",
+    "@nuxtjs/feed": "^1.1.0",
+    "@nuxtjs/google-analytics": "^2.2.0",
+    "@nuxtjs/moment": "^1.2.0",
+    "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "@nuxtjs/sentry": "^2.3.2",
+    "@nuxtjs/sitemap": "^1.0.0",
+    "@reallifedigital/nuxt-image-loader-module": "^1.4.0",
+    "@sindresorhus/slugify": "^0.9.1",
+    "cookieparser": "^0.1.0",
+    "highlight.js": "^9.15.6",
+    "js-cookie": "^2.2.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
+    "markdown-it-link-attributes": "^2.1.0",
+    "markdown-it-toc-done-right": "^3.0.1",
+    "markdown-it-video": "^0.6.3",
+    "nord-highlightjs": "^0.1.0",
+    "nuxt": "^2.6.2",
+    "nuxt-i18n": "^5.8.5",
+    "nuxt-purgecss": "^0.2.1",
+    "nuxt-webfontloader": "^1.0.0",
+    "postcss-mixins": "^6.2.1",
+    "postcss-nested": "^4.1.2",
+    "postcss-simple-vars": "^5.0.2",
+    "qs": "^6.7.0",
+    "reading-time": "^1.2.0",
+    "vanilla-lazyload": "^12.0.0-beta.0",
+    "vue-scroll-indicator": "^0.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "codecov": "^3.3.0",
+    "cypress": "^3.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "front-matter": "^3.0.2",
+    "frontmatter-markdown-loader": "^1.6.0",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "jest-serializer-vue": "^2.0.2",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0",
+    "tailwindcss": "^0.7.4",
+    "vue-jest": "^3.0.4"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

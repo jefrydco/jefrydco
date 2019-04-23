@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index renders to match snapshot 1`] = `
+<div id="home" class="flex flex-wrap items-center justify-center h-screen">
+  <div class="flex-initial">
+    <app-profile-stub></app-profile-stub>
+  </div>
+</div>
+`;
