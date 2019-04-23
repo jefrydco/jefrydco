@@ -4559,7 +4559,7 @@ expect@^24.7.1:
     jest-message-util "^24.7.1"
     jest-regex-util "^24.3.0"
 
-express@^4.16.2, express@^4.16.3:
+express@^4.16.3:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.4.tgz#fddef61926109e24c515ea97fd2f1bdbf62df12e"
   integrity sha512-j12Uuyb4FMrd/qQAm6uCHAkPtO8FDTRJZBDd5D2KOL2eLaz1yUNdUB/NOIyq0iU4q4cFarsUCrnFDPBcnksuOg==
@@ -10129,13 +10129,6 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
-
-ssl-express-www@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/ssl-express-www/-/ssl-express-www-3.0.3.tgz#b5e65a3819a2bd8269a25cad04fc88bb74cba756"
-  integrity sha512-A8mWxlkJtpZQgfxOhRV/5z15JvKtKEjbv7VayiYEULgTK0aeM48DsqejsfoWw0pAn/A75KblDb+1CkNtLRhxjw==
-  dependencies:
-    express "^4.16.2"
 
 ssri@^6.0.1:
   version "6.0.1"
