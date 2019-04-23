@@ -13,9 +13,10 @@
         </nuxt-link>
       </div>
       <div class="profile__meta">
-        <h1 class="profile__name">
+        <div v-if="$route.name.includes('blog-slug')" class="profile__name">
           Jefrydco
-        </h1>
+        </div>
+        <h1 v-else="" class="profile__name">Jefrydco</h1>
         <h2 class="profile__description">
           {{ $t("description") }}
         </h2>
@@ -73,7 +74,8 @@ export default {
     @apply text-center;
   }
   &__name {
-    @apply leading-normal mt-0;
+    @apply leading-normal mt-0 mb-5 font-bold text-2xl;
+    font-family: "Bitter", serif;
   }
   &__description {
     @apply leading-normal mt-0;

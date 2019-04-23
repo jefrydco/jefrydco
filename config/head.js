@@ -13,6 +13,11 @@ export default {
     {
       rel: "pingback",
       href: "https://webmention.io/jefrydco.id/xmlrpc"
+    },
+    {
+      type: "text/plain",
+      rel: "author",
+      href: "https://jefrydco.id/humans.txt"
     }
   ],
   // Taken from: https://github.com/manniL/lichter.io/blob/master/config/head.js

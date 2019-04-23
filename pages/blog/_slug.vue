@@ -84,9 +84,9 @@
             <article>
               <header>
                 <div class="blog__meta">
-                  <h2 id="blog-title" class="blog__title">
+                  <h1 id="blog-title" class="blog__title">
                     {{ blog.title }}
-                  </h2>
+                  </h1>
                   <div class="blog__date">
                     <span>
                       <time :datetime="blog.postedDate">
@@ -175,6 +175,19 @@ export default {
   head() {
     return {
       title: this.blog.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.blog.description
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          property: "og:description",
+          content: this.blog.description
+        }
+      ],
       __dangerouslyDisableSanitizers: ["script"],
       script: [
         {
@@ -260,7 +273,7 @@ export default {
         discussLink: `https://twitter.com/search?q=${encodeURIComponent(
           fullPath
         )}`,
-        editLink: `https://github.com/jefrydco/jefrydco.id/edit/master/${editPath}`
+        editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
       }
     };
   }

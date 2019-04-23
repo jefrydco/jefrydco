@@ -122,6 +122,8 @@ export default {
   // https://nuxtjs.org/api/configuration-watch
   watch: ["~/config/**/*", "~/helpers/**/*"],
 
+  serverMiddleware: ["~/server/redirect-www-to-non-www"],
+
   // https://nuxtjs.org/api/configuration-build
   build
 };
