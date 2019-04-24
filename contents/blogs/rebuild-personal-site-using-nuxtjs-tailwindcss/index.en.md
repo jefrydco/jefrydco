@@ -3,7 +3,7 @@ title: The Story of Rebuilding My Personal Site Using Nuxt.js and Tailwind CSS
 description: I've been blogging since I was junior high school, but until now there is no single blog I made survive.
 img: /cover/rebuild-personal-site-using-nuxtjs-tailwindcss.jpg
 postedDate: 2019-04-17T07:15:21.689Z
-updatedDate: 2019-04-23T04:19:41.918Z
+updatedDate: 2019-04-24T11:12:51.265Z
 slug: rebuild-personal-site-using-nuxtjs-tailwindcss
 ---
 
@@ -317,7 +317,7 @@ I'm very like simplicity, the design principle of highlight.js is really suitabl
 Besides that reason, it easier to find highlight.js theme rather than prism.js theme.
 
 ## Close Though
-Woah, for the first time for me writing a very long article in English and Bahasa Indonesia simultaneously.
+Woah, this is the first time for me writing a very long article in English and Bahasa Indonesia simultaneously.
 
 And for the reader that has completed read all of the words above. I'm very grateful to you.
 
