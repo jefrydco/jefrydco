@@ -1,7 +1,7 @@
 ---
 title: Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 1
 description: I've been blogging since I was junior high school, but until now there is no single blog I made survive.
-img: /cover/rebuild-blog-with-nuxtjs-tailwindcss.jpg
+img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 postedDate: 2019-04-17T07:15:21.689Z
 updatedDate: 2019-04-24T11:12:51.265Z
 slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1

@@ -1,7 +1,7 @@
 ---
 title: Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 1
 description: Saya sudah ngeblog sejak masih SMP, tetapi sampai sekarang tidak ada satu pun blog yang saya buat bertahan.
-img: /cover/rebuild-blog-with-nuxtjs-tailwindcss.jpg
+img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 postedDate: 2019-04-17T07:15:21.689Z
 updatedDate: 2019-04-17T07:15:21.689Z
 slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1

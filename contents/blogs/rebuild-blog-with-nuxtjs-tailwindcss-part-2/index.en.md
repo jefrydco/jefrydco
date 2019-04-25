@@ -1,7 +1,7 @@
 ---
 title: Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2
 description: I have got the answer for 3 out of 9 questions in the first part. Then I'll answer the next 6 questions.
-img: /cover/rebuild-blog-with-nuxtjs-tailwindcss.jpg
+img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 postedDate: 2019-04-25T15:49:14.624Z
 updatedDate: 2019-04-25T15:49:14.624Z
 slug: rebuild-blog-with-nuxtjs-tailwindcss-part-2

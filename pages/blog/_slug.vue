@@ -357,12 +357,18 @@ export default {
     @apply px-16 py-10;
   }
 
+  /*
   &__img {
     @mixin aspect-ratio picture, 16, 9;
+    @apply mb-8;
 
     .lazy {
       @apply w-full h-auto;
     }
+  }
+  */
+  .lazy {
+    @apply w-full h-auto mb-8;
   }
 
   &__meta {
