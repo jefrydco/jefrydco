@@ -70,7 +70,7 @@ The `minimum-scale=1` and `maximum-scale=1` attribute values can be optional if 
     <link rel="dns-prefetch" href="The DNS you want to prefetch">
 ```
 
-The [dns-prefetch](https://varvy.com/rel/dns-prefetch.html) link tag is used to contact a domain before it is explicitly used. An example of its use is if we store images, CSS and JavaScript in different domains. Say website we are in the domain of jefrydco.id and asset files in the domain static.jefrydco.id, so we instruct the browser to contact static.jefrydco.id before being used to take the images, CSS and JavaScript. The dns-prefetch link is very useful for reducing [DNS search time](https://varvy.com/performance/dns-lookup-time.html).
+The [dns-prefetch](https://varvy.com/rel/dns-prefetch.html) link tag is used to contact a domain before it is explicitly used. An example of its use is if we store images, CSS and JavaScript in different domains. Say website we are in the domain of https://jefrydco.id and asset files in the domain https://static.jefrydco.id, so we instruct the browser to contact https://static.jefrydco.id before being used to take the images, CSS and JavaScript. The dns-prefetch link is very useful for reducing [DNS search time](https://varvy.com/performance/dns-lookup-time.html).
 
 ```HTML
      <title>Page Title - Site Name</title>
