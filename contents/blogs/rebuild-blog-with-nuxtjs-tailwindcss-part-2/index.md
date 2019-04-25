@@ -1,6 +1,6 @@
 ---
 title: Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 2
-description: Saya sudah ngeblog sejak masih SMP, tetapi sampai sekarang tidak ada satu pun blog yang saya buat bertahan.
+description: Saya sudah mendapat jawaban untuk 3 dari 9 pertanyaan di bagian pertama. Maka saya akan menjawab 6 pertanyaan berikutnya.
 img: /cover/rebuild-blog-with-nuxtjs-tailwindcss.jpg
 postedDate: 2019-04-25T15:49:14.624Z
 updatedDate: 2019-04-25T15:49:14.624Z

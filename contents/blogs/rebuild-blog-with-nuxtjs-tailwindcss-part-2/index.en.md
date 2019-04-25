@@ -1,6 +1,6 @@
 ---
 title: Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2
-description: I've been blogging since I was junior high school, but until now there is no single blog I made survive.
+description: I have got the answer for 3 out of 9 questions in the first part. Then I'll answer the next 6 questions.
 img: /cover/rebuild-blog-with-nuxtjs-tailwindcss.jpg
 postedDate: 2019-04-25T15:49:14.624Z
 updatedDate: 2019-04-25T15:49:14.624Z
