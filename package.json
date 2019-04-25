@@ -63,7 +63,7 @@
     "markdown-it-toc-done-right": "^3.0.1",
     "markdown-it-video": "^0.6.3",
     "nord-highlightjs": "^0.1.0",
-    "nuxt": "^2.6.2",
+    "nuxt": "^2.6.3",
     "nuxt-i18n": "^5.8.5",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-webfontloader": "^1.0.0",
