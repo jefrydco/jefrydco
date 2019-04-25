@@ -27,32 +27,32 @@ Menjawab pertanyaan mengapa kita perlu memperhatikan struktur HTML5? Ya agar leb
 
 Oh ya struktur HTML5 yang saya bahas di sini adalah struktur HTML5 yang baik menurut pemahaman saya dari membaca beberapa literatur mengenai HTML5 ya. Kalau ada yang kurang tepat, dimohon dengan sangat teman-teman dapat memberi kritik dan sarannya. Lanjut ke pembahasan, lalu bagaimakah struktur HTML5 yang baik itu? Mari kita kupas per bagian struktur tersebut.
 
-```HTML
+```markup
 <!DOCTYPE html>
 ```
 
 Tag di atas digunakan untuk mendefinisikan bahwa suatu dokumen HTML adalah HTML5.
 
-```HTML
+```markup
 <html lang="id" prefix="og: http://ogp.me/ns#">
 ```
 
 Tag di atas merupakan tag yang akan membungkus semua tag HTML lainnya. Di dalam tag tersebut terdapat atribut `lang="id"` yang berarti bahwa dokumen HTML5 yang kita buat berbahasa Indonesia. Selain itu terdapat juga atribut `prefix="og:http://ogp.me/ns#"`, atribut ini merupakan deklarasi namespace dari Facebook untuk penggunaan open graph.
 
-```HTML
+```markup
 <head>
     <meta charset="utf-8"
 ```
 
 Tag meta di atas mendefinisikan bahwa dokumen HTML5 yang kita buat menggunakan pengodean karakter [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
 
-```HTML
+```markup
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 
 Tag meta [X-UA-Compatible](https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do) digunakan untuk mendefiniskan dokumen HTML agar ditampilkan pada Internet Explorer versi berapa. Untuk tag meta X-UA-Compatible di atas, nilai atribut `content="IE=edge"` menginstruksikan agar dokumen HTML yang kita buat ditampilkan pada Internet Explorer versi terbaru.
 
-```HTML
+```markup
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
 ```
 
@@ -65,13 +65,13 @@ Tag [meta viewport](https://developers.google.com/speed/docs/insights/ConfigureV
 
 Nilai atribut `minimum-scale=1` dan `maximum-scale=1` dapat menjadi opsional jika teman-teman membolehkan pengguna untuk melakukan pembesaran (_zooming_) pada _website_ ketika dibuka pada peramban mobile.
 
-```HTML
+```markup
     <link rel="dns-prefetch" href="DNS yang ingin di prefetch">
 ```
 
 Tag link [dns-prefetch](https://varvy.com/rel/dns-prefetch.html) digunakan untuk menghubungi suatu domain sebelum ia secara eksplisit digunakan. Contoh penggunaannya adalah jika kita menyimpan gambar, CSS dan JavaScript di domain yang berbeda. Katakanlah _website_ kita berada pada domain jefrydco.id dan berkas aset pada domain static.jefrydco.id, maka kita menginstruksikan peramban untuk menghubungi static.jefrydco.id sebelum digunakan untuk mengambil gambar, CSS dan JavaScript tersebut. Link dns-prefetch sangat berguna untuk mengurangi [waktu pencarian DNS](https://varvy.com/performance/dns-lookup-time.html).
 
-```HTML
+```markup
     <title>Judul Halaman - Nama Situs</title>
 ```
 
@@ -81,19 +81,19 @@ Jika kita ingin mencari informasi yang spesifik pada suatu _website_ menggunakan
 
 Pada umumnya alur seseorang ketika mencari informasi yang spesifik pada suatu _website_ adalah mencari menggunakan kata kunci dengan pola seperti di atas, baru kemudian menggunakan _form_ pencarian yang disediakan oleh _website_-nya.
 
-```HTML
+```markup
     <style></style>
 ```
 
 Tag di atas digunakan untuk mendefinisikan _style_. Namun dalam konteks ini, tidak sembarang _style_ yang dapat dicantumkan pada tag tersebut, hanya _style_ yang digunakan untuk [jalur _rendering_ penting](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) yang dapat dicantumkan. Lebih lanjut mengenai jalur _rendering_ penting akan dibahas pada pos selanjutnya.
 
-```HTML
+```markup
     <link rel="stylesheet" href="URL CSS Eksternal">
 ```
 
 Tag link _stylesheet_ digunakan untuk mendefinisikan CSS eksternal. Sebenarnya tag link _stylesheet_ ini kurang baik digunakan untuk mengoptimalkan pengiriman CSS. Lebih lanjut akan dibahas pada pos selanjutnya.
 
-```HTML
+```markup
     <meta name="keywords" content="Kata kunci halaman saat ini">
     <meta name="description" content="Deskripsi halaman saat ini">
 ```
@@ -106,7 +106,7 @@ Tapi teman-teman dapat mencantumkannya karena kemungkinan mesin pencari lain mas
 
 @[youtube](RBTBEfd7z_Y)
 
-```HTML
+```markup
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nama situs">
     <meta property="og:url" content="URL halaman">
@@ -122,7 +122,7 @@ Tapi teman-teman dapat mencantumkannya karena kemungkinan mesin pencari lain mas
 
 Tag meta open graph digunakan untuk memperkaya informasi halaman _website_ kita ketika diakses oleh [robot perayap Facebook](https://developers.facebook.com/docs/sharing/webmasters/crawler). Lebih lanjut mengenai meta open graph akan di bahas pada pos lain.
 
-```HTML
+```markup
     <meta property="fb:admins" content="ID Facebook kita sebagai admin">
     <meta property="fb:app_id" content="ID Aplikasi yang terhubung dengan website kita">
     <meta property="fb:pages" content="ID Facebook Page">
@@ -130,7 +130,7 @@ Tag meta open graph digunakan untuk memperkaya informasi halaman _website_ kita 
 
 Tag meta facebook digunakan untuk mendefinisikan akun facebook mana yang terhubung dengan _website_ kita, baik sebagai admin, fanpage maupun aplikasi.
 
-```HTML
+```markup
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="URL halaman">
     <meta name="twitter:title" content="Judul halaman">
@@ -141,7 +141,7 @@ Tag meta facebook digunakan untuk mendefinisikan akun facebook mana yang terhubu
 
 Tag meta twitter digunakan untuk memperkaya informasi halaman website kita ketika diakses oleh [robot perayap Twitter](https://dev.twitter.com/cards/getting-started#crawling). Lebih lanjut mengenai meta twitter akan dibahas pada pos lain.
 
-```HTML
+```markup
     <meta name="theme-color" content="Kode warna">
 ```
 
@@ -149,7 +149,7 @@ Tag meta [theme-color](https://developers.google.com/web/updates/2014/11/Support
 
 ![Theme color](/img/content/2017/08/theme-color-image-by-jefrydco.jpg)
 
-```HTML
+```markup
     <link rel="icon" sizes="192x192" href="URL ikon website">
 </head>
 ```
@@ -158,7 +158,7 @@ Tag link icon digunakan untuk menampilkan gambar resolusi tinggi sebagai ikon pa
 
 Sehingga jika semua kode di atas digabungkan akan menjadi seperti berikut,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html lang="id" prefix="og: http://ogp.me/ns#">
 <head>

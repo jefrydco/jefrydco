@@ -21,7 +21,7 @@ Kemudian yang disebut jalur rendering penting adalah serangkaian even yang harus
 
 Bayangkan jika ada situs web yang memiliki kode HTML5 seperti berikut,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +72,7 @@ Pastikan teman-teman telah menggabungkan semua CSS eksternal menjadi satu. Yang 
 
 Contohnya misal situs web teman-teman menggunakan bootstrap dan CSS kustom buatan teman-teman sendiri, urutan ketika digabungkan adalah bootstrap terlebih dahulu kemudian CSS kustom. Mengapa urutan penggabungan CSS sangat penting? Karena ketika CSS dibaca oleh peramban jika terdapat aturan yang sama, maka yang digunakan oleh peramban adalah aturan terakhir.
 
-```CSS
+```css
 #selector {
   background-color: blue; // Properti ini akan ditimpa
 }
@@ -96,7 +96,7 @@ Untuk memisahkan CSS antara yang digunakan untuk menampilkan tampilan awal denga
 Silahkan teman-teman mem-_paste_-kan semua CSS yang telah digabungkan dan di-_minify_ tadi ke form di sebelah kiri. _Paste_-kan juga tautan halaman yang ingin dipisahkan CSS-nya. Kemudian silahkan klik tombol Create Critical Path CSS. Setelah proses selesai, akan muncul form baru di sebelah kanan berisi CSS yang digunakan untuk menampilkan tampilan awal. _Copy_ CSS tersebut dan letakkan di dalam tag `<style></style>` secara internal.
 
 *Sebelum Pemisahan*
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,7 +117,7 @@ Silahkan teman-teman mem-_paste_-kan semua CSS yang telah digabungkan dan di-_mi
 </html>```
 
 *Sesudah Pemisahan*
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -147,12 +147,12 @@ Link preload digunakan untuk memprioritaskan pemuatan suatu sumber daya sebelum 
 Untuk menggunakan fitur ini, silahkan teman teman mengubah atribut `rel="stylesheet"` yang ada pada tag link menjadi `rel="preload"`.
 
 *Sebelum Atribut Dirubah*
-```HTML
+```markup
   <link rel="stylesheet" href="URL CSS eksternal yang telah digabung dan diminify">
 ```
 
 *Sesudah Atribut Dirubah*
-```HTML
+```markup
   <link rel="preload" href="URL CSS eksternal yang telah digabung dan diminify">
 ```
 
@@ -164,7 +164,7 @@ Untuk mengatasinya, kita perlu menggunakan plugin JavaScript bernama [loadCSS](h
 
 Dalam hal ini, CSS eksternal akan diprioritaskan sehingga akan dimuat terlebih dahulu. Dengan kata lain, plugin loadCSS ini berfungsi seperti atribut `rel="preload"` untuk peramban yang belum mendukun fitur tersebut. Untuk memasang plugin ini silahkan teman-teman menambahkan tag `<script></script>` baru di bawah tag link preload.
 
-```HTML
+```markup
   <link rel="preload" href="URL CSS eksternal yang telah digabung dan diminify">
   <script></script>
 ```
@@ -182,7 +182,7 @@ function e(){var e=Array.prototype.slice.call(document.querySelectorAll("link[re
 
 Sehingga secara keseluruhan menjadi seperti berikut,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>

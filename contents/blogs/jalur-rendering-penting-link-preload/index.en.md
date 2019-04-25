@@ -20,7 +20,7 @@ Then what is called an important rendering path is a series of events that must 
 
 Imagine if a website has HTML5 code like the following,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +71,7 @@ Make sure friends have combined all external CSS into one. What needs to be cons
 
 For example, for friends' websites using bootstrap and custom CSS made by their own friends, the order when combined is bootstrap first then custom CSS. Why is the sequence of combining CSS so important? Because when CSS is read by the browser if there are the same rules, then what is used by the browser is the last rule.
 
-```CSS
+```css
 #selector {
   background-color: blue; // Properti ini akan ditimpa
 }
@@ -93,7 +93,7 @@ To separate CSS between those used to display the initial view and those that do
 Please paste all the CSS that has been merged and minified to the form on the left. Paste is also a page link that the CSS wants to separate. Then please click the Create Critical Path CSS button. After the process is complete, a new form will appear on the right containing CSS that is used to display the initial display. Copy CSS and put it in the tag `<style></style>` internally.
 
 *Before Separation*
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,7 +114,7 @@ Please paste all the CSS that has been merged and minified to the form on the le
 </html>```
 
 *After Separation*
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,12 +144,12 @@ The preload link is used to prioritize loading a resource before the browser fin
 To use this feature, please change the attribute `rel="stylesheet"` in the link tag to `rel="preload" `.
 
 *Before Changed Attributes*
-```HTML
+```markup
   <link rel="stylesheet" href="URL CSS eksternal yang telah digabung dan diminify">
 ```
 
 *After Changed Attributes*
-```HTML
+```markup
   <link rel="preload" href="URL CSS eksternal yang telah digabung dan diminify">
 ```
 
@@ -161,7 +161,7 @@ To fix this, we need to use a JavaScript plugin named [loadCSS](https://github.c
 
 In this case, the external CSS will be prioritized so that it will be loaded first. In other words, this loadCSS plugin functions like the `rel=" preload"` attribute for browsers that have not supported the feature. To install this plugin, please add new `<script></script>` tags under the preload link tag.
 
-```HTML
+```markup
   <link rel="preload" href="URL CSS eksternal yang telah digabung dan diminify">
   <script></script>
 ```
@@ -179,7 +179,7 @@ function e(){var e=Array.prototype.slice.call(document.querySelectorAll("link[re
 
 So as a whole it becomes as follows,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html>
 <head>

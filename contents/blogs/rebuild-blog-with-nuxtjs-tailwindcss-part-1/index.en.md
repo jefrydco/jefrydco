@@ -15,7 +15,7 @@ Although each time I start blogging, I always spend my time a lot in building th
 
 I always start building blog with questions like; what JS and CSS framework/library I will use, how I style my site to get the best reading experience, where should I host my site, how I config my site to get up and running well, how I optimize my site to be as fast as possible.
 
-How I make my site passed [Google Web Speed](https://web.dev/measure) test, how I get my site as SEO as possible, which code highlighter I will use, [prism.js](https://prismjs.com) or [highlight.js](https://highlightjs.org/). It's a lot of question in my mind to just start blogging.
+How I make my site passed [Google Web Speed](https://web.dev/measure) test, how I get my site as SEO as possible. It's a lot of question in my mind to just start blogging.
 
 I see my friends in college start writing an article in [Medium](https://medium.com). I want to do that as well. And that cycle above is starting over again now on.
 
@@ -154,7 +154,7 @@ For another page of this site, I create as simple as possible. The homepage just
 I also give the reader options to choose whether they want to read in light mode or dark mode. You can switch the button on the top right of every page.
 
 ## Close Though
-In this part, I have answered 3 out of 9 questions about the cycle of rebuilding my blog.
+In this part, I have answered 3 out of 8 questions about the cycle of rebuilding my blog.
 
 I use Nuxt.js as the main tool, the main reason is its server-side rendering feature. It really helped to make my blog more lightweight and SEO friendly.
 

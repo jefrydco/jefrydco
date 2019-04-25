@@ -9,7 +9,7 @@ slug: rebuild-blog-with-nuxtjs-tailwindcss-part-2
 
 > Read the first part here, [Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 1](/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1)
 
-I have got the answer about which JavaScript framework as the main tool, CSS framework I use and have a thought about the style. Then I'll answer the next 6 questions.
+I have got the answer about which JavaScript framework as the main tool, CSS framework I use and have a thought about the style. Then I'll answer the next 5 questions.
 
 [toc]
 
@@ -168,15 +168,6 @@ Besides getting benefit from Nuxt.js, Cloudflare also helps much to get a better
 SEO is a mystery. No one knows what Google thinks of our blog. But for this time, Google always encourages to create good content, make the blog as faster as possible, and enhance user accessibility. And let Google does the rest.
 
 Besides doing that, I also try to use good structure data for my blog. I use [JSON-LD](https://json-ld.org/) to help Google knows my blog better. Structured data is a standardized format for providing information about a page and classifying the page content.
-
-## Which code highlighter I will use, prism.js or highlight.js?
-I go with highlight.js. The creator of highlight.js stated: 
-
-> One of the defining design principles for highlight.js from the start was simplicity. Not the simplicity of code (in fact, it’s quite complex) but the simplicity of usage and of the actual look of highlighted snippets on HTML pages.
-
-I'm very like simplicity, the design principle of highlight.js is really suitable for me.
-
-Besides that reason, it easier to find highlight.js theme rather than prism.js theme.
 
 ## Close Though
 I end up choosing Heroku to host this blog But Heroku only accepts subdomain. I should find DNS provider that can map the root domain using CNAME record Heroku provides. I found Cloudflare to do that functionality.

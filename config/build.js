@@ -1,6 +1,7 @@
 import path from "path";
 import MarkdownIt from "markdown-it";
-import hljs from "highlight.js";
+// import hljs from "highlight.js";
+import mip from "markdown-it-prism";
 import miv from "markdown-it-video";
 import mila from "markdown-it-link-attributes";
 import mia from "markdown-it-anchor";
@@ -14,18 +15,9 @@ import miriConf from "./miri.conf";
 const md = new MarkdownIt({
   html: true,
   linkify: true,
-  typographer: true,
-  highlight(str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return `<pre class="hljs"><code>${
-          hljs.highlight(lang, str, true).value
-        }</code></pre>`;
-      } catch (__) {}
-    }
-    return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;
-  }
+  typographer: true
 });
+md.use(mip);
 md.use(miv);
 md.use(miri, miriConf);
 md.use(mila, {

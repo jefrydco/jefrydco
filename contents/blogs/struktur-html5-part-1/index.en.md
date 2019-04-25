@@ -7,7 +7,7 @@ updatedDate: 2017-08-27T11:00:00.000Z
 slug: struktur-html5-part-1
 ---
 
-> Read the second part here, [Good HTML5 structure - Part 2](/en/blog/struktur-html5-part-2)
+> Read the second part here, [Good HTML5 Structure - Part 2](/en/blog/struktur-html5-part-2)
 
 Hello friends, this time I started discussing one by one website optimization series, starting with a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using a good HTML5 structure for our website?
 
@@ -27,33 +27,33 @@ Answering the question why do we need to pay attention to the HTML5 structure? Y
 
 Oh yes the HTML5 structure that I discussed here is a good HTML5 structure according to my understanding of reading some literature about HTML5, huh. If there is something wrong, please be very friends and give suggestions and suggestions. Continue to the discussion, then what is a good HTML5 structure? Let's peel each part of the structure.
 
-```HTML
+```markup
 <!DOCTYPE html>
 ```
 
 The tag above is used to define that an HTML document is HTML5.
 
 
-```HTML
+```markup
 <html lang="id" prefix="og: http://ogp.me/ns#">
 ```
 
 The tag above is a tag that will wrap all other HTML tags. Inside the tag there is the attribute `lang="id"` which means that the HTML5 document that we make is in Indonesian. Also there is the `prefix="og: http://ogp.me/ns#"` attribute, this attribute is a namespace declaration from Facebook for open graph usage.
 
-```HTML
+```markup
 <head>
     <meta charset="utf-8"
 ```
 
 The meta tag above defines that HTML5 document that we create uses [UTF-8](https://en.wikipedia.org/wiki/UTF-8) character encoding.
 
-```HTML
+```markup
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 
 The [X-UA-Compatible](https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do) meta tag is used to define documents HTML to display in what version of Internet Explorer. For the X-UA-Compatible meta tag above, the `content="IE=edge"` attribute instructs that the HTML document we create is displayed in the latest version of Internet Explorer.
 
-```HTML
+```markup
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
 ```
 
@@ -66,13 +66,13 @@ The [meta viewport](https://developers.google.com/speed/docs/insights/ConfigureV
 
 The `minimum-scale=1` and `maximum-scale=1` attribute values can be optional if friends allow users to enlarge (zooming) on site when opened on a mobile browser.
 
-```HTML
+```markup
     <link rel="dns-prefetch" href="The DNS you want to prefetch">
 ```
 
 The [dns-prefetch](https://varvy.com/rel/dns-prefetch.html) link tag is used to contact a domain before it is explicitly used. An example of its use is if we store images, CSS and JavaScript in different domains. Say website we are in the domain of https://jefrydco.id and asset files in the domain https://static.jefrydco.id, so we instruct the browser to contact https://static.jefrydco.id before being used to take the images, CSS and JavaScript. The dns-prefetch link is very useful for reducing [DNS search time](https://varvy.com/performance/dns-lookup-time.html).
 
-```HTML
+```markup
      <title>Page Title - Site Name</title>
 ```
 
@@ -82,19 +82,19 @@ If we want to find specific information on a website using Google, we usually us
 
 In general, a person's path when searching for specific information on a website is to search for keywords with a pattern like the one above, then use form search provided by website.
 
-```HTML
+```markup
     <style></style>
 ```
 
 The tag above is used to define style. But in this context, not just style that can be included in the tag, only style is used for important [rendering lines](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) that can be included. Further information regarding the important rendering line will be discussed in the next post.
 
-```HTML
+```markup
     <link rel="stylesheet" href="External CSS URL">
 ```
 
 The stylesheet link tag is used to define external CSS. Actually the stylesheet link tag is not good enough to optimize CSS delivery. Further will be discussed at the next post.
 
-```HTML
+```markup
     <meta name="keywords" content="Current page keyword">
     <meta name="description" content="Current page description">
 ```
@@ -107,7 +107,7 @@ But friends can list it because it's likely that other search engines still use 
 
 @[youtube](RBTBEfd7zY)
 
-```HTML
+```markup
     <meta property="og:type" content="website">
     <meta property="og:sitename" content="Site name">
     <meta property="og:url" content="Pagae URL">
@@ -123,7 +123,7 @@ But friends can list it because it's likely that other search engines still use 
 
 Meta open graph tags are used to enrich our website page information when accessed by [Facebook crawler robots](https://developers.facebook.com/docs/sharing/webmasters/crawler). More about the meta open graph will be discussed in another post.
 
-```HTML
+```markup
     <meta property="fb:admins" content="Our Facebook ID as admin">
     <meta property="fb:appid" content="Application ID that is connected to our website">
     <meta property="fb:pages" content="ID Facebook Page">
@@ -131,7 +131,7 @@ Meta open graph tags are used to enrich our website page information when access
 
 The meta facebook tag is used to define which facebook account is connected with our website, both as admin, fanpage and application.
 
-```HTML
+```markup
     <meta name="twitter:card" content="summarylargeimage">
     <meta name="twitter:url" content="Page URL">
     <meta name="twitter:title" content="Page Title">
@@ -142,7 +142,7 @@ The meta facebook tag is used to define which facebook account is connected with
 
 Meta twitter tags are used to enrich the information on our website pages when accessed by [Twitter crawler robots](https://dev.twitter.com/cards/getting-started#crawling). More about the meta twitter will be discussed in another post.
 
-```HTML
+```markup
     <meta name="theme-color" content="Color Code">
 ```
 
@@ -150,7 +150,7 @@ The meta [theme-color](https://developers.google.com/web/updates/2014/11/Support
 
 ![Theme color](/img/content/2017/08/theme-color-image-by-jefrydco.jpg)
 
-```HTML
+```markup
     <link rel="icon" sizes="192x192" href="Website icon URL">
 </head>
 ```
@@ -159,7 +159,7 @@ The tag link icon is used to display high-resolution images as icons on Chrome m
 
 So if all the codes above are combined it will be as follows,
 
-```HTML
+```markup
 <!DOCTYPE html>
 <html lang="id" prefix="og: http://ogp.me/ns#">
 <head>

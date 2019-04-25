@@ -15,7 +15,7 @@ Sebelumnya saya ingin mengingatkan sekali lagi bahwa tujuan dibuatnya HTML5 adal
 
 Struktur HTML5 kali ini baik digunakan untuk _website_ berupa blog. Sedangkan untuk _website_ lainnya, silahkan teman-teman berkreasi sendiri dengan tetap memperhatikan kaidah-kaidah yang dibuat oleh [W3 Consortium](https://www.w3.org/consortium/).
 
-```HTML
+```markup
 <body>
   <section>
 ```
@@ -24,7 +24,7 @@ Tag body digunakan untuk mendefinisikan konten dari suatu dokumen HTML5, konten 
 
 Kemudian tag section digunakan untuk menandai bagian tertentu pada dokumen HTML5, bagian di sini dapat berupa bab, header, footer atau bagian lain dalam satu dokumen.
 
-```HTML
+```markup
     <header>
       <nav>
         <!-- Navigasi Halaman -->
@@ -39,13 +39,13 @@ Tag header digunakan untuk mendefinisikan bagian awal konten, dapat juga berupa 
 
 Sedangkan tag nav dalam konteks ini dapat digunakan untuk mendefinisikan tautan navigasi ke halaman lain, misal ke halaman blog, tentang dan sebagainya.
 
-```HTML
+```markup
     <main>
 ```
 
 Tag main digunakan untuk mendefinisikan bagian utama dari suatu dokumen HTML5. Terdapat pengecualian untuk peletakan tag ini, kita tidak diperbolehkan menggunakan tag main di dalam tag article, aside, footer, header dan nav.
 
-```HTML
+```markup
       <article>
         <h2>
           <!-- Judul Artikel -->
@@ -60,7 +60,7 @@ Tag main digunakan untuk mendefinisikan bagian utama dari suatu dokumen HTML5. T
 
 Tag article digunakan untuk mendefinisikan konten berupa artikel. Sedangkan tag h2 dapat kita gunakan sebagai judul artikel.
 
-```HTML
+```markup
       <nav>
         <!-- Navigasi Halaman -->
       </nav>
@@ -69,7 +69,7 @@ Tag article digunakan untuk mendefinisikan konten berupa artikel. Sedangkan tag 
 
 Tag nav di atas dapat digunakan untuk mendefinisikan navigasi. Navigasi dalam konteks ini dapat berupa tautan ke artikel selanjutnya maupun sebelumnya.
 
-```HTML
+```markup
     <aside>
       <!-- Sidebar -->
     </aside>
@@ -77,7 +77,7 @@ Tag nav di atas dapat digunakan untuk mendefinisikan navigasi. Navigasi dalam ko
 
 Tag aside digunakan untuk mendefinisikan konten selain konten utama. Konten tersebut dapat berupa _sidebar_ yang berisi menu navigasi maupun informasi lainnya yang perlu kita cantumkan.
 
-```HTML
+```markup
     <footer>
       <!-- Informasi penulis, hak cipta, tanggal terbit, dll -->
     </footer>
@@ -85,7 +85,7 @@ Tag aside digunakan untuk mendefinisikan konten selain konten utama. Konten ters
 
 Tag footer digunakan untuk mendefinisikan akhir dari sebuah dokumen HTML5. Tag ini dapat berisi informasi mengenai penulis, hak cipta, tanggal terbit dan informasi lainnya yang masih berhubungan dengan konten.
 
-```HTML
+```markup
   <script src="URL JS External"></script>
 ```
 
@@ -93,7 +93,7 @@ Tag script src digunakan untuk memanggil JavaScript eksternal. Yang perlu diperh
 
 Cara menjadikan satunya pun tidak boleh sembarangan, sebaiknya jangan langsung menjadikan satu dengan mengopi paste isi script, karena terkadang ada beberapa script yang ketika dijadikan satu malah membuat eror. Cara yang lebih aman menjadikan satu beberapa plugin JavaScript untuk meminimalisir terjadinya eror akan dibahas pada pos lain.
 
-```HTML
+```markup
   <script>
       // JS Internal
   </script>
@@ -101,7 +101,7 @@ Cara menjadikan satunya pun tidak boleh sembarangan, sebaiknya jangan langsung m
 
 Tag script digunakan untuk mendefinisikan script, pada umumnya berupa JavaScript. Yang perlu diperhatikan adalah sebaiknya plugin JavaScript yang besar diletakkan secara eksternal. Sedangkan tag script tersebut dapat diisi dengan script konfigurasi dari layanan pihak ketiga, seperti [Google Analytics](https://analytics.google.com/) dan [Disqus](https://disqus.com/).
 
-```HTML
+```markup
   <script type="application/ld+json">
       // JSON
   </script>
@@ -171,7 +171,7 @@ Lebih lanjut mengenai informasi apa ajah yang dapat kita cantumkan di dalam tag 
 
 Sehingga jika semua kode di atas digabungkan akan menjadi seperti berikut,
 
-```HTML
+```markup
 <body>
   <section>
     <header>

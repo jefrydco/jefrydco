@@ -9,7 +9,7 @@ slug: rebuild-blog-with-nuxtjs-tailwindcss-part-2
 
 > Baca bagian pertama di sini, [Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 1](/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1)
 
-Saya telah mendapat jawaban tentang kerangka JavaScript mana yang menjadi alat utama, kerangka kerja CSS yang saya gunakan dan memiliki pemikiran tentang gaya JavaScript. Selanjutnya saya akan menjawab 6 pertanyaan berikutnya.
+Saya telah mendapat jawaban tentang kerangka JavaScript mana yang menjadi alat utama, kerangka kerja CSS yang saya gunakan dan memiliki pemikiran tentang gaya JavaScript. Selanjutnya saya akan menjawab 5 pertanyaan berikutnya.
 
 [toc]
 
@@ -170,15 +170,6 @@ SEO adalah sebuah misteri. Tidak ada yang tahu apa pendapat Google tentang blog 
 Selain melakukan itu, saya juga mencoba menggunakan data struktur yang baik untuk blog saya. Saya menggunakan [JSON-LD](https://json-ld.org/) untuk membantu Google mengetahui blog saya dengan lebih baik.
 
 Data terstruktur adalah format standar untuk memberikan informasi tentang halaman dan mengklasifikasikan konten halaman.
-
-## _Highlighter_ kode mana yang akan saya gunakan, prism.js atau highlight.js?
-Saya memilih highlight.js. Pembuat highlight.js menyatakan:
-
-> Salah satu prinsip desain yang menentukan highlight.js sejak awal adalah kesederhanaan. Bukan kesederhanaan secara kode (sebenarnya, ini cukup rumit) tetapi kesederhanaan penggunaan dan tampilan aktual cuplikan yang disorot di laman HTML.
-
-Saya sangat suka kesederhanaan, prinsip desain dari highlight.js sangat cocok untuk saya.
-
-Selain alasan itu, lebih mudah untuk menemukan tema highlight.js daripada tema prism.js.
 
 ## Penutup
 Saya akhirnya memilih Heroku untuk meng-_host_ blog ini. Tapi Heroku hanya menerima subdomain. Saya harus menemukan penyedia DNS yang dapat memetakan domain root menggunakan catatan CNAME yang disediakan Heroku. Saya menemukan Cloudflare untuk melakukan fungsi itu.

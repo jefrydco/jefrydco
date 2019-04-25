@@ -99,7 +99,7 @@ export default {
 
   webfontloader: {
     google: {
-      families: ["Merriweather+Sans", "Bitter"]
+      families: ["Merriweather+Sans", "Bitter", "PT+Mono"]
     }
   },
 
@@ -115,7 +115,7 @@ export default {
   // https://nuxtjs.org/api/configuration-css
   css: [
     "~/assets/styles/tailwind",
-    "nord-highlightjs/dist/nord.css",
+    "~/assets/styles/darcula",
     "~/assets/styles/main"
   ],
 

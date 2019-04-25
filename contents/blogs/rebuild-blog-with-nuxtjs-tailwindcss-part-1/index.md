@@ -15,7 +15,7 @@ Meskipun setiap kali saya mulai blogging, saya selalu menghabiskan banyak waktu 
 
 Saya selalu mulai membangun blog dengan pertanyaan seperti; kerangka kerja dan pustaka JS dan CSS apa yang akan saya gunakan, bagaimana saya mengatur situs saya untuk mendapatkan pengalaman membaca terbaik, di mana saya harus meng-host situs saya, bagaimana saya mengkonfigurasi situs saya untuk beroperasi dengan baik, bagaimana saya mengoptimalkan situs saya agar secepat mungkin.
 
-Bagaimana saya membuat situs saya lulus [Google Web Speed](https://web.dev/measure) tes, bagaimana saya mendapatkan situs saya se SEO mungkin, _highlighter_ kode apa yang akan saya gunakan, [prism.js](https://prismjs.com) atau [highlight.js](https://highlightjs.org/). Ada banyak pertanyaan di benak saya untuk mulai menulis blog.
+Bagaimana saya membuat situs saya lulus [Google Web Speed](https://web.dev/measure) tes, bagaimana saya mendapatkan situs saya se SEO mungkin. Ada banyak pertanyaan di benak saya untuk mulai menulis blog.
 
 Saya melihat teman-teman saya di kampus mulai menulis artikel di [Medium](https://medium.com). Saya ingin melakukan itu juga. Dan skema di atas mulai lagi dari sekarang.
 
@@ -156,7 +156,7 @@ Untuk halaman lain situs ini, saya buat sesederhana mungkin. Beranda hanya beris
 Saya juga memberikan opsi pembaca untuk memilih apakah mereka ingin membaca dalam mode terang atau mode gelap. Kamu dapat mengganti tombol di kanan atas setiap halaman.
 
 ## Penutup
-Pada bagian ini, saya telah menjawab 3 dari 9 pertanyaan tentang siklus membangun kembali blog saya.
+Pada bagian ini, saya telah menjawab 3 dari 8 pertanyaan tentang siklus membangun kembali blog saya.
 
 Saya menggunakan Nuxt.js sebagai alat utama, alasan utamanya adalah fitur rendering sisi servernya. Itu benar-benar membantu membuat blog saya lebih ringan dan SEO friendly.
 

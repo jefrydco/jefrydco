@@ -15,7 +15,7 @@ Previously I wanted to remind once again that the purpose of HTML5 was to make W
 
 The HTML5 structure this time is well used for websites in the form of blogs. As for other websites, please create your own friends while paying attention to the rules made by [W3 Consortium](https://www.w3.org/consortium/).
 
-```HTML
+```markup
 <body>
   <section>
 ```
@@ -24,7 +24,7 @@ The body tag is used to define the content of an HTML5 document, the content can
 
 Then the section tag is used to mark certain parts of the HTML5 document, the parts here can be chapters, headers, footers or other parts in one document.
 
-```HTML
+```markup
     <header>
       <nav>
         <!-- Page Navigation -->
@@ -39,13 +39,13 @@ The header tag is used to define the initial part of the content, it can also be
 
 While the nav tags in this context can be used to define navigation links to other pages, for example to a blog page, about and so on.
 
-```HTML
+```markup
     <main>
 ```
 
 The main tag is used to define the main part of an HTML5 document. There are exceptions to laying out this tag, we are not allowed to use main tags in tag articles, aside, footers, headers and navs.
 
-```HTML
+```markup
       <article>
         <h2>
           <!-- Article Title -->
@@ -60,7 +60,7 @@ The main tag is used to define the main part of an HTML5 document. There are exc
 
 The article tag is used to define content in the form of articles. While we can use h2 tags as article titles.
 
-```HTML
+```markup
       <nav>
         <!-- Page Navigation -->
       </nav>
@@ -69,7 +69,7 @@ The article tag is used to define content in the form of articles. While we can 
 
 The nav tag above can be used to define navigation. Navigation in this context can be a link to the next article or before.
 
-```HTML
+```markup
     <aside>
       <!-- Sidebar -->
     </aside>
@@ -77,7 +77,7 @@ The nav tag above can be used to define navigation. Navigation in this context c
 
 Tag aside is used to define content other than the main content. The content can be sidebar which contains navigation menus and other information that we need to list.
 
-```HTML
+```markup
     <footer>
       <!-- Author information, copyright, published date, etc. -->
     </footer>
@@ -85,7 +85,7 @@ Tag aside is used to define content other than the main content. The content can
 
 Footer tags are used to define the end of an HTML5 document. This tag can contain information about the author, copyright, or published and other information that is still related to the content.
 
-```HTML
+```markup
   <script src="External JS"></script>
 ```
 
@@ -93,7 +93,7 @@ The src script tag is used to call external JavaScript. Noteworthy is that it sh
 
 The way to make one is not allowed to be careless, you should not immediately make one by copying the contents of the script, because sometimes there are some scripts that when put together actually make an error. A safer way to make some JavaScript plugins to minimize the occurrence of errors will be discussed in another post.
 
-```HTML
+```markup
   <script>
       // Internal JS
   </script>
@@ -101,7 +101,7 @@ The way to make one is not allowed to be careless, you should not immediately ma
 
 The script tag is used to define the script, generally in the form of JavaScript. Noteworthy is that a large JavaScript plugin should be placed externally. While the script tag can be filled with configuration scripts from third party services, such as [Google Analytics](https://analytics.google.com/) and [Disqus](https://disqus.com/).
 
-```HTML
+```markup
   <script type="application/ld+json">
       // JSON
   </script>
@@ -110,7 +110,7 @@ The script tag is used to define the script, generally in the form of JavaScript
 
 Well for script tags that have a slightly different function. If the script tag is generally used to place scripts that manipulate HTML, this one script tag is used to enrich the information of our website pages when accessed by [Google crawler robot](https://support.google.com/webmasters/answer/182072?hl=en). The information included in this tag is [JavaScript Object Notation for Linking Data](https://json-ld.org/) by paying attention to the rules of [schema.org](https://schema.org/) The example of ld + json code is as follows,
 
-```JSON
+```json
 {
     "@context": "http://schema.org/",
     "@type": "Person",
@@ -130,7 +130,7 @@ In the picture above, friends can compare the way Google displays URL informatio
 
 ![Breadcrumb indexed](/img/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg)
 
-```JSON
+```json
 {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
@@ -171,7 +171,7 @@ More information about what information we can include in this tag will be discu
 
 So if all the codes above are combined it will be as follows,
 
-```HTML
+```markup
 <body>
   <section>
     <header>
