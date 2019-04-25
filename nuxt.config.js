@@ -69,7 +69,8 @@ export default {
   ),
 
   purgeCSS: {
-    mode: "postcss"
+    mode: "postcss",
+    whitelist: ["pre", "code", "token"]
   },
 
   // https://pwa.nuxtjs.org/modules/meta.html
