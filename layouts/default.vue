@@ -35,7 +35,8 @@ export default {
   mounted() {
     if (!document.lazyLoadInstance) {
       document.lazyLoadInstance = new LazyLoad({
-        elements_selector: ".lazy"
+        elements_selector: ".lazy",
+        use_native: true
       });
     }
   }
