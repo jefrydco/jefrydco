@@ -70,7 +70,47 @@ export default {
 
   purgeCSS: {
     mode: "postcss",
-    whitelist: ["pre", "code", "token"]
+    whitelist: [
+      "pre",
+      "code",
+      "token",
+      "comment",
+      "prolog",
+      "tag",
+      "entity",
+      "atrule",
+      "url",
+      "selector",
+      "string",
+      "property",
+      "important",
+      "punctuation",
+      "number",
+      "function",
+      "class-name",
+      "keyword",
+      "boolean",
+      "operator",
+      "char",
+      "regex",
+      "variable",
+      "constant",
+      "symbol",
+      "builtin",
+      "attr-value",
+      "deleted",
+      "namespace",
+      "bold",
+      "italic",
+      "langague-cpp",
+      "langague-c",
+      "language-css",
+      "language-java",
+      "language-markup",
+      "language-objectivec",
+      "language-php",
+      "language-ruby"
+    ]
   },
 
   // https://pwa.nuxtjs.org/modules/meta.html
