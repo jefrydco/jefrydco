@@ -129,6 +129,16 @@ pre {
   @apply leading-normal mb-8;
 }
 
+ul, ol {
+  li {
+    @apply mb-3;
+
+    ul, ol {
+      @apply mb-3;
+    }
+  }
+}
+
 blockquote,
 quote {
   @apply leading-normal mb-8 py-3 px-4 border-l border-l-4;

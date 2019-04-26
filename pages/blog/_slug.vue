@@ -325,12 +325,8 @@ export default {
     counter-reset: list-item;
   }
   li {
-    @apply block mb-3;
+    @apply block;
     counter-increment: list-item;
-
-    ol {
-      @apply mb-3;
-    }
   }
   li:before {
     content: counters(list-item, ".") " ";
@@ -357,16 +353,6 @@ export default {
     @apply px-16 py-10;
   }
 
-  /*
-  &__img {
-    @mixin aspect-ratio picture, 16, 9;
-    @apply mb-8;
-
-    .lazy {
-      @apply w-full h-auto;
-    }
-  }
-  */
   .lazy {
     @apply w-full h-auto mb-8;
   }
@@ -390,8 +376,7 @@ export default {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .header,
-  .blog {
+  .header {
     &__img {
       @mixin aspect-ratio picture, 16, 9;
     }
@@ -399,8 +384,7 @@ export default {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .header,
-  .blog {
+  .header {
     &__img {
       @mixin aspect-ratio picture, 4, 3;
     }
@@ -408,8 +392,7 @@ export default {
 }
 
 @media (max-width: 767px) {
-  .header,
-  .blog {
+  .header {
     &__img {
       @mixin aspect-ratio picture, 1, 1;
     }

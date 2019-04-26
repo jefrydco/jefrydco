@@ -92,7 +92,7 @@ To separate CSS between those used to display the initial view and those that do
 
 Please paste all the CSS that has been merged and minified to the form on the left. Paste is also a page link that the CSS wants to separate. Then please click the Create Critical Path CSS button. After the process is complete, a new form will appear on the right containing CSS that is used to display the initial display. Copy CSS and put it in the tag `<style></style>` internally.
 
-*Before Separation*
+**Before Separation**
 ```markup
 <!DOCTYPE html>
 <html>
@@ -111,9 +111,10 @@ Please paste all the CSS that has been merged and minified to the form on the le
   <script src="URL JavaScript eksternal 4"></script>
   <script src="URL JavaScript eksternal 5"></script>
 </body>
-</html>```
+</html>
+```
 
-*After Separation*
+**After Separation**
 ```markup
 <!DOCTYPE html>
 <html>

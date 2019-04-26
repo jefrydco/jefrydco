@@ -95,7 +95,7 @@ Untuk memisahkan CSS antara yang digunakan untuk menampilkan tampilan awal denga
 
 Silahkan teman-teman mem-_paste_-kan semua CSS yang telah digabungkan dan di-_minify_ tadi ke form di sebelah kiri. _Paste_-kan juga tautan halaman yang ingin dipisahkan CSS-nya. Kemudian silahkan klik tombol Create Critical Path CSS. Setelah proses selesai, akan muncul form baru di sebelah kanan berisi CSS yang digunakan untuk menampilkan tampilan awal. _Copy_ CSS tersebut dan letakkan di dalam tag `<style></style>` secara internal.
 
-*Sebelum Pemisahan*
+**Sebelum Pemisahan**
 ```markup
 <!DOCTYPE html>
 <html>
@@ -114,9 +114,10 @@ Silahkan teman-teman mem-_paste_-kan semua CSS yang telah digabungkan dan di-_mi
   <script src="URL JavaScript eksternal 4"></script>
   <script src="URL JavaScript eksternal 5"></script>
 </body>
-</html>```
+</html>
+```
 
-*Sesudah Pemisahan*
+**Sesudah Pemisahan**
 ```markup
 <!DOCTYPE html>
 <html>
