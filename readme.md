@@ -8,7 +8,7 @@ To run locally, run `yarn`, then `yarn dev`, after that open https://localhost:3
 
 You can contribute to this site by submitting pull request. You can also help me to fix gramatical error, since my mother tounge isn't English. Or if you have more sparetime, you can help me to translate this site into your language as well. :)
 
-To translate the content into your language, add a Markdown file with the translation to corresponding content folder. For instance, if you want to add Javanese language for blog section, add `index.jv.md` in `contents/blogs/rebuild-personal-site-using-nuxtjs-tailwindcss`.
+To translate the content into your language, add a Markdown file with the translation to corresponding content folder. For instance, if you want to add Javanese language for blog section, add `index.jv.md` in `contents/blogs/halo-dunia`.
 
 ## License
 
