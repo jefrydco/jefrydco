@@ -228,26 +228,29 @@ export default {
           })
         },
         {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              item: {
-                "@id": "https://jefrydco.id/blog",
-                name: "Blog"
+          type: "application/ld+json",
+          innerHTML: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": "https://jefrydco.id/blog",
+                  name: "Blog"
+                }
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": `https://jefrydco.id/blog/${this.blog.slug}`,
+                  name: this.blog.title
+                }
               }
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              item: {
-                "@id": `https://jefrydco.id/blog/${this.blog.slug}`,
-                name: this.blog.title
-              }
-            }
-          ]
+            ]
+          })
         }
       ]
     };
