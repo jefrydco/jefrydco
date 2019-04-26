@@ -4227,10 +4227,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.1.0.tgz#181364895899fff9fd3605fecb5c4f20e7d5f395"
-  integrity sha512-zILwX9/Ocz4SV2vX7ox85AsrAgXV3f2o2gpIicdMIOra48WYqgUnWNH/cR/iHtmD2Vb3dLSC3LiEJnS05Gkw7w==
+eslint-config-prettier@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
+  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -7773,10 +7773,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@^5.8.5:
-  version "5.8.5"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.8.5.tgz#9ae047113aae927565bda816594d04b8e8b106d7"
-  integrity sha512-kvykf57EctValhPcvOBTLgVUlegDVqjlBhmSF1F1JQGDNT8FQK/u9cohnk2FQ/nBKLaFJbz1KUGNKXL/QvejVg==
+nuxt-i18n@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.9.0.tgz#409b831ec7655cdb53a5d59b3b085e083a8bc81c"
+  integrity sha512-qVx2cY9xeDWnoeKE27Vv+H9NVcCAM/lQFI2teMAEPQIZctOjJ+hZbPnEnscwzRZ9YZXSXbzgvXL4HvAKOwVAjg==
   dependencies:
     "@kazupon/vue-i18n-loader" "^0.3.0"
     acorn "^6.1.1"
@@ -7784,7 +7784,7 @@ nuxt-i18n@^5.8.5:
     cookie "^0.3.1"
     js-cookie "^2.2.0"
     vue-i18n "^8.8.2"
-    vue-i18n-extensions "^0.2.0"
+    vue-i18n-extensions "^0.2.1"
 
 nuxt-purgecss@^0.2.1:
   version "0.2.1"
@@ -11116,7 +11116,7 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
   integrity sha512-KmvZVtmM26BQOMK1rwUZsrqxEGeKiYSZGA7SNWE6uExx8UX/cj9hq2MRV/wWC3Cq6AoeDGk57rL9YMFRel/q+g==
 
-vue-i18n-extensions@^0.2.0:
+vue-i18n-extensions@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/vue-i18n-extensions/-/vue-i18n-extensions-0.2.1.tgz#86ebea45a1f9c9594cd124f264e107aea193d7dd"
   integrity sha512-xBrItI7bEwBnG7eAlnyUARP41JYYn2+ABMR8q1Yh5FM9hHCbs4XPZwG+4+FPeIZ6b5gYk4YUP//m+fWiuU9z9A==
