@@ -168,6 +168,28 @@ export default {
               }
             }))
           })
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@id": "https://jefrydco.id",
+                name: "Home"
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@id": "https://jefrydco.id/blog",
+                name: "Blog"
+              }
+            }
+          ]
         }
       ]
     };

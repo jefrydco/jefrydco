@@ -1,6 +1,7 @@
 ---
 title: Halo Dunia
-description: Halo teman-teman, ini adalah pos pertama saya di blog ini. Sebenarnya saya udah berkali-kali bikin blog dan ujung-ujungnya jadi ga keurus, alasannya klasik, karena kesibukan sehari-hari yang semakin padat sehingga saya jadi malas untuk menulis.
+description: Semoga dengan adanya blog ini, saya semakin konsisten lagi dalam berbagi ilmu dan teman-teman lebih betah berlama-lama di blog ini.
+summary: Halo teman-teman, ini adalah pos pertama saya di blog ini. Sebenarnya saya udah berkali-kali bikin blog dan ujung-ujungnya jadi ga keurus, alasannya klasik, karena kesibukan sehari-hari yang semakin padat sehingga saya jadi malas untuk menulis.
 img: /cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
 postedDate: 2017-08-23T11:00:00.000Z
 updatedDate: 2017-08-23T11:00:00.000Z

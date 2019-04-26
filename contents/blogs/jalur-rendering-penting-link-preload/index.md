@@ -1,6 +1,7 @@
 ---
 title: Jalur Rendering Penting dan Link Preload
-description: Halo teman-teman, kali ini saya bakalan bahas mengenai jalur rendering penting. Mungkin teman-teman bertanya-tanya, istilah apaan sih itu, kok kedengarannya asing. Sabar teman-teman, pertanyaan itu akan terjawab pada penjelasan selanjutnya. Selain membahas mengenai jalur rendering penting, saya juga bahas mengenai link preload, yang sebenarnya kedua hal tersebut saling berhubungan satu sama lain.
+description: Jalur rendering penting dan link preload membuat pengguna melihat konten situs web jauh lebih cepat.
+summary: Halo teman-teman, kali ini saya bakalan bahas mengenai jalur rendering penting. Mungkin teman-teman bertanya-tanya, istilah apaan sih itu, kok kedengarannya asing. Sabar teman-teman, pertanyaan itu akan terjawab pada penjelasan selanjutnya. Selain membahas mengenai jalur rendering penting, saya juga bahas mengenai link preload, yang sebenarnya kedua hal tersebut saling berhubungan satu sama lain.
 img: /cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
