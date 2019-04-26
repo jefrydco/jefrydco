@@ -177,14 +177,6 @@ export default {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": "https://jefrydco.id",
-                name: "Home"
-              }
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              item: {
                 "@id": "https://jefrydco.id/blog",
                 name: "Blog"
               }
