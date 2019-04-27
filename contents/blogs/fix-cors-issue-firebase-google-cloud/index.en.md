@@ -44,6 +44,13 @@ After that, run this command:
 ```bash
 $ gsutil cors set cors.json gs://YOUR-BUCKET-PROJECT-URL
 ```
+If its success, the terminal display will be like this:
+
+```bash
+jefrydco@cloudshell:~ (PROJECT-ID)$ gsutil cors set cors.json gs://YOUR-BUCKET-PROJECT-URL
+Setting CORS on gs://YOUR-BUCKET-PROJECT-URL/...
+jefrydco@cloudshell:~ (PROJECT-ID)$
+```
 
 The bucket URL can be found from Firebase dashboard on Storage menu like this image:
 

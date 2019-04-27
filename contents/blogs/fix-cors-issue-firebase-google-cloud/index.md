@@ -45,6 +45,14 @@ Setelah itu, jalankan perintah ini:
 $ gsutil cors set cors.json gs://URL-BUCKET-PROYEK-KAMU
 ```
 
+Jika berhasil, tampilan terminal akan seperti ini:
+
+```bash
+jefrydco@cloudshell:~ (ID-PROYEK)$ gsutil cors set cors.json gs://URL-BUCKET-PROYEK-KAMU
+Setting CORS on gs://URL-BUCKET-PROYEK-KAMU/...
+jefrydco@cloudshell:~ (ID-PROYEK)$
+```
+
 URL _bucket_ proyek dapat ditemukan dari dasbor Firebase pada menu Penyimpanan seperti gambar ini:
 
 ![Firebase Storage Image](/content/2019/04/firebase-storage-image-by-jefrydco.jpg)
