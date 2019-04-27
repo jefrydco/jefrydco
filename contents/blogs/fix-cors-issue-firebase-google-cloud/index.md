@@ -3,6 +3,7 @@ title: Cara Memperbaiki Masalah CORS di Firebase atau Google Cloud Storage
 description: Solusi untuk memperbaiki masalah CORS di Firebase atau Google Cloud Storage
 summary: Saya memperbaiki bug yang sudah lama ditinggalkan dalam proyek saya. Kesalahan sebenarnya cukup sederhana yakni, gambar yang disimpan di Firebase Cloud Storage tidak dapat diambil melalui permintaan AJAX.
 img: /cover/2019/04/fix-cors-firebase-google-cloud-image-by-toa-heftiba.jpg
+imgCreator: heftiba
 postedDate: 2019-04-27T17:37:21.057Z
 updatedDate: 2019-04-27T17:37:21.057Z
 slug: fix-cors-issue-firebase-google-cloud

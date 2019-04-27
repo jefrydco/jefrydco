@@ -3,6 +3,7 @@ title: Struktur HTML5 yang Baik - Bagian 2
 description: Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.
 summary: Halo teman-teman, kali ini saya lanjutin pembahasan kemarin mengenai struktur HTML5 yang baik. Setelah kemarin mengulas mengenai struktur HTML5 mulai bagian deklarasi tipe HTML hingga tag penutup </head>, sekarang pembahasannya dimulai dari tag pembuka <body> hingga tag penutup HTML </html>.
 img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+imgCreator: _imkiran
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
 slug: struktur-html5-part-2

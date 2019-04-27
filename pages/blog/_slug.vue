@@ -122,6 +122,16 @@
               <div v-html="blog.content"></div>
               <footer>
                 <p>
+                  Cover image from
+                  <a
+                    :href="`https://unsplash.com/@${blog.imgCreator}`"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{{ blog.imgCreator }}
+                  </a>
+                </p>
+                <p>
                   <a
                     :href="blog.discussLink"
                     target="_blank"
@@ -255,9 +265,6 @@ export default {
       ]
     };
   },
-  data() {
-    return {};
-  },
   async asyncData({ params, store, app, redirect }) {
     const { locale } = store.state.i18n;
     const { locales, defaultLocale } = app.i18n;
@@ -287,6 +294,7 @@ export default {
       availableLocales,
       blog: {
         img: blog.attributes.img,
+        imgCreator: blog.attributes.imgCreator,
         title: blog.attributes.title,
         description: blog.attributes.description,
         content: blog.html,
@@ -355,6 +363,12 @@ export default {
   }
   li:before {
     content: counters(list-item, ".") " ";
+  }
+}
+
+footer {
+  p {
+    @apply mb-3;
   }
 }
 

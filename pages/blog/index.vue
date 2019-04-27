@@ -40,11 +40,6 @@ export default {
     AppBlog
   },
   mixins: [lazyload],
-  data() {
-    return {
-      blogs: []
-    };
-  },
   computed: {
     rssLink() {
       const { locale } = this.$i18n;

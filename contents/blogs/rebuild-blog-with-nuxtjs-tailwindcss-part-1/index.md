@@ -3,6 +3,7 @@ title: Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 1
 description: Pembuatan ulang blog saya dengan Nuxt.js dan Tailwind CSS membuat proses pengembangan lebih cepat.
 summary: Saya sudah ngeblog sejak masih SMP, tetapi sampai sekarang tidak ada satu pun blog yang saya buat bertahan. Alasan utamanya adalah saya bosan. Pengalaman menulis juga tidak begitu baik. Saya hanya menulis beberapa artikel dan mulai bingung artikel apa yang harus saya tulis selanjutnya.
 img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
+imgCreator: markusspiske
 postedDate: 2019-04-17T07:15:21.689Z
 updatedDate: 2019-04-17T07:15:21.689Z
 slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1

@@ -3,6 +3,7 @@ title: How to Fix CORS Issue in Firebase or Google Cloud Storage
 description: The solution of fixing CORS issue in Firebase or Google Cloud Storage
 summary: I was fixing a long-abandoned bug in my project. The error was quite simple actually. It was the image stored in Firebase Cloud Storage cannot be retrieved through AJAX request.
 img: /cover/2019/04/fix-cors-firebase-google-cloud-image-by-toa-heftiba.jpg
+imgCreator: heftiba
 postedDate: 2019-04-27T17:37:21.057Z
 updatedDate: 2019-04-27T17:37:21.057Z
 slug: fix-cors-issue-firebase-google-cloud

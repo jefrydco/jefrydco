@@ -3,6 +3,7 @@ title: Good HTML5 Structure - Part 2
 description: A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.
 summary: Hello friends, this time I continued yesterday's discussion of a good HTML5 structure. After reviewing the structure of HTML5 yesterday from the HTML type declaration section to the closing tag </head>, now the discussion starts from the opening tag <body> to the closing HTML </html> tag.
 img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+imgCreator: _imkiran
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
 slug: struktur-html5-part-2
