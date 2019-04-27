@@ -20,8 +20,7 @@ export default () => {
           id: `https://jefrydco.id${path}`,
           link: `https://jefrydco.id${path}`,
           language: locale.code,
-          description:
-            "A personal site of Jefry Dewangga. I believe that great things happen from the inside."
+          description: "A personal site of Jefry Dewangga."
         };
 
         feed.addContributor({
@@ -52,7 +51,7 @@ export default () => {
                 image: `https://jefrydco.id${attributes.img}`,
                 date: attributes.date,
                 description: attributes.description,
-                content: attributes.description
+                content: attributes.summary
               };
             } else {
               return {
@@ -64,7 +63,7 @@ export default () => {
                 image: `https://jefrydco.id/${attributes.img}`,
                 date: attributes.date,
                 description: attributes.description,
-                content: attributes.description
+                content: attributes.summary
               };
             }
           })
