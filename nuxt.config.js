@@ -71,6 +71,8 @@ export default {
   purgeCSS: {
     mode: "postcss",
     whitelist: [
+      "blockquote",
+      "quote",
       "pre",
       "code",
       "token",
