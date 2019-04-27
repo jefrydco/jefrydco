@@ -387,7 +387,7 @@ export default {
   }
 
   &__title {
-    @apply capitalize font-bold text-2xl mt-0 mb-4;
+    @apply font-bold text-2xl mt-0 mb-4;
   }
 
   &__date {

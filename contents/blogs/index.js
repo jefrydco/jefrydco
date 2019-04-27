@@ -1,4 +1,5 @@
 export default [
+  "fix-cors-issue-firebase-google-cloud",
   "rebuild-blog-with-nuxtjs-tailwindcss-part-2",
   "rebuild-blog-with-nuxtjs-tailwindcss-part-1",
   "jalur-rendering-penting-link-preload",
