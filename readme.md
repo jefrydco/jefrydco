@@ -14,4 +14,4 @@ To translate the content into your language, add a Markdown file with the transl
 
 Source code is available under [MIT License](./license.md)
 
-The content I write here is available under [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)
+The content is available under [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)
