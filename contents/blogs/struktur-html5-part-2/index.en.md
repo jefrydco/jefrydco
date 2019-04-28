@@ -1,7 +1,7 @@
 ---
 title: Good HTML5 Structure - Part 2
 description: A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.
-summary: Hello friends, this time I continued yesterday's discussion of a good HTML5 structure. After reviewing the structure of HTML5 yesterday from the HTML type declaration section to the closing tag </head>, now the discussion starts from the opening tag <body> to the closing HTML </html> tag.
+summary: Hello my friends, this time I continued yesterday's discussion of a good HTML5 structure. After reviewing the structure of HTML5 yesterday from the HTML type declaration section to the closing tag </head>, now the discussion starts from the opening tag <body> to the closing HTML </html> tag.
 img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-30T11:00:00.000Z
@@ -11,7 +11,7 @@ slug: struktur-html5-part-2
 
 > Read the first part here, [Good HTML5 Structure - Part 1](/en/blog/struktur-html5-part-1)
 
-Hello friends, this time I continue the discussion yesterday about a good HTML5 structure. After reviewing the HTML5 structure from the declaration of the HTML type to the `</head>` closing tag, now the discussion starts from the opening tag `<body>` to the closing HTML tag `</html>`.
+Hello my friends, this time I continue the discussion yesterday about a good HTML5 structure. After reviewing the HTML5 structure from the declaration of the HTML type to the `</head>` closing tag, now the discussion starts from the opening tag `<body>` to the closing HTML tag `</html>`.
 
 Previously I wanted to remind once again that the purpose of HTML5 was to make WWW more meaningful and easy to understand, both by humans and search engines. Because of that, there are several new tags that define something specific according to its function.
 

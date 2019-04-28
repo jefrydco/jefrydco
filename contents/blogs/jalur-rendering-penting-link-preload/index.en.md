@@ -1,7 +1,7 @@
 ---
 title: Critical Rendering Path and Preload Link
 description: The critical rendering path is important and the preload link makes users see website content much faster.
-summary: Hello friends, this time I will discuss the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing important rendering paths, I also discussed preload links, which are actually related to each other.
+summary: Hello my friends, this time I will discuss the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing important rendering paths, I also discussed preload links, which are actually related to each other.
 img: /cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
 imgCreator: mkwlsn
 postedDate: 2017-08-30T11:00:00.000Z
@@ -9,7 +9,7 @@ updatedDate: 2017-08-30T11:00:00.000Z
 slug: jalur-rendering-penting-link-preload
 ---
 
-Hello friends, this time I will discuss about the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing the important rendering path, I also discussed preload links, which are actually related to each other.
+Hello my friends, this time I will discuss about the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing the important rendering path, I also discussed preload links, which are actually related to each other.
 
 ## Critical Rendering Path
 To understand what the critical rendering path is, I quote Ilya Grigorik on the Google Developers page: Web Fundamentals,

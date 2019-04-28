@@ -1,7 +1,7 @@
 ---
 title: Good HTML5 Structure - Part 1
 description: A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.
-summary: Hello friends, this time I started discussing one by one the website optimization series, starting from a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using that good HTML5 structure for our website?
+summary: Hello my friends, this time I started discussing one by one the website optimization series, starting from a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using that good HTML5 structure for our website?
 img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z
@@ -11,7 +11,7 @@ slug: struktur-html5-part-1
 
 > Read the second part here, [Good HTML5 Structure - Part 2](/en/blog/struktur-html5-part-2)
 
-Hello friends, this time I started discussing one by one website optimization series, starting with a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using a good HTML5 structure for our website?
+Hello my friends, this time I started discussing one by one website optimization series, starting with a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using a good HTML5 structure for our website?
 
 ## What?
 
