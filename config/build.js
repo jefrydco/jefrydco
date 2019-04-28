@@ -9,7 +9,7 @@ import mitdr from "markdown-it-toc-done-right";
 import slugify from "@sindresorhus/slugify";
 
 import { isDev } from "../helpers";
-import miri from "../helpers/markdown-it-responsive-image";
+import miri from "../plugins/markdown-it-responsive-image";
 import miriConf from "./miri.conf";
 
 const md = new MarkdownIt({

@@ -1,6 +1,4 @@
-"use strict";
-
-const qs = require("qs");
+import qs from "qs";
 
 const imageResponsive = (md, options) => {
   return (tokens, idx, opt, env, self) => {
@@ -81,4 +79,4 @@ function responsivePlugin(md, options) {
   md.renderer.rules.image = imageResponsive(md, options);
 }
 
-module.exports = responsivePlugin;
+export default responsivePlugin;
