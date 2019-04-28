@@ -1,9 +1,6 @@
-import { isDev, locales } from "./helpers";
+import { isDev } from "./config/utils";
 
-import { head, sitemap, feed, build } from "./config";
-import nuxtImageLoaderConf from "./config/nuxt-image-loader.conf";
-
-require("dotenv").config();
+import { head, modules, purgeCSS, sitemap, feed, build } from "./config";
 
 export default {
   modern: !isDev,
@@ -12,108 +9,9 @@ export default {
   head,
 
   // https://nuxtjs.org/api/configuration-modules
-  modules: [
-    // https://nuxtjs.org/faq/cached-components/
-    "@nuxtjs/component-cache",
+  modules,
 
-    // https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv",
-
-    // https://pwa.nuxtjs.org/
-    "@nuxtjs/pwa",
-
-    // https://github.com/nuxt-community/sitemap-module
-    "@nuxtjs/sitemap",
-
-    // https://github.com/nuxt-community/sentry-module
-    "@nuxtjs/sentry",
-
-    // https://github.com/nuxt-community/feed-module
-    "@nuxtjs/feed",
-
-    // https://github.com/Developmint/nuxt-webfontloader
-    "nuxt-webfontloader",
-
-    // https://github.com/nuxt-community/moment-module
-    ["@nuxtjs/moment", ["id"]],
-
-    // https://github.com/nuxt-community/nuxt-i18n
-    [
-      "nuxt-i18n",
-      {
-        defaultLocale: "id",
-        detectBrowserLanguage: false,
-        lazy: true,
-        langDir: "lang/",
-        locales
-      }
-    ],
-
-    // https://github.com/nuxt-community/analytics-module
-    [
-      "@nuxtjs/google-analytics",
-      {
-        id: process.env.GOOGLE_ANALYTICS
-      }
-    ],
-
-    // https://github.com/reallifedigital/nuxt-image-loader-module
-    ["@reallifedigital/nuxt-image-loader-module", nuxtImageLoaderConf]
-  ].concat(
-    isDev
-      ? []
-      : [
-          // https://github.com/Developmint/nuxt-purgecss
-          "nuxt-purgecss"
-        ]
-  ),
-
-  purgeCSS: {
-    mode: "postcss",
-    whitelist: [
-      "blockquote",
-      "quote",
-      "pre",
-      "code",
-      "token",
-      "comment",
-      "prolog",
-      "tag",
-      "entity",
-      "atrule",
-      "url",
-      "selector",
-      "string",
-      "property",
-      "important",
-      "punctuation",
-      "number",
-      "function",
-      "class-name",
-      "keyword",
-      "boolean",
-      "operator",
-      "char",
-      "regex",
-      "variable",
-      "constant",
-      "symbol",
-      "builtin",
-      "attr-value",
-      "deleted",
-      "namespace",
-      "bold",
-      "italic",
-      "langague-cpp",
-      "langague-c",
-      "language-css",
-      "language-java",
-      "language-markup",
-      "language-objectivec",
-      "language-php",
-      "language-ruby"
-    ]
-  },
+  purgeCSS,
 
   // https://pwa.nuxtjs.org/modules/meta.html
   meta: {
@@ -165,6 +63,7 @@ export default {
   // https://nuxtjs.org/api/configuration-watch
   watch: ["~/server/**/*", "~/config/**/*", "~/helpers/**/*"],
 
+  // https://nuxtjs.org/api/configuration-servermiddleware
   serverMiddleware: ["~/server/redirect-www-to-non-www"],
 
   // https://nuxtjs.org/api/configuration-build

@@ -1,7 +1,6 @@
 import fm from "front-matter";
-import { locales, readFileAsync } from "../helpers";
-
 import blogPaths from "../contents/blogs";
+import { locales, readFileAsync } from "./utils";
 
 export default () => {
   const feedList = locales.map(locale => {

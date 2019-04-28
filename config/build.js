@@ -8,9 +8,9 @@ import mia from "markdown-it-anchor";
 import mitdr from "markdown-it-toc-done-right";
 import slugify from "@sindresorhus/slugify";
 
-import { isDev } from "../helpers";
 import miri from "../plugins/markdown-it-responsive-image";
-import miriConf from "./miri.conf";
+import { isDev } from "./utils";
+import { miriConf } from "./config";
 
 const md = new MarkdownIt({
   html: true,

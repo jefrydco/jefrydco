@@ -1,7 +1,6 @@
 import fm from "front-matter";
-import { locales, flattenDeep, readFileAsync } from "../helpers";
-
 import blogPaths from "../contents/blogs";
+import { locales, flattenDeep, readFileAsync } from "./utils";
 
 export default {
   hostname: "https://jefrydco.id",

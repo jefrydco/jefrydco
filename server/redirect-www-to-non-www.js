@@ -1,4 +1,4 @@
-import { isDev } from "../helpers";
+import { isDev } from "../config/utils";
 
 // Taken from: https://stackoverflow.com/a/23816083/7711812
 export default (req, res, next) => {
