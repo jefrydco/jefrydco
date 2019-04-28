@@ -11,7 +11,13 @@ export default {
       name: "og:image:alt",
       property: "og:image:alt",
       content: "Jefrydco"
-    }
+    },
+    { property: "fb:admins", content: process.env.FB_ADMINS },
+    {
+      property: "fb:appid",
+      content: process.env.FB_APP_ID
+    },
+    { property: "fb:pages", content: process.env.FB_PAGES }
   ],
   link: [
     {
@@ -26,6 +32,18 @@ export default {
       type: "text/plain",
       rel: "author",
       href: "https://jefrydco.id/humans.txt"
+    },
+    {
+      rel: "dns-prefetch",
+      href: "https://fonts.googleapis.com"
+    },
+    {
+      rel: "dns-prefetch",
+      href: "https://fonts.gstatic.com"
+    },
+    {
+      rel: "dns-prefetch",
+      href: "https://www.google-analytics.com"
     }
   ],
   // Taken from: https://github.com/manniL/lichter.io/blob/master/config/head.js
