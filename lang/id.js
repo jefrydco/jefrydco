@@ -3,5 +3,6 @@ export default {
   discussTwitter: "Diskusikan di Twitter",
   editGithub: "Sunting di Github",
   minRead: "mnt dibaca",
-  readOtherLanguages: "Baca dalam bahasa lain"
+  readOtherLanguages: "Baca dalam bahasa lain",
+  coverImageFrom: "Gambar sampul dari"
 };

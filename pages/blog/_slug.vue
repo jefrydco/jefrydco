@@ -122,7 +122,7 @@
               <div v-html="blog.content"></div>
               <footer>
                 <p>
-                  Cover image from
+                  {{ $t("coverImageFrom") }}
                   <a
                     :href="`https://unsplash.com/@${blog.imgCreator}`"
                     target="_blank"

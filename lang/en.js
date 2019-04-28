@@ -3,5 +3,6 @@ export default {
   discussTwitter: "Discuss on Twitter",
   editGithub: "Edit on Github",
   minRead: "min read",
-  readOtherLanguages: "Read in other languages"
+  readOtherLanguages: "Read in other languages",
+  coverImageFrom: "Cover image from"
 };
