@@ -187,6 +187,36 @@ export default {
       title: this.blog.title,
       meta: [
         {
+          hid: "og:title",
+          name: "og:title",
+          property: "og:title",
+          content: this.blog.title
+        },
+        {
+          hid: "og:url",
+          name: "og:url",
+          property: "og:url",
+          content: `https://jefrydco.id/blog/${this.blog.slug}`
+        },
+        {
+          hid: "og:image",
+          name: "og:image",
+          property: "og:image",
+          content: `https://jefrydco.id${this.blog.img}`
+        },
+        {
+          hid: "og:image:width",
+          name: "og:image:width",
+          property: "og:image:width",
+          content: "1920"
+        },
+        {
+          hid: "og:image:height",
+          name: "og:image:height",
+          property: "og:image:height",
+          content: "614"
+        },
+        {
           hid: "description",
           name: "description",
           content: this.blog.description

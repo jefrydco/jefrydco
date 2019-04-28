@@ -93,6 +93,14 @@ export default {
     });
     return {
       title: "Blog",
+      meta: [
+        {
+          hid: "og:url",
+          name: "og:url",
+          property: "og:url",
+          content: "https://jefrydco.id/blog"
+        }
+      ],
       link,
       __dangerouslyDisableSanitizers: ["script"],
       script: [
