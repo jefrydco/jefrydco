@@ -214,7 +214,13 @@ export default {
           hid: "og:image:height",
           name: "og:image:height",
           property: "og:image:height",
-          content: "614"
+          content: "1280"
+        },
+        {
+          hid: "og:image:alt",
+          name: "og:image:alt",
+          property: "og:image:alt",
+          content: this.blog.title
         },
         {
           hid: "description",

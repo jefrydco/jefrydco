@@ -5,6 +5,14 @@ export default {
     }
     return "Jefrydco";
   },
+  meta: [
+    {
+      hid: "og:image:alt",
+      name: "og:image:alt",
+      property: "og:image:alt",
+      content: "Jefrydco"
+    }
+  ],
   link: [
     {
       rel: "webmention",
