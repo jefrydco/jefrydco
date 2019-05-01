@@ -61,6 +61,11 @@ const renderResponsive = (md, tokens, idx, opt, env, self, options) => {
 
   // responsive
   token.attrs[token.attrIndex("src")][1] = `${imgPath}?style=placholder`;
+  token.attrPush(["srcset", `${imgPath}?style=placeholder 1980w`]);
+
+  // Required for AMP
+  token.attrPush(["width", 1920]);
+  token.attrPush(["height", 1280]);
 
   return `
     <div class="blog__img">

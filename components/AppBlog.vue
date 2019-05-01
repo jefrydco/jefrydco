@@ -2,71 +2,73 @@
   <div class="blog-item">
     <article>
       <div class="blog-item__img">
-        <picture v-if="img">
+        <picture>
           <source
             media="(max-width: 767px)"
             sizes="(max-width: 614px) 100vw, 614px"
             :srcset="`${img}?style=placholder 614w`"
             :data-srcset="
               `
-          ${img}?style=cover-1x1-1 200w,
-          ${img}?style=cover-1x1-2 333w,
-          ${img}?style=cover-1x1-3 439w,
-          ${img}?style=cover-1x1-4 532w,
-          ${img}?style=cover-1x1-5 593w,
-          ${img}?style=cover-1x1-6 614w
-          `
+                ${img}?style=cover-1x1-6 614w,
+                ${img}?style=cover-1x1-5 593w,
+                ${img}?style=cover-1x1-4 532w,
+                ${img}?style=cover-1x1-3 439w,
+                ${img}?style=cover-1x1-2 333w,
+                ${img}?style=cover-1x1-1 200w 
+              `
             "
           />
           <source
             media="(min-width: 768px) and (max-width: 991px)"
-            sizes="(max-width: 1169px) 70vw, 818px"
+            sizes="(max-width: 1169px) 100vw, 818px"
             :srcset="`${img}?style=placholder 818w`"
             :data-srcset="
               `
-          ${img}?style=cover-4x3-1 538w,
-          ${img}?style=cover-4x3-2 632w,
-          ${img}?style=cover-4x3-3 724w,
-          ${img}?style=cover-4x3-4 812w,
-          ${img}?style=cover-4x3-5 818w
-          `
+                ${img}?style=cover-4x3-5 818w,
+                ${img}?style=cover-4x3-4 812w,
+                ${img}?style=cover-4x3-3 724w,
+                ${img}?style=cover-4x3-2 632w,
+                ${img}?style=cover-4x3-1 538w,
+              `
             "
           />
           <source
             media="(min-width: 992px) and (max-width: 1199px)"
-            sizes="(max-width: 1818px) 60vw, 1091px"
+            sizes="(max-width: 1818px) 100vw, 1091px"
             :srcset="`${img}?style=placholder 1091w`"
             :data-srcset="
               `
-          ${img}?style=cover-16x9-1  596w,
-          ${img}?style=cover-16x9-2  710w,
-          ${img}?style=cover-16x9-3  807w,
-          ${img}?style=cover-16x9-4  907w,
-          ${img}?style=cover-16x9-5 1007w,
-          ${img}?style=cover-16x9-6 1089w,
-          ${img}?style=cover-16x9-7 1091w
-          `
+                ${img}?style=cover-16x9-7 1091w,
+                ${img}?style=cover-16x9-6 1089w,
+                ${img}?style=cover-16x9-5 1007w,
+                ${img}?style=cover-16x9-4  907w,
+                ${img}?style=cover-16x9-3  807w,
+                ${img}?style=cover-16x9-2  710w,
+                ${img}?style=cover-16x9-1  596w,
+              `
             "
           />
           <img
             class="blog-item__img--content lazy"
+            sizes="(max-width: 4800px) 100vw, 1920px"
+            width="1920"
+            height="640"
             :alt="title"
-            sizes="(max-width: 4800px) 40vw, 1920px"
             :src="`${img}?style=placholder`"
             :srcset="`${img}?style=placholder 1920w`"
             :data-srcset="
               `
-          ${img}?style=cover-1   480w,
-          ${img}?style=cover-2   766w,
-          ${img}?style=cover-3   991w,
-          ${img}?style=cover-4  1196w,
-          ${img}?style=cover-5  1360w,
-          ${img}?style=cover-6  1509w,
-          ${img}?style=cover-7  1658w,
-          ${img}?style=cover-8  1808w,
-          ${img}?style=cover-9  1888w,
-          ${img}?style=cover-10 1920w
-          `
+                ${img}?style=cover-10 1920w,
+                ${img}?style=cover-9  1888w,
+                ${img}?style=cover-8  1808w,
+                ${img}?style=cover-7  1658w,
+                ${img}?style=cover-6  1509w,
+                ${img}?style=cover-5  1360w,
+                ${img}?style=cover-4  1196w,
+                ${img}?style=cover-3   991w,
+                ${img}?style=cover-2   766w,
+                ${img}?style=cover-1   480w,
+              `
             "
           />
         </picture>

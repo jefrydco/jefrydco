@@ -2,71 +2,74 @@
   <div id="blog">
     <div class="header">
       <div class="header__img">
-        <picture v-if="blog.img">
+        <picture>
           <source
             media="(max-width: 767px)"
-            sizes="(max-width: 614px) 100vw, 614px"
+            sizes="(max-width: 614px) 1100vw, 614px"
             :srcset="`${blog.img}?style=placholder 614w`"
             :data-srcset="
               `
-          ${blog.img}?style=cover-1x1-1 200w,
-          ${blog.img}?style=cover-1x1-2 333w,
-          ${blog.img}?style=cover-1x1-3 439w,
-          ${blog.img}?style=cover-1x1-4 532w,
-          ${blog.img}?style=cover-1x1-5 593w,
-          ${blog.img}?style=cover-1x1-6 614w
-          `
+                ${blog.img}?style=cover-1x1-6 614w,
+                ${blog.img}?style=cover-1x1-5 593w,
+                ${blog.img}?style=cover-1x1-4 532w,
+                ${blog.img}?style=cover-1x1-3 439w,
+                ${blog.img}?style=cover-1x1-2 333w,
+                ${blog.img}?style=cover-1x1-1 200w 
+              `
             "
           />
           <source
             media="(min-width: 768px) and (max-width: 991px)"
-            sizes="(max-width: 1169px) 70vw, 818px"
+            sizes="(max-width: 1169px) 100vw, 818px"
             :srcset="`${blog.img}?style=placholder 818w`"
             :data-srcset="
               `
-          ${blog.img}?style=cover-4x3-1 538w,
-          ${blog.img}?style=cover-4x3-2 632w,
-          ${blog.img}?style=cover-4x3-3 724w,
-          ${blog.img}?style=cover-4x3-4 812w,
-          ${blog.img}?style=cover-4x3-5 818w
-          `
+                ${blog.img}?style=cover-4x3-5 818w,
+                ${blog.img}?style=cover-4x3-4 812w,
+                ${blog.img}?style=cover-4x3-3 724w,
+                ${blog.img}?style=cover-4x3-2 632w,
+                ${blog.img}?style=cover-4x3-1 538w,
+
+              `
             "
           />
           <source
             media="(min-width: 992px) and (max-width: 1199px)"
-            sizes="(max-width: 1818px) 60vw, 1091px"
+            sizes="(max-width: 1818px) 100vw, 1091px"
             :srcset="`${blog.img}?style=placholder 1091w`"
             :data-srcset="
               `
-          ${blog.img}?style=cover-16x9-1  596w,
-          ${blog.img}?style=cover-16x9-2  710w,
-          ${blog.img}?style=cover-16x9-3  807w,
-          ${blog.img}?style=cover-16x9-4  907w,
-          ${blog.img}?style=cover-16x9-5 1007w,
-          ${blog.img}?style=cover-16x9-6 1089w,
-          ${blog.img}?style=cover-16x9-7 1091w
-          `
+                ${blog.img}?style=cover-16x9-7 1091w,
+                ${blog.img}?style=cover-16x9-6 1089w,
+                ${blog.img}?style=cover-16x9-5 1007w,
+                ${blog.img}?style=cover-16x9-4  907w,
+                ${blog.img}?style=cover-16x9-3  807w,
+                ${blog.img}?style=cover-16x9-2  710w,
+                ${blog.img}?style=cover-16x9-1  596w,
+              `
             "
           />
           <img
             class="header__img--content lazy"
+            sizes="(max-width: 4800px) 100vw, 1920px"
+            width="1920"
+            height="640"
             :alt="blog.title"
-            sizes="(max-width: 4800px) 40vw, 1920px"
             :src="`${blog.img}?style=placholder`"
             :srcset="`${blog.img}?style=placholder 1920w`"
             :data-srcset="
               `
-          ${blog.img}?style=cover-1   480w,
-          ${blog.img}?style=cover-2   766w,
-          ${blog.img}?style=cover-3   991w,
-          ${blog.img}?style=cover-4  1196w,
-          ${blog.img}?style=cover-5  1360w,
-          ${blog.img}?style=cover-6  1509w,
-          ${blog.img}?style=cover-7  1658w,
-          ${blog.img}?style=cover-8  1808w,
-          ${blog.img}?style=cover-9  1888w,
-          ${blog.img}?style=cover-10 1920w
-          `
+                ${blog.img}?style=cover-10 1920w,
+                ${blog.img}?style=cover-9  1888w,
+                ${blog.img}?style=cover-8  1808w,
+                ${blog.img}?style=cover-7  1658w,
+                ${blog.img}?style=cover-6  1509w,
+                ${blog.img}?style=cover-5  1360w,
+                ${blog.img}?style=cover-4  1196w,
+                ${blog.img}?style=cover-3   991w,
+                ${blog.img}?style=cover-2   766w,
+                ${blog.img}?style=cover-1   480w,
+              `
             "
           />
         </picture>

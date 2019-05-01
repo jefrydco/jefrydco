@@ -11,7 +11,15 @@
 }
 
 .layout, .page {
-  @extend .fade
+  &-enter-active,
+  &-leave-active {
+    transition: all .3s cubic-bezier(.55, 0, .1, 1);
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-in {
