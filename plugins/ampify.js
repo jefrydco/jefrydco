@@ -39,7 +39,6 @@ export default html => {
   // html = html.replace(/<img([^>]*)>/gi, (match, sub) => {
   //   return `<amp-img ${sub} layout=intrinsic></amp-img>`;
   // });
-
   html = html.replace(/<img([^>]*)>/gi, (match, sub) => {
     let imgPath = null;
     if (/lazy/.test(match)) {
@@ -60,14 +59,17 @@ export default html => {
     return `<amp-img ${sub} layout=intrinsic></amp-img>`;
   });
 
-  html = html.replace(/<source([^>]*)>/gi, (match, sub) => {
-    sub = sub.replace(/(?<!data-)srcset\s*=\s*(['"])([^\2]*?)(['"])/gi, "");
-    sub = sub.replace(/data-srcset/gi, "srcset");
-    return `<source ${sub}>`;
-  });
+  // html = html.replace(/<source([^>]*)>/gi, (match, sub) => {
+  //   sub = sub.replace(/(?<!data-)srcset\s*=\s*(['"])([^\2]*?)(['"])/gi, "");
+  //   sub = sub.replace(/data-srcset/gi, "srcset");
+  //   return `<source ${sub}>`;
+  // });
 
-  // Add /amp prefix for all internal link
-  // TODO: Add exception for i18n link
+  // Remove all picture and source tag
+  html = html.replace(/<picture[^>]*>([\s\S]*?)<\/picture>/gi, "$1");
+  html = html.replace(/<source[^>]*>/gi, "");
+
+  // Add /amp endfix for all internal link
   html = html.replace(
     /<a([^>]*?)href\s*=\s*(['"])(\/[^\2]*?)\2\1*>/gi,
     `<a href="$3/amp">`

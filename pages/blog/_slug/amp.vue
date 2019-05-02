@@ -15,6 +15,10 @@ html[⚡] {
   .header {
     &__img {
       @mixin aspect-ratio picture, 16, 4.5;
+
+      &:before {
+        @apply hidden;
+      }
     }
   }
   .blog {
@@ -27,7 +31,7 @@ html[⚡] {
 @media (max-width: 767px) {
   html[⚡] {
     .blog {
-      margin-top: 0rem;
+      margin-top: -3rem;
     }
   }
 }

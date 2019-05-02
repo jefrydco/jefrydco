@@ -2,15 +2,12 @@ export default {
   head() {
     return {
       link: [].concat(
-        !this.$route.name.includes("amp")
+        !/\/amp((\/.*$)|$)/gi.test(this.$route.path)
           ? []
           : [
               {
                 rel: "canonical",
-                href: `https://jefrydco.id${this.$route.path}`.replace(
-                  "/amp",
-                  ""
-                )
+                href: `${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, "")
               }
             ]
       )

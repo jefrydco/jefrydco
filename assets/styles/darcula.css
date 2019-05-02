@@ -67,7 +67,7 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  background: rgba(40, 41, 54, 1) !important;
+  background: rgba(40, 41, 54, 1);
   border-radius: 0.5em;
   padding: 1em;
   margin: 0.5em 0;
@@ -89,32 +89,32 @@ pre[class*="language-"] {
 
 .limit-300
 {
-  height: 300px !important;
+  height: 300px;
 }
 
 .limit-400
 {
-  height: 400px !important;
+  height: 400px;
 }
 
 .limit-500
 {
-  height: 500px !important;
+  height: 500px;
 }
 
 .limit-600
 {
-  height: 600px !important;
+  height: 600px;
 }
 
 .limit-700
 {
-  height: 700px !important;
+  height: 700px;
 }
 
 .limit-800
 {
-  height: 800px !important;
+  height: 800px;
 }
 
 .token.comment {
