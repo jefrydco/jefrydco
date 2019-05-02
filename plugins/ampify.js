@@ -75,10 +75,6 @@ export default html => {
     `<a href="$3/amp">`
   );
 
-  // Remove data attributes from CSS selector
-  // TODO: Refine regex to replace the CSS declaration as well
-  html = html.replace(/((#|\.)?[\w-]+)?(\[data(-\w+)+\])/gi, "");
-
   // Remove data attributes from tags
   html = html.replace(/\s*data-(?:[^=>]*="[^"]*"|[^=>\s]*)/gi, "");
 

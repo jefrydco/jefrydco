@@ -163,26 +163,6 @@ quote {
     box-shadow 0.6s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-/* Taken from https://github.com/twbs/bootstrap/blob/master/scss/utilities/_embed.scss#L3 */
-.embed-responsive {
-  @apply relative block w-full h-full overflow-hidden;
-  padding: 0;
-
-  &-16by9 {
-    padding-top: 56.25%;
-  }
-
-  &::before {
-    @apply block;
-    content: "";
-  }
-
-  iframe, object, embed, video {
-    @apply absolute pin-t pin-b pin-l w-full h-full;
-    border: 0;
-  }
-}
-
 img {
   &.lazy {
     &.initial,
@@ -190,10 +170,4 @@ img {
       filter: blur(0.5rem);
     }
   }
-}
-
-img.lazy[data-src],
-img.lazy[data-srcset] {
-  display: block;
-  min-height: 1px;
 }
