@@ -1,6 +1,6 @@
 import { isDev } from "./config/utils";
 
-import { head, modules, purgeCSS, sitemap, feed, build } from "./config";
+import { head, modules, purgeCSS, sitemap, feed, hooks, build } from "./config";
 
 export default {
   modern: !isDev,
@@ -65,6 +65,8 @@ export default {
 
   // https://nuxtjs.org/api/configuration-servermiddleware
   serverMiddleware: ["~/server/redirect-www-to-non-www"],
+
+  hooks,
 
   // https://nuxtjs.org/api/configuration-build
   build

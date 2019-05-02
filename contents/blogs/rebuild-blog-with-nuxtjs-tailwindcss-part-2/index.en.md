@@ -123,7 +123,7 @@ The next one is [@reallifedigital/nuxt-image-loader-module](https://github.com/r
 
 Accompanying with this module, I use `<picture>` tag combined with `srcset` attribute in `<img>` tag. This kind of thing is called **responsive image**. This code snippet below is used to display the header image on this page:
 
-```HTML
+```markup
 <picture>
   <source
     media="(max-width: 767px)"

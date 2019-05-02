@@ -123,7 +123,7 @@ Yang berikutnya adalah [@reallifedigital/nuxt-image-loader-module](https://githu
 
 Bersama dengan modul ini, saya menggunakan tag `<picture>` yang dikombinasikan dengan atribut `srcset` dalam tag` <img> `. Hal semacam ini disebut **gambar responsif**. Cuplikan kode di bawah ini digunakan untuk menampilkan gambar header di halaman ini:
 
-```HTML
+```markup
 <picture>
   <source
     media="(max-width: 767px)"
