@@ -112,7 +112,7 @@ Tag script digunakan untuk mendefinisikan script, pada umumnya berupa JavaScript
 
 Nah untuk tag script yang ini memiliki fungsi yang sedikit berbeda. Jika tag script pada umumnya digunakan untuk meletakkan script yang memanipulasi HTML, tag script yang satu ini digunakan untuk memperkaya informasi halaman website kita ketika diakses oleh [robot perayap Google](https://support.google.com/webmasters/answer/182072?hl=en). Informasi yang dicantumkan di dalam tag ini berupa _[JavaScript Object Notation for Linking Data](https://json-ld.org/)_ dengan memperhatikan kaidah-kaidah dari [schema.org](https://schema.org/). Contoh kode ld+json tersebut seperti berikut,
 
-```JSON
+```json
 {
     "@context": "http://schema.org/",
     "@type": "Person",
@@ -132,7 +132,7 @@ Pada gambar di atas teman-teman bisa membandingkan cara Google dalam menampilkan
 
 ![Breadcrumb indexed](/img/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg)
 
-```JSON
+```json
 {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
