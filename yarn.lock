@@ -7545,11 +7545,6 @@ markdown-it-toc-done-right@^3.0.1:
   resolved "https://registry.yarnpkg.com/markdown-it-toc-done-right/-/markdown-it-toc-done-right-3.0.1.tgz#a262e2703a85e12b0d8b6faecf07f6db4a778674"
   integrity sha512-pppqoXWFyMD/JCLL7YZSYPnxJHr7DH7psXfHzTOXWof8b6XGhbCDYYha6Vi6EDwDEKY+dthNVtMSLHPlk0c1xw==
 
-markdown-it-video@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/markdown-it-video/-/markdown-it-video-0.6.3.tgz#ee96a8fce4a262872f8aaf9706c31540d40104c2"
-  integrity sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q==
-
 markdown-it@^8.4.2:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"

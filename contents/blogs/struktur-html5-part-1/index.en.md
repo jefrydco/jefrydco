@@ -103,11 +103,7 @@ The stylesheet link tag is used to define external CSS. Actually the stylesheet 
 
 The keyword meta tag is used to define keywords that are related to the content in an HTML5 document. While the meta description is used to give a brief description of the content in an HTML5 document. Oh yeah, keywords meta can be optional because Google from 2009 didn't use it anymore.
 
-But friends can list it because it's likely that other search engines still use the keyword password as a determining factor. While the meta description is still used by Google as a description cut on the search results page. Further discussion of the two tags, friends can see the following two videos,
-
-@[youtube](jK7IPbnmvVU)
-
-@[youtube](RBTBEfd7zY)
+But friends can list it because it's likely that other search engines still use the keyword password as a determining factor. While the meta description is still used by Google as a description cut on the search results page. Further discussion of the two tags; [Google does not use the keywords meta tag in web ranking](https://youtu.be/jK7IPbnmvVU) and [How much time should I spend on meta tags, and which ones matter?](https://youtu.be/RBTBEfd7z_Y)
 
 ```markup
     <meta property="og:type" content="website">

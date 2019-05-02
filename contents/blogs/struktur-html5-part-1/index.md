@@ -102,11 +102,7 @@ Tag link _stylesheet_ digunakan untuk mendefinisikan CSS eksternal. Sebenarnya t
 
 Tag meta _keywords_ digunakan untuk mendefinisikan kata kunci yang berhubungan dengan konten pada dokumen HTML5. Sedangkan meta description digunakan untuk memberi deskripsi singkat mengenai konten pada dokumen HTML5. Oh ya, meta _keywords_ dapat menjadi opsional karena Google dari tahun 2009 tidak menggunakannya lagi.
 
-Tapi teman-teman dapat mencantumkannya karena kemungkinan mesin pencari lain masih menggunakan meta _keywords_ sebagai faktor penentu. Sedangkan meta description masih digunakan Google sebagai potongan deskripsi pada halaman hasil pencarian. Lebih lanjut pembahasan mengenai kedua tag tersebut, teman-teman dapat melihat dua video berikut,
-
-@[youtube](jK7IPbnmvVU)
-
-@[youtube](RBTBEfd7z_Y)
+Tapi teman-teman dapat mencantumkannya karena kemungkinan mesin pencari lain masih menggunakan meta _keywords_ sebagai faktor penentu. Sedangkan meta description masih digunakan Google sebagai potongan deskripsi pada halaman hasil pencarian. Lebih lanjut pembahasan mengenai kedua tag tersebut, teman-teman dapat melihat dua video berikut; [Google does not use the keywords meta tag in web ranking](https://youtu.be/jK7IPbnmvVU) and [How much time should I spend on meta tags, and which ones matter?](https://youtu.be/RBTBEfd7z_Y)
 
 ```markup
     <meta property="og:type" content="website">
