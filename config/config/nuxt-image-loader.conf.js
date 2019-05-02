@@ -1,7 +1,7 @@
 export default {
   imagesBaseDir: "static/img",
   imageStyles: {
-    placholder: { actions: ["gravity|Center", "resize|1|1"] },
+    placeholder: { actions: ["gravity|Center", "resize|1|1"] },
 
     cover: { macros: ["scaleAndCrop|1920|614"] },
 
