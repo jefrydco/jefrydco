@@ -1825,10 +1825,10 @@
     consola "^2.5.8"
     deepmerge "^3.2.0"
 
-"@nuxtjs/sitemap@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-1.0.0.tgz#1e267236985279e1780b661a37d0f9dea9660eac"
-  integrity sha512-M+Io64LQXVDfjrF7XiqbMy53mA04T2OVvpNTq4Say61rfjQUCkbunUJUAhg4QtA0AeGH6e+EX/5sFCUcSx6I4w==
+"@nuxtjs/sitemap@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-1.1.0.tgz#7c7fffdaf7345ae0ab58455eed65c072d99a116c"
+  integrity sha512-g5N91aD8VNP124Igydex6utjhANfFF8ckbyuQOBO1XGiCLw/a+0RvIaq97ONmaKfCTUSOv1ZauygDslu69wA6w==
   dependencies:
     async-cache "^1.1.0"
     consola "^2.6.0"
