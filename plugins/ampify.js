@@ -25,7 +25,7 @@ export default html => {
   html = html.replace(/<link[^>]*rel="(?:preload|prefetch)?"[^>]*>/gi, "");
 
   // Remove amphtml tag
-  html = html.replace(/<link[^>]*rel="(?:amphtml)?"[^>]*>/gi, "");
+  // html = html.replace(/<link[^>]*rel="(?:amphtml)?"[^>]*>/gi, "");
 
   // Remove JS script tags except for ld+json
   html = html.replace(

@@ -6,7 +6,7 @@
           <source
             media="(max-width: 767px)"
             sizes="(max-width: 614px) 1100vw, 614px"
-            :srcset="`${blog.img}?style=placholder 614w`"
+            :srcset="`${blog.img}?style=placeholder 614w`"
             :data-srcset="
               `
                 ${blog.img}?style=cover-1x1-6 614w,
@@ -21,7 +21,7 @@
           <source
             media="(min-width: 768px) and (max-width: 991px)"
             sizes="(max-width: 1169px) 100vw, 818px"
-            :srcset="`${blog.img}?style=placholder 818w`"
+            :srcset="`${blog.img}?style=placeholder 818w`"
             :data-srcset="
               `
                 ${blog.img}?style=cover-4x3-5 818w,
@@ -36,7 +36,7 @@
           <source
             media="(min-width: 992px) and (max-width: 1199px)"
             sizes="(max-width: 1818px) 100vw, 1091px"
-            :srcset="`${blog.img}?style=placholder 1091w`"
+            :srcset="`${blog.img}?style=placeholder 1091w`"
             :data-srcset="
               `
                 ${blog.img}?style=cover-16x9-7 1091w,
@@ -55,8 +55,8 @@
             width="1920"
             height="640"
             :alt="blog.title"
-            :src="`${blog.img}?style=placholder`"
-            :srcset="`${blog.img}?style=placholder 1920w`"
+            :src="`${blog.img}?style=placeholder`"
+            :srcset="`${blog.img}?style=placeholder 1920w`"
             :data-srcset="
               `
                 ${blog.img}?style=cover-10 1920w,
@@ -188,6 +188,12 @@ export default {
   head() {
     return {
       title: this.blog.title,
+      link: [
+        {
+          rel: "amphtml",
+          href: `${this.$route.path}/amp`
+        }
+      ],
       meta: [
         {
           hid: "og:title",
