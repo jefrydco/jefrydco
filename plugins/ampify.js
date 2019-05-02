@@ -94,7 +94,7 @@ export default html => {
     /<\/head[^>]*>/gi,
     `${ampScript}${ampBoilerplate}${ampAnalyticsScript}</head>`
   );
-  html = html.replace(/<body[^>]*>/gi, `<body>${ampAnalytics}`);
+  html = html.replace(/<\/body[^>]*>/gi, `${ampAnalytics}</body>`);
 
   return html;
 };
