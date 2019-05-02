@@ -91,10 +91,10 @@ export default html => {
 
   // Add AMP script before </head>
   html = html.replace(
-    /<\/head[^>]*>/gi,
+    "</head>",
     `${ampScript}${ampBoilerplate}${ampAnalyticsScript}</head>`
   );
-  html = html.replace(/<body[^>]*>/gi, `<body>${ampAnalytics}`);
+  html = html.replace("</body>", `${ampAnalytics}</body>`);
 
   return html;
 };
