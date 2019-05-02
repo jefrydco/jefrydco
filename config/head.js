@@ -12,12 +12,12 @@ export default {
       property: "og:image:alt",
       content: "Jefrydco"
     },
-    { property: "fb:admins", content: process.env.FB_ADMINS },
+    { property: "fb:admins", content: 100003000286186 },
     {
       property: "fb:appid",
-      content: process.env.FB_APP_ID
+      content: 267913173658573
     },
-    { property: "fb:pages", content: process.env.FB_PAGES }
+    { property: "fb:pages", content: 632770976865033 }
   ],
   link: [
     {
