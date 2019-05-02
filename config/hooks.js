@@ -3,13 +3,13 @@ import ampify from "../plugins/ampify";
 export default {
   // This hook is called before saving the html to flat file
   "generate:page": page => {
-    if (page.route.includes("amp")) {
+    if (/\/amp((\/.*$)|$)/gi.test(page.route)) {
       page.html = ampify(page.html);
     }
   },
   // This hook is called before serving the html to the browser
   "render:route": (url, page, { req, res }) => {
-    if (url.includes("amp")) {
+    if (/\/amp((\/.*$)|$)/gi.test(url)) {
       page.html = ampify(page.html);
     }
   }

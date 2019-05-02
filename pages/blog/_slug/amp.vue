@@ -9,6 +9,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import "~/assets/styles/mixins.pcss";
+
 html[⚡] {
   .header {
     &__img {
