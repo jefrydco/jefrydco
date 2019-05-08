@@ -49,7 +49,7 @@
     "@nuxtjs/feed": "^1.1.0",
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/moment": "^1.2.0",
-    "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/sentry": "^2.3.2",
     "@nuxtjs/sitemap": "^1.1.0",
     "@reallifedigital/nuxt-image-loader-module": "^1.4.0",
