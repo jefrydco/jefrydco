@@ -8,7 +8,7 @@
         <app-blog
           v-for="(blog, i) in blogs"
           :key="`blog_${i}`"
-          :img="blog.img"
+          :img="`/img/${blog.img}`"
           :title="blog.title"
           :description="blog.description"
           :posted-date="blog.postedDate"
@@ -150,7 +150,7 @@ export default {
               url: `https://jefrydco.id/blog/${blog.slug}`,
               image: {
                 "@type": "imageObject",
-                url: `https://jefrydco.id${blog.img}`,
+                url: `https://jefrydco.id/img/${blog.img}`,
                 height: "1920",
                 width: "614"
               },

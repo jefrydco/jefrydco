@@ -338,11 +338,10 @@ export default {
     return {
       availableLocales,
       blog: {
-        img: blog.attributes.img,
+        img: `/img/${blog.attributes.img}`,
         imgCreator: blog.attributes.imgCreator,
         title: blog.attributes.title,
         description: blog.attributes.description,
-        content: blog.html,
         postedDate: blog.attributes.postedDate,
         updatedDate: blog.attributes.updatedDate,
         slug: blog.attributes.slug,
