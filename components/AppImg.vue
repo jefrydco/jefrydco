@@ -1,6 +1,6 @@
 <template>
   <img
-    :data-src="lazySrc"
+    :src="lazySrc"
     :data-srcset="lazySrcset"
     :style="style"
     :alt="alt"
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import lozad from "lozad";
+// import lozad from "lozad";
 
 export default {
   name: `AppImg`,
@@ -78,28 +78,28 @@ export default {
 
       return style;
     }
-  },
-  mounted() {
-    // As soon as the <img> element triggers
-    // the `load` event, the loading state is
-    // set to `false`, which removes the apsect
-    // ratio we've applied earlier.
-    const setLoadingState = () => {
-      this.loading = false;
-    };
-    this.$el.addEventListener(`load`, setLoadingState);
-    // We remove the event listener as soon as
-    // the component is destroyed to prevent
-    // potential memory leaks.
-    this.$once(`hook:destroyed`, () => {
-      this.$el.removeEventListener(`load`, setLoadingState);
-    });
-
-    // We initialize Lozad.js on the root
-    // element of our component.
-    const observer = lozad(this.$el);
-    observer.observe();
   }
+  // mounted() {
+  //   // As soon as the <img> element triggers
+  //   // the `load` event, the loading state is
+  //   // set to `false`, which removes the apsect
+  //   // ratio we've applied earlier.
+  //   const setLoadingState = () => {
+  //     this.loading = false;
+  //   };
+  //   this.$el.addEventListener(`load`, setLoadingState);
+  //   // We remove the event listener as soon as
+  //   // the component is destroyed to prevent
+  //   // potential memory leaks.
+  //   this.$once(`hook:destroyed`, () => {
+  //     this.$el.removeEventListener(`load`, setLoadingState);
+  //   });
+
+  //   // We initialize Lozad.js on the root
+  //   // element of our component.
+  //   const observer = lozad(this.$el);
+  //   observer.observe();
+  // }
 };
 </script>
 
