@@ -51,10 +51,10 @@ export default {
     config.module.rules.push({
       test: /\.md$/,
       loader: "frontmatter-markdown-loader",
+      include: path.resolve(__dirname, "../contents/blogs"),
       options: {
-        vue: true,
-        markdown(body) {
-          return md.render(body);
+        vue: {
+          root: "dynamicMarkdown"
         }
       }
     });

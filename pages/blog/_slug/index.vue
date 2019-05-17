@@ -14,7 +14,7 @@
                 ${blog.img}?style=cover-1x1-4 532w,
                 ${blog.img}?style=cover-1x1-3 439w,
                 ${blog.img}?style=cover-1x1-2 333w,
-                ${blog.img}?style=cover-1x1-1 200w 
+                ${blog.img}?style=cover-1x1-1 200w
               `
             "
           />
@@ -121,8 +121,10 @@
                   {{ locale.name }}
                 </nuxt-link>
               </div>
-              <!-- eslint-disable-next-line -->
-              <div v-html="blog.content"></div>
+              <DynamicMarkdown
+                :render-func="blog.renderFunc"
+                :static-render-funcs="blog.staticRenderFuncs"
+              />
               <footer>
                 <p>
                   {{ $t("coverImageFrom") }}
@@ -173,6 +175,7 @@
 
 <script>
 import AppProfile from "~/components/AppProfile";
+import DynamicMarkdown from "~/components/DynamicMarkdown";
 import AppToTop from "~/components/AppToTop";
 
 import lazyload from "~/mixins/lazyload";
@@ -182,7 +185,8 @@ import readingTime from "reading-time";
 export default {
   components: {
     AppProfile,
-    AppToTop
+    AppToTop,
+    DynamicMarkdown
   },
   mixins: [lazyload],
   head() {
@@ -346,6 +350,8 @@ export default {
         updatedDate: blog.attributes.updatedDate,
         slug: blog.attributes.slug,
         readingTime: readingTime(blog.html),
+        renderFunc: blog.vue.render,
+        staticRenderFuncs: blog.vue.staticRenderFns,
         fullPath,
         discussLink: `https://twitter.com/search?q=${encodeURIComponent(
           fullPath

@@ -54,7 +54,8 @@ jefrydco@cloudshell:~ (PROJECT-ID)$
 
 The bucket URL can be found from Firebase dashboard on Storage menu like this image:
 
-![Firebase Storage Image](/content/2019/04/firebase-storage-image-by-jefrydco.jpg)
+<AppImg lazySrc="/content/2019/04/firebase-storage-image-by-jefrydco.jpg"/>
 
 Or from Google Cloud Console dashboard on Storage menu like this image:
-![Google Cloud Storage](/content/2019/04/google-cloud-storage-image-by-jefrydco.jpg)
+
+<AppImg lazySrc="/content/2019/04/google-cloud-storage-image-by-jefrydco.jpg"/>
