@@ -7286,10 +7286,10 @@ markdown-it-prism@^2.0.1:
   dependencies:
     prismjs "^1.15.0"
 
-markdown-it-toc-done-right@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/markdown-it-toc-done-right/-/markdown-it-toc-done-right-3.0.1.tgz#a262e2703a85e12b0d8b6faecf07f6db4a778674"
-  integrity sha512-pppqoXWFyMD/JCLL7YZSYPnxJHr7DH7psXfHzTOXWof8b6XGhbCDYYha6Vi6EDwDEKY+dthNVtMSLHPlk0c1xw==
+markdown-it-toc-done-right@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/markdown-it-toc-done-right/-/markdown-it-toc-done-right-4.0.2.tgz#95386c10de2c42f2f151d4138160fdf9ba64bd6b"
+  integrity sha512-LIdwU8coEdBa6JxhMmcst5Qc9/ptVDmUB6dJuJzlxaV75Dry+AziKpQRgZ42SMQ5m7hpb7z6b0erIRoYk+bMWA==
 
 markdown-it@^8.4.2:
   version "8.4.2"
