@@ -58,7 +58,7 @@
     "js-cookie": "^2.2.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
-    "markdown-it-link-attributes": "^2.1.0",
+    "markdown-it-link-attributes": "^3.0.0",
     "markdown-it-prism": "^2.0.1",
     "markdown-it-toc-done-right": "^3.0.1",
     "nuxt": "^2.6.3",
