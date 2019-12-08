@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import AppSwitchTheme from "~/components/AppSwitchTheme";
 import LazyLoad from "vanilla-lazyload";
+import AppSwitchTheme from "~/components/AppSwitchTheme";
 
 import { types } from "~/store";
 

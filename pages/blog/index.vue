@@ -25,12 +25,11 @@
 </template>
 
 <script>
+import readingTime from "reading-time";
 import AppProfile from "~/components/AppProfile";
 import AppBlog from "~/components/AppBlog";
 
 import lazyload from "~/mixins/lazyload";
-
-import readingTime from "reading-time";
 
 import blogPaths from "~/contents/blogs";
 

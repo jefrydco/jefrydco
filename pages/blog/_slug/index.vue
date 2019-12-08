@@ -172,12 +172,11 @@
 </template>
 
 <script>
+import readingTime from "reading-time";
 import AppProfile from "~/components/AppProfile";
 import AppToTop from "~/components/AppToTop";
 
 import lazyload from "~/mixins/lazyload";
-
-import readingTime from "reading-time";
 
 export default {
   components: {
@@ -324,9 +323,7 @@ export default {
         blog = await require(`~/contents/blogs/${params.slug}/index.md`);
       } else {
         editPath = `contents/blogs/${params.slug}/index.${locale}.md`;
-        blog = await require(`~/contents/blogs/${
-          params.slug
-        }/index.${locale}.md`);
+        blog = await require(`~/contents/blogs/${params.slug}/index.${locale}.md`);
       }
     } catch (error) {
       redirect("/blog");
