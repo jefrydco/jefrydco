@@ -1,5 +1,7 @@
 # [Jefrydco](https://jefrydco.id)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95ed6895-3a5b-4355-8b93-30a7fe00473d/deploy-status)](https://app.netlify.com/sites/jefrydco/deploys)
+
 A personal site of [Jefry Dewangga](https://twitter.com/jefrydco). This site is based on [Nuxt.js](https://nuxtjs.org) and [Tailwind CSS](https://tailwindcss.com).
 
 To run locally, run `yarn`, then `yarn dev`, after that open https://localhost:3000.
