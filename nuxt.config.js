@@ -18,6 +18,8 @@ import { locales, readFileAsync, flattenDeep, ampify } from './utils'
 
 import i18n from './locales/config'
 
+import { POSTCSS_WHITELIST } from './constant'
+
 const md = new MarkdownIt({
   html: true,
   typographer: true
@@ -401,58 +403,7 @@ export default {
 
   purgeCSS: {
     mode: 'postcss',
-    whitelist: [
-      'ul',
-      'ol',
-      'li',
-      'blockquote',
-      'quote',
-      'pre',
-      'code',
-      'token',
-      'comment',
-      'prolog',
-      'tag',
-      'entity',
-      'atrule',
-      'url',
-      'selector',
-      'string',
-      'property',
-      'important',
-      'punctuation',
-      'number',
-      'function',
-      'class-name',
-      'keyword',
-      'boolean',
-      'operator',
-      'char',
-      'regex',
-      'variable',
-      'constant',
-      'symbol',
-      'builtin',
-      'attr-value',
-      'deleted',
-      'namespace',
-      'bold',
-      'italic',
-      'langague-cpp',
-      'langague-c',
-      'language-css',
-      'language-java',
-      'language-markup',
-      'language-objectivec',
-      'language-php',
-      'language-ruby',
-      'layout-enter-active',
-      'layout-leave-active',
-      'layout-enter',
-      'page-enter-active',
-      'page-leave-active',
-      'page-enter'
-    ]
+    whitelist: POSTCSS_WHITELIST
   },
 
   /*
