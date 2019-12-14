@@ -13,6 +13,7 @@ const Cookie = process.client ? require('js-cookie') : undefined
 export default {
   head() {
     return {
+      title: this.$t('description'),
       bodyAttrs: {
         class: this.isDark ? 'dark' : 'light'
       }
