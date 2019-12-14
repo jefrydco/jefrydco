@@ -10,7 +10,7 @@ slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1
 id: rebuild-blog-with-nuxtjs-tailwindcss-part-1
 ---
 
-> Read the second part here, [Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2](/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2)
+> Read the second part here, <nuxt-link to="/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2">Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2</nuxt-link>
 
 I've been blogging since I was junior high school, but until now there is no single blog I made survive. The main reason is I get bored. The writing experience also is not so good. I just write a couple of articles and start to confuse what kind of article I should write next.
 

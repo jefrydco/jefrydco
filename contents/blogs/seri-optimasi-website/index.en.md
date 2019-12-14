@@ -18,9 +18,9 @@ Oh yeah maybe some of you have thoughts why not just make a series for blog opti
 
 My reason is that the tips discussed here actually refer to website in general. In terms of its application, it will not only be for blogs, it can be for various types of websites.
 
-1. [Good HTML Structure - Part 1](/en/blog/struktur-html5-part-1)
-2. [Good HTML Structure - Part 2](/en/blog/struktur-html5-part-2)
-3. [Critical Rendering Path for CSS and Preload Link](/en/blog/jalur-rendering-penting-link-preload)
+1. <nuxt-link to="/en/blog/struktur-html5-part-1">Good HTML Structure - Part 1</nuxt-link>]
+2. <nuxt-link to="/en/blog/struktur-html5-part-2">Good HTML Structure - Part 2</nuxt-link>]
+3. <nuxt-link to="/en/blog/jalur-rendering-penting-link-preload">Critical Rendering Path for CSS and Preload Link</nuxt-link>]
 4. Minimize the Size and Combine the Source Code
 5. Optimizing Image Delivery
 6. Optimizing Youtube Embed Videos

@@ -10,7 +10,7 @@ slug: struktur-html5-part-1
 id: struktur-html5-part-1
 ---
 
-> Read the second part here, [Good HTML5 Structure - Part 2](/en/blog/struktur-html5-part-2)
+> Read the second part here, <nuxt-link to="/en/blog/struktur-html5-part-2">Good HTML5 Structure - Part 2</nuxt-link>
 
 Hello my friends, this time I started discussing one by one website optimization series, starting with a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using a good HTML5 structure for our website?
 

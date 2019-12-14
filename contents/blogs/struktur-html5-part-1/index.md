@@ -10,7 +10,7 @@ slug: struktur-html5-part-1
 id: struktur-html5-part-1
 ---
 
-> Baca bagian kedua di sini, [Struktur HTML5 yang Baik - Bagian 2](/blog/struktur-html5-part-2)
+> Baca bagian kedua di sini, <nuxt-link to="/blog/struktur-html5-part-2">Struktur HTML5 yang Baik - Bagian 2</nuxt-link>
 
 Halo teman-teman, kali ini saya mulai bahas satu per satu seri optimasi _website_, dimulai dari struktur HTML5 yang baik. Mengapa sih kita perlu memperhatikan struktur HTML5? Ada apakah dengan struktur HTML5 yang biasa kita gunakan? Apa sih dampaknya menggunakan struktur HTML5 yang baik itu bagi _website_ kita?
 

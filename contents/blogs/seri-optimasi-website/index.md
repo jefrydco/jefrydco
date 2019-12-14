@@ -18,9 +18,9 @@ Oh ya mungkin teman-teman ada yang mempunyai pemikiran kenapa kok tidak membuat 
 
 Alasan saya adalah kiat-kiat yang dibahas di sini sebenarnya lebih mengarah ke _website_ secara umum. Dalam artian penerapannya nanti tidak cuma untuk blog saja, bisa untuk berbagai macam tipe _website_.
 
-1. [Struktur HTML yang Baik - Bagian 1](/blog/struktur-html5-part-1)
-2. [Struktur HTML yang Baik - Bagian 2](/blog/struktur-html5-part-2)
-3. [Jalur Rendering Penting untuk CSS dan Preload Link](/blog/jalur-rendering-penting-link-preload)
+1. <nuxt-link to="/blog/struktur-html5-part-1">Struktur HTML yang Baik - Bagian 1</nuxt-link>
+2. <nuxt-link to="/blog/struktur-html5-part-2">Struktur HTML yang Baik - Bagian 2</nuxt-link>
+3. <nuxt-link to="/blog/jalur-rendering-penting-link-preload">Jalur Rendering Penting untuk CSS dan Preload Link</nuxt-link>
 4. Mengecilkan Ukuran dan Menggabungkan Kode Sumber
 5. Mengoptimalkan Pengiriman Gambar
 6. Mengoptimalkan Embed Video Youtube

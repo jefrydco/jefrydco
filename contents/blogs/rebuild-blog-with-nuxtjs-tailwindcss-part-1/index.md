@@ -10,7 +10,7 @@ slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1
 id: rebuild-blog-with-nuxtjs-tailwindcss-part-1
 ---
 
-> Baca bagian kedua di sini, [Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 2](/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2)
+> Baca bagian kedua di sini, <nuxt-link to="/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2">Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 2</nuxt-link>
 
 Saya sudah ngeblog sejak masih SMP, tetapi sampai sekarang tidak ada satu pun blog yang saya buat bertahan. Alasan utamanya adalah saya bosan. Pengalaman menulis juga tidak begitu baik. Saya hanya menulis beberapa artikel dan mulai bingung artikel apa yang harus saya tulis selanjutnya.
 
