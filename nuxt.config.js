@@ -16,7 +16,7 @@ import { VUE_COMPONENT, HTML } from 'frontmatter-markdown-loader/mode'
 
 import blogPaths from './contents/blogs'
 
-import { locales, readFileAsync, flattenDeep, ampify } from './utils'
+import { locales, readFileAsync, flattenDeep, ampify, isDev } from './utils'
 
 import i18n from './locales/config'
 
@@ -44,6 +44,8 @@ md.use(mitdr, {
 
 export default {
   mode: 'universal',
+
+  modern: !isDev,
 
   /*
    ** Headers of the page

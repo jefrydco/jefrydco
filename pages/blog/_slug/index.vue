@@ -299,8 +299,7 @@ export default {
   @apply w-full relative;
 
   img {
-    @apply w-screen !important object-cover;
-    height: 32rem !important;
+    @apply w-screen h-128 object-cover;
   }
 
   &__back {

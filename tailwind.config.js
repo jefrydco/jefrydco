@@ -5,7 +5,13 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  theme: {},
+  theme: {
+    extend: {
+      height: {
+        '128': '32rem'
+      }
+    }
+  },
   variants: {},
   plugins: []
 }
