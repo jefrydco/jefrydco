@@ -216,7 +216,7 @@ export default {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#3D4852',
+    color: 'var(--text-normal)',
     failedColor: '#EF5753'
   },
 
