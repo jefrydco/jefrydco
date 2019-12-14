@@ -217,7 +217,8 @@ export default {
     start_url: '/?utm_source=homescreen',
     description: 'A personal site of Jefry Dewangga',
     lang: 'id',
-    background_color: '#3D4852'
+    background_color: '#2D3748',
+    theme_color: '#2D3748'
   },
 
   /*
@@ -440,45 +441,20 @@ export default {
         fs: 'empty'
       }
 
-      // const rule = config.module.rules.find(
-      //   (r) => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i'
-      // )
-      // config.module.rules.splice(config.module.rules.indexOf(rule), 1)
-
-      config.module.rules.push(
-        {
-          test: /\.md$/,
-          loader: 'frontmatter-markdown-loader',
-          include: path.resolve(__dirname, 'contents'),
-          options: {
-            mode: [VUE_COMPONENT, HTML],
-            vue: {
-              root: 'dynamic-markdown'
-            },
-            markdown(body) {
-              return md.render(body)
-            }
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'contents'),
+        options: {
+          mode: [VUE_COMPONENT, HTML],
+          vue: {
+            root: 'dynamic-markdown'
+          },
+          markdown(body) {
+            return md.render(body)
           }
         }
-        // {
-        //   test: /\.(jpe?g|png|webp)$/i,
-        //   loader: 'responsive-loader',
-        //   options: {
-        //     placeholder: true,
-        //     quality: 60,
-        //     size: 1366,
-        //     adapter: require('responsive-loader/sharp')
-        //   }
-        // },
-        // {
-        //   test: /\.(gif|svg)$/,
-        //   loader: 'url-loader',
-        //   query: {
-        //     limit: 1000,
-        //     name: 'img/[name].[hash:7].[ext]'
-        //   }
-        // }
-      )
+      })
 
       if (isDev && isClient) {
         config.module.rules.push({
