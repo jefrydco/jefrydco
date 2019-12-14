@@ -8,7 +8,7 @@
       :height="imageRequired.height || height"
       :class="classes"
       :alt="alt"
-      src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+      :src="imageRequired.placeholder"
     />
   </div>
 </template>
