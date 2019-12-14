@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Blog - Jefrydco</title>
+        <link>https://jefrydco.id/blog.xml</link>
+        <description>A personal site of Jefry Dewangga.</description>
+        <lastBuildDate>Sat, 14 Dec 2019 05:30:45 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+        <language>id</language>
+        <item>
+            <title><![CDATA[Cara Memperbaiki Masalah CORS di Firebase atau Google Cloud Storage]]></title>
+            <link>https://jefrydco.id/blog/fix-cors-issue-firebase-google-cloud</link>
+            <guid>https://jefrydco.id/blog/fix-cors-issue-firebase-google-cloud</guid>
+            <description><![CDATA[Solusi untuk memperbaiki masalah CORS di Firebase atau Google Cloud Storage]]></description>
+            <content:encoded><![CDATA[Saya memperbaiki bug yang sudah lama ditinggalkan dalam proyek saya. Kesalahan sebenarnya cukup sederhana yakni, gambar yang disimpan di Firebase Cloud Storage tidak dapat diambil melalui permintaan AJAX.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2019/04/fix-cors-firebase-google-cloud-image-by-toa-heftiba.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 2]]></title>
+            <link>https://jefrydco.id/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2</link>
+            <guid>https://jefrydco.id/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2</guid>
+            <description><![CDATA[Pembuatan ulang blog saya dengan Nuxt.js dan Tailwind CSS membuat proses pengembangan lebih cepat.]]></description>
+            <content:encoded><![CDATA[Saya telah mendapat jawaban tentang kerangka JavaScript mana yang menjadi alat utama, kerangka kerja CSS yang saya gunakan dan memiliki pemikiran tentang gaya JavaScript. Selanjutnya saya akan menjawab 5 pertanyaan berikutnya.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 1]]></title>
+            <link>https://jefrydco.id/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1</link>
+            <guid>https://jefrydco.id/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1</guid>
+            <description><![CDATA[Pembuatan ulang blog saya dengan Nuxt.js dan Tailwind CSS membuat proses pengembangan lebih cepat.]]></description>
+            <content:encoded><![CDATA[Saya sudah ngeblog sejak masih SMP, tetapi sampai sekarang tidak ada satu pun blog yang saya buat bertahan. Alasan utamanya adalah saya bosan. Pengalaman menulis juga tidak begitu baik. Saya hanya menulis beberapa artikel dan mulai bingung artikel apa yang harus saya tulis selanjutnya.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Jalur Rendering Penting dan Link Preload]]></title>
+            <link>https://jefrydco.id/blog/jalur-rendering-penting-link-preload</link>
+            <guid>https://jefrydco.id/blog/jalur-rendering-penting-link-preload</guid>
+            <description><![CDATA[Jalur rendering penting dan link preload membuat pengguna melihat konten situs web jauh lebih cepat.]]></description>
+            <content:encoded><![CDATA[Halo teman-teman, kali ini saya bakalan bahas mengenai jalur rendering penting. Mungkin teman-teman bertanya-tanya, istilah apaan sih itu, kok kedengarannya asing. Sabar teman-teman, pertanyaan itu akan terjawab pada penjelasan selanjutnya. Selain membahas mengenai jalur rendering penting, saya juga bahas mengenai link preload, yang sebenarnya kedua hal tersebut saling berhubungan satu sama lain.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Struktur HTML5 yang Baik - Bagian 2]]></title>
+            <link>https://jefrydco.id/blog/struktur-html5-part-2</link>
+            <guid>https://jefrydco.id/blog/struktur-html5-part-2</guid>
+            <description><![CDATA[Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.]]></description>
+            <content:encoded><![CDATA[Halo teman-teman, kali ini saya lanjutin pembahasan kemarin mengenai struktur HTML5 yang baik. Setelah kemarin mengulas mengenai struktur HTML5 mulai bagian deklarasi tipe HTML hingga tag penutup </head>, sekarang pembahasannya dimulai dari tag pembuka <body> hingga tag penutup HTML </html>.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Struktur HTML5 yang Baik - Bagian 1]]></title>
+            <link>https://jefrydco.id/blog/struktur-html5-part-1</link>
+            <guid>https://jefrydco.id/blog/struktur-html5-part-1</guid>
+            <description><![CDATA[Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.]]></description>
+            <content:encoded><![CDATA[Halo teman-teman, kali ini saya mulai bahas satu per satu seri optimasi website, dimulai dari struktur HTML5 yang baik. Mengapa sih kita perlu memperhatikan struktur HTML5? Ada apakah dengan struktur HTML5 yang biasa kita gunakan? Apa dampaknya menggunakan struktur HTML5 yang baik itu bagi website kita?]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Seri Optimasi Website]]></title>
+            <link>https://jefrydco.id/blog/seri-optimasi-website</link>
+            <guid>https://jefrydco.id/blog/seri-optimasi-website</guid>
+            <description><![CDATA[Seri optimasi website membahas secara rinci cara meningkatkan pengalaman pengguna.]]></description>
+            <content:encoded><![CDATA[Halo teman-teman, kali ini saya ingin membuat seri optimasi website. Melalui seri ini saya akan membahas secara detail bagaiamana caranya agar website yang kita punya dapat teroptimasi dengan baik.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2017/08/seri-optimasi-website-image-by-spacex.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Halo Dunia]]></title>
+            <link>https://jefrydco.id/blog/halo-dunia</link>
+            <guid>https://jefrydco.id/blog/halo-dunia</guid>
+            <description><![CDATA[Semoga dengan adanya blog ini, saya semakin konsisten lagi dalam berbagi ilmu dan teman-teman lebih betah berlama-lama di blog ini.]]></description>
+            <content:encoded><![CDATA[Halo teman-teman, ini adalah pos pertama saya di blog ini. Sebenarnya saya udah berkali-kali bikin blog dan ujung-ujungnya jadi ga keurus, alasannya klasik, karena kesibukan sehari-hari yang semakin padat sehingga saya jadi malas untuk menulis.]]></content:encoded>
+            <enclosure url="https://jefrydco.id/cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg">
+            </enclosure>
+        </item>
+    </channel>
+</rss>

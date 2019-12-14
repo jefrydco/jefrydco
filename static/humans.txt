@@ -1,0 +1,9 @@
+/* AUTHOR */
+	Author		  : Jefry Dewangga
+	From	  	  : Surabaya, East Java, Indonesia
+	Twitter		  : @jefrydco
+
+/* SITE */
+	Language	  : Indonesian / English
+	Built with	: Vue.js, Nuxt.js, Tailwind CSS
+	Launched	  : 2017

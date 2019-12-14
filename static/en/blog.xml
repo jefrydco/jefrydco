@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Blog - Jefrydco</title>
+        <link>https://jefrydco.id/en/blog.xml</link>
+        <description>A personal site of Jefry Dewangga.</description>
+        <lastBuildDate>Sat, 14 Dec 2019 05:30:45 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[How to Fix CORS Issue in Firebase or Google Cloud Storage]]></title>
+            <link>https://jefrydco.id/en/blog/fix-cors-issue-firebase-google-cloud</link>
+            <guid>https://jefrydco.id/en/blog/fix-cors-issue-firebase-google-cloud</guid>
+            <description><![CDATA[The solution of fixing CORS issue in Firebase or Google Cloud Storage]]></description>
+            <content:encoded><![CDATA[I was fixing a long-abandoned bug in my project. The error was quite simple actually. It was the image stored in Firebase Cloud Storage cannot be retrieved through AJAX request.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2019/04/fix-cors-firebase-google-cloud-image-by-toa-heftiba.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2]]></title>
+            <link>https://jefrydco.id/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2</link>
+            <guid>https://jefrydco.id/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2</guid>
+            <description><![CDATA[Rebuilding my blog with Nuxt.js and Tailwind CSS makes the development process faster.]]></description>
+            <content:encoded><![CDATA[I have got the answer about which JavaScript framework as the main tool, CSS framework I use and have a thought about the style. Then I'll answer the next 5 questions.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 1]]></title>
+            <link>https://jefrydco.id/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1</link>
+            <guid>https://jefrydco.id/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-1</guid>
+            <description><![CDATA[Rebuilding my blog with Nuxt.js and Tailwind CSS makes the development process faster.]]></description>
+            <content:encoded><![CDATA[I've been blogging since I was junior high school, but until now there is no single blog I made survive. The main reason is I get bored. The writing experience also is not so good. I just write a couple of articles and start to confuse what kind of article I should write next.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Critical Rendering Path and Preload Link]]></title>
+            <link>https://jefrydco.id/en/blog/jalur-rendering-penting-link-preload</link>
+            <guid>https://jefrydco.id/en/blog/jalur-rendering-penting-link-preload</guid>
+            <description><![CDATA[The critical rendering path is important and the preload link makes users see website content much faster.]]></description>
+            <content:encoded><![CDATA[Hello my friends, this time I will discuss the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing important rendering paths, I also discussed preload links, which are actually related to each other.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Good HTML5 Structure - Part 2]]></title>
+            <link>https://jefrydco.id/en/blog/struktur-html5-part-2</link>
+            <guid>https://jefrydco.id/en/blog/struktur-html5-part-2</guid>
+            <description><![CDATA[A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.]]></description>
+            <content:encoded><![CDATA[Hello my friends, this time I continued yesterday's discussion of a good HTML5 structure. After reviewing the structure of HTML5 yesterday from the HTML type declaration section to the closing tag </head>, now the discussion starts from the opening tag <body> to the closing HTML </html> tag.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Good HTML5 Structure - Part 1]]></title>
+            <link>https://jefrydco.id/en/blog/struktur-html5-part-1</link>
+            <guid>https://jefrydco.id/en/blog/struktur-html5-part-1</guid>
+            <description><![CDATA[A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.]]></description>
+            <content:encoded><![CDATA[Hello my friends, this time I started discussing one by one the website optimization series, starting from a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using that good HTML5 structure for our website?]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Website Optimization Series]]></title>
+            <link>https://jefrydco.id/en/blog/seri-optimasi-website</link>
+            <guid>https://jefrydco.id/en/blog/seri-optimasi-website</guid>
+            <description><![CDATA[Website optimization series discusses in detail how to improve user experience.]]></description>
+            <content:encoded><![CDATA[Hello my friends, this time I want to make a website optimization series. Through this series, I will discuss in detail how our website have optimally optimized.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2017/08/seri-optimasi-website-image-by-spacex.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Hello World]]></title>
+            <link>https://jefrydco.id/en/blog/halo-dunia</link>
+            <guid>https://jefrydco.id/en/blog/halo-dunia</guid>
+            <description><![CDATA[Hopefully with this blog, I will be more consistent in sharing my knowledge and friends more comfortable lingering on this blog.]]></description>
+            <content:encoded><![CDATA[Hello my friends, this is my first post on this blog. Actually I have made a lot of blogs and in the end they don't take care, the reason is classic, because the daily busyness is getting more crowded so I am lazy to write.]]></content:encoded>
+            <enclosure url="https://jefrydco.id//cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg">
+            </enclosure>
+        </item>
+    </channel>
+</rss>
