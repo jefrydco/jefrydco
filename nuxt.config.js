@@ -12,13 +12,13 @@ import mia from 'markdown-it-anchor'
 import mitdr from 'markdown-it-toc-done-right'
 import slugify from '@sindresorhus/slugify'
 
+import { VUE_COMPONENT, HTML } from 'frontmatter-markdown-loader/mode'
+
 import blogPaths from './contents/blogs'
 
 import { locales, readFileAsync, flattenDeep, ampify } from './utils'
 
 import i18n from './locales/config'
-
-import { POSTCSS_WHITELIST } from './constant'
 
 const md = new MarkdownIt({
   html: true,
@@ -280,6 +280,17 @@ export default {
       {
         id: process.env.GOOGLE_ANALYTICS
       }
+    ],
+
+    // https://github.com/geeogi/nuxt-responsive-loader
+    [
+      'nuxt-responsive-loader',
+      {
+        size: 1920,
+        placeholder: true,
+        quality: 60,
+        adapter: require('responsive-loader/sharp')
+      }
     ]
   ],
 
@@ -401,11 +412,6 @@ export default {
     }
   },
 
-  purgeCSS: {
-    mode: 'postcss',
-    whitelist: POSTCSS_WHITELIST
-  },
-
   /*
    ** Build configuration
    */
@@ -426,10 +432,10 @@ export default {
         fs: 'empty'
       }
 
-      const rule = config.module.rules.find(
-        (r) => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i'
-      )
-      config.module.rules.splice(config.module.rules.indexOf(rule), 1)
+      // const rule = config.module.rules.find(
+      //   (r) => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i'
+      // )
+      // config.module.rules.splice(config.module.rules.indexOf(rule), 1)
 
       config.module.rules.push(
         {
@@ -437,6 +443,7 @@ export default {
           loader: 'frontmatter-markdown-loader',
           include: path.resolve(__dirname, 'contents'),
           options: {
+            mode: [VUE_COMPONENT, HTML],
             vue: {
               root: 'dynamic-markdown'
             },
@@ -444,25 +451,25 @@ export default {
               return md.render(body)
             }
           }
-        },
-        {
-          test: /\.(jpe?g|png|webp)$/i,
-          loader: 'responsive-loader',
-          options: {
-            placeholder: true,
-            quality: 60,
-            size: 1366,
-            adapter: require('responsive-loader/sharp')
-          }
-        },
-        {
-          test: /\.(gif|svg)$/,
-          loader: 'url-loader',
-          query: {
-            limit: 1000,
-            name: 'img/[name].[hash:7].[ext]'
-          }
         }
+        // {
+        //   test: /\.(jpe?g|png|webp)$/i,
+        //   loader: 'responsive-loader',
+        //   options: {
+        //     placeholder: true,
+        //     quality: 60,
+        //     size: 1366,
+        //     adapter: require('responsive-loader/sharp')
+        //   }
+        // },
+        // {
+        //   test: /\.(gif|svg)$/,
+        //   loader: 'url-loader',
+        //   query: {
+        //     limit: 1000,
+        //     name: 'img/[name].[hash:7].[ext]'
+        //   }
+        // }
       )
 
       if (isDev && isClient) {

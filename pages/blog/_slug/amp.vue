@@ -5,7 +5,7 @@ export default {
   extends: Page,
   head() {
     return {
-      title: this.blog.title,
+      title: this.blog && this.blog.title,
       link: [
         {
           rel: 'canonical',
@@ -17,19 +17,19 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.blog.title
+          content: this.blog && this.blog.title
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `https://jefrydco.id/blog/${this.blog.slug}`
+          content: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: `https://jefrydco.id${this.blog.img}`
+          content: `https://jefrydco.id${this.blog && this.blog.img}`
         },
         {
           hid: 'og:image:width',
@@ -47,18 +47,18 @@ export default {
           hid: 'og:image:alt',
           name: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.blog.title
+          content: this.blog && this.blog.title
         },
         {
           hid: 'description',
           name: 'description',
-          content: this.blog.description
+          content: this.blog && this.blog.description
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: this.blog.description
+          content: this.blog && this.blog.description
         }
       ],
       __dangerouslyDisableSanitizers: ['script'],
@@ -68,18 +68,19 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
-            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog.slug}`,
-            headline: this.blog.title,
-            description: this.blog.description,
-            datePublished: this.blog.postedDate,
-            dateCreated: this.blog.postedDate,
-            dateModified: this.blog.updatedDate,
-            wordcount: this.blog.readingTime.words,
-            url: `https://jefrydco.id/blog/${this.blog.slug}`,
-            articleBody: this.blog.content,
+            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog &&
+              this.blog.slug}`,
+            headline: this.blog && this.blog.title,
+            description: this.blog && this.blog.description,
+            datePublished: this.blog && this.blog.postedDate,
+            dateCreated: this.blog && this.blog.postedDate,
+            dateModified: this.blog && this.blog.updatedDate,
+            wordcount: this.blog && this.blog.readingTime.words,
+            url: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`,
+            articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
-              url: `https://jefrydco.id${this.blog.img}`,
+              url: `https://jefrydco.id${this.blog && this.blog.img}`,
               height: '1920',
               width: '614'
             },
@@ -118,8 +119,9 @@ export default {
                 '@type': 'ListItem',
                 position: 2,
                 item: {
-                  '@id': `https://jefrydco.id/blog/${this.blog.slug}`,
-                  name: this.blog.title
+                  '@id': `https://jefrydco.id/blog/${this.blog &&
+                    this.blog.slug}`,
+                  name: this.blog && this.blog.title
                 }
               }
             ]
@@ -132,9 +134,11 @@ export default {
 </script>
 
 <style lang="postcss">
+/* purgecss start ignore */
 html[⚡] {
   .switch {
     @apply hidden;
   }
 }
+/* purgecss end ignore */
 </style>

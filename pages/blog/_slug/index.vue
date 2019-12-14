@@ -1,5 +1,5 @@
 <template>
-  <div id="blog">
+  <div id="blog" v-if="blog !== null && typeof blog !== 'undefined'">
     <div class="header">
       <div class="header__img">
         <app-img :src="blog.img" :alt="blog.title" />
@@ -53,11 +53,8 @@
                   {{ locale.name }}
                 </nuxt-link>
               </div>
-              <app-dynamic-markdown
-                :render-func="blog.renderFunc"
-                :static-render-funcs="blog.staticRenderFuncs"
-              />
-              <!-- <div v-html="blog.content"></div> -->
+              <!-- eslint-disable-next-line -->
+              <component :is="blog.component" />
               <footer>
                 <p>
                   {{ $t('coverImageFrom') }}
@@ -111,20 +108,18 @@ import readingTime from 'reading-time'
 
 import AppProfile from '~/components/AppProfile'
 import AppToTop from '~/components/AppToTop'
-import AppDynamicMarkdown from '~/components/AppDynamicMarkdown'
 
 import { formatDate } from '~/mixins'
 
 export default {
   components: {
     AppProfile,
-    AppToTop,
-    AppDynamicMarkdown
+    AppToTop
   },
   mixins: [formatDate],
   head() {
     return {
-      title: this.blog.title,
+      title: this.blog && this.blog.title,
       link: [
         {
           rel: 'amphtml',
@@ -136,19 +131,19 @@ export default {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.blog.title
+          content: this.blog && this.blog.title
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `https://jefrydco.id/blog/${this.blog.slug}`
+          content: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: `https://jefrydco.id${this.blog.img}`
+          content: `https://jefrydco.id${this.blog && this.blog.img}`
         },
         {
           hid: 'og:image:width',
@@ -166,18 +161,18 @@ export default {
           hid: 'og:image:alt',
           name: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.blog.title
+          content: this.blog && this.blog.title
         },
         {
           hid: 'description',
           name: 'description',
-          content: this.blog.description
+          content: this.blog && this.blog.description
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: this.blog.description
+          content: this.blog && this.blog.description
         }
       ],
       __dangerouslyDisableSanitizers: ['script'],
@@ -187,18 +182,19 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
-            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog.slug}`,
-            headline: this.blog.title,
-            description: this.blog.description,
-            datePublished: this.blog.postedDate,
-            dateCreated: this.blog.postedDate,
-            dateModified: this.blog.updatedDate,
-            wordcount: this.blog.readingTime.words,
-            url: `https://jefrydco.id/blog/${this.blog.slug}`,
-            articleBody: this.blog.content,
+            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog &&
+              this.blog.slug}`,
+            headline: this.blog && this.blog.title,
+            description: this.blog && this.blog.description,
+            datePublished: this.blog && this.blog.postedDate,
+            dateCreated: this.blog && this.blog.postedDate,
+            dateModified: this.blog && this.blog.updatedDate,
+            wordcount: this.blog && this.blog.readingTime.words,
+            url: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`,
+            articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
-              url: `https://jefrydco.id${this.blog.img}`,
+              url: `https://jefrydco.id${this.blog && this.blog.img}`,
               height: '1920',
               width: '614'
             },
@@ -237,8 +233,9 @@ export default {
                 '@type': 'ListItem',
                 position: 2,
                 item: {
-                  '@id': `https://jefrydco.id/blog/${this.blog.slug}`,
-                  name: this.blog.title
+                  '@id': `https://jefrydco.id/blog/${this.blog &&
+                    this.blog.slug}`,
+                  name: this.blog && this.blog.title
                 }
               }
             ]
@@ -247,53 +244,57 @@ export default {
       ]
     }
   },
-  async asyncData({ params, app, redirect }) {
-    const { locale, locales, defaultLocale } = app.i18n
+  data() {
+    return {
+      availableLocales: [],
+      blog: null
+    }
+  },
+  created() {
+    const slug = this.$route && this.$route.params && this.$route.params.slug
+    const locale = this.$i18n.locale
+    const locales = this.$i18n.locales
+    const defaultLocale = this.$i18n.defaultLocale
     const availableLocales = locales.filter((i) => i.code !== locale)
     let editPath = null
     let blog = null
     try {
       if (locale === defaultLocale) {
-        editPath = `contents/blogs/${params.slug}/index.md`
-        blog = await import(`~/contents/blogs/${params.slug}/index.md`)
+        editPath = `contents/blogs/${slug}/index.md`
+        blog = require(`~/contents/blogs/${slug}/index.md`)
       } else {
-        editPath = `contents/blogs/${params.slug}/index.${locale}.md`
-        blog = await import(
-          `~/contents/blogs/${params.slug}/index.${locale}.md`
-        )
+        editPath = `contents/blogs/${slug}/index.${locale}.md`
+        blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
+      }
+      if (blog !== null && typeof blog !== 'undefined') {
+        const fullPath = `https://jefrydco.id/blog/${blog.attributes.slug}`
+        this.availableLocales = availableLocales
+        this.blog = {
+          img: blog.attributes.img,
+          imgCreator: blog.attributes.imgCreator,
+          title: blog.attributes.title,
+          description: blog.attributes.description,
+          postedDate: blog.attributes.postedDate,
+          updatedDate: blog.attributes.updatedDate,
+          slug: blog.attributes.slug,
+          readingTime: readingTime(blog.html),
+          component: blog.vue.component,
+          fullPath,
+          discussLink: `https://twitter.com/search?q=${encodeURIComponent(
+            fullPath
+          )}`,
+          editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
+        }
       }
     } catch (error) {
-      redirect('/')
-      return
-    }
-
-    const fullPath = `https://jefrydco.id/blog/${blog.attributes.slug}`
-    return {
-      availableLocales,
-      blog: {
-        img: blog.attributes.img,
-        imgCreator: blog.attributes.imgCreator,
-        title: blog.attributes.title,
-        description: blog.attributes.description,
-        // content: blog.html,
-        postedDate: blog.attributes.postedDate,
-        updatedDate: blog.attributes.updatedDate,
-        slug: blog.attributes.slug,
-        readingTime: readingTime(blog.html),
-        renderFunc: blog.vue.render,
-        staticRenderFuncs: blog.vue.staticRenderFns,
-        fullPath,
-        discussLink: `https://twitter.com/search?q=${encodeURIComponent(
-          fullPath
-        )}`,
-        editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
-      }
+      this.$router.replace('/blog')
     }
   }
 }
 </script>
 
 <style lang="postcss">
+/* purgecss start ignore */
 .header {
   @apply w-full relative;
 
@@ -405,4 +406,5 @@ body {
     }
   }
 }
+/* purgecss end ignore */
 </style>

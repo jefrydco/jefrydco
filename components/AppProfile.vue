@@ -62,6 +62,7 @@ export default {
 </script>
 
 <style lang="postcss">
+/* purgecss start ignore */
 .profile {
   &__img {
     @apply rounded-full ml-auto mr-auto h-24 w-24 p-5 flex items-center justify-center relative;
@@ -88,4 +89,5 @@ export default {
     }
   }
 }
+/* purgecss end ignore */
 </style>

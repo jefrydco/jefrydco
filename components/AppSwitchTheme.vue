@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style lang="postcss">
+/* purgecss start ignore */
 .switch {
   @apply absolute z-20;
   top: 1rem;
@@ -89,4 +90,5 @@ export default {
     }
   }
 }
+/* purgecss end ignore */
 </style>
