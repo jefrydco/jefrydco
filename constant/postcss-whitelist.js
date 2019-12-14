@@ -1,4 +1,5 @@
 export default [
+  'img',
   'h1',
   'h2',
   'h3',

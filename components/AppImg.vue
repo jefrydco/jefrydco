@@ -51,7 +51,7 @@ export default {
 
     img {
       @apply opacity-0 h-full w-full object-cover;
-      transition: all ease 0.3s;
+      transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     }
 
     img[lazy='loading'] {
