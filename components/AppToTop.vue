@@ -5,6 +5,7 @@
 </template>
 
 <style lang="postcss">
+/* purgecss start ignore */
 .to-top {
   @apply fixed z-20;
   bottom: 1rem;
@@ -33,4 +34,5 @@
     }
   }
 }
+/* purgecss end ignore */
 </style>

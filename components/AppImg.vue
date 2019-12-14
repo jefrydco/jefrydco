@@ -1,10 +1,11 @@
 <template>
   <div v-lazy-container="{ selector: 'img' }" class="image-placeholder">
     <img
-      :data-src="imageRequired"
+      :data-src="imageRequired.src"
+      :data-srcset="imageRequired.srcSet"
       :data-loading="imageRequired.placeholder"
-      :width="width"
-      :height="height"
+      :width="imageRequired.width || width"
+      :height="imageRequired.height || height"
       :class="classes"
       :alt="alt"
       src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
@@ -25,11 +26,11 @@ export default {
     },
     width: {
       type: [String, Number],
-      default: 1366
+      default: 1920
     },
     height: {
       type: [String, Number],
-      default: 768
+      default: 1080
     },
     classes: {
       type: String,
@@ -45,7 +46,8 @@ export default {
 </script>
 
 <style lang="postcss">
-:not(html[⚡]) {
+/* purgecss start ignore */
+html:not([⚡]) {
   .image-placeholder {
     @apply overflow-hidden;
 
@@ -63,4 +65,5 @@ export default {
     }
   }
 }
+/* purgecss end ignore */
 </style>

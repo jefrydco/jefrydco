@@ -86,12 +86,13 @@ export default {
 </script>
 
 <style lang="postcss">
+/* purgecss start ignore */
 .blog-item {
   @apply mb-12 mx-4 max-w-3xl rounded overflow-hidden shadow relative;
   background-color: var(--card-bg);
 
   img {
-    @apply h-64 object-cover;
+    @apply h-64 w-full object-cover;
   }
 
   &:hover {
@@ -127,4 +128,5 @@ export default {
     }
   }
 }
+/* purgecss end ignore */
 </style>

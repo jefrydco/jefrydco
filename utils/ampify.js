@@ -51,7 +51,8 @@ export default (html) => {
   // Replace img tags with amp-img
   html = html.replace(/<img([^>]*)>/gi, (match, sub) => {
     sub = sub.replace(/data-src/gi, 'src')
-    return `<amp-img  ${sub} layout=intrinsic></amp-img>`
+    sub = sub.replace(/data-srcset/gi, 'srcset')
+    return `<amp-img ${sub} layout=intrinsic></amp-img>`
   })
 
   // Remove all picture and source tag

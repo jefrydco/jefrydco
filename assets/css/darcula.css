@@ -17,7 +17,7 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
 *
 * @license MIT 2016-2018
 */
-
+/* purgecss start ignore */
 code[class*="language-"],
 pre[class*="language-"] {
   color: #ccc;
@@ -393,3 +393,4 @@ div.code-toolbar > .toolbar span:focus {
   text-decoration: none;
   background-color: var(--verde);
 }
+/* purgecss end ignore */
