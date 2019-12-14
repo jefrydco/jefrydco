@@ -128,5 +128,14 @@ export default {
     }
   }
 }
+body {
+  &.dark {
+    .blog-item {
+      img {
+        filter: brightness(0.7);
+      }
+    }
+  }
+}
 /* purgecss end ignore */
 </style>
