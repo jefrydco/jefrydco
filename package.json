@@ -50,6 +50,7 @@
   "dependencies": {
     "@nuxtjs/feed": "^1.1.0",
     "@nuxtjs/google-analytics": "^2.2.2",
+    "@nuxtjs/html-minifier": "^0.1.2",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^3.0.1",
     "@nuxtjs/sitemap": "^2.0.1",

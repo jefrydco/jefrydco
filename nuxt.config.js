@@ -284,7 +284,10 @@ export default {
         quality: 60,
         adapter: require('responsive-loader/sharp')
       }
-    ]
+    ],
+
+    // https://github.com/nuxt-community/html-minifier-module
+    ['@nuxtjs/html-minifier', { log: 'once', logHtml: true }]
   ],
 
   feed: () => {
