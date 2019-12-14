@@ -103,19 +103,7 @@ export default {
       },
       {
         rel: 'preconnect',
-        href: 'https://fonts.googleapis.com'
-      },
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com'
-      },
-      {
-        rel: 'preconnect',
         href: 'https://www.google-analytics.com'
-      },
-      {
-        rel: 'preconnect',
-        href: 'https://d33wubrfki0l68.cloudfront.net'
       }
     ],
     // Taken from: https://github.com/manniL/lichter.io/blob/master/config/head.js
