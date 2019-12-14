@@ -94,6 +94,10 @@ export default {
         href: 'https://fonts.gstatic.com'
       },
       {
+        rel: 'dns-prefetch',
+        href: 'https://d33wubrfki0l68.cloudfront.net'
+      },
+      {
         rel: 'preconnect',
         href: 'https://www.google-analytics.com'
       }
