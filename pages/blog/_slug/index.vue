@@ -196,7 +196,7 @@ export default {
               '@type': 'imageObject',
               url: `https://jefrydco.id${this.blog && this.blog.img}`,
               height: '1920',
-              width: '614'
+              width: '1080'
             },
             publisher: {
               '@type': 'Organization',
