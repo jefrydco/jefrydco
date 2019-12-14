@@ -1,0 +1,408 @@
+<template>
+  <div id="blog">
+    <div class="header">
+      <div class="header__img">
+        <app-img :src="blog.img" :alt="blog.title" />
+      </div>
+      <div class="header__back">
+        <nuxt-link :to="localePath('blog')" class="header__back__link">
+          Blog
+        </nuxt-link>
+      </div>
+    </div>
+    <div class="max-w-4xl ml-auto mr-auto">
+      <div class="blog">
+        <div class="blog__content">
+          <main>
+            <article>
+              <header>
+                <div class="blog__meta">
+                  <h1 id="blog-title" class="blog__title">
+                    {{ blog.title }}
+                  </h1>
+                  <div class="blog__date">
+                    <span>
+                      <time :datetime="blog.postedDate">
+                        Posted on
+                        {{ formatDate(blog.postedDate) }}
+                      </time>
+                    </span>
+                    •
+                    <span>
+                      <time :datetime="blog.updatedDate">
+                        Updated on
+                        {{ formatDate(blog.updatedDate) }}
+                      </time>
+                    </span>
+                    •
+                    <span>
+                      {{ Math.ceil(blog.readingTime.minutes.toFixed(2)) }}
+                      {{ $t('minRead') }}
+                    </span>
+                  </div>
+                </div>
+              </header>
+              <div class="blog__translations">
+                {{ $t('readOtherLanguages') }}:
+                <nuxt-link
+                  v-for="locale in availableLocales"
+                  :key="locale.code"
+                  :aria-label="locale.name"
+                  :to="switchLocalePath(locale.code)"
+                >
+                  {{ locale.name }}
+                </nuxt-link>
+              </div>
+              <app-dynamic-markdown
+                :render-func="blog.renderFunc"
+                :static-render-funcs="blog.staticRenderFuncs"
+              />
+              <!-- <div v-html="blog.content"></div> -->
+              <footer>
+                <p>
+                  {{ $t('coverImageFrom') }}
+                  <a
+                    :href="`https://unsplash.com/@${blog.imgCreator}`"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{{ blog.imgCreator }}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    :href="blog.discussLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ $t('discussTwitter') }}
+                  </a>
+                  <span> • </span>
+                  <a
+                    :href="blog.editLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ $t('editGithub') }}
+                  </a>
+                </p>
+              </footer>
+            </article>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-4xl my-12 ml-auto mr-auto">
+      <app-profile />
+    </div>
+    <client-only>
+      <vue-scroll-indicator
+        height="2px"
+        color="var(--text-normal)"
+        background="var(--bg)"
+      />
+    </client-only>
+    <app-to-top />
+  </div>
+</template>
+
+<script>
+import readingTime from 'reading-time'
+
+import AppProfile from '~/components/AppProfile'
+import AppToTop from '~/components/AppToTop'
+import AppDynamicMarkdown from '~/components/AppDynamicMarkdown'
+
+import { formatDate } from '~/mixins'
+
+export default {
+  components: {
+    AppProfile,
+    AppToTop,
+    AppDynamicMarkdown
+  },
+  mixins: [formatDate],
+  head() {
+    return {
+      title: this.blog.title,
+      link: [
+        {
+          rel: 'amphtml',
+          href: `${this.$route.path}/amp`
+        }
+      ],
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: this.blog.title
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: `https://jefrydco.id/blog/${this.blog.slug}`
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: `https://jefrydco.id${this.blog.img}`
+        },
+        {
+          hid: 'og:image:width',
+          name: 'og:image:width',
+          property: 'og:image:width',
+          content: '1920'
+        },
+        {
+          hid: 'og:image:height',
+          name: 'og:image:height',
+          property: 'og:image:height',
+          content: '1280'
+        },
+        {
+          hid: 'og:image:alt',
+          name: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.blog.title
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blog.description
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content: this.blog.description
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'blogPosting',
+            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog.slug}`,
+            headline: this.blog.title,
+            description: this.blog.description,
+            datePublished: this.blog.postedDate,
+            dateCreated: this.blog.postedDate,
+            dateModified: this.blog.updatedDate,
+            wordcount: this.blog.readingTime.words,
+            url: `https://jefrydco.id/blog/${this.blog.slug}`,
+            articleBody: this.blog.content,
+            image: {
+              '@type': 'imageObject',
+              url: `https://jefrydco.id${this.blog.img}`,
+              height: '1920',
+              width: '614'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Jefrydco',
+              sameAs: 'https://www.facebook.com/jefrydco.id',
+              logo: {
+                '@type': 'imageObject',
+                url: `https://jefrydco.id/icon.png`,
+                width: '2739',
+                height: '3102'
+              }
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Jefry Dewangga'
+            }
+          })
+        },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': 'https://jefrydco.id/blog',
+                  name: 'Blog'
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                item: {
+                  '@id': `https://jefrydco.id/blog/${this.blog.slug}`,
+                  name: this.blog.title
+                }
+              }
+            ]
+          })
+        }
+      ]
+    }
+  },
+  async asyncData({ params, app, redirect }) {
+    const { locale, locales, defaultLocale } = app.i18n
+    const availableLocales = locales.filter((i) => i.code !== locale)
+    let editPath = null
+    let blog = null
+    try {
+      if (locale === defaultLocale) {
+        editPath = `contents/blogs/${params.slug}/index.md`
+        blog = await import(`~/contents/blogs/${params.slug}/index.md`)
+      } else {
+        editPath = `contents/blogs/${params.slug}/index.${locale}.md`
+        blog = await import(
+          `~/contents/blogs/${params.slug}/index.${locale}.md`
+        )
+      }
+    } catch (error) {
+      redirect('/')
+      return
+    }
+
+    const fullPath = `https://jefrydco.id/blog/${blog.attributes.slug}`
+    return {
+      availableLocales,
+      blog: {
+        img: blog.attributes.img,
+        imgCreator: blog.attributes.imgCreator,
+        title: blog.attributes.title,
+        description: blog.attributes.description,
+        // content: blog.html,
+        postedDate: blog.attributes.postedDate,
+        updatedDate: blog.attributes.updatedDate,
+        slug: blog.attributes.slug,
+        readingTime: readingTime(blog.html),
+        renderFunc: blog.vue.render,
+        staticRenderFuncs: blog.vue.staticRenderFns,
+        fullPath,
+        discussLink: `https://twitter.com/search?q=${encodeURIComponent(
+          fullPath
+        )}`,
+        editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
+      }
+    }
+  }
+}
+</script>
+
+<style lang="postcss">
+.header {
+  @apply w-full relative;
+
+  img {
+    @apply w-screen !important object-cover;
+    height: 32rem !important;
+  }
+
+  &__back {
+    @apply absolute z-20;
+    top: 1.7rem;
+    left: 1.5rem;
+
+    &__link {
+      @apply cursor-pointer py-2 px-4 w-24 rounded shadow no-underline;
+      background-color: var(--card-bg);
+      color: var(--text-normal);
+
+      &:focus {
+        @apply outline-none;
+      }
+
+      &:hover {
+        @apply shadow-lg;
+      }
+
+      svg {
+        @apply block m-auto;
+        stroke: var(--text-normal);
+      }
+    }
+  }
+}
+
+.table-of-contents {
+  ol {
+    counter-reset: list-item;
+  }
+  li {
+    @apply block;
+    counter-increment: list-item;
+  }
+  li:before {
+    content: counters(list-item, '.') ' ';
+  }
+}
+
+footer {
+  p {
+    @apply mb-3;
+  }
+}
+
+.blog {
+  @apply mb-12 mx-4 rounded overflow-hidden shadow relative -mt-64;
+  background-color: var(--card-bg);
+
+  img {
+    @apply w-full h-auto mb-8;
+  }
+
+  &__translations {
+    @apply leading-normal mb-8 py-3 px-4 rounded-lg border;
+    background-color: var(--inline-code-bg);
+    border-color: var(--inline-code-border);
+    color: var(--inline-code-text);
+
+    a:not(:last-child) {
+      @apply mr-3;
+    }
+  }
+
+  &__content {
+    @apply p-6 leading-tight;
+  }
+
+  &__meta {
+    @apply mb-8;
+  }
+
+  &__title {
+    @apply font-bold text-2xl mt-0 mb-4;
+  }
+
+  &__date {
+    @apply leading-normal mb-4 text-base;
+  }
+
+  &__link {
+    @apply absolute top-0 left-0 w-full h-full overflow-hidden z-0;
+    text-indent: -9999px;
+  }
+}
+
+@screen sm {
+  .blog {
+    &__content {
+      @apply px-16 py-10;
+    }
+  }
+}
+
+body {
+  &.dark {
+    .header {
+      img {
+        filter: brightness(0.7);
+      }
+    }
+  }
+}
+</style>
