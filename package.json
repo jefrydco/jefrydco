@@ -58,6 +58,7 @@
     "dotenv": "^8.2.0",
     "js-cookie": "^2.2.1",
     "markdown-it-anchor": "^5.2.5",
+    "markdown-it-highlight-lines": "^1.0.2",
     "markdown-it-link-attributes": "^3.0.0",
     "markdown-it-prism": "^2.0.3",
     "markdown-it-toc-done-right": "^4.1.0",

@@ -7,6 +7,7 @@ import fm from 'front-matter'
 
 import MarkdownIt from 'markdown-it'
 import mip from 'markdown-it-prism'
+import mihl from 'markdown-it-highlight-lines'
 import mila from 'markdown-it-link-attributes'
 import mia from 'markdown-it-anchor'
 import mitdr from 'markdown-it-toc-done-right'
@@ -25,6 +26,7 @@ const md = new MarkdownIt({
   typographer: true
 })
 md.use(mip)
+md.use(mihl)
 md.use(mila, {
   pattern: /(http|https|ftp|ftps):\/\/[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,3}(\/\S*)?/,
   attrs: {
