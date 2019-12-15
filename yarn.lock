@@ -1394,7 +1394,7 @@
     webpack-node-externals "^1.7.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/eslint-config@^1.0.1":
+"@nuxtjs/eslint-config@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-1.1.2.tgz#cde4c950014a781bcc34abbfef9c62546d8fc34c"
   integrity sha512-uKBdza1/Poz32gEodQ9MSW8M9CU4RPdvEiSLX5LWyavrbjhXW9iIbzJzSDlgMhD1QfQ5WrWv1iqL3Bh/ArbIgw==
@@ -1408,7 +1408,7 @@
     eslint-plugin-unicorn "^9.1.1"
     eslint-plugin-vue "^5.2.3"
 
-"@nuxtjs/eslint-module@^1.0.0":
+"@nuxtjs/eslint-module@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-module/-/eslint-module-1.1.0.tgz#816f8d41c3883e8131ce5f863a0ca2f3fd7cbcbf"
   integrity sha512-9np9tKQ30ULIfT7Zshhw9Gc8Xf437/X7jUGG2Wv4SwT26Miu0WE0q9FNXUt9gxaBIQuokKiWsoTT28rXUaxHjQ==
@@ -1442,7 +1442,7 @@
     figures "^3.0.0"
     html-minifier "^4.0.0"
 
-"@nuxtjs/pwa@^3.0.0-0":
+"@nuxtjs/pwa@^3.0.0-beta.19":
   version "3.0.0-beta.19"
   resolved "https://registry.yarnpkg.com/@nuxtjs/pwa/-/pwa-3.0.0-beta.19.tgz#4685c8137a5b588126b3ee4d469f6806423f958f"
   integrity sha512-5c7CB2qrrlpu7BmJeWX9GN//uK1SiEzBbT+ykH11ZfUxQyXiO3QTm1f6tTOnG/P5v4kRIGYdBr0wmRbA/Hv1cw==
@@ -1479,7 +1479,7 @@
     minimatch "^3.0.4"
     sitemap "^4.1.1"
 
-"@nuxtjs/stylelint-module@^3.1.0":
+"@nuxtjs/stylelint-module@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/stylelint-module/-/stylelint-module-3.1.1.tgz#12faefc8f8be2c36bd6dae1f0305b83920a2143f"
   integrity sha512-RuvfM2vDU7K3xCie8cBmFEIqlRtS+4Pve5+26VCYzDbK3hBruIbfL8RZ92rFUvbwYBE4IGE2ScDz03X3rK5Awg==
@@ -1885,7 +1885,7 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vue/test-utils@^1.0.0-beta.27":
+"@vue/test-utils@^1.0.0-beta.30":
   version "1.0.0-beta.30"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.30.tgz#d5f26d1e2411fdb7fa7fdedb61b4b4ea4194c49d"
   integrity sha512-Wyvcha9fNk8+kzTDwb3xWGjPkCPzHSYSwKP6MplrPTG/auhqoad7JqUEceZLc6u7AU4km2pPQ8/m9s0RgCZ0NA==
@@ -2415,7 +2415,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha512-Uvq6hVe90D0B2WEnUqtdgY1bATGz3mw33nH9Y+dmA+w5DHvUmBgkr5rM/KCHpCsiFNRUfokW/szpPPgMK2hm4A==
 
-babel-eslint@^10.0.1:
+babel-eslint@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.3.tgz#81a2c669be0f205e19462fed2482d33e4687a88a"
   integrity sha512-z3U7eMY6r/3f3/JB9mTsLjyxrv0Yb1zb8PCWCLpguxfCzBIZUwy23R1t/XKewP+8mEN2Ck8Dtr4q20z6ce6SoA==
@@ -2427,7 +2427,7 @@ babel-eslint@^10.0.1:
     eslint-visitor-keys "^1.0.0"
     resolve "^1.12.0"
 
-babel-jest@^24.1.0, babel-jest@^24.9.0:
+babel-jest@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-24.9.0.tgz#3fc327cb8467b89d14d7bc70e315104a783ccd54"
   integrity sha512-ntuddfyiN+EhMw58PTNL1ph4C9rECiQXjI4nMMBKBaNjXvqLdkXpPRcMSr4iyBrJg/+wz9brFUD6RhOAT6r4Iw==
@@ -4260,7 +4260,7 @@ eslint-ast-utils@^1.0.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
-eslint-config-prettier@^4.1.0:
+eslint-config-prettier@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.3.0.tgz#c55c1fcac8ce4518aeb77906984e134d9eb5a4f0"
   integrity sha512-sZwhSTHVVz78+kYD3t5pCWSYEdVSBR0PXnwjDRsUs8ytIrK8PLXw+6FKp8r3Z7rx4ZszdetWlXYKOHoUrrwPlA==
@@ -4343,7 +4343,7 @@ eslint-plugin-node@^9.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-nuxt@>=0.4.2:
+eslint-plugin-nuxt@>=0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-nuxt/-/eslint-plugin-nuxt-0.5.0.tgz#ca855110c5e32d07629112d53cf632bece1ba78c"
   integrity sha512-bYMl58s3mFD28wUU++5eEGaJG44naJZEo3my4+GixacmcD/vOyQZr3Hu1ToNmJJbZ3z1Ci3La5YMEyl+t2105Q==
@@ -4351,7 +4351,7 @@ eslint-plugin-nuxt@>=0.4.2:
     eslint-plugin-vue "^6.0.0"
     vue-eslint-parser "^7.0.0"
 
-eslint-plugin-prettier@^3.0.1:
+eslint-plugin-prettier@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.1.tgz#507b8562410d02a03f0ddc949c616f877852f2ba"
   integrity sha512-A+TZuHZ0KU0cnn56/9mfR7/KjUJ9QNVXUhwvRFSR7PGPe0zQR6PTkmyqg1AtUUEOzTqeRsUwyKFh0oVZKVCrtA==
@@ -4428,7 +4428,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.1.0:
+eslint@^6.7.2:
   version "6.7.2"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.7.2.tgz#c17707ca4ad7b2d8af986a33feba71e18a9fecd1"
   integrity sha512-qMlSWJaCSxDFr8fBPvJM9kJwbazrhNcBU3+DszDW1OlEwKBBRWsJc7NJFelvwQpanHCR14cOLD41x8Eqvo3Nng==
@@ -5631,7 +5631,7 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-husky@^2.6.0:
+husky@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-2.7.0.tgz#c0a9a6a3b51146224e11bba0b46bba546e461d05"
   integrity sha512-LIi8zzT6PyFpcYKdvWRCn/8X+6SuG2TgYYMrM6ckEYhlp44UcEduVymZGIZNLiwOUjrEud+78w/AsAiqJA/kRg==
@@ -6596,7 +6596,7 @@ jest-worker@^24.6.0, jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-jest@^24.1.0:
+jest@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-24.9.0.tgz#987d290c05a08b52c56188c1002e368edb007171"
   integrity sha512-YvkBL1Zm7d2B1+h5fHEOdyjCG+sGMz4f8D86/0HiqJ6MB4MnDc8FgP5vdWsGnemOQro7lnYo8UakZ3+5A0jxGw==
@@ -7999,7 +7999,7 @@ nuxt-responsive-loader@^1.0.4:
     jimp "^0.6.0"
     responsive-loader "^1.2.0"
 
-nuxt@^2.0.0:
+nuxt@^2.10.2:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.10.2.tgz#15ade22dfe281095865df18e6f6e861fcad1ff95"
   integrity sha512-BDeio2WwwMrW4bctRYNHq1su+rwIJzuo87bAZv8Xs2/Gw5g4bPIGZTiKGx6tSZBjxnONsGDOxhFOWZ5JpQEtrQ==
@@ -9377,7 +9377,7 @@ prettier@1.16.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.3.tgz#8c62168453badef702f34b45b6ee899574a6a65d"
   integrity sha512-kn/GU6SMRYPxUakNXhpP0EedT/KmaPzr0H5lIsDogrykbaxOpOfAFfk5XA7DZrJyMAv1wlMV3CPcZruGXVVUZw==
 
-prettier@^1.16.4, prettier@^1.18.2:
+prettier@^1.18.2, prettier@^1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
@@ -11810,7 +11810,7 @@ vue-i18n@^8.12.0:
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.15.1.tgz#90097a08a1e932f645c6b9c404c780d24f6d6224"
   integrity sha512-GBbz8qYCu0U2LNu4IcuFLZiuyninG4k26knvhL7GZG5Ncp4RR2VKDEH6g8gQ6I+UUBCvH2MBQVPSdxWe4DBkPw==
 
-vue-jest@^4.0.0-0:
+vue-jest@^4.0.0-beta.2:
   version "4.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-4.0.0-beta.2.tgz#f2120ea9d24224aad3a100c2010b0760d47ee6fe"
   integrity sha512-SywBIciuIfqsCb8Eb9UQ02s06+NV8Ry8KnbyhAfnvnyFFulIuh7ujtga9eJYq720nCS4Hz4TpVtS4pD1ZbUILQ==
