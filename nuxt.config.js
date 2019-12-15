@@ -35,7 +35,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/darcula'],
+  css: ['~/assets/styles/darcula'],
 
   /*
    ** Plugins to load before mounting the App
@@ -62,7 +62,7 @@ export default {
    * Tailwind CSS configuration
    */
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.pcss'
+    cssPath: '~/assets/styles/tailwind.pcss'
   },
 
   /*
