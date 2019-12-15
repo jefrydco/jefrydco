@@ -67,20 +67,25 @@ export default {
   &__img {
     @apply rounded-full ml-auto mr-auto h-24 w-24 p-5 flex items-center justify-center relative;
   }
+
   &__link {
     @apply absolute top-0 left-0 w-full h-full overflow-hidden z-0;
     text-indent: -9999px;
   }
+
   &__meta {
     @apply text-center;
   }
+
   &__name {
     @apply leading-normal mt-0 mb-5 font-bold text-2xl;
     font-family: 'Bitter', serif;
   }
+
   &__description {
     @apply leading-normal mt-0;
   }
+
   &__navigation {
     @apply text-center mt-3;
 

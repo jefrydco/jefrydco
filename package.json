@@ -40,7 +40,10 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint --fix"
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {

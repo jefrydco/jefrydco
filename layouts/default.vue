@@ -11,17 +11,6 @@ import AppSwitchTheme from '~/components/AppSwitchTheme'
 const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
-  head() {
-    const i18nSeo = this.$nuxtI18nSeo()
-
-    return {
-      title: this.$t('description'),
-      bodyAttrs: {
-        class: this.isDark ? 'dark' : 'light'
-      },
-      ...i18nSeo
-    }
-  },
   components: {
     AppSwitchTheme
   },
@@ -48,6 +37,17 @@ export default {
           this.isDark = darkModeOn
         })
       }
+    }
+  },
+  head() {
+    const i18nSeo = this.$nuxtI18nSeo()
+
+    return {
+      title: this.$t('description'),
+      bodyAttrs: {
+        class: this.isDark ? 'dark' : 'light'
+      },
+      ...i18nSeo
     }
   }
 }

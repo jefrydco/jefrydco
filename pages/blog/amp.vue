@@ -1,95 +1,29 @@
-<template>
-  <div id="blog-index">
-    <div class="max-w-3xl my-12 ml-auto mr-auto">
-      <app-profile />
-    </div>
-    <div class="max-w-3xl ml-auto mr-auto">
-      <main>
-        <app-blog
-          v-for="blog in blogs"
-          :key="blog.id"
-          :img="blog.img"
-          :title="blog.title"
-          :description="blog.description"
-          :posted-date="blog.postedDate"
-          :updated-date="blog.updatedDate"
-          :reading-time="blog.readingTime"
-          :slug="blog.slug"
-        />
-      </main>
-    </div>
-    <div class="max-w-4xl my-12 ml-auto mr-auto text-center">
-      <a :href="rssLink" target="_blank" rel="noopener noreferrer">RSS</a>
-    </div>
-  </div>
-</template>
-
 <script>
-import readingTime from 'reading-time'
-import AppProfile from '~/components/AppProfile'
-import AppBlog from '~/components/AppBlog'
-
-import slugs from '~/contents/blogs'
+import Page from './index'
 
 export default {
-  components: {
-    AppProfile,
-    AppBlog
-  },
-  async asyncData({ app, redirect }) {
-    const { locale, defaultLocale } = app.i18n
-
-    async function asyncImport(slug) {
-      let blog = null
-      if (locale === defaultLocale) {
-        blog = await import(`~/contents/blogs/${slug}/index.md`)
-        return {
-          ...blog.attributes,
-          readingTime: readingTime(blog.html)
-        }
-      }
-      blog = await import(`~/contents/blogs/${slug}/index.${locale}.md`)
-      return {
-        ...blog.attributes,
-        readingTime: readingTime(blog.html)
-      }
-    }
-
-    const blogs = await Promise.all(slugs.map((slug) => asyncImport(slug)))
-    return {
-      blogs
-    }
-  },
-  data() {
-    return {
-      blogs: []
-    }
-  },
-  computed: {
-    rssLink() {
-      const { locale } = this.$i18n
-      if (locale === 'id') {
-        return `https://jefrydco.id/blog.xml`
-      }
-      return `https://jefrydco.id/${locale}/blog.xml`
-    }
-  },
+  extends: Page,
   head() {
     const { locales } = this.$i18n
-    const link = locales.map((locale) => {
-      let href = null
-      if (locale.code === 'id') {
-        href = `https://jefrydco.id/blog.xml`
-      } else {
-        href = `https://jefrydco.id/${locale.code}/blog.xml`
-      }
-      return {
-        rel: 'alternate',
-        type: 'application/rss+xml',
-        href,
-        title: `Blog - Jefrydco`
-      }
-    })
+    const link = locales
+      .map((locale) => {
+        let href = null
+        if (locale.code === 'id') {
+          href = `https://jefrydco.id/blog.xml`
+        } else {
+          href = `https://jefrydco.id/${locale.code}/blog.xml`
+        }
+        return {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          href,
+          title: `Blog - Jefrydco`
+        }
+      })
+      .concat({
+        rel: 'canonical',
+        href: `${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
+      })
     return {
       title: 'Blog',
       meta: [

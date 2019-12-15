@@ -112,7 +112,7 @@ export default {
   }
 
   &__description {
-    @apply leading-normal mb-0 !important;
+    @apply leading-normal mb-0;
   }
 
   &__link {
@@ -128,6 +128,7 @@ export default {
     }
   }
 }
+
 body {
   &.dark {
     .blog-item {

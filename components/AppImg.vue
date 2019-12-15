@@ -4,8 +4,8 @@
       :data-src="imageRequired.src"
       :data-srcset="imageRequired.srcSet"
       :data-loading="imageRequired.placeholder"
-      :width="imageRequired.width || width"
-      :height="imageRequired.height || height"
+      :width="width"
+      :height="height"
       :class="classes"
       :alt="alt"
       :src="imageRequired.placeholder"
@@ -60,6 +60,7 @@ html:not([⚡]) {
       @apply opacity-100;
       filter: blur(0.9375rem);
     }
+
     img[lazy='loaded'] {
       @apply opacity-100;
     }

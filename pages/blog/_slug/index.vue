@@ -1,5 +1,5 @@
 <template>
-  <div id="blog" v-if="blog !== null && typeof blog !== 'undefined'">
+  <div v-if="blog !== null && typeof blog !== 'undefined'" id="blog">
     <div class="header">
       <div class="header__img">
         <app-img :src="blog.img" :alt="blog.title" />
@@ -117,6 +117,52 @@ export default {
     AppToTop
   },
   mixins: [formatDate],
+  data() {
+    return {
+      availableLocales: [],
+      blog: null
+    }
+  },
+  created() {
+    const slug = this.$route && this.$route.params && this.$route.params.slug
+    const locale = this.$i18n.locale
+    const locales = this.$i18n.locales
+    const defaultLocale = this.$i18n.defaultLocale
+    const availableLocales = locales.filter((i) => i.code !== locale)
+    let editPath = null
+    let blog = null
+    try {
+      if (locale === defaultLocale) {
+        editPath = `contents/blogs/${slug}/index.md`
+        blog = require(`~/contents/blogs/${slug}/index.md`)
+      } else {
+        editPath = `contents/blogs/${slug}/index.${locale}.md`
+        blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
+      }
+      if (blog !== null && typeof blog !== 'undefined') {
+        const fullPath = `https://jefrydco.id/blog/${blog.attributes.slug}`
+        this.availableLocales = availableLocales
+        this.blog = {
+          img: blog.attributes.img,
+          imgCreator: blog.attributes.imgCreator,
+          title: blog.attributes.title,
+          description: blog.attributes.description,
+          postedDate: blog.attributes.postedDate,
+          updatedDate: blog.attributes.updatedDate,
+          slug: blog.attributes.slug,
+          readingTime: readingTime(blog.html),
+          component: blog.vue.component,
+          fullPath,
+          discussLink: `https://twitter.com/search?q=${encodeURIComponent(
+            fullPath
+          )}`,
+          editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
+        }
+      }
+    } catch (error) {
+      this.$router.replace('/blog')
+    }
+  },
   head() {
     return {
       title: this.blog && this.blog.title,
@@ -243,52 +289,6 @@ export default {
         }
       ]
     }
-  },
-  data() {
-    return {
-      availableLocales: [],
-      blog: null
-    }
-  },
-  created() {
-    const slug = this.$route && this.$route.params && this.$route.params.slug
-    const locale = this.$i18n.locale
-    const locales = this.$i18n.locales
-    const defaultLocale = this.$i18n.defaultLocale
-    const availableLocales = locales.filter((i) => i.code !== locale)
-    let editPath = null
-    let blog = null
-    try {
-      if (locale === defaultLocale) {
-        editPath = `contents/blogs/${slug}/index.md`
-        blog = require(`~/contents/blogs/${slug}/index.md`)
-      } else {
-        editPath = `contents/blogs/${slug}/index.${locale}.md`
-        blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
-      }
-      if (blog !== null && typeof blog !== 'undefined') {
-        const fullPath = `https://jefrydco.id/blog/${blog.attributes.slug}`
-        this.availableLocales = availableLocales
-        this.blog = {
-          img: blog.attributes.img,
-          imgCreator: blog.attributes.imgCreator,
-          title: blog.attributes.title,
-          description: blog.attributes.description,
-          postedDate: blog.attributes.postedDate,
-          updatedDate: blog.attributes.updatedDate,
-          slug: blog.attributes.slug,
-          readingTime: readingTime(blog.html),
-          component: blog.vue.component,
-          fullPath,
-          discussLink: `https://twitter.com/search?q=${encodeURIComponent(
-            fullPath
-          )}`,
-          editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
-        }
-      }
-    } catch (error) {
-      this.$router.replace('/blog')
-    }
   }
 }
 </script>
@@ -332,10 +332,12 @@ export default {
   ol {
     counter-reset: list-item;
   }
+
   li {
     @apply block;
     counter-increment: list-item;
   }
+
   li:before {
     content: counters(list-item, '.') ' ';
   }

@@ -49,10 +49,10 @@ export default (html) => {
   html = html.replace(/<source[^>]*>/gi, '')
 
   // Add /amp endfix for all internal link
-  html = html.replace(
-    /<a([^>]*?)href\s*=\s*(['"])(\/[^\2]*?)\2\1*>/gi,
-    `<a href="$3/amp">`
-  )
+  // html = html.replace(
+  //   /<a([^>]*?)href\s*=\s*(['"])(\/[^\2]*?)\2\1*>/gi,
+  //   `<a href="$3/amp">`
+  // )
 
   // Remove data attributes from tags
   html = html.replace(/\s*data-(?:[^=>]*="[^"]*"|[^=>\s]*)/gi, '')

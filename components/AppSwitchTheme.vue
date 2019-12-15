@@ -1,9 +1,9 @@
 <template>
   <div class="switch">
     <button
-      @click="$emit('input', !value)"
       aria-label="Toggle dark or light theme"
       class="switch__btn"
+      @click="$emit('input', !value)"
     >
       <svg
         v-if="value"
@@ -88,6 +88,12 @@ export default {
       @apply block m-auto;
       stroke: var(--text-normal);
     }
+  }
+}
+
+html[⚡] {
+  .switch {
+    @apply hidden;
   }
 }
 /* purgecss end ignore */
