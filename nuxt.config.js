@@ -428,6 +428,10 @@ export default {
         {
           urlPattern: 'https://d33wubrfki0l68.cloudfront.net/.*',
           handler: 'staleWhileRevalidate'
+        },
+        {
+          urlPattern: 'https://fonts.gstatic.com/.*',
+          handler: 'staleWhileRevalidate'
         }
       ]
     }
