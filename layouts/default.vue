@@ -27,11 +27,18 @@ export default {
       const isDark = Cookie.get('d')
       if (isDark && Boolean(isDark)) {
         this.isDark = true
+      } else {
+        this.isDark = false
       }
       if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
         const darkModeMediaQuery = window.matchMedia(
           '(prefers-color-scheme: dark)'
         )
+        if (darkModeMediaQuery.matches) {
+          this.isDark = true
+        } else {
+          this.isDark = false
+        }
         darkModeMediaQuery.addListener((e) => {
           const darkModeOn = e.matches
           this.isDark = darkModeOn
