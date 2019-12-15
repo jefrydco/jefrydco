@@ -439,8 +439,6 @@ export default {
   build: {
     postcss: {
       plugins: {
-        'postcss-mixins': {},
-        'postcss-simple-vars': {},
         'postcss-nested': {}
       }
     },
