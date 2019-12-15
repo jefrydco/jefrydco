@@ -1,5 +1,6 @@
 <script>
 import Page from './index'
+import { HOSTNAME } from '~/constant'
 
 export default {
   extends: Page,
@@ -8,7 +9,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
+          href: `${HOSTNAME}/`
         }
       ]
     }

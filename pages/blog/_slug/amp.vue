@@ -1,5 +1,6 @@
 <script>
 import Page from './index'
+import { HOSTNAME } from '~/constant'
 
 export default {
   extends: Page,
@@ -9,7 +10,10 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
+          href: `${HOSTNAME}${this.$route.path}`.replace(
+            /\/amp((\/.*$)|$)/gi,
+            ''
+          )
         }
       ],
       meta: [
@@ -23,13 +27,13 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`
+          content: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`
         },
         {
           hid: 'og:image',
           name: 'og:image',
           property: 'og:image',
-          content: `https://jefrydco.id${this.blog && this.blog.img}`
+          content: `${HOSTNAME}${this.blog && this.blog.img}`
         },
         {
           hid: 'og:image:width',
@@ -68,19 +72,18 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
-            mainEntityOfPage: `https://jefrydco.id/blog/${this.blog &&
-              this.blog.slug}`,
+            mainEntityOfPage: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
             headline: this.blog && this.blog.title,
             description: this.blog && this.blog.description,
             datePublished: this.blog && this.blog.postedDate,
             dateCreated: this.blog && this.blog.postedDate,
             dateModified: this.blog && this.blog.updatedDate,
             wordcount: this.blog && this.blog.readingTime.words,
-            url: `https://jefrydco.id/blog/${this.blog && this.blog.slug}`,
+            url: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
-              url: `https://jefrydco.id${this.blog && this.blog.img}`,
+              url: `${HOSTNAME}${this.blog && this.blog.img}`,
               height: '1920',
               width: '1080'
             },
@@ -90,7 +93,7 @@ export default {
               sameAs: 'https://www.facebook.com/jefrydco.id',
               logo: {
                 '@type': 'imageObject',
-                url: `https://jefrydco.id/icon.png`,
+                url: `${HOSTNAME}/icon.png`,
                 width: '2739',
                 height: '3102'
               }
@@ -111,7 +114,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': 'https://jefrydco.id/blog',
+                  '@id': `${HOSTNAME}/blog`,
                   name: 'Blog'
                 }
               },
@@ -119,8 +122,7 @@ export default {
                 '@type': 'ListItem',
                 position: 2,
                 item: {
-                  '@id': `https://jefrydco.id/blog/${this.blog &&
-                    this.blog.slug}`,
+                  '@id': `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
                   name: this.blog && this.blog.title
                 }
               }

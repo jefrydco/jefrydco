@@ -1,5 +1,6 @@
 <script>
 import Page from './index'
+import { HOSTNAME } from '~/constant'
 
 export default {
   extends: Page,
@@ -9,9 +10,9 @@ export default {
       .map((locale) => {
         let href = null
         if (locale.code === 'id') {
-          href = `https://jefrydco.id/blog.xml`
+          href = `${HOSTNAME}/blog.xml`
         } else {
-          href = `https://jefrydco.id/${locale.code}/blog.xml`
+          href = `${HOSTNAME}/${locale.code}/blog.xml`
         }
         return {
           rel: 'alternate',
@@ -22,7 +23,7 @@ export default {
       })
       .concat({
         rel: 'canonical',
-        href: `${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
+        href: `${HOSTNAME}${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
       })
     return {
       title: 'Blog',
@@ -31,7 +32,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: 'https://jefrydco.id/blog'
+          content: `${HOSTNAME}/blog`
         }
       ],
       link,
@@ -56,7 +57,7 @@ export default {
             license: 'https://opensource.org/licenses/MIT',
             image: {
               '@type': 'imageObject',
-              url: `https://jefrydco.id/icon.png`,
+              url: `${HOSTNAME}/icon.png`,
               width: '2739',
               height: '3102'
             },
@@ -66,24 +67,24 @@ export default {
               sameAs: 'https://www.facebook.com/jefrydco.id',
               logo: {
                 '@type': 'imageObject',
-                url: `https://jefrydco.id/icon.png`,
+                url: `${HOSTNAME}/icon.png`,
                 width: '2739',
                 height: '3102'
               }
             },
             blogPosts: this.blogs.map((blog) => ({
               '@type': 'blogPosting',
-              mainEntityOfPage: `https://jefrydco.id/blog/${blog.slug}`,
+              mainEntityOfPage: `${HOSTNAME}/blog/${blog.slug}`,
               headline: blog.title,
               description: blog.description,
               datePublished: blog.postedDate,
               dateCreated: blog.postedDate,
               dateModified: blog.updatedDate,
               // wordcount: blog.readingTime.words,
-              url: `https://jefrydco.id/blog/${blog.slug}`,
+              url: `${HOSTNAME}/blog/${blog.slug}`,
               image: {
                 '@type': 'imageObject',
-                url: `https://jefrydco.id${blog.img}`,
+                url: `${HOSTNAME}${blog.img}`,
                 height: '1920',
                 width: '614'
               },
@@ -93,7 +94,7 @@ export default {
                 sameAs: 'https://www.facebook.com/jefrydco.id',
                 logo: {
                   '@type': 'imageObject',
-                  url: `https://jefrydco.id/icon.png`,
+                  url: `${HOSTNAME}/icon.png`,
                   width: '2739',
                   height: '3102'
                 }
@@ -115,7 +116,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': 'https://jefrydco.id/blog',
+                  '@id': `${HOSTNAME}/blog`,
                   name: 'Blog'
                 }
               }

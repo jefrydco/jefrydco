@@ -9,9 +9,21 @@
 <script>
 import AppProfile from '~/components/AppProfile'
 
+import { HOSTNAME } from '~/constant'
+
 export default {
   components: {
     AppProfile
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'amphtml',
+          href: `${HOSTNAME}${this.$route.path}/amp`
+        }
+      ]
+    }
   }
 }
 </script>
