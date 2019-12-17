@@ -1,4 +1,5 @@
 export default [
+  'create-blog-nuxtjs-tailwind-css-markdown-netlify-part-1',
   'fix-cors-issue-firebase-google-cloud',
   'rebuild-blog-with-nuxtjs-tailwindcss-part-2',
   'rebuild-blog-with-nuxtjs-tailwindcss-part-1',

@@ -369,7 +369,7 @@ footer {
   }
 
   &__content {
-    @apply p-6 leading-tight;
+    @apply p-6;
   }
 
   &__meta {
