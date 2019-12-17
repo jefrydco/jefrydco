@@ -44,9 +44,6 @@ export default [
     }
   ],
 
-  // https://github.com/nuxt-community/html-minifier-module
-  ['@nuxtjs/html-minifier', { log: 'once', logHtml: true }],
-
   // https://github.com/nuxt-community/robots-module
   [
     '@nuxtjs/robots',
