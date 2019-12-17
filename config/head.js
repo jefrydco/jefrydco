@@ -24,7 +24,11 @@ export default {
       property: 'fb:appid',
       content: 267913173658573
     },
-    { property: 'fb:pages', content: 632770976865033 }
+    { property: 'fb:pages', content: 632770976865033 },
+    {
+      name: 'google-site-verification',
+      content: 'uDWa7gsQlLiIe_Nk0fG5AvaW8vyEyOFuAZNDdmaZB4M'
+    }
   ],
   link: [
     {
