@@ -142,6 +142,7 @@ At the end of the day, all of the tools I mentioned above is just a tool to help
 Anyway, thanks for reading, hope you enjoy! 🙌 
 
 ## References
-1. [Nuxt.js](https://nuxtjs.org)
-2. [Tailwind CSS](https://tailwindcss.com)
-3. [Netlify](https://netlify.com)
+1. [Markdown](https://www.markdownguide.org/)
+2. [Nuxt.js](https://nuxtjs.org)
+3. [Tailwind CSS](https://tailwindcss.com)
+4. [Netlify](https://netlify.com)
