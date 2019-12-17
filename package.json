@@ -65,7 +65,7 @@
     "markdown-it-link-attributes": "^3.0.0",
     "markdown-it-prism": "^2.0.3",
     "markdown-it-toc-done-right": "^4.1.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.4.1",
     "postcss-nested": "^4.2.1",
     "reading-time": "^1.2.0",
