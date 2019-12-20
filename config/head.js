@@ -21,7 +21,7 @@ export default {
     },
     { property: 'fb:admins', content: 100003000286186 },
     {
-      property: 'fb:appid',
+      property: 'fb:app_id',
       content: 267913173658573
     },
     { property: 'fb:pages', content: 632770976865033 },

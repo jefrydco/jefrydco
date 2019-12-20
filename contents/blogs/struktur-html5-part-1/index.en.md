@@ -124,7 +124,7 @@ Meta open graph tags are used to enrich our website page information when access
 
 ```html
     <meta property="fb:admins" content="Our Facebook ID as admin">
-    <meta property="fb:appid" content="Application ID that is connected to our website">
+    <meta property="fb:app_id" content="Application ID that is connected to our website">
     <meta property="fb:pages" content="ID Facebook Page">
 ```
 
@@ -183,7 +183,7 @@ So if all the codes above are combined it will be as follows,
     <meta property="og:image:height" content="Image Width">
     <meta property="og:image:alt" content="Image Title">
     <meta property="fb:admins" content="Our Facebook ID as admin">
-    <meta property="fb:appid" content="Application ID that is connected to our website">
+    <meta property="fb:app_id" content="Application ID that is connected to our website">
     <meta property="fb:pages" content="ID Facebook Page">
     <meta name="twitter:card" content="summarylargeimage">
     <meta name="twitter:url" content="Page URL">
