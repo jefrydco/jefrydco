@@ -23,7 +23,7 @@ export default {
       })
       .concat({
         rel: 'canonical',
-        href: `${HOSTNAME}${this.$route.path}`.replace(/\/amp((\/.*$)|$)/gi, '')
+        href: `${HOSTNAME}${this.$route.path}`.replace(/amp((\/.*$)|$)/gi, '')
       })
     return {
       title: 'Blog',

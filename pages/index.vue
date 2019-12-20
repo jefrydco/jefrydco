@@ -20,7 +20,7 @@ export default {
       link: [
         {
           rel: 'amphtml',
-          href: `${HOSTNAME}${this.$route.path}/amp`
+          href: `${HOSTNAME}${this.$route.path}/amp/`
         }
       ]
     }

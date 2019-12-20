@@ -95,7 +95,7 @@ export default {
       })
       .concat({
         rel: 'amphtml',
-        href: `${HOSTNAME}${this.$route.path}/amp`
+        href: `${HOSTNAME}${this.$route.path}/amp/`
       })
     return {
       title: 'Blog',
@@ -104,7 +104,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}/blog`
+          content: `${HOSTNAME}/blog/`
         }
       ],
       link,

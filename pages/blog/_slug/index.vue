@@ -171,43 +171,37 @@ export default {
       link: [
         {
           rel: 'amphtml',
-          href: `${HOSTNAME}${this.$route.path}/amp`
+          href: `${HOSTNAME}${this.$route.path}/amp/`
         }
       ],
       meta: [
         {
           hid: 'og:title',
-          name: 'og:title',
           property: 'og:title',
           content: this.blog && this.blog.title
         },
         {
           hid: 'og:url',
-          name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`
+          content: `${HOSTNAME}/blog/${this.blog && this.blog.slug}/`
         },
         {
           hid: 'og:image',
-          name: 'og:image',
           property: 'og:image',
           content: `${HOSTNAME}${this.blog && this.blog.img}`
         },
         {
           hid: 'og:image:width',
-          name: 'og:image:width',
           property: 'og:image:width',
           content: '1920'
         },
         {
           hid: 'og:image:height',
-          name: 'og:image:height',
           property: 'og:image:height',
           content: '1280'
         },
         {
           hid: 'og:image:alt',
-          name: 'og:image:alt',
           property: 'og:image:alt',
           content: this.blog && this.blog.title
         },
@@ -218,7 +212,6 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
           property: 'og:description',
           content: this.blog && this.blog.description
         }
