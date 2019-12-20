@@ -188,7 +188,8 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${HOSTNAME}${this.blog && this.blog.img}`
+          content: `${HOSTNAME}${this.blog &&
+            require(`~/assets/images${this.blog.img}`)}`
         },
         {
           hid: 'og:image:width',
@@ -234,7 +235,8 @@ export default {
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
-              url: `${HOSTNAME}${this.blog && this.blog.img}`,
+              url: `${HOSTNAME}${this.blog &&
+                require(`~/assets/images${this.blog.img}`)}`,
               height: '1920',
               width: '1080'
             },
