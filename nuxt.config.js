@@ -65,13 +65,6 @@ export default {
     cssPath: '~/assets/styles/tailwind.pcss'
   },
 
-  /**
-   * Add trailing slash to each route
-   */
-  router: {
-    trailingSlash: true
-  },
-
   /*
    ** Nuxt.js modules
    */
