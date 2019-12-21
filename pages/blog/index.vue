@@ -95,7 +95,7 @@ export default {
       })
       .concat({
         rel: 'amphtml',
-        href: `${HOSTNAME}${this.$route.path}/amp/`
+        href: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
       })
     return {
       title: 'Blog',
@@ -104,7 +104,7 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}/blog/`
+          content: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
         }
       ],
       link,
@@ -146,17 +146,23 @@ export default {
             },
             blogPosts: this.blogs.map((blog) => ({
               '@type': 'blogPosting',
-              mainEntityOfPage: `${HOSTNAME}/blog/${blog.slug}`,
+              mainEntityOfPage: `${HOSTNAME}${this.localePath({
+                name: 'blog-slug',
+                params: { slug: blog.slug }
+              })}`,
               headline: blog.title,
               description: blog.description,
               datePublished: blog.postedDate,
               dateCreated: blog.postedDate,
               dateModified: blog.updatedDate,
               wordcount: blog.readingTime.words,
-              url: `${HOSTNAME}/blog/${blog.slug}`,
+              url: `${HOSTNAME}${this.localePath({
+                name: 'blog-slug',
+                params: { slug: blog.slug }
+              })}`,
               image: {
                 '@type': 'imageObject',
-                url: `${HOSTNAME}${blog.img}`,
+                url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
                 height: '1920',
                 width: '614'
               },
@@ -188,7 +194,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': `${HOSTNAME}/blog`,
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog' })}`,
                   name: 'Blog'
                 }
               }

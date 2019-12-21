@@ -22,18 +22,18 @@ export default {
                 `./contents/blogs/${blogPath}/index.${locale.code}.md`
               )
             }
-            const { attributes } = await fm(blogs.toString())
+            const { attributes } = fm(blogs.toString())
 
             if (locale.code === 'id') {
               return {
-                url: `/blog/${blogPath}`,
+                url: `/blog/${blogPath}/`,
                 changefreq: 'daily',
                 priority: 1,
                 lastmodISO: new Date(attributes.updatedDate).toISOString()
               }
             } else {
               return {
-                url: `${locale.code}/blog/${blogPath}`,
+                url: `${locale.code}/blog/${blogPath}/`,
                 changefreq: 'daily',
                 priority: 1,
                 lastmodISO: new Date(attributes.updatedDate).toISOString()

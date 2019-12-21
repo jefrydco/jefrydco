@@ -22,7 +22,11 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}/blog/${this.blog && this.blog.slug}/`
+          content: `${HOSTNAME}${this.blog &&
+            this.localePath({
+              name: 'blog-slug-amp',
+              params: { slug: this.blog.slug }
+            })}`
         },
         {
           hid: 'og:image',
@@ -63,14 +67,22 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
-            mainEntityOfPage: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
+            mainEntityOfPage: `${HOSTNAME}${this.blog &&
+              this.localePath({
+                name: 'blog-slug-amp',
+                params: { slug: this.blog.slug }
+              })}`,
             headline: this.blog && this.blog.title,
             description: this.blog && this.blog.description,
             datePublished: this.blog && this.blog.postedDate,
             dateCreated: this.blog && this.blog.postedDate,
             dateModified: this.blog && this.blog.updatedDate,
             wordcount: this.blog && this.blog.readingTime.words,
-            url: `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
+            url: `${HOSTNAME}${this.blog &&
+              this.localePath({
+                name: 'blog-slug-amp',
+                params: { slug: this.blog.slug }
+              })}`,
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
@@ -114,7 +126,11 @@ export default {
                 '@type': 'ListItem',
                 position: 2,
                 item: {
-                  '@id': `${HOSTNAME}/blog/${this.blog && this.blog.slug}`,
+                  '@id': `${HOSTNAME}${this.blog &&
+                    this.localePath({
+                      name: 'blog-slug-amp',
+                      params: { slug: this.blog.slug }
+                    })}`,
                   name: this.blog && this.blog.title
                 }
               }

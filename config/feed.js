@@ -18,8 +18,8 @@ export default () => {
       async create(feed) {
         feed.options = {
           title: 'Blog - Jefrydco',
-          id: `${HOSTNAME}${path}`,
-          link: `${HOSTNAME}${path}`,
+          id: `${HOSTNAME}${path}/`,
+          link: `${HOSTNAME}${path}/`,
           language: locale.code,
           description: 'A personal site of Jefry Dewangga.'
         }
@@ -47,8 +47,8 @@ export default () => {
             if (locale.code === 'id') {
               return {
                 title: attributes.title,
-                id: `${HOSTNAME}/blog/${attributes.slug}`,
-                link: `${HOSTNAME}/blog/${attributes.slug}`,
+                id: `${HOSTNAME}/blog/${attributes.slug}/`,
+                link: `${HOSTNAME}/blog/${attributes.slug}/`,
                 image: `${HOSTNAME}${attributes.img}`,
                 date: attributes.date,
                 description: attributes.description,
@@ -57,8 +57,8 @@ export default () => {
             } else {
               return {
                 title: attributes.title,
-                id: `${HOSTNAME}/blog/${attributes.slug}`,
-                link: `${HOSTNAME}/${locale.code}/blog/${attributes.slug}`,
+                id: `${HOSTNAME}/blog/${attributes.slug}/`,
+                link: `${HOSTNAME}/${locale.code}/blog/${attributes.slug}/`,
                 image: `${HOSTNAME}/${attributes.img}`,
                 date: attributes.date,
                 description: attributes.description,
