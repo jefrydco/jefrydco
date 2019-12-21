@@ -8014,10 +8014,10 @@ nuxt-purgecss@^0.2.1:
     purgecss "^1.1.0"
     purgecss-webpack-plugin "^1.4.0"
 
-nuxt-responsive-loader@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/nuxt-responsive-loader/-/nuxt-responsive-loader-1.0.4.tgz#cc6b30aee3cfecb9f595d56c1ade996a01a057ef"
-  integrity sha512-a34n8RZycC5ZpxXurGvqYnEN7tMFOu4d4eDi1zsQDVGpotyRAvhfsQOhp6IJzui9E8LHMFNp76qNCwpuPpE0cQ==
+nuxt-responsive-loader@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/nuxt-responsive-loader/-/nuxt-responsive-loader-1.0.6.tgz#d7021b982cc135e3827f4e70701341be8754870c"
+  integrity sha512-0gckNhyzzh02OCaUIIpd0y0tu6EERoClIRlxrjlEjVds8/0LsIiRnWmENNU/H54NJ03d7F87bvroESv++BHwUA==
   dependencies:
     jimp "^0.6.0"
     responsive-loader "^1.2.0"
