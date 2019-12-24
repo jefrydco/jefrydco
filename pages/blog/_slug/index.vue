@@ -155,7 +155,7 @@ export default {
           readingTime: readingTime(blog.html),
           component: blog.vue.component,
           fullPath,
-          discussLink: `https://twitter.com/search?q=${encodeURIComponent(
+          discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
             fullPath
           )}`,
           editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
