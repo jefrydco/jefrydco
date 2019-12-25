@@ -1,7 +1,7 @@
 ---
-title: Bagaimana Tailwind CSS Membantu Meringankan Beban Pekerjaan Kita?
+title: Bagaimana Tailwind CSS Dapat Membantu Meringankan Beban Pekerjaan Kita?
 description: Tailwind CSS sangat membantu meringankan beban pekerjaan kita
-summary: Hampir semua permasalahan mengenai bagaimana caranya agar kita dapat mempercepat pengembangan suatu fitur dapat diselesaikan menggunakan Tailwind CSS.
+summary: Hampir semua permasalahan mengenai cara mempercepat pengembangan suatu fitur dapat diselesaikan menggunakan Tailwind CSS.
 img: /cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-25T05:05:00.000Z

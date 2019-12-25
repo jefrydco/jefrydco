@@ -1,7 +1,7 @@
 ---
 title: How Tailwind CSS Helps Reduce Our Workload?
 description: Tailwind CSS really helps reduce our workload
-summary: Almost of our problem related to how we can speed up a new feature development can be solved by using Tailwind CSS.
+summary: Almost of our problem regarding how to speed up a new feature development can be solved by using Tailwind CSS.
 img: /cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-25T05:05:00.000Z
