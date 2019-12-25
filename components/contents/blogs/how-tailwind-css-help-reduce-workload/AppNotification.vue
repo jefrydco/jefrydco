@@ -27,11 +27,11 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="default-a" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#2397B3" offset="0%"></stop>
               <stop stop-color="#13577E" offset="100%"></stop>
             </linearGradient>
-            <linearGradient id="b" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="default-b" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#73DFF2" offset="0%"></stop>
               <stop stop-color="#47B1EB" offset="100%"></stop>
             </linearGradient>
@@ -74,11 +74,11 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="success-a" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#2397B3" offset="0%"></stop>
               <stop stop-color="#13577E" offset="100%"></stop>
             </linearGradient>
-            <linearGradient id="b" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="success-b" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#73DFF2" offset="0%"></stop>
               <stop stop-color="#47B1EB" offset="100%"></stop>
             </linearGradient>
@@ -121,11 +121,11 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="error-a" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#2397B3" offset="0%"></stop>
               <stop stop-color="#13577E" offset="100%"></stop>
             </linearGradient>
-            <linearGradient id="b" x1="50%" y1="0%" x2="50%" y2="100%">
+            <linearGradient id="error-b" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop stop-color="#73DFF2" offset="0%"></stop>
               <stop stop-color="#47B1EB" offset="100%"></stop>
             </linearGradient>
