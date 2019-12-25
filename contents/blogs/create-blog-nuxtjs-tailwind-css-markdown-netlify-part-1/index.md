@@ -47,7 +47,7 @@ Paragraf yang memiliki teks berformat _miring_ dan **tebal**.
 
 Bahkan kita dapat membagikannya dengan mudah melalui media apapun tanpa harus takut kehilangan format tulisan yang dihasilkan. Alasan lainnya adalah kita dapat terlihat lebih keren. 😎 Menulis blog menggunakan Markdown akan menjadikan teman-teman nampak seperti pada gambar berikut,
 
-<app-video src="/content/2019/12/writing-markdown-code-by-giphy.webm" />
+<app-video src="/videos/content/2019/12/writing-markdown-code-by-giphy.webm" />
 
 Markdown memiliki ekstensi `.md`. Berkas Markdown tidak dapat langsung dibuka melalui peramban (_browser_). Kalaupun kita memaksa membukanya, yang kita dapat hanyalah serangkaian teks yang tidak beraturan dan tidak berformat. Mungkin dapat kita sebut WYWINWYG (_What you write is not what you get_). 😁
 
@@ -113,7 +113,7 @@ Banyak manfaat yang dapat kita rasakan ketika menggunakan Bootstrap, namun disit
 
 Daripada banyak mengkostum, mengapa kita tidak menggunakan sesuatu yang memang dari awal dapat dengan mudah dikomposisikan. Disitulah Tailwind CSS berguna. Tailwind CSS tidak memiliki preset komponen apapun, melainkan ia hanya terdiri dari banyak _class_ css yang dapat kita gunakan untuk mengkomposisikan tampilan sesuai dengan kehendak kita.
 
-<app-video src="/content/2019/12/tailwindcss-by-adam-wathan.webm" />
+<app-video src="/videos/content/2019/12/tailwindcss-by-adam-wathan.webm" />
 
 Dari animasi di atas kita dapat menarik suatu kesimpulan yakni satu-satunya hal yang membatasi kita untuk menggunakan Tailwind CSS hanyalah kreatifitas. 😎
 

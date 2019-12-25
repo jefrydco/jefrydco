@@ -47,7 +47,7 @@ This paragraph has _italic_ and **bold** formatted text.
 
 Even we can share it easily using any media without worry about losing its text formatting. Another reason is we can look cool. 😎 Writing blog using Markdown will make You looks like this image,
 
-<app-video src="/content/2019/12/writing-markdown-code-by-giphy.webm" />
+<app-video src="/videos/content/2019/12/writing-markdown-code-by-giphy.webm" />
 
 Markdown has `.md` extension. We can't open Markdown files directly using the browser. Even though if we force to open it, we will get a mumbo jumbo unformatted text. Perhaps we can call it WYWINGWYG (What you write is not what you get). 😁
 
@@ -113,7 +113,7 @@ We can get many benefits by using Bootstrap, but that's the cons lies. In my opi
 
 Instead of doing many customizations, why don't we use a thing that customizable in the first place? That's where Tailwind CSS comes in. Tailwind CSS doesn't have any component preset, instead, it only consists of CSS class which can be used to compose our UI as we want.
 
-<app-video src="/content/2019/12/tailwindcss-by-adam-wathan.webm" />
+<app-video src="/videos/content/2019/12/tailwindcss-by-adam-wathan.webm" />
 
 From the animation above we can conclude that the only limitation to using Tailwind CSS is our creativity. 😎
 
