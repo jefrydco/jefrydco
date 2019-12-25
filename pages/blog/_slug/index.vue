@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import readingTime from 'reading-time'
 
 import AppProfile from '~/components/AppProfile'
@@ -112,6 +113,8 @@ import AppToTop from '~/components/AppToTop'
 import { formatDate } from '~/mixins'
 
 import { HOSTNAME } from '~/constant'
+
+import { isExists } from '~/utils'
 
 export default {
   components: {
@@ -141,8 +144,23 @@ export default {
         editPath = `contents/blogs/${slug}/index.${locale}.md`
         blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
       }
-      if (blog !== null && typeof blog !== 'undefined') {
+      if (isExists(blog)) {
         const fullPath = `${HOSTNAME}/blog/${blog.attributes.slug}`
+
+        if (
+          isExists(blog.attributes.extraComponents) &&
+          Array.isArray(blog.attributes.extraComponents) &&
+          blog.attributes.extraComponents.length > 0
+        ) {
+          blog.attributes.extraComponents.forEach((component) => {
+            Vue.component(
+              component,
+              require(`~/components/contents/blogs/${blog.attributes.slug}/${component}`)
+                .default
+            )
+          })
+        }
+
         this.availableLocales = availableLocales
         this.blog = {
           img: blog.attributes.img,
