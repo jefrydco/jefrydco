@@ -10,7 +10,7 @@
           :key="blog.id"
           :img="blog.img"
           :title="blog.title"
-          :description="blog.description"
+          :summary="blog.summary"
           :posted-date="blog.postedDate"
           :updated-date="blog.updatedDate"
           :reading-time="blog.readingTime"

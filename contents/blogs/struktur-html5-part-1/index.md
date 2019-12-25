@@ -1,7 +1,7 @@
 ---
 title: Struktur HTML5 yang Baik - Bagian 1
 description: Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.
-summary: Halo teman-teman, kali ini saya mulai bahas satu per satu seri optimasi website, dimulai dari struktur HTML5 yang baik. Mengapa sih kita perlu memperhatikan struktur HTML5? Ada apakah dengan struktur HTML5 yang biasa kita gunakan? Apa dampaknya menggunakan struktur HTML5 yang baik itu bagi website kita?
+summary: Kali ini saya mulai bahas satu per satu seri optimasi website, dimulai dari struktur HTML5 yang baik. Mengapa sih kita perlu memperhatikan struktur HTML5? Ada apakah dengan struktur HTML5 yang biasa kita gunakan? Apa dampaknya menggunakan struktur HTML5 yang baik itu bagi website kita?
 img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z

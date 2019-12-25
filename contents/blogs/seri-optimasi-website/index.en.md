@@ -1,7 +1,7 @@
 ---
 title: Website Optimization Series
 description: Website optimization series discusses in detail how to improve user experience.
-summary: Hello my friends, this time I want to make a website optimization series. Through this series, I will discuss in detail how our website have optimally optimized.
+summary: This time I want to make a website optimization series. Through this series, I will discuss in detail how our website have optimally optimized.
 img: /cover/2017/08/seri-optimasi-website-image-by-spacex.jpg
 imgCreator: spacex
 postedDate: 2017-08-25T04:14:03.000Z

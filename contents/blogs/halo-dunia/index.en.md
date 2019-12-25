@@ -1,7 +1,7 @@
 ---
 title: Hello World
 description: Hopefully with this blog, I will be more consistent in sharing my knowledge and friends more comfortable lingering on this blog.
-summary: Hello my friends, this is my first post on this blog. Actually I have made a lot of blogs and in the end they don't take care, the reason is classic, because the daily busyness is getting more crowded so I am lazy to write.
+summary: This is my first post on this blog. Actually I have made a lot of blogs and in the end they don't take care, the reason is classic, because the daily busyness is getting more crowded so I am lazy to write.
 img: /cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
 imgCreator: marceloquinan
 postedDate: 2017-08-23T11:00:00.000Z

@@ -30,8 +30,8 @@
             </span>
           </div>
         </header>
-        <p class="blog-item__description">
-          {{ description }}
+        <p class="blog-item__summary">
+          {{ summary }}
         </p>
         <nuxt-link
           :aria-label="title"
@@ -59,7 +59,7 @@ export default {
       type: String,
       default: ''
     },
-    description: {
+    summary: {
       type: String,
       default: ''
     },
@@ -111,7 +111,7 @@ export default {
     @apply leading-normal mb-4 text-base;
   }
 
-  &__description {
+  &__summary {
     @apply leading-normal mb-0;
   }
 
