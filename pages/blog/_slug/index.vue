@@ -386,8 +386,12 @@ footer {
   @apply mb-12 mx-4 rounded overflow-hidden shadow relative -mt-64;
   background-color: var(--card-bg);
 
+  .image-placeholder {
+    @apply mb-8;
+  }
+
   img {
-    @apply w-full h-auto mb-8;
+    @apply w-full h-auto;
   }
 
   &__translations {

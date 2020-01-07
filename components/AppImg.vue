@@ -1,5 +1,5 @@
 <template>
-  <div v-lazy-container="{ selector: 'img' }" class="image-placeholder">
+  <figure v-lazy-container="{ selector: 'img' }" class="image-placeholder">
     <img
       :data-src="imageRequired.src"
       :data-srcset="imageRequired.srcSet"
@@ -10,10 +10,19 @@
       :alt="alt"
       :src="imageRequired.placeholder"
     />
-  </div>
+    <figcaption
+      v-if="caption && source && sourceLink"
+      class="text-sm text-center mt-4"
+    >
+      {{ $t(captionKey) }}. {{ $t('imageFrom') }}:
+      <a :href="sourceLink" rel="noopener noreferrer">{{ source }}</a>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
+import { isExists } from '~/utils'
+
 export default {
   props: {
     src: {
@@ -35,11 +44,47 @@ export default {
     classes: {
       type: String,
       default: ''
+    },
+    caption: {
+      type: Object,
+      default() {
+        return {
+          en: {},
+          id: {}
+        }
+      }
+    },
+    source: {
+      type: String,
+      default: ''
+    },
+    sourceLink: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     imageRequired() {
       return require(`~/assets/images${this.src}`)
+    },
+    captionKey() {
+      if (isExists(this.caption)) {
+        return Object.keys(this.caption.id)[0]
+      }
+      return null
+    }
+  },
+  created() {
+    this.initLocaleI18n()
+  },
+  methods: {
+    initLocaleI18n() {
+      if (isExists(this.caption)) {
+        const keys = Object.keys(this.caption)
+        keys.forEach((key) => {
+          this.$i18n.mergeLocaleMessage(key, this.caption[key])
+        })
+      }
     }
   }
 }

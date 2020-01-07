@@ -4,5 +4,6 @@ export default {
   editGithub: 'Edit on Github',
   minRead: 'min read',
   readOtherLanguages: 'Read in other languages',
-  coverImageFrom: 'Cover image from'
+  coverImageFrom: 'Cover image from',
+  imageFrom: 'Image from'
 }

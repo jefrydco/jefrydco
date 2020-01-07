@@ -4,5 +4,6 @@ export default {
   editGithub: 'Sunting di Github',
   minRead: 'mnt dibaca',
   readOtherLanguages: 'Baca dalam bahasa lain',
-  coverImageFrom: 'Gambar sampul dari'
+  coverImageFrom: 'Gambar sampul dari',
+  imageFrom: 'Gambar dari'
 }
