@@ -1,4 +1,5 @@
 export default [
+  'oop-object-oriented-programming-javascript-explanation',
   'how-tailwind-css-help-reduce-workload',
   'create-blog-nuxtjs-tailwind-css-markdown-netlify-part-1',
   'fix-cors-issue-firebase-google-cloud',
