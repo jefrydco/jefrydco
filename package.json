@@ -33,9 +33,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "cross-env NODE_ENV=production nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "cross-env NODE_ENV=production nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
@@ -80,6 +80,7 @@
     "@vue/test-utils": "^1.0.0-beta.30",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
+    "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-nuxt": ">=0.5.0",
