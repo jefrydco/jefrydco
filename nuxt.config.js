@@ -62,7 +62,8 @@ export default {
    * Tailwind CSS configuration
    */
   tailwindcss: {
-    cssPath: '~/assets/styles/tailwind.pcss'
+    cssPath: '~/assets/styles/tailwind.pcss',
+    purgeCSSInDev: true
   },
 
   /*
