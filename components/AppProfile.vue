@@ -51,6 +51,11 @@ export default {
       socials: [
         { code: 'github', name: 'Github', url: 'https://github.com/jefrydco' },
         {
+          code: 'linkedin',
+          name: 'Linkedin',
+          url: 'https://www.linkedin.com/in/jefrydco'
+        },
+        {
           code: 'twitter',
           name: 'Twitter',
           url: 'https://twitter.com/jefrydco'
