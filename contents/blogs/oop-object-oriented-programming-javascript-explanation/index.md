@@ -72,18 +72,6 @@ kode tersebut akan menghasilkan,
 
 <app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/window-javascript-by-jefrydco.png" alt="window JavaScript"/>
 
-Oh ya bagi teman-teman yang baru pertama kali belajar JavaScript dan belum tahu _gimana_ caranya membuka konsol peramban, caranya sebagai berikut:
-
-1. Klik menu kontrol dan kostumisasi Google Chrome atau _customize and control Google Chrome_ jika teman-teman menggunakan peramban berbahasa Inggris. Posisi menunya di pojok kanan atas dan memiliki ikon titik tiga.
-2. Pilih menu lebih banyak alat atau _more tools_.
-3. Klik menu alat pengembang atau _developer tools_.
-
-atau bisa juga menggunakan cara berikut:
-
-1. Klik kanan pada sembarang tempat.
-2. Pilih inspeksi atau _inspect_.
-3. Klik tab konsol atau _console_.
-
 Objek global tersebut berisi beberapa hal berikut:
 
 1. Semua fungsi bawaan JavaScript yang dapat kita gunakan secara langsung, seperti `parseInt` dan `parseFloat`
@@ -103,7 +91,7 @@ nama
 // 'jefrydco'
 ```
 
-katakanlah kita mendeklarasikan sebuah variabel bernama `variabel` menggunakan kata kunci `var`. Kita dapat mengakses variabel tersebut menggunakan `window.variabel` ataupun hanya `variabel` saja. Hal tersebut tidak berlaku jika kita mendeklarasikan variabel menggunakan `let` dan `const`. Lebih lanjut mengenai `let` dan `const` akan dibahas dilain kesempatan. 😁 
+katakanlah kita mendeklarasikan sebuah variabel bernama `nama` menggunakan kata kunci `var`. Kita dapat mengakses variabel tersebut menggunakan `window.nama` ataupun hanya `nama` saja. Hal tersebut tidak berlaku jika kita mendeklarasikan variabel menggunakan `let` dan `const`. Lebih lanjut mengenai `let` dan `const` akan dibahas dilain kesempatan. 😁 
 
 Begitu pula jika kita mendeklarasikan sebuah fungsi, secara otomatis fungsi tersebut akan dilekatkan pada objek global,
 
@@ -166,9 +154,9 @@ objek.fungsi()
 
 akan menghasilkan
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-object-function-javascript-by-jefrydco.png" alt="this Object Function JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-object-function-javascript-by-jefrydco.png" alt="this Object Function JavaScript"/>
 
-Kita juga dapat mengecek apakah nilai `this` yang terdapat di dalam fungsi `fungsi` memang mengarah ke objek itu sendiri atau tidak menggunakan kode berikut,
+Kita juga dapat mengecek apakah nilai `this` yang terdapat di dalam fungsi `fungsi` memang mengarah ke objek itu sendiri atau tidak menggunakan kode berikut:
 
 ```javascript
 objek.fungsi() === objek
@@ -179,7 +167,7 @@ kode tersebut akan menghasilkan nilai `true`.
 
 ### _this_ Pada Konteks Fungsi
 
-Yang ketiga adalah `this` pada konteks fungsi. Sesuai dengan konsep <a href="#objek-global">objek global</a> bahwa fungsi yang kita deklarasikan secara otomatis dilekatkan pada objek global `window` asalkan tidak dideklarasikan menggunakan kata kunci `let` dan `const`.
+Yang terakhir adalah `this` pada konteks fungsi. Sesuai dengan konsep <a href="#objek-global">objek global</a> bahwa fungsi yang kita deklarasikan secara otomatis dilekatkan pada objek global `window` asalkan tidak dideklarasikan menggunakan kata kunci `let` dan `const`.
 
 Dan pada konsep <a href="#this-pada-konteks-objek">_this_ pada konteks objek</a> juga disebutkan jika terdapat fungsi di dalam suatu objek, nilai `this` di dalam fungsi tersebut akan mengarah ke objek itu sendiri.
 
@@ -197,7 +185,7 @@ fungsi()
 
 akan menghasilkan,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"/>
 
 Kita juga dapat mengecek apakah nilai `this` pada fungsi tersebut memang mengarah ke global objek `window` atau tidak menggunakan kode berikut,
 
@@ -334,7 +322,7 @@ Oleh karena itu hal yang perlu dibedakan dari ketiga kucing tersebut adalah prop
 
 Sedangkan _method_ atau cara mereka `makan` tersebut tidak perlu dibedakan karena mereka menggunakan _method_ `makan` yang sama.
 
-Kita juga dapat mengecek apakah _method_ tersebut berbeda satu sama lain ataukah sama menggunakan kode berikut,
+Kita juga dapat mengecek apakah _method_ tersebut berbeda satu sama lain ataukah sama menggunakan kode berikut:
 
 ```javascript
 var kucingA = new Kucing()
@@ -508,7 +496,7 @@ Selain 1 kunci bernama `constructor`, properti `prototype` juga memiliki kunci l
 
 Kunci tersebut memiliki nilai berupa objek lain. Objek lain tersebut adalah properti `prototype` dari kelas `Object` yang dimiliki JavaScript.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/prototipe-javascript-by-jefrydco.png" alt="prototype JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-javascript-by-jefrydco.png" alt="prototype JavaScript"/>
 
 Kita juga bisa mengecek apakah nilai `__proto__` ini merupakan properti `prototype` dari kelas `Object` atau tidak menggunakan kode berikut:
 
@@ -519,7 +507,7 @@ Kucing.prototype.__proto__ === Object.prototype
 
 Sehingga kita bisa mengambil kesimpulan bahwa **setiap fungsi yang kita deklarasikan secara otomatis mewarisi sifat dari kelas `Object`**. Pewarisan sifat antara objek yang kita buat dengan kelas `Object` terhubung melalui objek `__proto__` yang terdapat pada properti `prototype`.
 
-Atau jika digambarkan dalam bentuk diagram sederhana hubungan keduanya akan seperti berikut, `Kucing -> Object`. Objek `Kucing` mewarisi sifat dari kelas `Object`.
+Atau jika digambarkan dalam bentuk diagram sederhana hubungan keduanya akan seperti berikut, `Kucing -> Object`. Kelas `Kucing` mewarisi sifat dari kelas `Object`.
 
 Kita dapat menggunakan properti `prototype` untuk mengatasi permasalahan pembuatan <a href="#method-kelas">_method_ di dalam kelas</a> pada bagian sebelumnya. Hal ini bertujuan agar setiap kali kita membuat objek sebenarnya dari sebuah kelas, _method_ yang kita deklarasikan tidak ikut dibuat ulang juga.
 
@@ -563,7 +551,7 @@ kucing
 
 Tetapi jika kita melihatnya lebih detail, ternyata objek `kucing` tersebut memiliki objek lain bernama `__proto__`. Dan di dalam proto tersebut terdapat 3 objek lain, yang pertama adalah _method_ `makan`, yang kedua adalah properti `constructor` dan yang ketiga adalah objek `__proto__` yang mengarah ke kelas `Object`.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"/>
 
 Walaupun _method_ `makan` tersebut terletak di dalam objek `__proto__`, kita dapat mengaksesnya secara langsung dengan cara `kucing.makan()`.
 
@@ -581,7 +569,7 @@ Sehingga kita dapat menggambarkan hubungan pengecekan sebuah _method_ tersebut k
 
 Properti `__proto__` pertama mengarah ke kelas `Kucing` dan properti `__proto__` kedua mengarah ke kelas `Objek`.
 
-Properti `__proto__` yang dimiliki oleh objek `kucing` sebenarnya mengarah ke properti `prototype` yang dimiliki oleh kelas `Kucing`. Kita dapat mengeceknya menggunakan kode berikut:
+Omong-omong property `__proto__` yang dimiliki oleh objek `kucing` sebenarnya mengarah ke properti `prototype` yang dimiliki oleh kelas `Kucing`. Kita dapat mengeceknya menggunakan kode berikut:
 
 ```javascript
 kucing.__proto__ === Kucing.prototype
@@ -594,7 +582,7 @@ Hubungan objek `__proto__` dengan objek `__proto__` yang lain dan properti `prot
 
 Pada bagian sebelumnya sedikit banyak telah digambarkan bagaimana proses pewarisan sifat pada JavaScript. Pewarisan pada JavaScript menggunakan objek `__proto__` dan properti `prototype`. Pada bagian ini kita akan membahas lebih lanjut konsep tersebut.
 
-Tetapi pembahasan konsep pewarisan sifatnya akan dibagi menjadi 2 bagian, pewarisan sifat untuk objek dan pewarisan untuk kelas.
+Pewarisan pada JavaScript akan dibagi menjadi 2 bagian, pewarisan sifat untuk objek dan pewarisan untuk kelas.
 
 ### Pewarisan Sifat Pada Objek
 
@@ -666,13 +654,13 @@ burung.makan()
 // Binatang makan...
 ```
 
-Properti `kenyang` dideklarasikan pada objek `binatang`. Ketika kita mengeceknya pada objek `kucing` dan `burung`, keduanya tidak memiliki properti tersebut. Properti tersebut terletak di dalam objek `__proto__`.
+Ketika kita mengeceknya pada objek `kucing` dan `burung`, keduanya tidak memiliki properti `kenyang`. Properti tersebut terletak di dalam objek `__proto__`.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"/>
 
 Namun ketika kita memanggil _method_ `makan`. Kedua objek tersebut akan secara otomatis memiliki properti `kenyang`. Seperti yang telah dibahas pada bagian <a href="#this-pada-konteks-objek">_this_ pada konteks objek</a>, _this_ akan mengarah ke objek itu sendiri.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"/>
 
 Sesuai dengan konsep rantai prototipe, baik burung dan kucing memiliki kemampuan makan yang mereka dapatkan melalui properti `__proto__` yang mengarah ke objek `binatang`. JavaScript akan mencari secara berurutan apakah objek `kucing` dan `burung` memiliki _method_ `makan` atau tidak.
 
@@ -704,7 +692,7 @@ Burung.prototype.terbang = function() {
 }
 ```
 
-Tetapi menurut pendapat saya mendeklarasikan _method_ menggunakan properti `prototype` terlihat sedikit kurang teratur, mungkin karena _method_ pada properti `prototype` tersebut dideklarasikan setelah fungsi dideklarasikan. Sehingga _method_ tersebut nampak seperti di luar cakupan fungsi.
+Tetapi menurut pendapat saya mendeklarasikan _method_ menggunakan properti `prototype` terlihat sedikit kurang teratur, mungkin karena _method_ pada properti `prototype` tersebut dideklarasikan setelah fungsi dideklarasikan. Sehingga _method_ tersebut nampak seperti di luar cakupan fungsi. Oleh karena itu mari kita ubah kode di atas menjadi sedikit lebih teratur.
 
 Sebelum kita mengubah kode di atas menjadi lebih teratur, ada baiknya kita memahami dulu apa itu ekspresi fungsi yang segera dipanggil/EFSD (_immediately invoked function expression_/IIFE).
 
@@ -773,13 +761,13 @@ Secara sekilas kode di atas memang terlihat lebih rumit. Tetapi kalau kita telah
 
 Teman-teman dapat melihat deklarasi kelas beserta _method_ yang dimilikinya pada bagian yang di cetak terang.
 
-Ohya untuk memudahkan kita memahami pewarisan sifat, kita bisa menganggap kelas yang mewarisi sifat sebagai kelas anak (_child class_) dan kelas yang diwarisi sebagai kelas orang tua (_parent class_).
+Ohya untuk memudahkan kita memahami pewarisan sifat, kita bisa menganggap kelas yang mewarisi sifat sebagai kelas anak (_child class_) dan kelas yang diwarisi sebagai kelas induk (_parent class_).
 
 Suatu kelas anak (_child class_) JavaScript dikatakan mewarisi sifat jika:
 
-1. Memiliki **properti `prototype` yang mengarah ke kelas orang tua (_parent class_)**.
+1. Memiliki **properti `prototype` yang mengarah ke kelas induk (_parent class_)**.
 2. Properti `prototype` yang dimilikinya memiliki **properti `constructor` yang mengarah ke dirinya sendiri**.
-3. Ketika membuat objek sebenarnya dari kelas anak menggunakan kata kunci `new` secara otomatis **semua properti dan _method_ dari kelas orang tua harus tersedia pada kelas anak**.
+3. Ketika membuat objek sebenarnya dari kelas anak menggunakan kata kunci `new` secara otomatis **semua properti dan _method_ dari kelas induk harus tersedia pada kelas anak**.
 
 Dari 3 aturan tersebut kita dapat membuat suatu fungsi pembantu untuk membuat kelas dapat mewarisi sifat kelas lain. Berikut kode untuk fungsi pembantu tersebut:
 
@@ -802,9 +790,9 @@ Sedangkan awalan `__` (2x garis bawah/_underscore_) merupakan salah satu aturan 
 
 Fungsi bantuan tersebut memiliki 2 parameter yakni `ChildClass` dan `ParentClass`.
 
-Kita dapat memperhatikan pada bagian kode yang di cetak terang, `Object.setPrototypeOf` akan mengatur properti `prototype` yang dimiliki kelas anak agar mengarah ke kelas orang tua sesuai dengan aturan pertama.
+Kita dapat memperhatikan pada bagian kode yang di cetak terang, `Object.setPrototypeOf` akan mengatur properti `prototype` yang dimiliki kelas anak agar mengarah ke kelas induk sesuai dengan aturan pertama.
 
-Namun untuk membuat aturan kedua, kita memerlukan kelas bantuan yang akan mengatur agar properti `constructor` yang dimiliki oleh properti `prototype` kelas anak mengarah ke dirinya sendiri. Setelah mendeklarasikan kelas bantuan tersebut, kita juga harus mengeset properti `prototype` yang dimilikinya agar mengarah ke kelas orang tua.
+Namun untuk membuat aturan kedua, kita memerlukan kelas bantuan yang akan mengatur agar properti `constructor` yang dimiliki oleh properti `prototype` kelas anak mengarah ke dirinya sendiri. Setelah mendeklarasikan kelas bantuan tersebut, kita juga harus mengeset properti `prototype` yang dimilikinya agar mengarah ke kelas induk.
 
 Untuk mengecek aturan ketiga, mari kita ubah terlebih dahulu kelas `Kucing` dan `Burung` di atas agar mewarisi sifat dari kelas `Binatang`.
 
@@ -822,7 +810,7 @@ var Kucing = (function(_super) {
 })(Binatang)
 ```
 
-Asumsikan kita telah mendeklarasikan fungsi bantuan `__extends` dan kelas orang tua `Binatang`. Pada contoh kode di atas, kita menambahkan parameter bernama `_super` yang memiliki nilai berupa kelas `Binatang` pada ekspresi fungsi yang segera dipanggil.
+Asumsikan kita telah mendeklarasikan fungsi bantuan `__extends` dan kelas induk `Binatang`. Pada contoh kode di atas, kita menambahkan parameter bernama `_super` yang memiliki nilai berupa kelas `Binatang` pada ekspresi fungsi yang segera dipanggil.
 
 Fungsi bantuan `__extends` dipanggil dengan kelas `Kucing` sebagai parameter pertama dan `_super` sebagai parameter kedua.
 
@@ -839,11 +827,11 @@ kucing
 // Kucing {kenyang: false}
 ```
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"/>
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"/>
 
-Sesuai dengan aturan ketiga, objek `kucing` tersebut memiliki tipe kelas `Kucing` dengan properti `kenyang` bernilai `false`. Properti `kenyang` tersebut berasal dari kelas orang tuanya, kelas `Binatang`.
+Sesuai dengan aturan ketiga, objek `kucing` tersebut memiliki tipe kelas `Kucing` dengan properti `kenyang` bernilai `false`. Properti `kenyang` tersebut berasal dari kelas induknya, kelas `Binatang`.
 
-Objek `kucing` tersebut juga mewarisi _method_ `makan` yang dimiliki oleh kelas orang tuanya. Sehingga kita dapat memanggilnya secara langsung melalui objek `kucing` tersebut.
+Objek `kucing` tersebut juga mewarisi _method_ `makan` yang dimiliki oleh kelas induknya. Sehingga kita dapat memanggilnya secara langsung melalui objek `kucing` tersebut.
 
 ```javascript
 kucing.makan()
@@ -898,7 +886,7 @@ Namun sayangnya karena semua properti dan _method_ yang dimiliki oleh objek pada
 
 Walaupun terdapat juga beberapa solusi untuk menerapkan enkapsulasi, namun solusi tersebut bukan merupakan solusi resmi dari JavaScript. Teman-teman dapat membaca lebih lanjut mengenai enkapsulasi pada artikel yang ditulis oleh Om [Eric Elliot](https://twitter.com/_ericelliott), [Encapsulation in JavaScript](https://medium.com/javascript-scene/encapsulation-in-javascript-26be60e325b4).
 
-Selain itu, pada versi lanjutan dari JavaScript (ESNext) juga terdapat [sintaks untuk menerapkan enkapsulasi](https://github.com/tc39/proposal-class-fields#private-fields) pada JavaScript. Saat artikel ini ditulis, sintaks tersebut masih dalam [tahap ke-3](https://tc39.es/process-document/) untuk distandarisasi.
+Selain itu, pada versi lanjutan dari JavaScript (ESNext) juga terdapat [sintaks untuk menerapkan enkapsulasi](https://github.com/tc39/proposal-class-fields#private-fields). Saat artikel ini ditulis, sintaks tersebut masih dalam [tahap ke-3](https://tc39.es/process-document/) untuk distandarisasi.
 
 ## Abstraksi
 
@@ -920,9 +908,9 @@ Kita dapat menganggap TypeScript adalah JavaScript yang diperkaya dengan lebih b
 
 ## Ikhtisar
 
-Fyuh, sungguh penjelasan yang cukup panjang ya. 😫 Kita telah membahas secara panjang lebar semua konsep yang berkaitan dengan pemrograman berorientasi objek pada JavaScript.
+Fyuh, sungguh penjelasan yang cukup panjang ya. 😅 Kita telah membahas secara panjang lebar semua konsep yang berkaitan dengan pemrograman berorientasi objek pada JavaScript.
 
-Pembahasan tersebut dimulai dari memahami apa itu objek, konsep _this_ yang cukup membingungkan. Kelas yang merupakan cetak biru dari sebuah objek. Prototipe yang menjadi dasar semua konsep pemrograman berorientasi objek.
+Pembahasan tersebut dimulai dari memahami apa itu objek, konsep _this_ yang cukup membingungkan, kelas yang merupakan cetak biru dari sebuah objek dan prototipe yang menjadi dasar semua konsep pemrograman berorientasi objek.
 
 Selain itu kita juga telah membahas penerapan 4 konsep pemrograman berorientasi objek pada JavaScript itu sendiri. Konsep itu meliputi pewarisan sifat, polimorfis, enkapsulasi dan abstraksi.
 
