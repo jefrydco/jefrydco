@@ -4,8 +4,8 @@ description: The concept of object-oriented programming in JavaScript, explained
 summary: The concept of object-oriented programming in JavaScript starts from the discussion of object, this, class and prototype.
 img: /cover/2020/01/javascript-logo-by-jefrydco.jpg
 imgCreator: jefrydco
-postedDate: 2019-12-25T09:05:00.000Z
-updatedDate: 2019-12-25T09:05:00.000Z
+postedDate: 2020-01-10T01:00:00.000Z
+updatedDate: 2020-01-10T01:00:00.000Z
 slug: oop-object-oriented-programming-javascript-explanation
 id: oop-object-oriented-programming-javascript-explanation
 ---

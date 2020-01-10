@@ -4,8 +4,8 @@ description: Konsep pemrograman berorientasi objek pada JavaScript dijelaskan se
 summary: Konsep pemrograman berorientasi objek pada JavaScript dimulai dari pembahasan objek, this, kelas dan prototipe.
 img: /cover/2020/01/javascript-logo-by-jefrydco.jpg
 imgCreator: jefrydco
-postedDate: 2020-01-09T01:00:00.000Z
-updatedDate: 2020-01-09T01:00:00.000Z
+postedDate: 2020-01-10T01:00:00.000Z
+updatedDate: 2020-01-10T01:00:00.000Z
 slug: oop-object-oriented-programming-javascript-explanation
 id: oop-object-oriented-programming-javascript-explanation
 ---
