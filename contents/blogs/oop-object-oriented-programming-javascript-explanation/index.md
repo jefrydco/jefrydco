@@ -140,30 +140,120 @@ kode tersebut akan menghasilkan nilai `true`.
 
 ### _this_ Pada Konteks Objek
 
-Yang kedua adalah `this` pada konteks objek. `this` pada **konteks objek akan mengarah ke objek itu sendiri**.
+Yang kedua adalah `this` pada konteks objek. Secara singkat, `this` pada **konteks objek akan mengarah ke objek sebelum tanda titik "."**.
+
+Contohnya sebagai berikut:
 
 ```javascript {3}
-var objek = {
-  fungsi: function() {
-    return this
+let murid = {
+  nama: "Budi",
+  umur: 12,
+  ucakpanSalam() {
+    alert(this.nama);
   }
+};
+
+murid.ucapkanSalam(); // "Budi"
+```
+
+Sebenarnya, kita juga bisa melakukan hal yang sama tanpa menggunakan `this` dengan mereferensikan langsung ke variable penampungnya:
+
+```javascript {3}
+let murid = {
+  nama: "Budi",
+  umur: 12,
+  ucapkanSalam() {
+    alert(murid.nama); // ganti "this" dengan "murid"
+  }
+};
+
+murid.ucapkanSalam(); // "Budi"
+```
+
+Namun kode seperti ini dinilai tidak baik karena bisa menghasilkan bug seperti pada kasus dibawah:
+
+```javascript {3}
+let murid = {
+  nama: "Budi",
+  umur: 12,
+  ucapkanSalam() {
+    alert(murid.nama);
+  }
+};
+
+let guru = murid;
+murid = null;
+guru.ucapkanSalam(); // error karena murid adalah null
+```
+
+Karena itu, jika kita menggunakan `this`, maka bug tersebut dapat dihindari.
+
+Tidak seperti bahasa pemograman lain dimana nilai dari `this` ditentukan saat compile-time, nilai dari `this` di Javascript ditentukan pada saat runtime tergantung pada objek sebelum tanda titik ".".
+
+```javascript {3}
+let guru = { nama: "Deni" };
+let murid = { nama: "Budi" };
+
+function ucapkanSalam() {
+  alert(this.nama);
 }
 
-objek.fungsi()
+guru.func = ucapkanSalam;
+murid.func = ucapkanSalam;
+
+guru.func(); // Deni
+murid.func(); // Budi
 ```
 
-akan menghasilkan
+Berhati-hatilah karena pada beberapa kasus, isi dari `this` dapat menghilang, seperti pada contoh dibawah ini:
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-object-function-javascript-by-jefrydco.png" alt="this Object Function JavaScript"/>
+```javascript {3}
+let jam = 13;
 
-Kita juga dapat mengecek apakah nilai `this` yang terdapat di dalam fungsi `fungsi` memang mengarah ke objek itu sendiri atau tidak menggunakan kode berikut:
+let murid = {
+  ucapkanSelamatPagi() {
+    alert(this.nama);
+  },
+  ucapkanSelamatSiang() {
+    alert(this.nama);
+  }
+};
 
-```javascript
-objek.fungsi() === objek
-// true
+(jam >= 12 ? murid.ucapkanSelamatSiang : murid.ucapkanSelamatPagi)(); // Error
 ```
 
-kode tersebut akan menghasilkan nilai `true`.
+Untuk memahami kenapa ini terjadi, kita harus paham bagaimana sebuah fungsi dijalankan.<br>
+Ketika kita memanggil `murid.ucapkanSalam()`, dibalik layar sebenarnya Javascript menggunakan tanda titik untuk mereturn sebuah tipe data internal, yaitu [Reference Type](https://tc39.es/ecma262/#sec-reference-specification-type).
+
+Isi dari Reference Type yaitu:
+
+- base (ini adalah objek sebelum tanda titik)
+- name (ini adalah nama dari fungsi setelah tanda titik)
+- strict (isinya berupa true atau false tergantung digunakan atau tidaknya "use strict")
+
+Hasil dari `murid.ucapkanSelamatSiang` bukanlah sebuah fungsi, melainkan sebuah Reference Type yang memiliki nilai seperti dibawah:
+
+```
+(murid, "ucapkanSelamatSiang", true)
+```
+
+Ketika kurung `()` dipanggil pada ReferenceType, nilai dari `this` di fungsi yang dipanggil akan diisi sesuai dengan nilai dari `base` di Reference Type yang dalam kasus ini adalah `murid`.
+
+Operasi seperti assignment "=" dapat menghilangkan Reference Type ini. Karena itu terjadi error pada contoh diatas.
+
+Berikut contoh yang lebih sederhana:
+
+```javascript {3}
+let murid = {
+  nama: "Budi",
+  ucapkanSalam() {
+    alert(this.nama);
+  }
+};
+
+let ucapkanSalam = murid.ucapkanSalam; // Operasi assignment akan menghilangkan Reference Type
+ucapkanSalam(); // Error
+```
 
 ### _this_ Pada Konteks Fungsi
 
