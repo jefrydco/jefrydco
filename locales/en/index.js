@@ -5,5 +5,7 @@ export default {
   minRead: 'min read',
   readOtherLanguages: 'Read in other languages',
   coverImageFrom: 'Cover image from',
-  imageFrom: 'Image from'
+  imageFrom: 'Image from',
+  contributor: 'Contributor',
+  and: 'and'
 }
