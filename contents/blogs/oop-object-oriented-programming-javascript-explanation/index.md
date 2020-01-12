@@ -8,6 +8,7 @@ postedDate: 2020-01-10T01:00:00.000Z
 updatedDate: 2020-01-10T01:00:00.000Z
 slug: oop-object-oriented-programming-javascript-explanation
 id: oop-object-oriented-programming-javascript-explanation
+contributors: ['edwardanthony']
 ---
 
 Sebelum pembahasan mengenai versi ribet konsep pemrograman berorientasi objek pada JavaScript ini dimulai, perlu saya garis bawahi bahwa konsep yang akan di bahas pada artikel ini adalah **versi paling ribet**.
@@ -144,86 +145,109 @@ Yang kedua adalah `this` pada konteks objek. Secara singkat, `this` pada **konte
 
 Contohnya sebagai berikut:
 
-```javascript {3}
-let murid = {
+```javascript {5}
+var murid = {
   nama: "Budi",
   umur: 12,
-  ucakpanSalam() {
-    alert(this.nama);
+  ucapkanSalam: function() {
+    console.log(this.nama)
   }
-};
+}
 
-murid.ucapkanSalam(); // "Budi"
+murid.ucapkanSalam()
+// Budi
 ```
 
 Sebenarnya, kita juga bisa melakukan hal yang sama tanpa menggunakan `this` dengan mereferensikan langsung ke variable penampungnya:
 
-```javascript {3}
-let murid = {
+```javascript {6}
+var murid = {
   nama: "Budi",
   umur: 12,
-  ucapkanSalam() {
-    alert(murid.nama); // ganti "this" dengan "murid"
+  ucapkanSalam: function() {
+    // ganti "this" dengan "murid"
+    console.log(murid.nama)
   }
-};
+}
 
-murid.ucapkanSalam(); // "Budi"
+murid.ucapkanSalam()
+// Budi
 ```
 
-Namun kode seperti ini dinilai tidak baik karena bisa menghasilkan bug seperti pada kasus dibawah:
+Namun kode seperti ini dinilai tidak baik karena dapat menghasilkan bug seperti pada kasus dibawah:
 
-```javascript {3}
-let murid = {
+```javascript {6}
+var murid = {
   nama: "Budi",
   umur: 12,
-  ucapkanSalam() {
-    alert(murid.nama);
+  ucapkanSalam: function() {
+    console.log(murid.nama)
   }
-};
+}
 
-let guru = murid;
-murid = null;
-guru.ucapkanSalam(); // error karena murid adalah null
+var guru = murid
+murid = null
+
+guru.ucapkanSalam()
 ```
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"/>
 
 Karena itu, jika kita menggunakan `this`, maka bug tersebut dapat dihindari.
 
-Tidak seperti bahasa pemograman lain dimana nilai dari `this` ditentukan saat compile-time, nilai dari `this` di Javascript ditentukan pada saat runtime tergantung pada objek sebelum tanda titik ".".
+Tidak seperti bahasa pemograman lain dimana nilai dari `this` ditentukan pada waktu kompilasi, nilai dari `this` di Javascript ditentukan pada saat kode dijalankan dan tergantung pada objek sebelum tanda titik ".".
 
-```javascript {3}
-let guru = { nama: "Deni" };
-let murid = { nama: "Budi" };
-
-function ucapkanSalam() {
-  alert(this.nama);
+```javascript {12,13}
+var guru = {
+  nama: "Deni"
+}
+var murid = {
+  nama: "Budi"
 }
 
-guru.func = ucapkanSalam;
-murid.func = ucapkanSalam;
+function ucapkanSalam() {
+  console.log(this.nama)
+}
 
-guru.func(); // Deni
-murid.func(); // Budi
+guru.func = ucapkanSalam
+murid.func = ucapkanSalam
+
+guru.func()
+// Deni
+murid.func()
+// Budi
 ```
+
+Pada contoh kode di atas, kita mendeklarasikan dua objek bernama `guru` dan `murid` yang masing-masing memiliki properti `nama`.
+
+Kita juga mendeklarasikan sebuah fungsi yang bernama `ucapkanSalam`. Di dalam fungsi ini, kita ingin mengetahui nilai dari properti `nama`, meskipun kita tidak mendeklarasikan properti tersebut. Selanjutnya fungsi tersebut di lekatkan ke kedua objek yang sebelumnya kita buat dengan nama `func`.
+
+Kemudian kita mengesekusi fungsi `func` tersebut dengan cara `guru.func()` dan `murid.func()`. Masing-masing fungsi tersebut akan memberikan nilai properti `nama` yang dimiliki masing-masing objek.
 
 Berhati-hatilah karena pada beberapa kasus, isi dari `this` dapat menghilang, seperti pada contoh dibawah ini:
 
-```javascript {3}
-let jam = 13;
+```javascript {5,8}
+var jam = 13
 
-let murid = {
-  ucapkanSelamatPagi() {
-    alert(this.nama);
+var murid = {
+  ucapkanSelamatPagi: function() {
+    console.log(this.nama)
   },
-  ucapkanSelamatSiang() {
-    alert(this.nama);
+  ucapkanSelamatSiang: function() {
+    console.log(this.nama)
   }
-};
+}
 
-(jam >= 12 ? murid.ucapkanSelamatSiang : murid.ucapkanSelamatPagi)(); // Error
+(jam >= 12 ? murid.ucapkanSelamatSiang : murid.ucapkanSelamatPagi)()
 ```
 
-Untuk memahami kenapa ini terjadi, kita harus paham bagaimana sebuah fungsi dijalankan.<br>
-Ketika kita memanggil `murid.ucapkanSalam()`, dibalik layar sebenarnya Javascript menggunakan tanda titik untuk mereturn sebuah tipe data internal, yaitu [Reference Type](https://tc39.es/ecma262/#sec-reference-specification-type).
+Kode di atas jika dieksekusi akan menghasilkan seperti gambar berikut,
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"/>
+
+Untuk memahami kenapa ini terjadi, kita harus paham bagaimana sebuah fungsi dijalankan.
+
+Ketika kita memanggil `murid.ucapkanSelamatSiang()`, dibalik layar sebenarnya Javascript menggunakan tanda titik untuk mereturn sebuah tipe data internal, yaitu [Reference Type](https://tc39.es/ecma262/#sec-reference-specification-type).
 
 Isi dari Reference Type yaitu:
 
@@ -231,37 +255,59 @@ Isi dari Reference Type yaitu:
 - name (ini adalah nama dari fungsi setelah tanda titik)
 - strict (isinya berupa true atau false tergantung digunakan atau tidaknya "use strict")
 
-Hasil dari `murid.ucapkanSelamatSiang` bukanlah sebuah fungsi, melainkan sebuah Reference Type yang memiliki nilai seperti dibawah:
+Hasil dari `murid.ucapkanSelamatSiang` bukanlah sebuah fungsi, melainkan sebuah `ReferenceType` yang memiliki nilai seperti dibawah:
 
+```javascript
+(murid, "ucapkanSelamatSiang", false)
 ```
-(murid, "ucapkanSelamatSiang", true)
-```
 
-Ketika kurung `()` dipanggil pada ReferenceType, nilai dari `this` di fungsi yang dipanggil akan diisi sesuai dengan nilai dari `base` di Reference Type yang dalam kasus ini adalah `murid`.
+Ketika kurung `()` dipanggil pada `ReferenceType`, nilai dari `this` di fungsi yang dipanggil akan diisi sesuai dengan nilai dari `base` di `ReferenceType` yang dalam kasus ini adalah `murid`.
 
-Operasi seperti assignment "=" dapat menghilangkan Reference Type ini. Karena itu terjadi error pada contoh diatas.
+Operasi seperti assignment `=` dapat menghilangkan `ReferenceType` ini. Karena itu nilai `this` menghilang pada contoh diatas.
 
 Berikut contoh yang lebih sederhana:
 
-```javascript {3}
-let murid = {
+```javascript {9}
+var murid = {
   nama: "Budi",
-  ucapkanSalam() {
-    alert(this.nama);
+  ucapkanSalam: function() {
+    console.log(this.nama)
   }
-};
+}
 
-let ucapkanSalam = murid.ucapkanSalam; // Operasi assignment akan menghilangkan Reference Type
-ucapkanSalam(); // Error
+// Operasi assignment akan menghilangkan ReferenceType
+var ucapkanSalam = murid.ucapkanSalam
+
+ucapkanSalam()
 ```
+
+Fungsi `ucapkanSalam` memiliki `ReferenceType` sebagai berikut:
+
+```javascript
+(murid, 'ucapkanSalam', false)
+```
+
+Di dalam fungsi tersebut kita ingin mengetahui nilai dari properti `nama`. Kemudian kita melekatkan fungsi tersebut ke sebuah variabel bernama sama. Selanjutnya kita panggil variabel tersebut sebagai sebuah fungsi.
+
+Kode tersebut jika dieksekusi akan menghasilkan seperti gambar berikut,
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"/>
+
+Walaupun di dalam fungsi `ucapkanSalam` pada objek `murid` kita menggunakan fungsi log konsol untuk mengetahui nilai properti `nama`, ketika ia di lekatkan dengan variabel lain, fungsi tersebut tidak akan mengetahui nilai dari properti `nama`. Karena nilai dari `ReferenceType` nya menjadi:
+
+```javascript
+(window, 'ucapkanSalam', false)
+```
+
+Objek global `window` tidak memiliki nilai properti `nama`, maka ketika fungsi `ucapkanSalam` dieksekusi tidak akan mencetak nilai apapun.
 
 ### _this_ Pada Konteks Fungsi
 
 Yang terakhir adalah `this` pada konteks fungsi. Sesuai dengan konsep <a href="#objek-global">objek global</a> bahwa fungsi yang kita deklarasikan secara otomatis dilekatkan pada objek global `window` asalkan tidak dideklarasikan menggunakan kata kunci `let` dan `const`.
 
-Dan pada konsep <a href="#this-pada-konteks-objek">_this_ pada konteks objek</a> juga disebutkan jika terdapat fungsi di dalam suatu objek, nilai `this` di dalam fungsi tersebut akan mengarah ke objek itu sendiri.
+Dan pada konsep <a href="#this-pada-konteks-objek">_this_ pada konteks objek</a> juga disebutkan jika terdapat fungsi di dalam suatu objek, nilai `this` di dalam fungsi tersebut akan mengarah ke objek sebelum tanda titik ".".
 
-Oleh karena itu, jika kita menggunakan `this` pada suatu fungsi, `this` tersebut juga akan **mengarah ke objek itu sendiri** dan objek tersebut adalah **objek global** yakni `window`.
+Oleh karena itu, jika kita menggunakan `this` pada suatu fungsi, `this` tersebut juga akan **mengarah ke objek sebelum tanda titik "."** dan objek tersebut adalah **objek global** yakni `window`.
 
 Sehingga jika kita mendeklarasikan fungsi seperti berikut:
 
@@ -1013,10 +1059,11 @@ Akhir kata, terima kasih telah membaca dan semoga bermanfaat! 🙌
 ## Referensi
 
 1. [CSS Tricks: Understanding JavaScript Constructors](https://css-tricks.com/understanding-javascript-constructors/)
-2. [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
-3. [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-4. [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
-5. [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
-6. [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
-7. [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
-8. [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
+2. [ECMAScript® 2020 Language Specification: The Reference Specification Type](https://tc39.es/ecma262/#sec-reference-specification-type)
+3. [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
+4. [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+5. [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+6. [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
+7. [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
+8. [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
+9. [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
