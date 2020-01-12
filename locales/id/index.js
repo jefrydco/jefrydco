@@ -5,5 +5,7 @@ export default {
   minRead: 'mnt dibaca',
   readOtherLanguages: 'Baca dalam bahasa lain',
   coverImageFrom: 'Gambar sampul dari',
-  imageFrom: 'Gambar dari'
+  imageFrom: 'Gambar dari',
+  contributor: 'Kontributor',
+  and: 'dan'
 }

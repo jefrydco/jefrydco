@@ -56,6 +56,21 @@
               <!-- eslint-disable-next-line -->
               <component :is="blog.component" />
               <footer>
+                <p v-if="blog.contributors && blog.contributors.length > 0">
+                  {{ $t('contributor') }}:
+                  <template v-for="(contributor, index) in blog.contributors">
+                    <a
+                      :key="`${contributor}_link`"
+                      :href="`https://github.com/${contributor}`"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @{{ contributor }}
+                    </a>
+                    <!-- eslint-disable-next-line -->
+                    <span v-if="index !== blog.contributors.length - 1" :key="`${contributor}_separator`">{{ separator(index) }}</span>
+                  </template>
+                </p>
                 <p>
                   {{ $t('coverImageFrom') }}
                   <a
@@ -128,6 +143,20 @@ export default {
       blog: null
     }
   },
+  computed: {
+    separator() {
+      return (index) => {
+        const length = this.blog.contributors && this.blog.contributors.length
+        if (length === 2 || (length >= 3 && index === length - 2)) {
+          return ` ${this.$t('and')} `
+        }
+        if (length > 2 && index !== length - 1) {
+          return `, `
+        }
+        return ``
+      }
+    }
+  },
   created() {
     const slug = this.$route && this.$route.params && this.$route.params.slug
     const locale = this.$i18n.locale
@@ -170,6 +199,7 @@ export default {
           postedDate: blog.attributes.postedDate,
           updatedDate: blog.attributes.updatedDate,
           slug: blog.attributes.slug,
+          contributors: blog.attributes.contributors,
           readingTime: readingTime(blog.html),
           component: blog.vue.component,
           fullPath,

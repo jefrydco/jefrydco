@@ -8,6 +8,7 @@ postedDate: 2020-01-10T01:00:00.000Z
 updatedDate: 2020-01-10T01:00:00.000Z
 slug: oop-object-oriented-programming-javascript-explanation
 id: oop-object-oriented-programming-javascript-explanation
+contributors: ['edwardanthony']
 ---
 
 Before we start discussing the hard way of object-oriented programming concepts in JavaScript, I wanna highlight that this concept is **the most difficult version**.
@@ -140,30 +141,147 @@ it will return `true`.
 
 ### _this_ in Object Context
 
-The second one is `this` in the object context. `this` in this context **will refer the object itself**.
+The second one is `this` in the object context. `this` in this context **will refer the object before the dot "."**.
 
-```javascript {3}
-var object = {
-  func: function() {
-    return this
+Take a look on the following code:
+
+```javascript {5}
+var student = {
+  name: "Budi",
+  age: 12,
+  greet: function() {
+    console.log(this.name)
   }
 }
 
-object.func()
+student.greet()
+// Budi
 ```
 
-it will return
+Actually, we can do the same way without using `this` by referring it directly to the container variable like as follows:
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-object-function-javascript-by-jefrydco.png" alt="this Object Function JavaScript"/>
+```javascript {6}
+var student = {
+  name: "Budi",
+  age: 12,
+  greet: function() {
+    // change "this" with "student"
+    console.log(student.name)
+  }
+}
 
-We can also check whether `this` in the inside of `func` function is refering to the object itself or not using the following code:
+student.greet()
+```
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"/>
+
+Because of that, if we use `this`, the bug will be prevented.
+
+Not like any other programming language that the value of `this` determined in compile-time, in JavaScript, it determines in the runtime and depends on the object before the dot symbol ".".
+
+```javascript {12,13}
+var teacher = {
+  name: "Deni"
+}
+var student = {
+  name: "Budi"
+}
+
+function greet() {
+  console.log(this.name)
+}
+
+teacher.func = greet
+student.func = greet
+
+teacher.func()
+// Deni
+student.func()
+// Budi
+```
+
+In the snippet above, we declare two kinds of objects called `teacher` and `student` which has their own `name` property.
+
+We also declare a function called `greet`. Inside the body of the function, we wanna know the value of `name` property, even though we never declare it. Then it attached to each object we declared previously with the name `func`.
+
+After that we executed the `func` function by calling `teacher.func()` and `student.func()`. They give us a different `name` property match with each of two objects has.
+
+But take care on certain cases, the value of `this` can be gone, like as follows:
+
+```javascript {5,8}
+var time = 13
+
+var student = {
+  goodMorning: function() {
+    console.log(this.name)
+  },
+  goodAfternoon: function() {
+    console.log(this.name)
+  }
+}
+
+(time >= 12 ? student.goodAfternoon : student.goodMorning)()
+```
+
+It will returns,
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"/>
+
+To get better understanding why this happen, we have to know how a function is executed.
+
+If we call `student.goodAfternoon()`, behind the scenes JavaScript use the dot symbol to return internal data type called [Reference Type](https://tc39.es/ecma262/#sec-reference-specification-type).
+
+It consists of:
+
+- base (this is the object before dot symbol)
+- name (this is the name of the function after the dot symbol)
+- strict (it is boolean whether current execution time using strict mode or not, "use strict")
+
+And the result of `student.goodAfternoon` isn't a function, but a `ReferenceType` which consists of value like as follows:
 
 ```javascript
-object.func() === objek
-// true
+(student, 'goodAfternoon', false)
 ```
 
-it will return `true`.
+When the bracket `()` is called on `ReferenceType`, the value of `this` is called and arranged accordingly with the value of `base` in `ReferenceType`. For that case it is the `student`.
+
+Assignment operator `=` can also remove the `ReferenceType`. Because of that the value of `this` is gone in the example above.
+
+Take a look on the easier snippet below:
+
+```javascript {9}
+var student = {
+  name: "Budi",
+  greet: function() {
+    console.log(this.name)
+  }
+}
+
+// Assignment operator to make ReferenceType gone
+var greet = student.greet
+
+greet()
+```
+
+Fungsi `greet` memiliki `ReferenceType` sebagai berikut:
+
+```javascript
+(student, 'greet', false)
+```
+
+In the body of `greet` function, we wanna know the value of `name` property. Then we attach it into new variable which has the same name as the function. After that we call the variable as a function.
+
+It will returns,
+
+<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"/>
+
+Even though in the body of `greet` in `student` object we use console log to find out the value of `name` property when it attached to another variable, that function never knows the value of `name`. It is because the `ReferenceType` becomes:
+
+```javascript
+(window, 'greet', false)
+```
+
+Global object `window` never has `name` property, so that when the `greet` function is executed it won't print anything.
 
 ### _this_ in Function Context
 
@@ -917,10 +1035,11 @@ Thanks for reading and hope you enjoy! 🙌
 ## Reference
 
 1. [CSS Tricks: Understanding JavaScript Constructors](https://css-tricks.com/understanding-javascript-constructors/)
-2. [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
-3. [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-4. [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
-5. [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
-6. [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
-7. [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
-8. [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
+2. [ECMAScript® 2020 Language Specification: The Reference Specification Type](https://tc39.es/ecma262/#sec-reference-specification-type)
+3. [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
+4. [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+5. [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+6. [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
+7. [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
+8. [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
+9. [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
