@@ -213,6 +213,13 @@ export default {
       this.$router.replace(this.localePath({ name: 'blog' }))
     }
   },
+  mounted() {
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.querySelector(hash)
+      element.scrollIntoView({})
+    }
+  },
   head() {
     return {
       title: this.blog && this.blog.title,
