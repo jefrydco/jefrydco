@@ -41,8 +41,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "husky": {
@@ -89,7 +88,7 @@
     "frontmatter-markdown-loader": "^3.1.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.0.3",
     "nuxt-responsive-loader": "^2.0.1",
     "prettier": "^1.19.1",
     "sharp": "^0.24.0",
