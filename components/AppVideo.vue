@@ -1,7 +1,9 @@
 <template>
-  <div :class="`embed embed__${size}`">
-    <video :src="src" autoplay loop muted playsinline />
-  </div>
+  <figure class="video">
+    <div :class="`embed embed__${size}`">
+      <video :src="src" autoplay="" loop="" muted="" playsinline="" />
+    </div>
+  </figure>
 </template>
 
 <script>

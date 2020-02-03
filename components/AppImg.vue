@@ -97,7 +97,7 @@ html:not([⚡]) {
     @apply overflow-hidden;
 
     img {
-      @apply opacity-0 object-cover;
+      @apply opacity-0 object-cover rounded;
       transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     }
 

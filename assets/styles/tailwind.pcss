@@ -361,6 +361,34 @@ quote {
   }
 }
 
+.demo {
+  @apply mb-8;
+}
+
+.demo-card {
+  @apply rounded p-4;
+  background-color: var(--bg);
+
+  hr {
+    @apply my-5;
+  }
+
+  input,
+  select,
+  button {
+    @apply mb-3 py-1 px-2 rounded;
+    background-color: var(--card-bg);
+
+    &:focus {
+      outline-color: var(--text-link)
+    }
+
+    &:not(:last-child) {
+      @apply mr-2;
+    }
+  }
+}
+
 * {
   transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1),
     background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1),

@@ -1,4 +1,6 @@
 export default [
+  'create-reactivity-system-vuejs-javascript-part-2',
+  'create-reactivity-system-vuejs-javascript-part-1',
   'oop-object-oriented-programming-javascript-explanation',
   'how-tailwind-css-help-reduce-workload',
   'create-blog-nuxtjs-tailwind-css-markdown-netlify-part-1',

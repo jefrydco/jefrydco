@@ -7,5 +7,8 @@ export default {
   coverImageFrom: 'Cover image from',
   imageFrom: 'Image from',
   contributor: 'Contributor',
-  and: 'and'
+  and: 'and',
+  editDemoGithub: 'Edit the demo on Github',
+  seeVideo: 'See the video in',
+  newTab: 'tab baru'
 }

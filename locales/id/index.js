@@ -7,5 +7,8 @@ export default {
   coverImageFrom: 'Gambar sampul dari',
   imageFrom: 'Gambar dari',
   contributor: 'Kontributor',
-  and: 'dan'
+  and: 'dan',
+  editDemoGithub: 'Sunting demo di Github',
+  seeVideo: 'Lihat video di',
+  newTab: 'tab baru'
 }
