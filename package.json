@@ -52,9 +52,9 @@
   "dependencies": {
     "@nuxtjs/feed": "^1.1.0",
     "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/pwa": "^3.0.0-beta.19",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/robots": "^2.4.2",
-    "@nuxtjs/sentry": "^3.2.1",
+    "@nuxtjs/sentry": "^3.2.2",
     "@nuxtjs/sitemap": "^2.0.1",
     "@sindresorhus/slugify": "^0.10.0",
     "dotenv": "^8.2.0",
