@@ -81,9 +81,9 @@
               }
             }
 
-            const keys = Object.keys(state)
+            const keyList = Object.keys(state)
 
-            keys.forEach(function(key) {
+            keyList.forEach(function(key) {
               let value = state[key]
 
               Object.defineProperty(state, key, {
