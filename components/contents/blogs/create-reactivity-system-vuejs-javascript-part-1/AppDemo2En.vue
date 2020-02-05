@@ -1,7 +1,7 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo-card demo-card-3">
-      <pre class="keadaan"></pre>
+    <div class="demo-card demo-card-2">
+      <pre class="state"></pre>
 
       <input type="number" class="input1" min="0" />
       <select class="operator">
@@ -12,46 +12,40 @@
       </select>
       <input type="number" class="input2" min="0" />
 
-      <div class="hasil"></div>
+      <div class="result"></div>
 
       <script>
         // We put the code inside immediately invoked function expression to avoid polluting global variable
         // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        const keadaan3 = (function() {
+        const state2 = (function() {
           const OPERATOR = {
-            TAMBAH: '+',
-            KURANG: '-',
-            KALI: '*',
-            BAGI: '/'
+            PLUS: '+',
+            SUBSTRACT: '-',
+            MULTIPLY: '*',
+            DIVIDE: '/'
           }
 
-          const keadaan = {
-            hasil: 0,
-            operator: OPERATOR.TAMBAH,
+          const state = {
+            result: 0,
+            operator: OPERATOR.PLUS,
             input1: 0,
             input2: 0
           }
 
-          function mulai() {
+          function main() {
             // We have to prefixed the selector in accordance with the root component class
             // It avoids the script to be applied to all demo
-            const tampilanKeadaan = document.querySelector(
-              '.demo-card-3 .keadaan'
-            )
-            tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
-
-            const tampilanHasil = document.querySelector('.demo-card-3 .hasil')
-            tampilanHasil.innerText = keadaan.hasil.toString()
+            const stateDisplay = document.querySelector('.demo-card-2 .state')
+            stateDisplay.innerText = JSON.stringify(state, null, 2)
           }
 
-          // document.addEventListener('DOMContentLoaded', mulai)
-
           // We have to run the method because this script is executed inside vue component
-          mulai()
+          // document.addEventListener('DOMContentLoaded', main)
+          main()
 
-          return keadaan
+          return state
         })()
-        window.keadaan3 = keadaan3
+        window.state2 = state2
       </script>
     </div>
   </app-demo>

@@ -1,6 +1,6 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo-card demo-card-9">
+    <div class="demo-card demo-card-6">
       <pre class="keadaan"></pre>
 
       <input type="number" class="input1" min="0" />
@@ -15,9 +15,9 @@
       <div class="hasil"></div>
 
       <script>
-        // We put the code inside immediately invoked function expression to avoid polluting global variable
-        // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        const keadaan9 = (function() {
+        // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
+        // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
+        const keadaan6 = (function() {
           const OPERATOR = {
             TAMBAH: '+',
             KURANG: '-',
@@ -33,23 +33,23 @@
           }
 
           function mulai() {
-            // We have to prefixed the selector in accordance with the root component class
-            // It avoids the script to be applied to all demo
+            // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
+            // Hal tersebut mencegah scrip dieksekusi untuk semua demo
             const tampilanKeadaan = document.querySelector(
-              '.demo-card-9 .keadaan'
+              '.demo-card-6 .keadaan'
             )
 
-            const tampilanHasil = document.querySelector('.demo-card-9 .hasil')
+            const tampilanHasil = document.querySelector('.demo-card-6 .hasil')
 
             const tampilanInput1 = document.querySelector(
-              '.demo-card-9 .input1'
+              '.demo-card-6 .input1'
             )
             const tampilanInput2 = document.querySelector(
-              '.demo-card-9 .input2'
+              '.demo-card-6 .input2'
             )
 
             const tampilanOperator = document.querySelector(
-              '.demo-card-9 .operator'
+              '.demo-card-6 .operator'
             )
 
             function mutakhirkanTampilan() {
@@ -60,25 +60,6 @@
               tampilanInput2.value = keadaan.input2.toString()
 
               tampilanOperator.value = keadaan.operator
-            }
-
-            function kalkulasiHasil() {
-              switch (keadaan.operator) {
-                case OPERATOR.TAMBAH:
-                  keadaan.hasil = keadaan.input1 + keadaan.input2
-                  break
-                case OPERATOR.KURANG:
-                  keadaan.hasil = keadaan.input1 - keadaan.input2
-                  break
-                case OPERATOR.KALI:
-                  keadaan.hasil = keadaan.input1 * keadaan.input2
-                  break
-                case OPERATOR.BAGI:
-                  keadaan.hasil = keadaan.input1 / keadaan.input2
-                  break
-                default:
-                  break
-              }
             }
 
             mutakhirkanTampilan()
@@ -97,31 +78,15 @@
               const selectedOperator = targetOperator.selectedOptions[0].value
               keadaan.operator = selectedOperator
             })
-
-            let input1 = keadaan['input1']
-
-            Object.defineProperty(keadaan, 'input1', {
-              enumerable: true,
-              configurable: true,
-              get: function pengambilReaktif() {
-                return input1
-              },
-              set: function pengaturReaktif(nilaiBaru) {
-                input1 = nilaiBaru
-                kalkulasiHasil()
-                mutakhirkanTampilan()
-              }
-            })
           }
 
+          // Kita harus menjalankan fungsi karena skrip ini dieksekusi di dalam komponen vue
           // document.addEventListener('DOMContentLoaded', mulai)
-
-          // We have to run the method because this script is executed inside vue component
           mulai()
 
           return keadaan
         })()
-        window.keadaan9 = keadaan9
+        window.keadaan6 = keadaan6
       </script>
     </div>
   </app-demo>

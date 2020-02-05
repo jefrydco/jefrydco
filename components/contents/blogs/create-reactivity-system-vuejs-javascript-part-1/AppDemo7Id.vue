@@ -1,6 +1,6 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo-card demo-card-8">
+    <div class="demo-card demo-card-7">
       <pre class="keadaan"></pre>
 
       <input type="number" class="input1" min="0" />
@@ -15,9 +15,9 @@
       <div class="hasil"></div>
 
       <script>
-        // We put the code inside immediately invoked function expression to avoid polluting global variable
-        // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        const keadaan8 = (function() {
+        // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
+        // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
+        const keadaan7 = (function() {
           const OPERATOR = {
             TAMBAH: '+',
             KURANG: '-',
@@ -33,23 +33,23 @@
           }
 
           function mulai() {
-            // We have to prefixed the selector in accordance with the root component class
-            // It avoids the script to be applied to all demo
+            // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
+            // Hal tersebut mencegah scrip dieksekusi untuk semua demo
             const tampilanKeadaan = document.querySelector(
-              '.demo-card-8 .keadaan'
+              '.demo-card-7 .keadaan'
             )
 
-            const tampilanHasil = document.querySelector('.demo-card-8 .hasil')
+            const tampilanHasil = document.querySelector('.demo-card-7 .hasil')
 
             const tampilanInput1 = document.querySelector(
-              '.demo-card-8 .input1'
+              '.demo-card-7 .input1'
             )
             const tampilanInput2 = document.querySelector(
-              '.demo-card-8 .input2'
+              '.demo-card-7 .input2'
             )
 
             const tampilanOperator = document.querySelector(
-              '.demo-card-8 .operator'
+              '.demo-card-7 .operator'
             )
 
             function mutakhirkanTampilan() {
@@ -87,13 +87,11 @@
               const targetInput1 = peristiwa.target
               keadaan.input1 = parseInt(targetInput1.value)
               kalkulasiHasil()
-              mutakhirkanTampilan()
             })
             tampilanInput2.addEventListener('input', function(peristiwa) {
               const targetInput2 = peristiwa.target
               keadaan.input2 = parseInt(targetInput2.value)
               kalkulasiHasil()
-              mutakhirkanTampilan()
             })
 
             tampilanOperator.addEventListener('change', function(peristiwa) {
@@ -101,18 +99,16 @@
               const selectedOperator = targetOperator.selectedOptions[0].value
               keadaan.operator = selectedOperator
               kalkulasiHasil()
-              mutakhirkanTampilan()
             })
           }
 
+          // Kita harus menjalankan fungsi karena skrip ini dieksekusi di dalam komponen vue
           // document.addEventListener('DOMContentLoaded', mulai)
-
-          // We have to run the method because this script is executed inside vue component
           mulai()
 
           return keadaan
         })()
-        window.keadaan8 = keadaan8
+        window.keadaan7 = keadaan7
       </script>
     </div>
   </app-demo>

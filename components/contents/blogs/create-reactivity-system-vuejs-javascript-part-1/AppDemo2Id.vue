@@ -15,8 +15,8 @@
       <div class="hasil"></div>
 
       <script>
-        // We put the code inside immediately invoked function expression to avoid polluting global variable
-        // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
+        // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
+        // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
         const keadaan2 = (function() {
           const OPERATOR = {
             TAMBAH: '+',
@@ -33,17 +33,16 @@
           }
 
           function mulai() {
-            // We have to prefixed the selector in accordance with the root component class
-            // It avoids the script to be applied to all demo
+            // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
+            // Hal tersebut mencegah scrip dieksekusi untuk semua demo
             const tampilanKeadaan = document.querySelector(
               '.demo-card-2 .keadaan'
             )
             tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
           }
 
+          // Kita harus menjalankan fungsi karena skrip ini dieksekusi di dalam komponen vue
           // document.addEventListener('DOMContentLoaded', mulai)
-
-          // We have to run the method because this script is executed inside vue component
           mulai()
 
           return keadaan

@@ -8,7 +8,7 @@ postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-1
 id: create-reactivity-system-vuejs-javascript-part-1
-extraComponents: ['AppDemo1', 'AppDemo2', 'AppDemo3', 'AppDemo4', 'AppDemo5', 'AppDemo6', 'AppDemo7', 'AppDemo8', 'AppDemo9', 'AppDemo10']
+extraComponents: ['AppDemo1Id', 'AppDemo2Id', 'AppDemo3Id', 'AppDemo4Id', 'AppDemo5Id', 'AppDemo6Id', 'AppDemo7Id', 'AppDemo8Id', 'AppDemo9Id', 'AppDemo10Id']
 ---
 
 > Baca bagian kedua di sini, [Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 2](/blog/create-reactivity-system-vuejs-javascript-part-2)
@@ -29,7 +29,7 @@ Katakanlah kita memiliki data umur karyawan suatu perusahaan. Kemudian kita ingi
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/spreadsheet-average-reactivity-by-jefrydco.webm" />
 
-Kemudian jika terdapat perubahan terhadap data, maka nilai rata-ratanya juga akan dikalkulasi ulang secara otomatis. Tidak hanya dikalkulasi ulang, tetapi juga ditampilkan di layar peramban secara instan.
+Kemudian jika terdapat perubahan terhadap data, maka nilai rata-ratanya juga akan dikalkulasi ulang secara otomatis.
 
 ## Sistem Reaktivitas Vue.js
 
@@ -37,7 +37,7 @@ Mengacu pada dokumentasi resmi Vue.js mengenai [reaktivitas secara mendalam](htt
 
 <app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"/>
 
-Untuk memahami diagram tersebut, mari kita lihat contoh kode paling sederhana untuk membuat suatu komponen Vue.js
+Untuk memahami diagram tersebut, mari kita lihat contoh kode paling sederhana untuk membuat suatu aplikasi Vue.js
 
 ```html {2-3,10}
 <div id="app">
@@ -57,7 +57,7 @@ new Vue({
 
 > Seharusnya sintaks interpolasi Vue.js pada baris ke dua di atas ditulis seperti berikut `{{ text }}`. Tetapi saya tidak bisa menulisnya seperti demikian karena entah kenapa ia diterjemahkan sebagai interpolasi sebenarnya.
 
-Di balik layar, Vue.js akan mengubah semua data yang telah kita deklarasikan pada properti `data` akan diubah menjadi pengambil dan pengatur (_getter and setter_).
+Di balik layar, Vue.js akan mengubah semua data yang telah kita deklarasikan pada properti `data` menjadi pengambil dan pengatur (_getter and setter_).
 
 Pengambil dan pengatur tersebut bertipe fungsi. Ketika suatu variabel diakses, maka fungsi pengambil akan dieksekusi. Dan ketika suatu variabel diubah nilainya, fungsi pengatur akan memberitahukan pengintai untuk menjalankan pekerjaannya.
 
@@ -99,7 +99,7 @@ Sebagai contoh kasus, kita akan membuat kalkulator sederhana. Katakanlah kalkula
 <script></script>
 ```
 
-<app-demo-1 />
+<app-demo-1-id />
 
 Pertama-tama kita mendeklarasikan sebuah tag `pre` yang memiliki atribut kelas bernama `keadaan`. Tag tersebut yang akan kita gunakan untuk menampilkan keadaan nyata dari variabel yang kita deklarasikan.
 
@@ -107,7 +107,7 @@ Selanjutnya 2 buah tag `input` yang masing-masing memiliki kelas bernama `input1
 
 Hal tersebut bertujuan agar pengguna hanya dapat memasukkan nilai berupa angka dengan minimal nilai `0`.
 
-Di antara kedua tag `input` tersebut, kita mendeklarasikan tag `select` yang memiliki atribut kelas bernama `operator`. Di dalam tag tersebut, memiliki 4 tag `option` yang masing-masing merepresentasikan operator yang dapat kita gunakan untuk melakukan operasi matematika.
+Di antara kedua tag `input` tersebut, kita mendeklarasikan tag `select` yang memiliki atribut kelas bernama `operator`. Di dalam tag tersebut, kita memiliki 4 tag `option` yang masing-masing merepresentasikan operator yang dapat kita gunakan untuk melakukan operasi matematika.
 
 Selanjutnya kita juga mendeklarasikan tag `h1` yang memiliki atribut kelas bernama `hasil`. Tag `h1` ini berguna untuk menampilkan hasil dari operasi matematika yang kita lakukan.
 
@@ -159,7 +159,7 @@ function mulai() {
 }
 ```
 
-Di dalam fungsi `mulai` tersebut kita mengambil tag `pre` menggunakan fungsi `document.querySelector` dan menyimpannya ke dalam variabel bernama `tampilanKeadaan`. Fungsi tersebut menerima 1 parameter berupa selektor CSS.
+Di dalam fungsi `mulai` tersebut kita mengambil tag `pre` menggunakan fungsi `document.querySelector` dan menyimpannya ke dalam variabel bernama `tampilanKeadaan`. Fungsi tersebut menerima 1 parameter berupa nama selektor CSS.
 
 Pada contoh kode sebelumnya kita telah mendeklarasikan tag `pre` yang memiliki kelas bernama `keadaan`. Sehingga kita dapat mengambil tag tersebut menggunakan selektor `.keadaan`.
 
@@ -179,9 +179,9 @@ Untuk dapat memanggil fungsi `mulai` tersebut, yang perlu kita lakukan adalah me
 document.addEventListener('DOMContentLoaded', mulai)
 ```
 
-Fungsi tersebut bertujuan untuk memanggil fungsi `main` pada saat Model Objek Dokumen ([Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)) telah termuat.
+Fungsi tersebut bertujuan untuk memanggil fungsi `mulai` pada saat Model Objek Dokumen ([Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)) telah termuat.
 
-<app-demo-2 />
+<app-demo-2-id />
 
 Setelah berhasil menampilkan keadaan ke dalam tag `pre`, kita perlu juga menampilkan nilai properti `hasil` ke dalam tag `h1`.
 
@@ -197,7 +197,7 @@ Caranya hampir sama seperti menampilkan keadaan ke dalam tag `pre`. Perbedaannya
 
 Namun karena nilai dari properti tersebut bertipe `number`, kita harus memanggil fungsi `toString` untuk mengubahnya menjadi `string`.
 
-<app-demo-3 />
+<app-demo-3-id />
 
 Selain itu kita juga perlu menampilkan nilai dari properti `input1` dan `input2` pada kedua tag `input`.
 
@@ -216,11 +216,11 @@ Kita masih menggunakan cara yang sama untuk menampilkan nilai dari objek keadaan
 
 Jika sebelumnya kita mengeset properti `innerText`, untuk tag `input` yang kita set adalah properti `value`.
 
-<app-demo-4 />
+<app-demo-4-id />
 
 Setelah kita menerapkan kode di atas, kedua input teks akan menampilkan angka `0` karena kita juga mengeset nilai properti `input1` dan `input2` pada objek `keadaan` bernilai `0`.
 
-Selanjutnya kita juga perlu menampilkan nilai dari properti `operator` pda tag `select`.
+Selanjutnya kita juga perlu menampilkan nilai dari properti `operator` pada tag `select`.
 
 ```javascript {4}
 function mulai() {
@@ -232,7 +232,7 @@ function mulai() {
 
 Setelah menambahkan kode di atas hasilnya tidak akan berbeda jauh dengan demo sebelumnya karena secara standar tag `select` akan menampilkan opsi pertama.
 
-<app-demo-5 />
+<app-demo-5-id />
 
 Sebelum melanjutkan ke tahap selanjutnya, mari kita lakukan sedikit refaktor pada kode yang telah kita tulis sebelumnya.
 
@@ -318,7 +318,7 @@ Setiap objek di dalam daftar tersebut memiliki properti `value`. Sehingga kita d
 
 Setelah nilai dapat kita dapatkan, kita dapat mengatur properti `operator` pada objek `keadaan` dengan nilai tersebut.
 
-<app-demo-6 />
+<app-demo-6-id />
 
 Menambahkan pendengar peristiwa berfungsi untuk mengatur nilai properti `input1`, `input2` dan `operator` ketika terjadi perubahan pada kedua tag `input` dan tag `select`.
 
@@ -336,7 +336,7 @@ Kita melakukan perubahan nilai pada kedua `input` dan `select`. Setelah itu kita
 
 Sebelum melanjutkan, mari kita merefleksi terlebih dahulu apa yang sudah kita lakukan. Yang pertama adalah kita telah membuat struktur HTML dengan 2 buah tag `input` untuk memasukkan nilai.
 
-Sebuah tag `select` yang memiliki beberapa `option` yang kita gunakan untuk menampilkan opsi operator. Dan sebuah tag `h1` untuk menampilkan hasil dari kalkulasi.
+Sebuah tag `select` yang memiliki beberapa `option` yang kita gunakan untuk menampilkan opsi operator matematika. Dan sebuah tag `h1` untuk menampilkan hasil dari kalkulasi.
 
 Selain itu terdapat juga tag `pre` yang kita gunakan untuk menampilkan struktur objek `keadaan`.
 
@@ -395,7 +395,7 @@ function mulai() {
 
 Kita dapat memanggil fungsi tersebut pada pendengar peristiwa. Sehingga setiap kali terjadi perubahan pada kedua input dan operator, secara otomatis nilai properti `hasil` akan dikalkulasi ulang.
 
-<app-demo-7 />
+<app-demo-7-id />
 
 Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel untuk demo 7 yakni `keadaan7`.
 
@@ -413,7 +413,7 @@ Pada bagian sebelumnya kita menampilkan nilai dari setiap properti pada objek `k
 
 Kita juga telah merefaktor kode tersebut ke dalam sebuah fungsi bernama `mutakhirkanTampilan`. Kita memanggil fungsi tersebut untuk menampilkan nilai setiap properti objek `keadaan` ke tampilan peramban.
 
-Seharusnya kita juga dapat menggunakan fungsi `mutakhirkanTampilan` tersebut untuk menampilkan ulang nilai properti objek `keadaan` ke tampilan peramban.
+Seharusnya kita juga dapat menggunakan fungsi `mutakhirkanTampilan` tersebut untuk menampilkan ulang nilai properti objek `keadaan` ke tampilan peramban setelah proses kalkulasi terjadi.
 
 ```javascript {6,11,16}
 function mulai() {
@@ -441,7 +441,7 @@ Yang perlu kita lakukan sama seperti pada fungsi `kalkulasiHasil`, memanggil fun
 
 Kita harus memanggil fungsi `kalkulasiHasil` terlebih dahulu kemudian fungsi `mutakhirkanTampilan`. Sehingga nilai yang ditampilkan sesuai dengan hasil kalkulasi.
 
-<app-demo-8 />
+<app-demo-8-id />
 
 Pada demo di atas, kita telah berhasil membuat sistem reaktivitas sendiri, ketika terjadi perubahan nilai pada kedua input maupun pilihan operator. Hasilnya akan secara otomatis ditampilkan perubahannya di layar peramban.
 
@@ -519,11 +519,11 @@ Properti kedua adalah `configurable` dengan nilai `true`. Maksud dari properti k
 
 Properti ketiga adalah `get` dengan nilai sebuah fungsi bernama `pengambilReaktif`. Di dalam fungsi inilah kita dapat mencetak info bahwa properti telah diakses.
 
-Yang perlu kita perhatikan adalah properti fungsi `pengambilReaktif` ini haruslah mengembalikan sebuah nilai. Karena ketika kita mengakses properti `nama`, kita mengharapkan mendapatkan nilai dari properti tersebut bukan, oleh karena itu kita juga harus mengembalikan nilai dari properti `nama` pada fungsi `pengambilReaktif`.
+Yang perlu kita perhatikan adalah properti fungsi `pengambilReaktif` ini haruslah mengembalikan sebuah nilai. Karena ketika kita mengakses properti `nama`, kita mengharapkan mendapatkan nilai dari properti tersebut bukan? Oleh karena itu kita juga harus mengembalikan nilai dari properti `nama` pada fungsi `pengambilReaktif`.
 
 Properti keempat adalah `set` dengan nilai fungsi bernama `pengaturReaktif`. Di dalam fungsi inilah kita dapat mencetak info bahwa properti telah diubah.
 
-Fungsi `pengaturReaktif` secara otomatis **menerima 2 parameter**, parameter pertama adalah **nilai baru yang akan diset pada properti tersebut** dan parameter kedua adalah **nilai lama yang dimiliki properti tersebut**.
+Fungsi `pengaturReaktif` secara otomatis **menerima 2 parameter**. Parameter pertama adalah **nilai baru yang akan diset pada properti tersebut** dan parameter kedua adalah **nilai lama yang dimiliki properti tersebut**.
 
 Hal lain yang perlu diperhatikan adalah, di dalam fungsi `pengambilReaktif` tersebut kita **tidak bisa mengembalikan nilai properti `nama` menggunakan notasi titik** `manusia.nama` atau pada fungsi `pengaturReaktif` kita juga **tidak bisa mengatur nilai properti `nama` menggunakan notasi titik** `manusia.nama`.
 
@@ -567,7 +567,7 @@ Pada contoh kode di atas kita mendeklarasikan objek bernama `keadaan` yang memil
 
 Seperti pada contoh kode sebelumnya, variabel bantuan ini akan berfungsi untuk menampung nilai dari properti `input1` pada objek `keadaan`.
 
-Jika kita langsung mengakses propertinya langsung tanpa menggunakan variabel bantuan, fungsi `pengambilReaktif` dan `pengaturReaktif` akan dieksekusi secara berulang hingga tak terhingga.
+Dan jika kita langsung mengakses propertinya langsung tanpa menggunakan variabel bantuan, fungsi `pengambilReaktif` dan `pengaturReaktif` akan dieksekusi secara berulang hingga tak terhingga.
 
 ```javascript
 keadaan.input1 = keadaan.input1 + 7
@@ -580,7 +580,7 @@ Pada contoh kode di atas kita melakukan operasi penambahan antara nilai properti
 
 Info properti telah diakses muncul ketika properti `input1` di akses pada bagian kanan tanda sama dengan `=`. Sedangkan info properti telah diubah muncul ketika nilai properti `input1` telah ditambahkan dengan angka 7 dan di simpan ulang.
 
-Dengan menggunakan cara tersebut kita sudah dapat membuat sistem reaktivitas sendiri. Mari kita coba refaktor kode pada <a href="#AppDemo8">Demo 8</a> di atas agar menggunakan `defineProperty` sebagai sistem reaktivitasnya.
+Dengan menggunakan cara tersebut kita sudah dapat membuat sistem reaktivitas sendiri. Mari kita coba refaktor kode pada <a href="#AppDemo8Id">Demo 8</a> di atas agar menggunakan `defineProperty` sebagai sistem reaktivitasnya.
 
 ```javascript {9,12-13}
 function mulai() {
@@ -606,7 +606,7 @@ Pada contoh kode di atas kita memindahkan pemanggilan fungsi `kalkulasiHasil` da
 
 Hal tersebut bertujuan ketika properti `input1` diubah nilainya, akan dilakukan kalkulasi hasil dan pemutakhiran tampilan secara otomatis.
 
-<app-demo-9 />
+<app-demo-9-id />
 
 Tetapi pada contoh di atas kita hanya membuat sistem reaktivitas berjalan pada properti `input1` saja, padahal yang kita perlukan dapat berjalan di semua properti.
 
@@ -639,7 +639,7 @@ function mulai() {
 }
 ```
 
-_Method_ `keys` menerima parameter berupa objek. _Method_ ini berfungsi untuk mendapatkan semua nama properti yang dimiliki oleh objek yang digunakan sebagai parameternya dan disimpan ke dalam variabel `daftarKunci`.
+_Method_ `keys` menerima parameter berupa objek. _Method_ ini berfungsi untuk mendapatkan semua nama properti yang dimiliki oleh objek yang digunakan sebagai parameternya. Nilainya kemudian disimpan ke dalam variabel `daftarKunci`.
 
 Karena variabel `daftarKunci` memiliki nilai berupa _array_ dengan item berupa string, kita dapat menggunakan pengulangan untuk mendapatkan setiap nilai properti yang dimiliki oleh objek `keadaan`.
 
@@ -649,7 +649,7 @@ Kita juga perlu melakukan pengecekan di dalam fungsi `pengaturReaktif` apakah ni
 
 Jika nilai tersebut sama, maka fungsi `pengaturReaktif` tidak akan dilanjutkan. Hal tersebut bertujuan untuk mencegah fungsi `pengaturReaktif` dieksekusi secara berulang hingga tak hingga.
 
-<app-demo-10 />
+<app-demo-10-id />
 
 Dengan menggunakan cara tersebut semua properti yang dimiliki oleh objek `keadaan` akan menjadi reaktif.
 
@@ -671,9 +671,9 @@ Cara tersebut menerapkan konsep yang sama seperti sistem reaktivitas pada Vue.js
 
 Setiap properti yang dimiliki oleh objek keadaan kita ubah agar memiliki pengambil dan pengatur. Di dalam fungsi pengatur itulah kita dapat mengatur apa yang seharusnya dilakukan ketika terjadi perubahan nilai.
 
-Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan saja dalam satu waktu. Pada bagian selanjutnya kita akan menyelesaikan permasalahan tersebut.
+Namun sekali lagi, sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan saja dalam satu waktu. Pada bagian selanjutnya kita akan menyelesaikan permasalahan tersebut.
 
 ## Referensi
 
-1. [Medium JS Dojo: Understanding Vue Reactivity Step by Step](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
-2. [Vue.js: Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html)
+1. [Medium JS Dojo: Memahami Reaktivitas Vue Selangkah demi Selangkah](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
+2. [Vue.js: Reaktivitas Secara Mendalam](https://vuejs.org/v2/guide/reactivity.html)

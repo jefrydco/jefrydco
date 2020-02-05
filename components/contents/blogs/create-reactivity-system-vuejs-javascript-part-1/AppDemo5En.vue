@@ -1,7 +1,7 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
     <div class="demo-card demo-card-5">
-      <pre class="keadaan"></pre>
+      <pre class="state"></pre>
 
       <input type="number" class="input1" min="0" />
       <select class="operator">
@@ -12,61 +12,54 @@
       </select>
       <input type="number" class="input2" min="0" />
 
-      <div class="hasil"></div>
+      <div class="result"></div>
 
       <script>
         // We put the code inside immediately invoked function expression to avoid polluting global variable
         // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        const keadaan5 = (function() {
+        const state5 = (function() {
           const OPERATOR = {
-            TAMBAH: '+',
-            KURANG: '-',
-            KALI: '*',
-            BAGI: '/'
+            PLUS: '+',
+            SUBSTRACT: '-',
+            MULTIPLY: '*',
+            DIVIDE: '/'
           }
 
-          const keadaan = {
-            hasil: 0,
-            operator: OPERATOR.TAMBAH,
+          const state = {
+            result: 0,
+            operator: OPERATOR.PLUS,
             input1: 0,
             input2: 0
           }
 
-          function mulai() {
+          function main() {
             // We have to prefixed the selector in accordance with the root component class
             // It avoids the script to be applied to all demo
-            const tampilanKeadaan = document.querySelector(
-              '.demo-card-5 .keadaan'
-            )
-            tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
+            const stateDisplay = document.querySelector('.demo-card-5 .state')
+            stateDisplay.innerText = JSON.stringify(state, null, 2)
 
-            const tampilanHasil = document.querySelector('.demo-card-5 .hasil')
-            tampilanHasil.innerText = keadaan.hasil.toString()
+            const resultDisplay = document.querySelector('.demo-card-5 .result')
+            resultDisplay.innerText = state.result.toString()
 
-            const tampilanInput1 = document.querySelector(
-              '.demo-card-5 .input1'
-            )
-            const tampilanInput2 = document.querySelector(
-              '.demo-card-5 .input2'
-            )
+            const input1Display = document.querySelector('.demo-card-5 .input1')
+            const input2Display = document.querySelector('.demo-card-5 .input2')
 
-            tampilanInput1.value = keadaan.input1.toString()
-            tampilanInput2.value = keadaan.input2.toString()
+            input1Display.value = state.input1.toString()
+            input2Display.value = state.input2.toString()
 
-            const tampilanOperator = document.querySelector(
+            const operatorDisplay = document.querySelector(
               '.demo-card-5 .operator'
             )
-            tampilanOperator.value = keadaan.operator
+            operatorDisplay.value = state.operator
           }
 
-          // document.addEventListener('DOMContentLoaded', mulai)
-
           // We have to run the method because this script is executed inside vue component
-          mulai()
+          // document.addEventListener('DOMContentLoaded', main)
+          main()
 
-          return keadaan
+          return state
         })()
-        window.keadaan5 = keadaan5
+        window.state5 = state5
       </script>
     </div>
   </app-demo>

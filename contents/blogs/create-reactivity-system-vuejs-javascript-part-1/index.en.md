@@ -1,5 +1,5 @@
 ---
-title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1
+title: Create a Simplified Version of Vue.js Reactivity System - Part 1
 description: 
 summary: 
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
@@ -8,82 +8,82 @@ postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-1
 id: create-reactivity-system-vuejs-javascript-part-1
-extraComponents: ['AppDemo1', 'AppDemo2', 'AppDemo3', 'AppDemo4', 'AppDemo5', 'AppDemo6', 'AppDemo7', 'AppDemo8', 'AppDemo9', 'AppDemo10']
+extraComponents: ['AppDemo1En', 'AppDemo2En', 'AppDemo3En', 'AppDemo4En', 'AppDemo5En', 'AppDemo6En', 'AppDemo7En', 'AppDemo8En', 'AppDemo9En', 'AppDemo10En']
 ---
 
-> Baca bagian kedua di sini, [Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 2](/blog/create-reactivity-system-vuejs-javascript-part-2)
+> Read the second part here, [Create a Simplified Version of Vue.js Reactivity System - Bagian 2](/blog/create-reactivity-system-vuejs-javascript-part-2)
 
-Pernahkah teman-teman terpikirkan bagaimana Vue.js membuat suatu variabel menjadi reaktif? Menuliskan sesuatu di teks input dan melihat hasilnya di tempat lain secara instan.
+Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly.
 
-Apa rahasia dibalik sistem reaktivitas tersebut? Mari kita kupas bersama-sama rahasianya.
+What is the secret of that reactivity system? Let's deep dive into it together.
 
 [toc]
 
-## Reaktivitas
+## Reactivity
 
-Sebelum memulai membuat sistem reaktivitas kita sendiri, mari kita sejenak memikirkan apa yang disebut reaktif itu dan bagaimana ia bekerja.
+Before we begin discussing about the reactivity system itself, let's think about the reactivity and how it worked for a moment.
 
-Sebuah sistem dikatakan reaktif jika ia dapat bereaksi terhadap suatu perubahan. Contoh sederhananya ketika kita menggunakan Microsoft Excel atau Google Spreadsheet.
+A system can be called as reactivity if it reacts to a change. The simplest form we use everyday is Microsoft Excel or Google Spreadsheet.
 
-Katakanlah kita memiliki data umur karyawan suatu perusahaan. Kemudian kita ingin menghitung rata-rata data tersebut. Kita dapat memasukkan rumus pada kolom manapun dan rata-ratanya secara otomatis terkalkulasi.
+Let say we have employee age data in some company. Then we want to calculate the average. We can directly insert the formula into anywhere and the average result is calculated automatically.
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/spreadsheet-average-reactivity-by-jefrydco.webm" />
 
-Kemudian jika terdapat perubahan terhadap data, maka nilai rata-ratanya juga akan dikalkulasi ulang secara otomatis. Tidak hanya dikalkulasi ulang, tetapi juga ditampilkan di layar peramban secara instan.
+If the data change, the average result will be recalculated automatically.
 
-## Sistem Reaktivitas Vue.js
+## Vue.js Reactivity System
 
-Mengacu pada dokumentasi resmi Vue.js mengenai [reaktivitas secara mendalam](https://vuejs.org/v2/guide/reactivity.html). Pada bagian [Bagaimana Perubahan Dilacak](https://vuejs.org/v2/guide/reactivity.html#How-Changes-Are-Tracked), terdapat diagram seperti berikut:
+According to the Vue.js official documentation about [Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html). On the section of [How Changes are Tracked](https://vuejs.org/v2/guide/reactivity.html#How-Changes-Are-Tracked), there is a diagram like the following:
 
 <app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"/>
 
-Untuk memahami diagram tersebut, mari kita lihat contoh kode paling sederhana untuk membuat suatu komponen Vue.js
+To get a better understanding of it, let's take a look at the simplest form of Vue.js application.
 
 ```html {2-3,10}
 <div id="app">
-  <h2>{ teks }</h1>
-  <input v-model="teks" />
+  <h2>{ text }</h1>
+  <input v-model="text" />
 </div>
 
 <script>
 new Vue({
   el: '#app',
   data: {
-    teks: 'Halo Dunia!'
+    text: 'Hello World!'
   }
 })
 </script>
 ```
 
-> Seharusnya sintaks interpolasi Vue.js pada baris ke dua di atas ditulis seperti berikut `{{ text }}`. Tetapi saya tidak bisa menulisnya seperti demikian karena entah kenapa ia diterjemahkan sebagai interpolasi sebenarnya.
+> Vue.js interpolation syntax on the second line should be written like this `{{ text }}`. But I can't do it, I don't know why the syntax is translated like a real interpolation.
 
-Di balik layar, Vue.js akan mengubah semua data yang telah kita deklarasikan pada properti `data` akan diubah menjadi pengambil dan pengatur (_getter and setter_).
+Behind the curtain, Vue.js will change all of the data we declared in the `data` section into a getter and setter.
 
-Pengambil dan pengatur tersebut bertipe fungsi. Ketika suatu variabel diakses, maka fungsi pengambil akan dieksekusi. Dan ketika suatu variabel diubah nilainya, fungsi pengatur akan memberitahukan pengintai untuk menjalankan pekerjaannya.
+The getter and setter are in the form of function. When a variable is accessed, the getter will be executed. And if the value is changed, the setter will notify the watcher to run its job related to the variable.
 
-1. Di dalam fungsi pengambil telah dideklarasikan suatu **mekanisme untuk menyimpan suatu pekerjaan sebagai dependensi**.
-2. Sedangkan di dalam fungsi pengatur dideklarasikan suatu **mekanisme untuk memberitahukan semua dependensi bahwa variabel tersebut telah berubah nilainya**. Sehingga pekerjaan yang telah disimpan sebagai dependensi dapat dijalankan.
+1. In the body of getter, it is declared **a mechanism to save a job as a dependency**.
+2. Meanwhile, in the body of setter, it is declared **a mechanism to notify all of the dependency that the value of the variable is changed**. So the job that already saved as a dependency will be executed.
 
-Ketika kode di atas ditampilkan pada layar peramban, terdapat variabel `teks` yang diakses. Varibel tersebut diakses sebanyak 2x, yang pertama di dalam tag `h1` dan yang kedua di dalam atribut `v-model` pada tag `input`.
+When the snippet above is rendered on the browser, a `text` variable accessed. It accessed twice, the first one inside of `h1` tag and the second one inside the `v-model` attribute on `input` tag.
 
-Ketika Vue.js menyuruh peramban menampilkan tag `h1`, Vue.js akan menyimpan **pekerjan menampilkan tag `h1` sebagai dependensi**.
+When Vue.js render the `h1` tag, Vue.js will save **the job of rendering `h1` tag as a dependency**.
 
-Begitu juga ketika Vue.js menyuruh peramban untuk menampilkan tag `input`, Vue.js akan menyimpan **pekerjaan menampilkan tag `input` sebagai dependensi**.
+It applies as well when Vue.js render the `input` tag, Vue.js will save **the job of rendering `input` tag as a dependency**.
 
-Ketika pengguna mengubah nilai variabel `teks` melalui tag `input`, Vue.js akan mengecek pekerjaan apa saja yang harus dilakukan ketika nilai variabel `teks` berubah.
+When the user changes the value of `text`, Vue.js will check what kind of jobs it should run when the value of `text` changes.
 
-Pekerjaan pertama adalah menampilkan ulang tag `h1` dan pekerjaan kedua adalah menampilkan tag `input`. 
+The first job is rerendering the `h1` tag and the second one is rerendering the `input` tag.
 
-Itulah yang menyebabkan ketika pengguna mengubah nilai variabel `teks` melalui tag `input`, secara otomatis nilai variabel `teks` pada tag `h1` akan ikut berubah.
+That's why when the user changes the value of `text` via `input` tag, the `text` variable inside of `h1` tag will change automatically as well.
 
-## Sistem Reaktivitas Buatan Sendiri
+## Our Own Reactivity System
 
-Sebagai contoh kasus, kita akan membuat kalkulator sederhana. Katakanlah kalkulator tersebut terdiri dari 2 buah input teks, operator dan hasil.
+As a case point, we will create a simple calculator. Let say it has 2 input texts, an operator and a result.
 
-### Struktur HTML
+### HTML Structure
 
 ```html
-<pre class="keadaan"></pre>
+<pre class="state"></pre>
 
 <input type="number" class="input1" min="0" />
 <select class="operator">
@@ -94,276 +94,274 @@ Sebagai contoh kasus, kita akan membuat kalkulator sederhana. Katakanlah kalkula
 </select>
 <input type="number" class="input2" min="0" />
 
-<h2 class="hasil"></h1>
+<h2 class="result"></h1>
 
 <script></script>
 ```
 
-<app-demo-1 />
+<app-demo-1-en />
 
-Pertama-tama kita mendeklarasikan sebuah tag `pre` yang memiliki atribut kelas bernama `keadaan`. Tag tersebut yang akan kita gunakan untuk menampilkan keadaan nyata dari variabel yang kita deklarasikan.
+First, we declare a `pre` tag which has a class attribute called `state`. It will be used to render the real value of the variable we use.
 
-Selanjutnya 2 buah tag `input` yang masing-masing memiliki kelas bernama `input1` dan `input2`. Masing-masing tag `input` ini memiliki atribut `type` yang bernilai `number` dan atribut `min` yang bernilai `0`.
+We also have 2 `input` tag, each of them has a class attribute called `input1` and `input2`. They also have `type` attribute which has `number` value and `min` attribute which has `0` value.
 
-Hal tersebut bertujuan agar pengguna hanya dapat memasukkan nilai berupa angka dengan minimal nilai `0`.
+It is intended to make the user can enter any number with the minimum value of `0`.
 
-Di antara kedua tag `input` tersebut, kita mendeklarasikan tag `select` yang memiliki atribut kelas bernama `operator`. Di dalam tag tersebut, memiliki 4 tag `option` yang masing-masing merepresentasikan operator yang dapat kita gunakan untuk melakukan operasi matematika.
+Between the `input` tag, we declare a `select` tag which has a class attribute called `operator`. Inside of it, we have `option` tag. Each of them represents the mathematical operator.
 
-Selanjutnya kita juga mendeklarasikan tag `h1` yang memiliki atribut kelas bernama `hasil`. Tag `h1` ini berguna untuk menampilkan hasil dari operasi matematika yang kita lakukan.
+Besides that, we also declare an `h1` tag which has a class attribute called `result`. This `h1` is useful for displaying the result of the mathematical operation we conduct.
 
-Selain itu kita juga mendeklarasikan tag `script`, di dalam tag ini kita akan mendeklarasikan semua JavaScript yang kita butuhkan.
+We also declare a `script` tag, inside of it we will all of the JavaScript we need to make our own reactivity system.
 
-### Keadaan Kalkulator
+### Calculator State
 
-Yang kita butuhkan selanjutnya adalah variabel yang dapat menampung nilai dari kedua input, operator dan hasil.
+The next thing we need is a variable which can be used to store the value of input, operator and the result.
 
 ```javascript
-const keadaan = {
-  hasil: 0,
+const state = {
+  result: 0,
   operator: '+',
   input1: 0,
   input2: 0
 }
 ```
 
-Kita mendeklarasikan variabel tersebut dengan nama `keadaan`. Variabel tersebut berbentuk objek yang memiliki properti bernama `hasil`, `input1`, dan `input2` yang bernilai `0` serta properti `operator` yang bernilai `+`.
+We declare a variable called `state`. It is in the form of object which has several properties. They are `result`, `input1`, `input2` which have a value of `0` and `operator` which have `+` value.
 
-Properti `operator` memiliki beberapa kemungkinan nilai, oleh karena itu akan lebih baik jika kita mendeklarasikan suatu objek konstan yang menampung semua kemungkinan tersebut.
+The `operator` property has several possibilities of value. Because of that, it is better if we declare a constant object which stores all of the possibilities.
 
 ```javascript
 const OPERATOR = {
-  TAMBAH: '+',
-  KURANG: '-',
-  KALI: '*',
-  BAGI: '/'
+  PLUS: '+',
+  SUBSTRACT: '-',
+  MULTIPLY: '*',
+  DIVIDE: '/'
 }
 ```
 
-Setelah itu kita dapat mengubah nilai dari properti `operator` tersebut dengan menggunakan nilai dari objek konstant yang telah kita deklarasikan sebelumnya.
+After that, we can change the value of `operator` property to use the value of constant object we already declared before.
 
 ```javascript
-const keadaan = {
-  hasil: 0,
-  operator: OPERATOR.TAMBAH,
+const state = {
+  result: 0,
+  operator: OPERATOR.PLUS,
   input1: 0,
   input2: 0
 }
 ```
 
-Selanjutnya kita perlu mendeklarasikan sebuah fungsi untuk menjalankan semua kode JavaScript yang akan kita tulis nantinya. Fungsi ini dapat kita beri nama `mulai`.
+The next thing we need to do is declaring a function to run all of our JavaScript. We can call it `main` function.
 
 ```javascript {3}
-function mulai() {
-  const tampilanKeadaan = document.querySelector('.keadaan')
-  tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
+function main() {
+  const stateDisplay = document.querySelector('.state')
+  stateDisplay.innerText = JSON.stringify(state, null, 2)
 }
 ```
 
-Di dalam fungsi `mulai` tersebut kita mengambil tag `pre` menggunakan fungsi `document.querySelector` dan menyimpannya ke dalam variabel bernama `tampilanKeadaan`. Fungsi tersebut menerima 1 parameter berupa selektor CSS.
+In the body of `main` function, we get the `pre` tag using `document.querySelector` and store it to a variable called `stateDisplay`. The function accepts a parameter in the form of CSS selector name.
 
-Pada contoh kode sebelumnya kita telah mendeklarasikan tag `pre` yang memiliki kelas bernama `keadaan`. Sehingga kita dapat mengambil tag tersebut menggunakan selektor `.keadaan`.
+In the previous example, we declared a `pre` tag which has a class attribute called `state`. So that we can get it directly using `.state` selector.
 
-Setelah itu kita dapat mengatur teks di dalam tag `pre` tersebut menggunakan properti `innerText` yang dimiliki oleh variabel `tampilanKeadaan`.
+After that we can set the text inside of `pre` tag using `innerText` property.
 
-Teks yang akan kita tampilkan sesuai dengan bentuk objek `keadaan` yang telah kita deklarasikan sebelumnya.
+The text is in accordance with the form of `state` object we already declared previously.
 
-Untuk dapat melakukan hal tersebut, kita dapat menggunakan fungsi `JSON.stringify`.
+To make it happen, we can use `JSON.stringify` function.
 
-Fungsi tersebut menerima 3 parameter, parameter pertama adalah objek yang ingin kita jadikan `string`. Parameter kedua adalah fungsi pengganti, kita dapat memasukkan `null` karena pada kasus ini kita tidak membutuhkannya.
+It accepts 3 parameters, the first one is the object we wanna convert into `string`. The second parameter is replacer function, we can pass `null` because in this case, we don't need it.
 
-Parameter ketiga adalah jumlah spasi. Secara standar, jumlah spasi untuk proyek berbasis HTML, CSS dan JavaScript adalah 2 spasi.
+The last one is the space count. By default, the space count for HTML, CSS and JavaScript-based project is 2 spaces.
 
-Untuk dapat memanggil fungsi `mulai` tersebut, yang perlu kita lakukan adalah menggunakannya sebagai parameter kedua pada fungsi berikut:
+To call the `main` function, we need to use it as the second parameter for the following function:
 
 ```javascript
-document.addEventListener('DOMContentLoaded', mulai)
+document.addEventListener('DOMContentLoaded', main)
 ```
 
-Fungsi tersebut bertujuan untuk memanggil fungsi `main` pada saat Model Objek Dokumen ([Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)) telah termuat.
+It aims to call the `main` function when the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) is already loaded.
 
-<app-demo-2 />
+<app-demo-2-en />
 
-Setelah berhasil menampilkan keadaan ke dalam tag `pre`, kita perlu juga menampilkan nilai properti `hasil` ke dalam tag `h1`.
+After all, we also need to render the value of `result` property inside of `h1` tag.
 
 ```javascript {4}
-function mulai() {
-  // ... Kode sebelumnya
-  const tampilanHasil = document.querySelector('.hasil')
-  tampilanHasil.innerText = keadaan.hasil.toString()
+function main() {
+  // ... Previous code
+  const resultDisplay = document.querySelector('.result')
+  resultDisplay.innerText = state.result.toString()
 }
 ```
 
-Caranya hampir sama seperti menampilkan keadaan ke dalam tag `pre`. Perbedaannya hanya nilai properti `innerText` di dapatkan dari properti `hasil` pada objek `keadaan`.
+It has the same way as displaying state to `pre` tag. The only difference is the `innerText` property is coming from `result` property inside the `state` object.
 
-Namun karena nilai dari properti tersebut bertipe `number`, kita harus memanggil fungsi `toString` untuk mengubahnya menjadi `string`.
+Because of the type of the property value is `number`, we have to call `toString` function to change it into `string`.
 
-<app-demo-3 />
+<app-demo-3-en />
 
-Selain itu kita juga perlu menampilkan nilai dari properti `input1` dan `input2` pada kedua tag `input`.
+Besides that, we also need to render the value of `input1` and `input2` property to both of the `input` tags.
 
 ```javascript {6-7}
-function mulai() {
-  // ... Kode sebelumnya
-  const tampilanInput1 = document.querySelector('.input1')
-  const tampilanInput2 = document.querySelector('.input2')
+function main() {
+  // ... Previous code
+  const input1Display = document.querySelector('.input1')
+  const input2Display = document.querySelector('.input2')
 
-  tampilanInput1.value = keadaan.input1.toString()
-  tampilanInput2.value = keadaan.input2.toString()
+  input1Display.value = state.input1.toString()
+  input2Display.value = state.input2.toString()
 }
 ```
 
-Kita masih menggunakan cara yang sama untuk menampilkan nilai dari objek keadaan, perbedaannya hanya pada properti tag yang kita set.
+We still use the same way as before to render the value of the state, the difference is the tag property we set.
 
-Jika sebelumnya kita mengeset properti `innerText`, untuk tag `input` yang kita set adalah properti `value`.
+Before we set the `innerText` property, and then we use the `value` property.
 
-<app-demo-4 />
+<app-demo-4-en />
 
-Setelah kita menerapkan kode di atas, kedua input teks akan menampilkan angka `0` karena kita juga mengeset nilai properti `input1` dan `input2` pada objek `keadaan` bernilai `0`.
+After we apply the code above, both of the text input will render `0` because we also set the initial value of `input1` and `input2` property in `state` object to `0`.
 
-Selanjutnya kita juga perlu menampilkan nilai dari properti `operator` pda tag `select`.
+Then we need to render the value of `operator` property into `select` tag.
 
 ```javascript {4}
-function mulai() {
-  // ... Kode sebelumnya
-  const tampilanOperator = document.querySelector('.operator')
-  tampilanOperator.value = keadaan.operator
+function main() {
+  // ... Previous code
+  const operatorDisplay = document.querySelector('.operator')
+  operatorDisplay.value = state.operator
 }
 ```
 
-Setelah menambahkan kode di atas hasilnya tidak akan berbeda jauh dengan demo sebelumnya karena secara standar tag `select` akan menampilkan opsi pertama.
+After we add the code above the result won't make any difference because by default the `select` tag will render the first option.
 
-<app-demo-5 />
+<app-demo-5-en />
 
-Sebelum melanjutkan ke tahap selanjutnya, mari kita lakukan sedikit refaktor pada kode yang telah kita tulis sebelumnya.
+Before we continue to the next step, let's make a little refactor to our code.
 
-Jika teman-teman lihat pada beberapa contoh kode sebelumnya, saya memberi cetak terang pada satu atau dua baris kode.
+If You take a look at the previous code, I highlight to one or two of the code.
 
-Kode tersebut mempunyai fungsi untuk menampilkan nilai dari setiap properti yang dimiliki objek `keadaan` agar dapat di tampilkan ke tampilan peramban.
+They are useful to render all the value of the `state` property to the browser.
 
-Kita dapat mengekstrak semua kode yang telah saya beri cetak terang ke dalam suatu fungsi sendiri, kita dapat memberi nama fungsi tersebut sesuai dengan fungsinya, `mutakhirkanTampilan`.
+We can extract them to their own function, we can call it `updateDisplay`.
 
 ```javascript {13}
-function mulai() {
-  // ... Kode sebelumnya
-  function mutakhirkanTampilan() {
-    tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
-    tampilanHasil.innerText = keadaan.hasil.toString()
+function main() {
+  // ... Previous code
+  function updateDisplay() {
+    stateDisplay.innerText = JSON.stringify(keadaan, null, 2)
+    resultDisplay.innerText = state.result.toString()
 
-    tampilanInput1.value = keadaan.input1.toString()
-    tampilanInput2.value = keadaan.input2.toString()
+    input1Display.value = state.input1.toString()
+    input2Display.value = state.input2.toString()
 
-    tampilanOperator.value = keadaan.operator
+    operatorDisplay.value = state.operator
   }
 
-  mutakhirkanTampilan()
+  updateDisplay()
 }
 ```
 
-Seperti pada contoh kode di atas, kita membuat fungsi `mutakhirkanTampilan` di dalam fungsi `mulai`. Untuk menjalankan kode yang ada di dalam fungsi tersebut, kita perlu melakukan pemanggilan terhadap fungsi tersebut.
+Like the example above, we make a function called `updateDisplay`. To run the code we need to call it.
 
-### Pendengar Peristiwa
+### Event Listener
 
-Selanjutnya yang kita perlu lakukan adalah memikirkan bagaimana caranya agar ketika pengguna melakukan perubahan baik di kedua input maupun di operator, secara otomatis nilai dari keadaan akan termutakhirkan secara otomatis.
+The next thing we need to do is thinking how to make the value of the state updated automatically when the user changes the value of the input and the operator.
 
-Untuk melakukan hal tersebut, kita dapat menambahkan pendengar peristiwa (_event listener_) pada kedua tag `input` dan tag `select`.
+To make it worked, we can add an event listener to both of the `input` tag and the `select` tag.
 
 ```javascript {4-5,8-9}
-function mulai() {
-  // ... Kode sebelumnya
-  tampilanInput1.addEventListener('input', (peristiwa) => {
-    const targetInput1 = peristiwa.target
-    keadaan.input1 = parseInt(targetInput1.value)
+function main() {
+  // ... Previous code
+  input1Display.addEventListener('input', (event) => {
+    const targetInput1 = event.target
+    state.input1 = parseInt(targetInput1.value)
   })
-  tampilanInput2.addEventListener('input', (peristiwa) => {
-    const targetInput2 = peristiwa.target
-    keadaan.input2 = parseInt(targetInput2.value)
+  input2Display.addEventListener('input', (event) => {
+    const targetInput2 = event.target
+    state.input2 = parseInt(targetInput2.value)
   })
 }
 ```
 
-Untuk menambahkan pendengar peristiwa (_event listener_), yang perlu kita lakukan adalah memanggil _method_ `addEventListener` yang dimiliki oleh masing-masing tag `input` dan tag `select`.
+We need to call `addEventListener` method to add an event listener.
 
-_Method_ tersebut menerima 2 parameter, parameter pertama adalah peristiwa yang ingin kita dengarkan. Pada tag `input`, peristiwa yang dapat kita dengarkan ketika terjadi perubahan input bernama `input`.
+It accepts 2 parameters, the first one is the event we want to listen to. In the `input` tag, the event is called `input`. And in the `select` tag, the event is called `change`.
 
-Sedangkan pada tag `select`, peristiwa yang dapat kita dengarkan ketika terjadi perubahan input bernama `change`.
+The second parameter is a function which will be called when the event occurred. This function accepts 1 parameter called `event`.
 
-Parameter kedua adalah sebuah fungsi yang akan dipanggil ketika peristiwa yang kita dengarkan terjadi. Fungsi ini menerima 1 parameter bernama `peristiwa` atau `event`.
+The `event` parameter also has a property called `target`. It points to the same value of the variable we declare to store `input` and the `select` tag.
 
-Parameter tersebut juga memiliki properti bernama `target`. Properti ini mengarah ke nilai yang sama seperti variabel yang kita gunakan untuk menyimpan tag `input` dan `select`.
+To get the value of the `input`, we can use `value` property.
 
-Untuk mendapatkan nilai dari `input`, kita dapat menggunakan properti `value` yang dimiliki oleh variabel `targetInput1` dan `targetInput2`.
+The type is `string`, so we need to change it into `number` using `parseInt` function.
 
-Nilai tersebut berbentuk `string`, sehingga kita perlu mengubahnya ke bentuk `number` menggunakan fungsi `parseInt`.
-
-Setelah nilai kita dapatkan, kita dapat mengatur properti `input1` dan `input2` pada objek `keadaan` agar memiliki nilai tersebut.
+After we get the value, we can set the property of `input1` and `input2` to it.
 
 ```javascript {4-8}
-function mulai() {
-  // ... Kode sebelumnya
-  tampilanOperator.addEventListener('change', (peristiwa) => {
-    const targetOperator = peristiwa.target
+function main() {
+  // ... Previous code
+  operatorDisplay.addEventListener('change', (event) => {
+    const targetOperator = event.target
     const selectedOperator = targetOperator
       .selectedOptions[0]
       .value
-    keadaan.operator = selectedOperator
+    state.operator = selectedOperator
   })
 }
 ```
 
-Sedangkan untuk mendapatkan nilai pada tag `select` caranya agak sedikit berbeda. Peristiwa yang ingin kita dengarkan pun namanya berbeda, peristiwa tersebut bernama `change`.
+Meanwhile, to get the value from `select` tag, we do it differently. The event we want to listen to is different as well, it called `change`. 
 
-Kemudian untuk mendapatkan nilainya juga agak sedikit lebih rumit. Karena nilai tersebut terletak pada properti `selectedOptions` yang berupa _array_ dari objek.
+To get the value, it's a little bit complicated. Because it is located in the `selectedOptions` property which contains an array of object.
 
-Setiap objek di dalam daftar tersebut memiliki properti `value`. Sehingga kita dapat mendapatkan nilai dengan cara mengakses indeks pertama pada daftar tersebut kemudian mengakses properti `value` menggunakan notasi titik.
+Each of the objects in the array has `value` property. So we get the value by accessing the first index of the array and then access the `value` property using dot notation.
 
-Setelah nilai dapat kita dapatkan, kita dapat mengatur properti `operator` pada objek `keadaan` dengan nilai tersebut.
+After we get the value, we can set the `operator` property using it.
 
-<app-demo-6 />
+<app-demo-6-en />
 
-Menambahkan pendengar peristiwa berfungsi untuk mengatur nilai properti `input1`, `input2` dan `operator` ketika terjadi perubahan pada kedua tag `input` dan tag `select`.
+Adding the event listener is useful for setting `input1`, `input2` and `operator` property value when there is a change in both of the `input` tag and the `select` tag.
 
-> Setiap demo pada halaman ini mempunyai nilai keadaannya masing-masing, nama variabelnya berformat `keadaan<urutan-demo>`, contohnya `keadaan1`, `keadaan2`, dan seterusnya.
+> Each of the demo in this page has its own state, the naming format of the variable is `state<sequence>`, for instance, `state1`, `state2` and so on.
 
-Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel tersebut.
+We can check it by opening the browser console on this page and type the name of the variable.
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/add-event-listener-effect-by-jefrydco.webm" />
 
-Pada contoh animasi di atas, pertama-tama kita mengecek nilai awal dari `keadaan6`. Nilai dari properti `input1` dan `input2` adalah `0` dan nilai dari properti `operator` adalah `+`.
+On the animation above, firstly, we check the initial value of `state6`. The initial value of `input1` and `input2` property are `0` and the initial value of `operator` property is `+`.
 
-Kita melakukan perubahan nilai pada kedua `input` dan `select`. Setelah itu kita cek lagi nilai dari `keadaan6`. Sekarang nilai dari properti `input1` dan `input2` masing-masing `1` dan `2`. Dan nilai dari properti `operator` adalah `*`.
+We change the value of the `input` and the `select`. After that, we recheck the value of `state6`. Now the value of the `input1` and `input2` property are `1` and `2`. And the value of the `operator` property is `*`.
 
-### Reaktivitas Semu
+### Pseudo-reactivity
 
-Sebelum melanjutkan, mari kita merefleksi terlebih dahulu apa yang sudah kita lakukan. Yang pertama adalah kita telah membuat struktur HTML dengan 2 buah tag `input` untuk memasukkan nilai.
+Before jump into the next section, let's reflect what have we done before. First, we create the HTML structure by using 2 of `input` tag to enter the value.
 
-Sebuah tag `select` yang memiliki beberapa `option` yang kita gunakan untuk menampilkan opsi operator. Dan sebuah tag `h1` untuk menampilkan hasil dari kalkulasi.
+A `select` tag which has several `option` tag that we can use to render a mathematical operator. And an `h1` tag to render the result of the calculation.
 
-Selain itu terdapat juga tag `pre` yang kita gunakan untuk menampilkan struktur objek `keadaan`.
+Besides that, there is a `pre` tag that we can use to render the structure of the `state`.
 
-Kita juga telah berhasil melakukan perubahan terhadap properti objek `keadaan` ketika kita melakukan perubahan terhadap kedua `input` dan `select`.
+We also have successfully make a change to the property of the `state` when there is a change in both of the `input` tag and the `select` tag.
 
-Namun untuk mengecek perubahan tersebut kita perlu membuka konsol peramban. Akan lebih baik jika kita dapat melihat perubahan tersebut pada tampilan struktur objek `keadaan` secara langsung.
+But in order to check the change, we need to open the browser console. It is better if we can see it instantly in the browser view.
 
-Kita juga masih belum melakukan kalkulasi secara langsung ketika terjadi perubahan terhadap kedua `input` dan `select`.
+We also don't make any instant calculation when there is a change in both of the `input` tag and the `select`.
 
-Mari kita selesaikan terlebih dahulu permasalahan kalkulasi secara langsung tersebut. Untuk menyelesaikan permasalahan itu, kita memerlukan fungsi kalkulasi berdasarkan operator yang kita pilih melalui tag `select`.
+Let's solve the instant calculation problem. To overcome it we need a calculation function based on the operator.
 
 ```javascript {5-6,8-9,11-12,14-15}
-function mulai() {
-  // ... Kode sebelumnya
-  function kalkulasiHasil() {
-    switch (keadaan.operator) {
-      case OPERATOR.TAMBAH:
-        keadaan.hasil = keadaan.input1 + keadaan.input2
+function main() {
+  // ... Previous code
+  function calculateResult() {
+    switch (state.operator) {
+      case OPERATOR.PLUS:
+        state.result = state.input1 + state.input2
         break
-      case OPERATOR.KURANG:
-        keadaan.hasil = keadaan.input1 - keadaan.input2
+      case OPERATOR.SUBSTRACT:
+        state.result = state.input1 - state.input2
         break
-      case OPERATOR.KALI:
-        keadaan.hasil = keadaan.input1 * keadaan.input2
+      case OPERATOR.MULTIPLY:
+        state.result = state.input1 * state.input2
         break
-      case OPERATOR.BAGI:
-        keadaan.hasil = keadaan.input1 / keadaan.input2
+      case OPERATOR.DIVIDE:
+        state.result = state.input1 / state.input2
         break
       default:
         break;
@@ -372,308 +370,306 @@ function mulai() {
 }
 ```
 
-Fungsi tersebut kita beri nama `kalkulasiHasil`. Fungsi `kalkulasiHasil` berfungsi untuk mengkalkulasi nilai `input1` dan `input2` sesuai dengan keadaan `operator`. Hasil dari kalkulasi tersebut akan disimpan pada properti `hasil`.
+We call the function `calculateResult`. It is useful to calculate the value of the `input1` and the `input2` in accordance with the state of the `operator`. The result is saved in the `result` property.
 
 ```javascript {5,9,13}
-function mulai() {
-  // ... Kode sebelumnya
-  tampilanInput1.addEventListener('input', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
+function main() {
+  // ... Previous code
+  input1Display.addEventListener('input', (event) => {
+    // ... Previous code
+    calculateResult()
   })
-  tampilanInput2.addEventListener('input', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
+  input2Display.addEventListener('input', (event) => {
+    // ... Previous code
+    calculateResult()
   })
-  tampilanOperator.addEventListener('change', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
+  operatorDisplay.addEventListener('change', (event) => {
+    // ... Previous code
+    calculateResult()
   })
-  // ... Kode setelahnya
+  // ... Next code
 }
 ```
 
-Kita dapat memanggil fungsi tersebut pada pendengar peristiwa. Sehingga setiap kali terjadi perubahan pada kedua input dan operator, secara otomatis nilai properti `hasil` akan dikalkulasi ulang.
+We can call the function inside the event listener callback. So that whenever there is a change in both of the input and the operator, it will calculate the result automatically.
 
-<app-demo-7 />
+<app-demo-7-en />
 
-Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel untuk demo 7 yakni `keadaan7`.
+We can check it by opening the browser console in this page and type the name of the variable for demo 7, which is `state7`.
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/reactivity-recalculation-automatically-by-jefrydco.webm" />
 
-Pada contoh animasi di atas, pertama-tama kita mengecek nilai awal dari `keadaan7`. Nilai dari properti `input1` dan `input2` adalah `0` dan nilai dari properti `operator` adalah `+`.
+In the animation above, first, we check the initial value of the `state7`. The initial value of the `input1` and `input2` are `0` and the initial value of the `operator` property is `+`.
 
-Kita melakukan perubahan nilai pada kedua `input` dan `select`. Nilai properti `hasil` akan secara otomatis berubah dan terkalkulasi ulang sesuai dengan operator yang sedang aktif.
+We change both of the `input` and the `select` value. The `result` property will automatically change and recalculate in accordance with the currently active operator.
 
-Namun sekali lagi, sayangnya untuk melihat perubahan dan hasil kalkulasi tersebut kita perlu membuka konsol peramban.
+And again, unfortunately, to see the change and the calculation result, we need to open the browser console.
 
-Mari kita pikirkan sejenak apa yang dapat kita lakukan untuk dapat melihat perubahan tersebut secara langsung.
+Let's think for a while what can we do to see the change result instantly.
 
-Pada bagian sebelumnya kita menampilkan nilai dari setiap properti pada objek `keadaan` dengan mengatur properti `innerText` dan `value`.
+In the previous section we render all the value of the `state` property by setting the `innerText` and the `value` property each of the tag.
 
-Kita juga telah merefaktor kode tersebut ke dalam sebuah fungsi bernama `mutakhirkanTampilan`. Kita memanggil fungsi tersebut untuk menampilkan nilai setiap properti objek `keadaan` ke tampilan peramban.
+We also have refactored it to a function called `updateDisplay`. And then we call it to render the state to the browser view.
 
-Seharusnya kita juga dapat menggunakan fungsi `mutakhirkanTampilan` tersebut untuk menampilkan ulang nilai properti objek `keadaan` ke tampilan peramban.
+Actually we can do call it again to rerender the state of the browser view after the calculation happen.
 
 ```javascript {6,11,16}
-function mulai() {
-  // ... Kode sebelumnya
-  tampilanInput1.addEventListener('input', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
-    mutakhirkanTampilan()
+function main() {
+  // ... Previous code
+  input1Display.addEventListener('input', (event) => {
+    // ... Previous code
+    calculateResult()
+    updateDisplay()
   })
-  tampilanInput2.addEventListener('input', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
-    mutakhirkanTampilan()
+  input2Display.addEventListener('input', (event) => {
+    // ... Previous code
+    calculateResult()
+    updateDisplay()
   })
-  tampilanOperator.addEventListener('change', (peristiwa) => {
-    // ... Kode sebelumnya
-    kalkulasiHasil()
-    mutakhirkanTampilan()
+  operatorDisplay.addEventListener('change', (event) => {
+    // ... Previous code
+    calculateResult()
+    updateDisplay()
   })
-  // ... Kode setelahnya
+  // ... Next code
 }
 ```
 
-Yang perlu kita lakukan sama seperti pada fungsi `kalkulasiHasil`, memanggil fungsi tersebut di dalam pendengar peristiwa. Namun yang harus diperhatikan adalah urutan pemanggilannya.
+The only thing we need to do is the same as `calculateResult` function, calling it inside of the event listener. But one thing we should pay attention is the order of the execution.
 
-Kita harus memanggil fungsi `kalkulasiHasil` terlebih dahulu kemudian fungsi `mutakhirkanTampilan`. Sehingga nilai yang ditampilkan sesuai dengan hasil kalkulasi.
+We have to run the `calculateResult` first then the `updateDisplay`. So that the redisplayed value is in accordance with the result of the calculation.
 
-<app-demo-8 />
+<app-demo-8-en />
 
-Pada demo di atas, kita telah berhasil membuat sistem reaktivitas sendiri, ketika terjadi perubahan nilai pada kedua input maupun pilihan operator. Hasilnya akan secara otomatis ditampilkan perubahannya di layar peramban.
+On the demo above we already successfully create our own reactivity system, when there is a change in the input as well as in the operator. The result will recalculate automatically and the change will rerender to the browser view.
 
-Namun sistem reaktivitas yang telah kita buat di atas belum sepenuhnya mencerminkan bagaimana sistem reaktivitas yang dimiliki oleh Vue.js.
+But our own reactivity system isn't fully mirroring the Vue.js has.
 
-Bahkan sebenarnya belum bisa disebut sistem reaktivitas juga. Karena perubahan tersebut terjadi karena kita memasang pendengar peristiwa.
+Even, we can't call it reactivity system. It is because we add event listener so that the change will be recalculated and redisplayed.
 
-Sehingga ketika pengguna berinteraksi dengan input tersebut, kita memanggil fungsi untuk mengkalkulasi ulang dan menampilkan hasilnya ke layar peramban.
-
-Namun jika variabel di ubah tanpa adanya interaksi melalui input, misal melalui konsol peramban, tidak akan terjadi kalkulasi ulang dan hasilnya juga tidak akan ditampilkan ke layar peramban.
+But if the variable is changed without interaction via input, for instance via browser console, there won't any recalculation and rerender.
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-does-not-affect-reactivity-by-jefrydco.webm" />
 
-Lain halnya pada sistem reaktivitas Vue.js, bagaimanapun caranya kita mengubah variabel. Entah melalui pendengar peristiwa maupun melalui konsol peramban secara langsung.
+Another case in Vue.js reactivity system,  we change the value of the variable using many way. Through even listener or through the browser console directly.
 
-Perubahan tersebut akan secara otomatis dikalkulasi ulang dan ditampilkan pada layar peramban. Oleh karena itulah, saya memberi judul reaktivitas semu pada bagian ini.
+It will recalculate and rerender automatically. Because of that, I give this section title pseudo-reactivity.
 
-### Reaktivitas Nyata
+### Real Reactivity
 
-Sekarang mari kita coba ubah sistem reaktivitas semu yang telah kita buat menjadi sistem reaktivitas nyata.
+Now let's try changing our pseudo-reactivity system to real reactivity system.
 
-Karena kita mempunyai target untuk membuat sistem reaktivitas Vue.js versi sederhana, maka pertama-tama kita harus memperhatikan komponen-komponen apa saja yang dimiliki Vue.js untuk membuat suatu variabel menjadi reaktif.
+Because we have target to mimic the Vue.js reactivity system in a simple way, first we need to take care what kind of the components that Vue.js has that make something reactive.
 
-Menurut pendapat saya untuk membuat sistem reaktivitas Vue.js versi sederhana, kita memerlukan beberapa komponen:
+In my opnion to make Vue.js reactivity systme, we need several components:
 
-1. Pembuat Reaktif, yang bertugas untuk mengubah data menjadi **pengambil reaktif dan pengatur reaktif**.
-2. Pengintai, yang bertugas untuk **mengawasi dan memberitahu pelaksana jika terjadi perubahan**.
-3. Pelaksana, yang bertugas untuk **melaksanakan tugas jika telah diberitahu pengintai**.
+1. Reactive maker, it useful for changing the data to **reactive getter and reactive setter**.
+2. Watcher, it **watch and notify the runner if there is a change**.
+3. Runner, it **run the job if it has notified by the watcher**.
 
-### Pembuat Reaktif
+### Reactive Maker
 
-Sebelum memulai mendiskusikan mengenai pembuat reaktif, jika teman-teman masih bingung mengenai fungsi pengambil reaktif dan pengatur reaktif, teman-teman dapat membaca kembali bagian <a href="#sistem-reaktivitas-vue-js">sistem reaktivitas Vue.js</a> di atas.
+Before we discuss the next section, if you are still confuse with the reactive getter and reactive setter, you can always going back to <a href="#vue-js-reactivity-system">Vue.js Reactivity System</a> section above.
 
-Oke mari kita lanjutkan pembahasannya. Kita dapat mengubah suatu objek agar memiliki pengambil reaktif dan pengatur reaktif dengan menggunakan _method_ `defineProperty` yang dimiliki oleh kelas `Object`.
+Let's get into it. We can change an object to has reactive getter and reactive setter by using `defineProperty` method in `Object` class.
 
-_Method_ tersebut menerima 3 parameter, parameter pertama adalah objek yang ingin kita ubah, parameter kedua adalah nama properti yang ingin kita ubah, dan parameter ketiga adalah konfigurasinya.
+The method accepts 3 parameter, the first one is the object we want to change, the second parameter is the name of the property and the last one is the configuration.
 
-Pada parameter ketiga itulah kita dapat meletakkan fungsi pengambil reaktif dan pengatur reaktif.
+On the last parameter we can put the reactive getter and the reactive setter.
 
 ```javascript
-const manusia = {
-  nama: 'jefrydco'
+const human = {
+  name: 'jefrydco'
 }
 ```
 
-Misalkan kita memiliki objek bernama `manusia` seperti di atas. Objek tersebut memiliki properti `nama` dan memiliki nilai `jefrydco`.
+For instance, we have an object called `human` like the example above. It has a `name` property and `jefrydco` value.
 
-Kita ingin membuat ketika kita mengakses properti `nama`, kita mencetak info bahwa properti tersebut telah diakses. Dan ketika kita mengubah nilainya, kita juga mencetak info bahwa properti telah diubah.
+We want that whenever we access the `name` property, we print info that the property is accessed. And when we change the value, we also print info that the property is changed.
 
 ```javascript {2,8-9,12-13}
 
-let nama = manusia['nama']
+let name = human['name']
 
-Object.defineProperty(manusia, 'nama', {
+Object.defineProperty(human, 'name', {
   enumerable: true,
   configurable: true,
-  get: function pengambilReaktif() {
-    console.log('Properti telah diakses')
-    return nama
+  get: function reactiveGetter() {
+    console.log('Property is accessed')
+    return name
   },
-  set: function pengaturReaktif(nilaiBaru) {
-    nama = nilaiBaru
-    console.log('Properti telah diubah')
+  set: function reactiveSetter(newValue) {
+    name = newValue
+    console.log('Property is changed')
   }
 })
 ```
 
-Sebelumnya kita mendefinisikan terlebih dahulu variabel bantuan bernama `nama` dan memiliki nilai sesuai dengan properti `nama`. Kita mengakses nilai properti `nama` menggunakan metode indeks, `manusia['nama']`.
+First we define the helper variable called `name` and it has the value as the `name` property. We access the `name` property by using index way, `human['name']`.
 
-Kita memanggil _method_ `defineProperty` dengan objek `manusia` sebagai parameter pertama, _string_ `nama` sebagai parameter kedua dan objek konfigurasi sebagai parameter ketiga.
+We call the `defineProperty` method with `human` object as the first parameter, `name` as the second one and the configuration object for the last parameter.
 
-Objek konfigurasi tersebut memiliki properti `enumerable` dengan nilai `true`. Maksud dari properti konfigurasi ini adalah **mengatur properti `nama` agar dapat diiterasi menggunakan sintaks pengulangan `for...in`** atau **agar kita dapat mendapatkan nama properti tersebut menggunakan `Object.keys`**.
+The configuration object consists of `enumerable` property that has `true` value. It means that we **set the `name` property so that it can be iterate using `for...in`** or so that ***we can get the property name using `Object.keys`**.
 
-Properti kedua adalah `configurable` dengan nilai `true`. Maksud dari properti konfigurasi ini adalah **agar properti `nama` dapat dikonfigurasi ulang menggunakan fungsi `defineProperty`**.
+The second property is `configurable` with the value of `true`. It means that **the `name` property can be reconfigured using `defineProperty`**.
 
-Properti ketiga adalah `get` dengan nilai sebuah fungsi bernama `pengambilReaktif`. Di dalam fungsi inilah kita dapat mencetak info bahwa properti telah diakses.
+The third property is `get` with the value of function called `reactiveGetter`. Inside of this function we can print the info that the property is accessed. 
 
-Yang perlu kita perhatikan adalah properti fungsi `pengambilReaktif` ini haruslah mengembalikan sebuah nilai. Karena ketika kita mengakses properti `nama`, kita mengharapkan mendapatkan nilai dari properti tersebut bukan, oleh karena itu kita juga harus mengembalikan nilai dari properti `nama` pada fungsi `pengambilReaktif`.
+One thing we need to pay attention is the function of `reactiveGetter` have to return a value. When we accessing the `name` property, we expect to get the value of it, isn't it? That's why we should return a value inside the `reactiveGetter` function.
 
-Properti keempat adalah `set` dengan nilai fungsi bernama `pengaturReaktif`. Di dalam fungsi inilah kita dapat mencetak info bahwa properti telah diubah.
+The fourth property is `set` with the value of function called `reactiveSetter`. Inside this function, we print the info that the property has changed.
 
-Fungsi `pengaturReaktif` secara otomatis **menerima 2 parameter**, parameter pertama adalah **nilai baru yang akan diset pada properti tersebut** dan parameter kedua adalah **nilai lama yang dimiliki properti tersebut**.
+The `reactiveSetter` function automatically **receives 2 parameter**. The first one is **the new value that will be set to the property** and the second one is **the existing value**.
 
-Hal lain yang perlu diperhatikan adalah, di dalam fungsi `pengambilReaktif` tersebut kita **tidak bisa mengembalikan nilai properti `nama` menggunakan notasi titik** `manusia.nama` atau pada fungsi `pengaturReaktif` kita juga **tidak bisa mengatur nilai properti `nama` menggunakan notasi titik** `manusia.nama`.
+Another thing we need to avoid is, inside the `reactiveGetter` we can't **return the value of `name` property using dot notation** nor inside the `reactiveSetter` function, **we can't set the `name` property value using dot notation** as well.
 
-Karena hal tersebut dapat **mengakibatkan pengulangan tak terhingga** (_infinite loop_). Dan oleh karena itu juga kita membutuhkan variabel bantuan.
+Because it will make **infinite looping** happen. That's why we need a helper variable to make it happen.
 
 ```javascript
-manusia.nama
-// Properti telah diakses
+human.name
+// Property is accessed
 // 'jefrydco'
 
-manusia.nama = 'jefry'
-// Properti telah diubah
+human.name = 'jefry'
+// Property is changed
 // 'jefry'
 ```
 
-Setelah mendefinisikan kode di atas, ketika kita mengakses properti `nama` ataupun mengubah nilainya, kita akan mendapatkan info sesuai dengan apa yang kita lakukan.
+After defining the code above, when we access the `name` property or change its value, we will get the info in accordance with what we have done.
 
-Mari kita menggunakan cara di atas pada properti yang memiliki nilai berupa angka, kemudian kita coba melakukan operasi matematika terhadap nilai tersebut.
+Let make use of that way to make a reactive property which has a number value, then we do some math operation to it.
 
 ```javascript
-const keadaan = {
+const state = {
   input1: 0
 }
-let input1 = keadaan['input1']
+let input1 = state['input1']
 
-Object.defineProperty(keadaan, 'input1', {
+Object.defineProperty(state, 'input1', {
   enumerable: true,
   configurable: true,
-  get: function pengambilReaktif() {
-    console.log('Properti telah diakses')
+  get: function reactiveGetter() {
+    console.log('Property is accessed')
     return input1
   },
-  set: function pengaturReaktif(nilaiBaru) {
-    input1 = nilaiBaru
-    console.log('Properti telah diubah')
+  set: function reactiveSetter(newValue) {
+    input1 = newValue
+    console.log('Property is changed')
   }
 })
 ```
 
-Pada contoh kode di atas kita mendeklarasikan objek bernama `keadaan` yang memiliki properti `input1`. Kita juga mendeklarasikan variabel bantuan menggunakan kata kunci `let` bernama `input1` yang memiliki nilai sama seperti properti `input1`.
+In the example above we declare an object called `state` which has `input1` property. We also declare a helper variable using `let` keyword called `input1`. The helper variable has the same value as the `input1` property.
 
-Seperti pada contoh kode sebelumnya, variabel bantuan ini akan berfungsi untuk menampung nilai dari properti `input1` pada objek `keadaan`.
+Like the one in the previous example, the helper variable will be used to store the `input1` property value.
 
-Jika kita langsung mengakses propertinya langsung tanpa menggunakan variabel bantuan, fungsi `pengambilReaktif` dan `pengaturReaktif` akan dieksekusi secara berulang hingga tak terhingga.
+And if we access the property directly without using helper variable, the `reactiveGetter` and the `reactiveSetter` will be executed infinitely.
 
 ```javascript
-keadaan.input1 = keadaan.input1 + 7
-// Properti telah diakses
-// Properti telah diubah
+state.input1 = state.input1 + 7
+// Property is accessed
+// Property is changed
 // 7
 ```
 
-Pada contoh kode di atas kita melakukan operasi penambahan antara nilai properti `input1` sekarang dengan angka 7. Pada konsol peramban akan muncul info properti telah diakses kemudian properti telah diubah secara berurutan.
+On the example above we do some math operation between the existing `input1` property value with the number of 7. On the browser console will be rendered info that the property is accessed then the property is changed orderly.
 
-Info properti telah diakses muncul ketika properti `input1` di akses pada bagian kanan tanda sama dengan `=`. Sedangkan info properti telah diubah muncul ketika nilai properti `input1` telah ditambahkan dengan angka 7 dan di simpan ulang.
+The property is accessed info appears when the `input1` property is accessed on the right section of assignment operator `=`. Meanwhile, the info of property is changed appear when the value of the `input1` property has been added and stored replacing the existing value.
 
-Dengan menggunakan cara tersebut kita sudah dapat membuat sistem reaktivitas sendiri. Mari kita coba refaktor kode pada <a href="#AppDemo8">Demo 8</a> di atas agar menggunakan `defineProperty` sebagai sistem reaktivitasnya.
+By using that way, actually we can make a better our own reactivity system. Let's refactor the code from <a href="#AppDemo8En">Demo 8</a> above in order to use `defineProperty` as its reactivity system.
 
 ```javascript {9,12-13}
-function mulai() {
-  // ... Kode sebelumnya
-  let input1 = keadaan['input1']
+function main() {
+  // ... Previous code
+  let input1 = state['input1']
 
-  Object.defineProperty(keadaan, 'input1', {
+  Object.defineProperty(state, 'input1', {
     enumerable: true,
     configurable: true,
-    get: function pengambilReaktif() {
+    get: function reactiveGetter() {
       return input1
     },
-    set: function pengaturReaktif(nilaiBaru) {
-      input1 = nilaiBaru
-      kalkulasiHasil()
-      mutakhirkanTampilan()
+    set: function reactiveSetter(newValue) {
+      input1 = newValue
+      calculateResult()
+      updateDisplay()
     }
   })
 }
 ```
 
-Pada contoh kode di atas kita memindahkan pemanggilan fungsi `kalkulasiHasil` dan `mutakhirkanTampilan` dari dalam fungsi pendengar peristiwa ke dalam fungsi `pengaturReaktif`.
+Pada contoh kode di atas kita memindahkan pemanggilan fungsi `calculateResult` dan `updateDisplay` dari dalam fungsi pendengar peristiwa ke dalam fungsi `reactiveSetter`.
 
 Hal tersebut bertujuan ketika properti `input1` diubah nilainya, akan dilakukan kalkulasi hasil dan pemutakhiran tampilan secara otomatis.
 
-<app-demo-9 />
+<app-demo-9-en />
 
-Tetapi pada contoh di atas kita hanya membuat sistem reaktivitas berjalan pada properti `input1` saja, padahal yang kita perlukan dapat berjalan di semua properti.
+But on the example above we make the reactivity system running only on the `input1` property, but what we need is it runs on all of the property.
 
-Untuk mengatasi permasalahan tersebut, kita dapat menggunakan _method_ `keys` yang terdapat pada kelas `Object`.
+To solve that problem, we need to use `keys` method that exist in the `Object` class.
 
 ```javascript {3,5,6,8,15-17}
-function mulai() {
-  // ... Kode sebelumnya
-  const daftarKunci = Object.keys(keadaan)
+function main() {
+  // ... Previous code
+  const keyList = Object.keys(state)
 
-  daftarKunci.forEach(kunci => {
-    let nilai = keadaan[kunci]
+  keyList.forEach(key => {
+    let value = state[key]
 
-    Object.defineProperty(keadaan, kunci, {
+    Object.defineProperty(state, key, {
       enumerable: true,
       configurable: true,
-      get: function pengambilReaktif() {
-        return nilai
+      get: function reactiveGetter() {
+        return value
       },
-      set: function pengaturReaktif(nilaiBaru) {
-        if (nilai === nilaiBaru) {
+      set: function reactiveSetter(newValue) {
+        if (value === newValue) {
           return;
         }
-        nilai = nilaiBaru
-        kalkulasiHasil()
-        mutakhirkanTampilan()
+        value = newValue
+        calculateResult()
+        updateDisplay()
       }
     })
   })
 }
 ```
 
-_Method_ `keys` menerima parameter berupa objek. _Method_ ini berfungsi untuk mendapatkan semua nama properti yang dimiliki oleh objek yang digunakan sebagai parameternya dan disimpan ke dalam variabel `daftarKunci`.
+The `keys` method accepts a parameter in the form of an object. It is useful to get all of the property names which has passed as a parameter. Then the result is saved in `keyList` variable.
 
-Karena variabel `daftarKunci` memiliki nilai berupa _array_ dengan item berupa string, kita dapat menggunakan pengulangan untuk mendapatkan setiap nilai properti yang dimiliki oleh objek `keadaan`.
+Because the `keyList` variable is in the form of an array of string, we can iterate it to get each of the property names of `state` object.
 
-Setelah itu kita dapat mengubah setiap properti tersebut agar memiliki fungsi `pengambilReaktif` dan `pengaturReaktif`.
+After that we can change each of them to has the `reactiveGetter` and the `reactiveSetter` property.
 
-Kita juga perlu melakukan pengecekan di dalam fungsi `pengaturReaktif` apakah nilai yang akan disimpan ke dalam properti tersebut merupakan nilai yang sama atau tidak.
+We also need to check inside of the `reactiveSetter` whether the value that will be stored is the same value or not.
 
-Jika nilai tersebut sama, maka fungsi `pengaturReaktif` tidak akan dilanjutkan. Hal tersebut bertujuan untuk mencegah fungsi `pengaturReaktif` dieksekusi secara berulang hingga tak hingga.
+It is the same value, so the execution of the `reactiveSetter` function won't be continued. It avoids infinite loop execution.
 
-<app-demo-10 />
+<app-demo-10-en />
 
-Dengan menggunakan cara tersebut semua properti yang dimiliki oleh objek `keadaan` akan menjadi reaktif.
+By using that way, all of the property in the `state` object become reactive.
 
-Sekarang kita telah berhasil menyelesaikan permasalahan sistem reaktivitas yang hanya menggunakan pendengar peristiwa saja.
+Now we have solve the problem of our reactivity system that only using event listener.
 
-Selain nilai akan dikalkulasi dan ditampilkan secara otomatis jika terdapat interaksi pengguna melalui input. Nilai tersebut juga akan dikalkulasi dan ditampilkan secara otomatis jika kita mengubahnya melalui konsol peramban.
+Besides, the value will be recalculated and redisplayed automatically if there is interaction via input. They will be recalculated and redisplayed as well when we change the value through the browser console.
 
 <app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-affect-reactivity-by-jefrydco.webm" />
 
-## Ikhtisar
+## Recap
 
-Kita telah berhasil membuat sistem reaktivitas sendiri dan menerapkannya pada aplikasi kalkulator sederhana. Pertama-tama kita mencoba membuat sistem reaktivitas menggunakan pendengar peristiwa (_event listener_).
+We have made our own reactivity system and applied it to make simple calculator. At first we make it using event listener.
 
-Namun cara tersebut kurang bisa dikatakan sebagai sistem reaktivitas karena proses kalkulasi dan menampilkan ke layar peramban hanya dapat terjadi jika pengguna berinteraksi dengan aplikasi.
+But it can be called as reactivity system because the calculation and render process is only happen when there is an interaction from the user.
 
-Kemudian kita melakukan refaktor kode sehingga kita dapat melakukan perubahan tanpa melakukan interaksi dengan aplikasi melainkan dengan langsung mengubah nilai keadaan menggunakan konsol peramban.
+Then we refactor the code so that it will be recalculated and redisplayed if we change it via the browser console.
 
-Cara tersebut menerapkan konsep yang sama seperti sistem reaktivitas pada Vue.js yakni menggunakan pengambil dan pengatur (_getter & setter_). Pengambil dan pengatur tersebut berbentuk fungsi.
+It is the same way as Vue.js does. It is using getter and setter. They are all in the form of function.
 
-Setiap properti yang dimiliki oleh objek keadaan kita ubah agar memiliki pengambil dan pengatur. Di dalam fungsi pengatur itulah kita dapat mengatur apa yang seharusnya dilakukan ketika terjadi perubahan nilai.
+Each of the property of the state object, we change it to have getter and setter. Inside the body of the setter, we can set what should they do if there is a change.
 
-Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan saja dalam satu waktu. Pada bagian selanjutnya kita akan menyelesaikan permasalahan tersebut.
+But again, the system still has disadvantages. It can only do one job on time. In the next part, we will discuss a solution for it.
 
-## Referensi
+## References
 
 1. [Medium JS Dojo: Understanding Vue Reactivity Step by Step](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
 2. [Vue.js: Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html)
