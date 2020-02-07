@@ -29,7 +29,7 @@
       <script>
         // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
         // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
-        let state11 = (function() {
+        let keadaan11 = (function() {
           const OPERATOR = {
             PLUS: '+',
             SUBSTRACT: '-',
@@ -141,7 +141,7 @@
 
           return state
         })()
-        window.state11 = state11
+        window.keadaan11 = keadaan11
       </script>
     </div>
   </app-demo>
