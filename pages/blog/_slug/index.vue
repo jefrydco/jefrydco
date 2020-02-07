@@ -49,6 +49,7 @@
                   :key="locale.code"
                   :aria-label="locale.name"
                   :to="switchLocalePath(locale.code)"
+                  class="blog__translations__link"
                 >
                   {{ locale.name }}
                 </nuxt-link>

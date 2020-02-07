@@ -679,3 +679,13 @@ Terima kasih dan semoga bermanfaat!
 
 1. [Medium JS Dojo: Memahami Reaktivitas Vue Selangkah demi Selangkah](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
 2. [Vue.js: Reaktivitas Secara Mendalam](https://vuejs.org/v2/guide/reactivity.html)
+
+<script>
+const english = document.querySelector('.blog__translations__link')
+if(english) {
+  english.addEventListener('click', function(event) {
+    event.preventDefault()
+    location.href = event.target.href
+  })
+}
+</script>
