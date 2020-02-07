@@ -1,7 +1,7 @@
 ---
 title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 2
-description: 
-summary: 
+description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue.js dengan membuat ulang versi sederhananya bagian kedua
+summary: Pada bagian sebelumnya kita telah berhasil membuat sistem reaktivitas sendiri. Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan dalam satu waktu. Sekarang di bagian ini kita akan menyelesaikannya.
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-02-01T01:00:00.000Z

@@ -1,7 +1,7 @@
 ---
 title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1
-description: 
-summary: 
+description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue.js dengan membuat ulang versi sederhananya bagian pertama
+summary: Pernahkah teman-teman terpikirkan bagaimana Vue.js membuat suatu variabel menjadi reaktif? Menuliskan sesuatu di teks input dan melihat hasilnya di tempat lain secara instan. Apa rahasia dibalik sistem reaktivitas tersebut? Mari kita kupas bersama-sama rahasianya.
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-20T01:00:00.000Z

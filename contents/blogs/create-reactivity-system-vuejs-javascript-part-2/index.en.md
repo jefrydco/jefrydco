@@ -1,7 +1,7 @@
 ---
 title: Create a Simplified Version of Vue.js Reactivity System - Part 2
-description: 
-summary: 
+description: Reveals the secrets of the reactivity system of Vue.js by recreating a simplified version of it second part
+summary: In the previous part, we have created our own reactivity system. But it still lacks a feature, it can only do one task at a time. Now come to the second part to solve that problem.
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-02-01T01:00:00.000Z

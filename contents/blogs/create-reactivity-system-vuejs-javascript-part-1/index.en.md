@@ -1,7 +1,7 @@
 ---
 title: Create a Simplified Version of Vue.js Reactivity System - Part 1
-description: 
-summary: 
+description: Reveals the secrets of the reactivity system of Vue.js by recreating a simplified version of it first part
+summary: Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly. What is the secret of that reactivity system? Let's deep dive into it together.
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-20T01:00:00.000Z
