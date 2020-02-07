@@ -44,6 +44,10 @@
             input2: 0
           }
 
+          const secondState = {
+            second: 0
+          }
+
           function main() {
             // We have to prefixed the selector in accordance with the root component class
             // It avoids the script to be applied to all demo
@@ -109,10 +113,6 @@
             })
 
             /* CODE FOR STOPWATCH */
-
-            const secondState = {
-              second: 0
-            }
 
             const state2Display = document.querySelector(
               '.demo-card-15 .state-2'
@@ -226,7 +226,10 @@
           // document.addEventListener('DOMContentLoaded', main)
           main()
 
-          return state
+          return {
+            calculator: state,
+            stopwatch: secondState
+          }
         })()
         window.state15 = state15
       </script>

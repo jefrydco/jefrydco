@@ -44,6 +44,10 @@
             input2: 0
           }
 
+          const secondState = {
+            second: 0
+          }
+
           function main() {
             // We have to prefixed the selector in accordance with the root component class
             // It avoids the script to be applied to all demo
@@ -66,7 +70,7 @@
 
             function updateDisplay() {
               tampilanKeadaan.innerText = JSON.stringify(state, null, 2)
-              resultDisplay.innerText = state.hasil.toString()
+              resultDisplay.innerText = state.result.toString()
 
               input1Display.value = state.input1.toString()
               input2Display.value = state.input2.toString()
@@ -109,10 +113,6 @@
             })
 
             /* CODE FOR STOPWATCH */
-
-            const secondState = {
-              second: 0
-            }
 
             const state2Display = document.querySelector(
               '.demo-card-14 .state-2'
@@ -227,7 +227,10 @@
           // document.addEventListener('DOMContentLoaded', main)
           main()
 
-          return state
+          return {
+            calculator: state,
+            stopwatch: secondState
+          }
         })()
         window.state14 = state14
       </script>

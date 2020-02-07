@@ -44,6 +44,10 @@
             input2: 0
           }
 
+          const keadaanDetik = {
+            detik: 0
+          }
+
           function mulai() {
             // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
             // Hal tersebut mencegah scrip dieksekusi untuk semua demo
@@ -109,10 +113,6 @@
             })
 
             /* KODE UNTUK PENGHITUNG WAKTU */
-
-            const keadaanDetik = {
-              detik: 0
-            }
 
             const tampilanKeadaan2 = document.querySelector(
               '.demo-card-15 .keadaan-2'
@@ -224,7 +224,10 @@
           // document.addEventListener('DOMContentLoaded', mulai)
           mulai()
 
-          return keadaan
+          return {
+            kalkulator: keadaan,
+            penghitungDetik: keadaanDetik
+          }
         })()
         window.keadaan15 = keadaan15
       </script>
