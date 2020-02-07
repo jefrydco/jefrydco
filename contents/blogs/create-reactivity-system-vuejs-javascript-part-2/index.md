@@ -8,7 +8,7 @@ postedDate: 2020-02-01T01:00:00.000Z
 updatedDate: 2020-02-01T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-2
 id: create-reactivity-system-vuejs-javascript-part-2
-extraComponents: ['AppDemo11', 'AppDemo12', 'AppDemo13', 'AppDemo14', 'AppDemo15']
+extraComponents: ['AppDemo11Id', 'AppDemo12Id', 'AppDemo13Id', 'AppDemo14Id', 'AppDemo15Id']
 ---
 
 > Baca bagian pertama di sini, [Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1](/blog/create-reactivity-system-vuejs-javascript-part-1)
@@ -29,7 +29,7 @@ Kita akan menambahkan aplikasi penghitung detik (_stopwatch_). Mengapa penghitun
 
 Dengan demikian kita dapat mensimulasikan bahwa sistem reaktivitas yang kita buat dapat melakukan pekerjaan dalam satu waktu.
 
-Pekerjaan pertama adalah melakukan kalkulasi dan menampilkan hasil beserta keadaannya dan pekerjaan kedua adalah secara konstan menampilkan keadaan detik.
+Pekerjaan pertama adalah melakukan kalkulasi dan menampilkan hasil beserta keadaannya dari aplikasi pertama dan pekerjaan kedua adalah secara konstan menampilkan keadaan detik dari aplikasi penghitung detik.
 
 ### Struktur HTML
 
@@ -64,7 +64,7 @@ Kemudian kita juga menambahkan 3 tombol yang memiliki nama sesuai fungsinya masi
 
 Kemudian kita juga menambahkan tag `h2` yang berfungsi untuk menampilkan detik.
 
-<app-demo-11 />
+<app-demo-11-id />
 
 Pada demo di atas, aplikasi kalkulator yang sebelumnya kita buat juga masih dapat bekerja dengan baik.
 
@@ -131,7 +131,7 @@ function mulai() {
 
 Pada contoh kode di atas kita mendeklarasikan variabel bernama `idInterval` dengan nilai `0`. Variabel tersebut akan kita gunakan untuk menyimpan id dari fungsi `setInterval`.
 
-Selain itu kita juga mendeklarasikan fungsi bernama `mulai`. Di dalam fungsi tersebut kita memanggil fungsi `setInterval`. Fungsi ini berguna untuk mengesekusi suatu fungsi dalam tenggang waktu tertentu secara berulang-ulang.
+Selain itu, kita juga mendeklarasikan fungsi bernama `mulai`. Di dalam fungsi tersebut kita memanggil fungsi `setInterval`. Fungsi ini berguna untuk mengesekusi suatu fungsi dalam tenggang waktu tertentu secara berulang-ulang.
 
 Fungsi `setInterval` menerima 2 parameter, parameter pertama merupakan fungsi yang akan dieksekusi secara berulang-ulang. Parameter kedua merupakan seberapa lama tenggang waktunya dalam bentuk mili detik.
 
@@ -198,7 +198,7 @@ function mulai() {
 
 Kita juga perlu memanggil fungsi `mutakhirkanPenghitungDetik` agar keadaan sebenarnya objek `keadaanDetik` ditampilkan di layar peramban.
 
-<app-demo-12 />
+<app-demo-12-id />
 
 ### Pembuat Reaktif
 
@@ -273,11 +273,13 @@ Kita telah mempunyai keadaan atau data pada diagram di atas. Kita juga telah mem
 
 Berarti kita masih belum memiliki pengintai atau _watcher_ pada diagram di atas. Yap kita membutuhkan pengintai. **Pengintai bertugas untuk menyimpan pekerjaan dan menjalankannya jika terdapat perubahan pada keadaan**.
 
-Istilah menyimpan pada diagram di atas adalah _collect as dependency_ dan menjalankan pekejerjaan adalah _trigger re-render_.
+Istilah menyimpan pada diagram di atas adalah _collect as dependency_ dan menjalankan pekerjaan adalah _trigger re-render_.
 
-Kita juga masih tetap menggunakan fungsi pengambil dan pengatur untuk membuatnya. Pada bagian sebelumnya juga telah dibahas.
+Kita juga masih tetap menggunakan fungsi pengambil dan pengatur untuk membuatnya.
 
-Ketika suatu variabel diakses, maka fungsi pengambil akan dieksekusi. Fungsi tersebut akan menyimpan pekerjaan. Kemudian ketika suatu variabel diubah nilainya, fungsi pengatur akan memberitahukan pengintai untuk menjalankan pekerjaan yang telah disimpan sebelumnya.
+Pada bagian sebelumnya juga telah dibahas. Ketika suatu variabel diakses, maka fungsi pengambil akan dieksekusi. Fungsi tersebut akan menyimpan pekerjaan.
+
+Kemudian ketika suatu variabel diubah nilainya, fungsi pengatur akan memberitahukan pengintai untuk menjalankan pekerjaan yang telah disimpan sebelumnya.
 
 1. Di dalam fungsi pengambil telah dideklarasikan suatu **mekanisme untuk menyimpan suatu pekerjaan sebagai dependensi**.
 2. Sedangkan di dalam fungsi pengatur dideklarasikan suatu **mekanisme untuk memberitahukan semua dependensi bahwa variabel tersebut telah berubah nilainya**. Sehingga pekerjaan yang telah disimpan sebagai dependensi dapat dijalankan.
@@ -389,8 +391,6 @@ function mulai() {
 
 Pada contoh kode di atas, kita telah merefaktor kode yang bertugas untuk membuat objek keadaan reaktif dengan cara membuat fungsi bernama `observasi`. Fungsi tersebut menerima 1 parameter berupa objek.
 
-Tidak banyak perubahan yang kita lakukan terhadap kode sebelumnya. Hanya saja terdapat beberapa perubahan pada kode sebelumnya.
-
 Yang pertama kita mengubahnya menjadi fungsi yang menerima parameter berupa objek. Kemudian di dalam pengulangan kita menginisialisasi objek sebenarnya dari kelas `Pengintai` dan menyimpannya ke dalam variabel bernama `pengintai`.
 
 Selanjutnya di dalam fungsi `pengambilReaktif` sebelum kita mengembalikan nilai, kita memanggil _method_ `simpanPekerjaan` yang terdapat pada objek `pengintai`.
@@ -438,7 +438,7 @@ Yang kedua adalah memanggil parameter sebagai fungsi. Dan yang terakhir adalah m
 
 Fungsi `pelaksana` tersebut menerima 1 parameter bernama `pekerjaan`. Parameter tersebut berupa **fungsi yang akan dieksekusi jika terdapat perubahan pada properti reaktif** yang dibahas sebelumnya.
 
-Properti reaktif tersebut memiliki fungsi pengambil yang akan dieksekusi ketika properti tersebut diakses. Properti tersebut **pasti** diakses di dalam fungsi yang harus dijalankan ketika properti tersebut berubah.
+Properti tersebut **pasti** diakses di dalam fungsi yang harus dijalankan ketika properti tersebut berubah.
 
 Mari kita lihat fungsi untuk memutakhirkan layar pada aplikasi kalkulator yang telah kita buat sebelumnya.
 
@@ -471,7 +471,7 @@ function mulai() {
 
 Oya karena di dalam fungsi pelaksana kita telah memanggil parameternya sebagai fungsi, semua pemanggilan fungsi `mutakhirkanTampilan` harus kita hilangkan juga.
 
-<app-demo-13 />
+<app-demo-13-id />
 
 Demo di atas kita telah berhasil menampilkan keadaan sebenarnya dari variabel `keadaan`. Tetapi ketika terjadi perubahan tidak terjadi kalkulasi secara otomatis.
 
@@ -486,7 +486,7 @@ function mulai() {
 
 Dengan begitu selain keadaan sebenarnya dari variabel `keadaan` ditampilkan hasil juga akan terkalkulasi secara otomatis.
 
-<app-demo-14 />
+<app-demo-14-id />
 
 Kita telah berhasil merefaktor kode yang sebelumnya hanya dapat digunakan untuk satu pekerjaan menjadi dapat digunakan untuk banyak pekerjaan.
 
@@ -503,7 +503,7 @@ function mulai() {
 
 Sekali lagi kita perlu menghapus semua pemanggilan fungsi `mutakhirkanPenghitungDetik` karena ketika dijadikan parameter pada fungsi `pelaksana`, ia akan secara otomatis dipanggil.
 
-<app-demo-15 />
+<app-demo-15-id />
 
 ## Ikhtisar
 
@@ -517,13 +517,19 @@ Yang telah kita lakukan untuk mewujudkan sistem reaktivitas yang dapat melakukan
 
 Oleh karena itu kita juga membutuhkan fungsi tambahan bernama `pelaksana`. Fungsi ini berfungsi sebagai penghubung antara properti dengan pekerjaan yang harus ia kerjakan ketika terjadi perubahan nilai.
 
+Selain itu kita juga membuat kelas bernama `Pengintai` yang memiliki _method_ untuk menyimpan dan menjalankan pekerjaan.
+
 Oh ya kalau teman-teman bingung dengan penjelasannya, teman-teman dapat mengklik tautan yang terdapat pada setiap bagian demo. Tautan tersebut mengarah ke halaman Github yang menampilkan kode sumber dari demo yang bersangkutan.
 
 Walaupun kita telah berhasil membuat sistem reaktivitas kita sendiri menyerupai Vue.js. Namun sistem tersebut masih belum dapat dikatakan sama 100%.
 
 Hal tersebut dikarenakan kita masih belum menangani reaktivitas pada _array_. Dari bagian 1 hingga bagian 2 ini kita hanya berfokus pada membuat sistem reaktivitas yang bekerja pada objek.
 
-Dan untuk membuat sistem reaktivitas tersebut bekerja pada _array_. Kita tidak dapat menggunakan fungsi pengambil dan pengatur.
+Sayangnya, untuk membuat sistem reaktivitas tersebut bekerja pada _array_. Kita tidak dapat menggunakan fungsi pengambil dan pengatur.
+
+Kita perlu memikirkan cara lain untuk melakukannya. Mungkin teman-teman bisa membantu dan memberikan saran kepada saya untuk menyelesaikan permasalahan tersebut. Kemudian kita akan coba bahas pada bagian selanjutnya.
+
+Terima kasih dan semoga bermanfaat!
 
 ## Referensi
 

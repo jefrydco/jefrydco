@@ -11,7 +11,7 @@ id: create-reactivity-system-vuejs-javascript-part-1
 extraComponents: ['AppDemo1En', 'AppDemo2En', 'AppDemo3En', 'AppDemo4En', 'AppDemo5En', 'AppDemo6En', 'AppDemo7En', 'AppDemo8En', 'AppDemo9En', 'AppDemo10En']
 ---
 
-> Read the second part here, [Create a Simplified Version of Vue.js Reactivity System - Bagian 2](/blog/create-reactivity-system-vuejs-javascript-part-2)
+> Read the second part here, [Create a Simplified Version of Vue.js Reactivity System - Bagian 2](/en/blog/create-reactivity-system-vuejs-javascript-part-2)
 
 Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly.
 
@@ -59,20 +59,20 @@ new Vue({
 
 Behind the curtain, Vue.js will change all of the data we declared in the `data` section into a getter and setter.
 
-The getter and setter are in the form of function. When a variable is accessed, the getter will be executed. And if the value is changed, the setter will notify the watcher to run its job related to the variable.
+The getter and setter are in the form of function. When a variable is accessed, the getter will be executed. And if the value is changed, the setter will notify the watcher to run its task related to the variable.
 
-1. In the body of getter, it is declared **a mechanism to save a job as a dependency**.
-2. Meanwhile, in the body of setter, it is declared **a mechanism to notify all of the dependency that the value of the variable is changed**. So the job that already saved as a dependency will be executed.
+1. In the body of getter, it is declared **a mechanism to save a task as a dependency**.
+2. Meanwhile, in the body of setter, it is declared **a mechanism to notify all of the dependency that the value of the variable is changed**. So the task that already saved as a dependency will be executed.
 
 When the snippet above is rendered on the browser, a `text` variable accessed. It accessed twice, the first one inside of `h1` tag and the second one inside the `v-model` attribute on `input` tag.
 
-When Vue.js render the `h1` tag, Vue.js will save **the job of rendering `h1` tag as a dependency**.
+When Vue.js render the `h1` tag, Vue.js will save **the task of rendering `h1` tag as a dependency**.
 
-It applies as well when Vue.js render the `input` tag, Vue.js will save **the job of rendering `input` tag as a dependency**.
+It applies as well when Vue.js render the `input` tag, Vue.js will save **the task of rendering `input` tag as a dependency**.
 
-When the user changes the value of `text`, Vue.js will check what kind of jobs it should run when the value of `text` changes.
+When the user changes the value of `text`, Vue.js will check what kind of tasks it should run when the value of `text` changes.
 
-The first job is rerendering the `h1` tag and the second one is rerendering the `input` tag.
+The first task is rerendering the `h1` tag and the second one is rerendering the `input` tag.
 
 That's why when the user changes the value of `text` via `input` tag, the `text` variable inside of `h1` tag will change automatically as well.
 
@@ -324,7 +324,7 @@ Adding the event listener is useful for setting `input1`, `input2` and `operator
 
 We can check it by opening the browser console on this page and type the name of the variable.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/add-event-listener-effect-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/02/create-reactivity-system-vuejs-javascript-part-2/add-event-listener-effect-by-jefrydco-en.webm" />
 
 On the animation above, firstly, we check the initial value of `state6`. The initial value of `input1` and `input2` property are `0` and the initial value of `operator` property is `+`.
 
@@ -397,7 +397,7 @@ We can call the function inside the event listener callback. So that whenever th
 
 We can check it by opening the browser console in this page and type the name of the variable for demo 7, which is `state7`.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/reactivity-recalculation-automatically-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/02/create-reactivity-system-vuejs-javascript-part-2/reactivity-recalculation-automatically-by-jefrydco-en.webm" />
 
 In the animation above, first, we check the initial value of the `state7`. The initial value of the `input1` and `input2` are `0` and the initial value of the `operator` property is `+`.
 
@@ -449,7 +449,7 @@ Even, we can't call it reactivity system. It is because we add event listener so
 
 But if the variable is changed without interaction via input, for instance via browser console, there won't any recalculation and rerender.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-does-not-affect-reactivity-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/02/create-reactivity-system-vuejs-javascript-part-2/change-via-console-does-not-affect-reactivity-by-jefrydco-en.webm" />
 
 Another case in Vue.js reactivity system,  we change the value of the variable using many way. Through even listener or through the browser console directly.
 
@@ -463,11 +463,11 @@ Because we have target to mimic the Vue.js reactivity system in a simple way, fi
 
 In my opnion to make Vue.js reactivity systme, we need several components:
 
-1. Reactive maker, it useful for changing the data to **reactive getter and reactive setter**.
+1. Reactive creator, it useful for changing the data to **reactive getter and reactive setter**.
 2. Watcher, it **watch and notify the runner if there is a change**.
-3. Runner, it **run the job if it has notified by the watcher**.
+3. Runner, it **run the task if it has notified by the watcher**.
 
-### Reactive Maker
+### Reactive Creator
 
 Before we discuss the next section, if you are still confuse with the reactive getter and reactive setter, you can always going back to <a href="#vue-js-reactivity-system">Vue.js Reactivity System</a> section above.
 
@@ -653,7 +653,7 @@ Now we have solve the problem of our reactivity system that only using event lis
 
 Besides, the value will be recalculated and redisplayed automatically if there is interaction via input. They will be recalculated and redisplayed as well when we change the value through the browser console.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-affect-reactivity-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/02/create-reactivity-system-vuejs-javascript-part-2/change-via-console-affect-reactivity-by-jefrydco-en.webm" />
 
 ## Recap
 
@@ -667,7 +667,9 @@ It is the same way as Vue.js does. It is using getter and setter. They are all i
 
 Each of the property of the state object, we change it to have getter and setter. Inside the body of the setter, we can set what should they do if there is a change.
 
-But again, the system still has disadvantages. It can only do one job on time. In the next part, we will discuss a solution for it.
+But again, the system still has disadvantages. It can only do one task on time. In the next part, we will discuss a solution for it.
+
+Thanks for reading and hope you enjoy!
 
 ## References
 

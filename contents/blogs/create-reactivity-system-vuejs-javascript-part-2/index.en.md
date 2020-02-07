@@ -1,5 +1,5 @@
 ---
-title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 2
+title: Create a Simplified Version of Vue.js Reactivity System - Part 2
 description: 
 summary: 
 img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
@@ -8,524 +8,530 @@ postedDate: 2020-02-01T01:00:00.000Z
 updatedDate: 2020-02-01T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-2
 id: create-reactivity-system-vuejs-javascript-part-2
-extraComponents: ['AppDemo11', 'AppDemo12', 'AppDemo13', 'AppDemo14', 'AppDemo15']
+extraComponents: ['AppDemo11En', 'AppDemo12En', 'AppDemo13En', 'AppDemo14En', 'AppDemo15En']
 ---
 
-> Baca bagian pertama di sini, [Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1](/blog/create-reactivity-system-vuejs-javascript-part-1)
+> Read the first part here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1)
 
-Pada bagian sebelumnya kita telah berhasil membuat sistem reaktivitas sendiri. Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan dalam satu waktu.
+In the previous part, we have created our own reactivity system. But it still lacks a feature, it can only do one task at a time.
 
-Sistem reaktivitas yang dimiliki Vue.js dapat melakukan banyak hal dalam satu waktu. Contohnya misal pada kolom pencarian dengan fitur pelengkap otomatis.
+Reactivity system that Vue.js has can do anything in once time. For instance, in the autocompleted search box.
 
-Sembari Vue.js menampilkan hasil pencarian, ia juga melakukan pengambilan data di balik layar. Kemudian data tersebut juga akan ditampilkan pada hasil pencarian.
+While Vue.js render the search result, it also fetches the data in the background. When the data has arrived, it will redisplay again.
 
 [toc]
 
-## Pembuat Reaktif untuk Banyak Pekerjaan
+## Reactive Creator for Many Tasks
 
-Tetapi kali ini kita tidak akan membuat aplikasi sekompleks itu, kita masih menggunakan kode dari demo terakhir pada bagian 1. Namun kita akan menambahkan aplikasi lain pada demo tersebut.
+But for now, we won't create an app as complex as it, we will reuse the code from the latest demo in part 1. But we will add another application on it.
 
-Kita akan menambahkan aplikasi penghitung detik (_stopwatch_). Mengapa penghitung detik? Karena aplikasi tersebut akan secara konstan menampilkan keadaan detik secara terus menerus.
+We will add a stopwatch. Why stopwatch? Because it constantly re-render the second.
 
-Dengan demikian kita dapat mensimulasikan bahwa sistem reaktivitas yang kita buat dapat melakukan pekerjaan dalam satu waktu.
+Therefore, we can simulate that our reactivity system can do many tasks at a time.
 
-Pekerjaan pertama adalah melakukan kalkulasi dan menampilkan hasil beserta keadaannya dan pekerjaan kedua adalah secara konstan menampilkan keadaan detik.
+The first task is to calculate and render the result for the first application and the second task is constantly rerendering the second from the stopwatch.
 
-### Struktur HTML
+### HTML Structure
 
-Pertama-tama kita harus menambahkan struktur HTML untuk penghitung detik terlebih dahulu.
+First we need to add HTML structure for the stopwatch.
 
 ```html {4,6,8-12,14}
-<!-- Kode sebelumnya -->
-<h2 class="hasil"></h1>
+<!-- Previous code -->
+<h2 class="result"></h1>
 
 <hr />
 
-<pre class="keadaan-2"></pre>
+<pre class="state-2"></pre>
 
-<div class="tombol">
-  <button class="mulai">Mulai</button>
-  <button class="berhenti">Berhenti</button>
+<div class="button">
+  <button class="start">Start</button>
+  <button class="stop">Stop</button>
   <button class="reset">Reset</button>
 </div>
 
-<h2 class="detik"></h2>
+<h2 class="second"></h2>
 
 <script>
-  // Kode JavaScript sebelumnya
+  // Previous JavaScript code
 </script>
 ```
 
-Pada contoh kode di atas kita menambahkan pemisah antara kalkulator dan penghitung detik menggunakan tag `hr`.
+In the code snippet above, we add a divider between the calculator and the stopwatch using `hr` tag.
 
-Selain itu kita juga memiliki tag `pre` yang akan kita gunakan untuk menampilkan keadaan nyata dari variabel yang kita deklarasikan.
+Besides that, we also add the `pre` tag which will be used to display the real state of the variable.
 
-Kemudian kita juga menambahkan 3 tombol yang memiliki nama sesuai fungsinya masing-masing. Tombol tersebut adalah tombol mulai, berhenti dan reset.
+Then we also add 3 buttons that have name correspond to their function. They are start, stop and reset.
 
-Kemudian kita juga menambahkan tag `h2` yang berfungsi untuk menampilkan detik.
+Then we add the `h2` tag which will be used to display the stopwatch.
 
-<app-demo-11 />
+<app-demo-11-en />
 
-Pada demo di atas, aplikasi kalkulator yang sebelumnya kita buat juga masih dapat bekerja dengan baik.
+In the demo above, the previous calculator app is still working fine.
 
-### Keadaan Detik
+### Second State
 
-Kemudian kita beralih ke bagian JavaScript. Yang perlu kita lakukan adalah mendeklarasikan terlebih dahulu variabel yang akan kita gunakan untuk menyimpan detik.
+Then we jump into the JavaScript part. The thing we need to do is declaring the variable we will use to store the second state.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  const keadaanDetik = {
-    detik: 0
+function main() {
+  // ... Previous code
+  const secondState = {
+    second: 0
   }
 }
 ```
 
-Pada contoh kode di atas kita mendeklarasikan objek `keadaanDetik` yang memiliki properti `detik`. Sesuai dengan namanya properti inilah yang akan kita gunakan untuk menampung nilai dari detik.
+In the code snippet above we declare an object called `secondState` that has `second` property. As the name suggests this property will store the state of our stopwatch.
 
-Setelah itu kita perlu mendapatkan semua tag HTML yang telah kita deklarasikan agar dapat diakses di dalam JavaScript.
+After that, we need to get all of the HTML in order to be accessible via JavaScript.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  const tampilanKeadaan2 = document.querySelector('.keadaan-2')
-  const tampilanTombolMulai = document.querySelector('.mulai')
-  const tampilanTombolBerhenti = document.querySelector('.berhenti')
-  const tampilanTombolReset = document.querySelector('.reset')
-  const tampilanDetik = document.querySelector('.detik')
+function main() {
+  // ... Previous code
+  const state2Display = document.querySelector('.state-2')
+  const startButtonDisplay = document.querySelector('.start')
+  const stopButtonDisplay = document.querySelector('.stop')
+  const resetButtonDisplay = document.querySelector('.reset')
+  const secondDisplay = document.querySelector('.second')
 }
 ```
 
-Pada contoh kode di atas, kita mendapatkan semua komponen HTML dan menyimpannya masing-masing ke dalam sebuah variabel.
+In the example above, we get all of the HTML and store each of them in a different variable.
 
-### Fungsi Dasar
+### Basic Function
 
-Kemudian yang perlu kita lakukan adalah membuat fungsi untuk menampilkan nilai sebenarnya dari variabel `keadaanDetik` dan menampilkan nilai dari properti `detik`.
+Then the thing we need to do next is creating a function to display the real state of the `secondState` variable and display the value of `second` property.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  function mutakhirkanPenghitungDetik() {
-    tampilanKeadaan2.innerText = JSON.stringify(keadaanDetik, null, 2)
-    tampilanDetik.innerText = keadaanDetik.detik.toString()
+function main() {
+  // ... Previous code
+  function updateStopwatch() {
+    state2Display.innerText = JSON.stringify(secondState, null, 2)
+    secondDisplay.innerText = secondState.second.toString()
   }
 }
 ```
 
-Pada contoh kode di atas kita mendeklarasikan fungsi bernama `mutakhirkanPenghitungDetik`. Cara tersebut merupakan cara yang sama seperti yang telah kita gunakan untuk menampilkan keadaan dan hasil pada aplikasi kalkulator.
+In the example above we declare a function called `updateStopwatch`. It is the same way as in the function that we use to render in our previous calculator application.
 
-Selanjutnya kita akan membuat beberapa fungsi yang akan dieksekusi ketika pengguna mengklik ketiga tombol yang telah kita buat sebelumnya.
+Then we create several functions that will be executed when the user click 3 of the buttons.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
+function main() {
+  // ... Previous code
   let idInterval = 0
 
-  function mulai() {
+  function start() {
     idInterval = setInterval(() => {
-      keadaanDetik.detik = keadaanDetik.detik + 1
+      secondState.second = secondState.second + 1
     }, 1000)
   }
 }
 ```
 
-Pada contoh kode di atas kita mendeklarasikan variabel bernama `idInterval` dengan nilai `0`. Variabel tersebut akan kita gunakan untuk menyimpan id dari fungsi `setInterval`.
+In the code above we declare a variable called `idInterval` with the value of `0`. It will be used to store the id from `setInterval`.
 
-Selain itu kita juga mendeklarasikan fungsi bernama `mulai`. Di dalam fungsi tersebut kita memanggil fungsi `setInterval`. Fungsi ini berguna untuk mengesekusi suatu fungsi dalam tenggang waktu tertentu secara berulang-ulang.
+Beside that, we also declare a function called `start`. In the body of the function, we call the `setInterval` function. It will be used to execute a function at a certain time many times.
 
-Fungsi `setInterval` menerima 2 parameter, parameter pertama merupakan fungsi yang akan dieksekusi secara berulang-ulang. Parameter kedua merupakan seberapa lama tenggang waktunya dalam bentuk mili detik.
+The `setInterval` function accepts 2 parameters, the first one is the function that will be executed many times. And the second parameter is how long the function will be executed in the form of milliseconds.
 
-Karena kita akan membuat penghitung detik, maka kita akan mengesekusi fungsi pada parameter pertama dengan tenggang waktu 1 detik. Oleh karena itu kita akan memasukkan nilai `1000` pada parameter kedua.
+Because we create a stopwatch, it makes sense that the function on the first parameter is executed on 1 second each time. Because of that, we need to pass the `1000` on the second parameter.
 
-Di dalam fungsi pada parameter pertama, kita menambahkan keadaan detik dengan nilai `1` karena setiap detik nilai dari keadaan detik tersebut juga akan bertambah `1`.
+Inside of the function on the first parameter, we add the existing second with the value of `1`.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  function berhenti() {
+function main() {
+  // ... Previous code
+  function stop() {
     clearInterval(idInterval)
   }
 }
 ```
 
-Selanjutnya kita juga mendeklarasikan fungsi bernama `berhenti`. Sesuai dengan namanya, fungsi ini berguna untuk menghentikan penghitung detik.
+The next thing we need to do is declaring a `stop` function. As the name suggests, it is useful to stop the stopwatch.
 
-Cara menghentikan penghitung detik adalah dengan memanggil fungsi `clearInterval`. Fungsi tersebut menerima satu parameter yakni id `setInterval` yang telah kita atur sebelumnya.
+To stop the stopwatch, we can call the `clearInterval` function. It accepts a parameter which is the id of the `setInterval` that we already stored previously.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
+function main() {
+  // ... Previous code
   function reset() {
-    berhenti()
-    keadaanDetik.detik = 0
+    stop()
+    secondState.second = 0
   }
 }
 ```
 
-Kemudian kita juga mendeklarasikan fungsi bernama `reset`. Di dalam fungsi ini kita memanggil fungsi `berhenti` kemudian mengatur nilai properti `detik` menjadi `0`.
+Then we also declare a function called `reset`. Inside the body of it we call the `stop` function then set the value of the `second` property to `0`.
 
-### Pendengar Peristiwa
+### Event Listener
 
-Setelah semuanya dideklarasikan, yang perlu kita lakukan selanjutnya adalah memasang pendengar peristiwa pada ketiga tombol.
+After all set, the next thing we need to do is add an event listener to each of the buttons.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  tampilanTombolMulai.addEventListener('click', () => {
+function main() {
+  // ... Previous code
+  startButtonDisplay.addEventListener('click', () => {
     mulai()
   })
-  tampilanTombolBerhenti.addEventListener('click', () => {
-    berhenti()
+  stopButtonDisplay.addEventListener('click', () => {
+    stop()
   })
-  tampilanTombolReset.addEventListener('click', () => {
+  resetButtonDisplay.addEventListener('click', () => {
     reset()
   })
 }
 ```
 
-Pada contoh kode di atas, kita memasang pendengar peristiwa `click` pada ketiga tombol tersebut. Di dalam fungsi pada parameter kedua, kita tidak perlu menambahkan parameter `peristiwa` karena kita tidak membutuhkannya.
+In the code snippet above, we add `click` event listener to each of the buttons. Inside the body of the function on the second parameter, we don't need to pass the `event` parameter because we don't need it.
 
-Yang perlu kita lakukan di dalam fungsi pada parameter kedua hanyalah memanggil fungsi-fungsi yang telah kita deklarasikan sebelumnya sesuai dengan fungsi tombolnya.
+The only thing we need to do inside the function on the second parameter is to call each of the function we declare previously in accordance with the button function.
 
-Tombol mulai memanggil fungsi `mulai`, tombol berhenti memanggil fungsi `berhenti` dan tombol reset memanggil fungsi `reset`.
+The start button calls the `start` function, the stop button calls the `stop` function and the reset button call the `reset` function.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  mutakhirkanPenghitungDetik()
+function main() {
+  // ... Previous code
+  updateStopwatch()
 }
 ```
 
-Kita juga perlu memanggil fungsi `mutakhirkanPenghitungDetik` agar keadaan sebenarnya objek `keadaanDetik` ditampilkan di layar peramban.
+We also need to call the `updateStopwatch` function in order to the state of `secondState` is rendered on the browser view.
 
-<app-demo-12 />
+<app-demo-12-en />
 
-### Pembuat Reaktif
+### Reactive Creator
 
-Sebelum melanjutkan pembahasan mari kita mengingat kembali bagaimana sistem reaktivitas yang telah kita buat bekerja di balik layar.
+Before we continue the discussion, let's remember how the reactivity system is working behind the curtain.
 
 ```javascript {3,5,6,8,19-20}
-function mulai() {
-  // ... Kode sebelumnya
-  const daftarKunci = Object.keys(keadaan)
+function main() {
+  // ... Previous code
+  const keyList = Object.keys(state)
 
-  daftarKunci.forEach(kunci => {
-    let nilai = keadaan[kunci]
+  keyList.forEach(key => {
+    let value = state[key]
 
-    Object.defineProperty(keadaan, kunci, {
+    Object.defineProperty(state, key, {
       enumerable: true,
       configurable: true,
-      get: function pengambilReaktif() {
-        return nilai
+      get: function reactiveGetter() {
+        return value
       },
-      set: function pengaturReaktif(nilaiBaru) {
-        if (nilai === nilaiBaru) {
+      set: function reactiveSetter(newValue) {
+        if (value === newValue) {
           return;
         }
-        nilai = nilaiBaru
-        kalkulasiHasil()
-        mutakhirkanTampilan()
+        value = newValue
+        calculateResult()
+        updateDisplay()
       }
     })
   })
 }
 ```
 
-Contoh kode di atas adalah kode yang kita gunakan untuk membuat sistem reaktivitas buatan kita bekerja.
+The code snippet above is the code we use to make our own reactivity system worked.
 
-Kita mengubah setiap properti yang terdapat pada objek keadaan agar memiliki fungsi pengambil dan fungsi pengatur menggunakan _method_ `defineProperty` yang terdapat pada kelas `Object`.
+We change each of the property of the state object so that they have getter and setter using `defineProperty` method which is located on the `Object` class.
 
-Di dalam fungsi `pengambilReaktif` kita hanya mengembalikan nilai dari properti sedangkan di dalam fungsi `pengaturReaktif` kita memanggil fungsi `kalkulasiHasil` dan `mutakhirkanTampilan`.
+Inside the body of `reactiveGetter` we only return the value of the property, then inside the body of `reactiveSetter` we call the `calculateResult` and `updateDisplay` function.
 
-Pemanggilan kedua fungsi itulah yang membuat aplikasi kita seolah-olah menjadi reaktif. Namun pemanggilan secara langsung di dalam fungsi `pengaturReaktif` membuat sistem reaktivitas yang kita buat hanya dapat mengerjakan satu pekerjaan dalam satu waktu saja.
+The execution of both of the function will make our application looks reactive. But direct invocation inside the `reactiveSetter` function makes our reactivity system can only do a task at a time.
 
-Kita dapat menganggap **mengkalkulasi hasil dan memutakhirkan tampilan menjadi satu pekerjaan**. Karena keduanya dieksekusi ketika terjadi perubahan pada objek keadaan.
+We can think of **the result calculation and update display is a task**. Because both of them is executed when there is a change in the state.
 
-Namun sekarang kita akan menambahkan satu aplikasi lainnya, sehingga kita pun perlu memiliki objek keadaan lainnya. Kita juga telah mendeklarasikan fungsi untuk memutakhirkan tampilan untuk aplikasi penghitung waktu.
+But now we want to add another application, therefore we need to have another state. We also have declared a function to rerender for it.
 
-Sehingga bisa dikatakan terdapat 2 pekerjaan yang perlu dilakukan, pekerjaan pertama adalah mengkalkulasi dan memutakhirkan tampilan pada aplilasi kalkulator dan pekerjaan kedua memutakhirkan tampilan pada aplikasi penghitung waktu.
+Because of that, we can say that there are 2 tasks that our reactivity system needs to do. The first one is to calculate and render the calculator application and the second task is rerendering the stopwatch.
 
-Oleh karena itu kita memerlukan sebuah mekanisme untuk membuat kode di atas dapat digunakan berulang kali.
+Therefore we need a mechanism to make the code snippet above can be reused as many time.
 
-Hal yang mungkin kita lakukan untuk membuat kode di atas dapat digunakan berulang kali adalah merefaktornya menjadi sebuah fungsi.
+One thing we might do is make the code snippet above to a function.
 
-Namun hal tersebut belumlah cukup karena di dalam fungsi `pengaturReaktif` kita memanggil fungsi untuk mengkalkulasi dan memutakhirkan aplikasi kalkulator secara langsung.
+But that is not enough, because inside of the `reactiveSetter` we invoke the function directly to calculate and rerender the application calculator
 
-Coba teman-teman pikirkan sejenak apa yang dapat kita lakukan untuk mengatas permasalahan tersebut. Kita ingin membuat kode sebelumnya dapat digunakan secara berulang kali namun kita juga tidak bisa meletakkan fungsi untuk memutakhirkan layar dan kalkulasi di dalam fungsi `pengaturReaktif`.
-
-.
+Let's think about it for a moment what we can do to solve the problem. We want to make our code previously reuseable but we can't invoke a function to calculate and rerender inside the `reactiveSetter` function.
 
 .
 
 .
 
-Bagaimana? Sudah menemukan solusinya? Mari kita bahas bersama-sama. Kita sudah mengetahui bahwa kita dapat membuat sebuah kode digunakan secara berulang kali dengan mengubahnya menjadi fungsi.
+.
 
-Namun permasalahan kedua masih belum terselesaikan. Dimanakah kita meletakkan fungsi untuk memutakhirkan layar dan mengkalkulasi?
+How is it? Have found the solution? Let's discuss it together. We have known that we can code to be reusable if it in the form of function.
 
-Karena sumber inspirasi pembuatan sistem reaktivitas kita adalah Vue.js, mari kita perhatikan kembali diagram sistem reaktivitas Vue.js berikut:
+But the second problem still not solved. Where can we put the function to update the view and recalculate the result?
+
+Because of our inspiration for making the reactivity system is Vue.js, let's take a look again the Vue.js reactivity diagram on the following:
 
 <app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"/>
 
-Mari kita pikirkan apa yang telah kita punya sekarang dan apa yang belum kita punya agar sistem reaktivitas buatan kita sama seperti sistem reaktivitas Vue.js.
+Let's think what we have now and what we don't so that our reactivity system is similar to Vue.js has.
 
-Kita telah mempunyai keadaan atau data pada diagram di atas. Kita juga telah mempunyai pengambil dan pengatur atau _getter & setter_ pada diagram di atas.
+We have state or data in the diagram above. WE also have getter and setter.
 
-Berarti kita masih belum memiliki pengintai atau _watcher_ pada diagram di atas. Yap kita membutuhkan pengintai. **Pengintai bertugas untuk menyimpan pekerjaan dan menjalankannya jika terdapat perubahan pada keadaan**.
+Therefore we still don't have a watcher. Yes, we need a watcher. **Watcher is useful for storing the task and run it when there is a change happens**.
 
-Istilah menyimpan pada diagram di atas adalah _collect as dependency_ dan menjalankan pekejerjaan adalah _trigger re-render_.
+The term store on the diagram above is collect as dependency and run the task is trigger re-render.
 
-Kita juga masih tetap menggunakan fungsi pengambil dan pengatur untuk membuatnya. Pada bagian sebelumnya juga telah dibahas.
+We still use getter and setter function to make it happen. 
 
-Ketika suatu variabel diakses, maka fungsi pengambil akan dieksekusi. Fungsi tersebut akan menyimpan pekerjaan. Kemudian ketika suatu variabel diubah nilainya, fungsi pengatur akan memberitahukan pengintai untuk menjalankan pekerjaan yang telah disimpan sebelumnya.
+In the previous section is already discussed. When a variable is accessed, the getter function will be invoked. It will store the current task as a dependency.
 
-1. Di dalam fungsi pengambil telah dideklarasikan suatu **mekanisme untuk menyimpan suatu pekerjaan sebagai dependensi**.
-2. Sedangkan di dalam fungsi pengatur dideklarasikan suatu **mekanisme untuk memberitahukan semua dependensi bahwa variabel tersebut telah berubah nilainya**. Sehingga pekerjaan yang telah disimpan sebagai dependensi dapat dijalankan.
+Then when a variable is changing its value, the setter function is invoked and notify the watcher to run the task that already stored before.
 
-Oke langsung saja kita ubah fungsi pengambil dan pengatur agar sesuai dengan pembahasan kita sebelumnya dan membuat sebuah pengintai untuk menyimpan pekerjaan.
+1. Inside the getter function, we declare **a mechanism to save the task as a dependency**.
+2. Then inside the setter function, we declare **a mechanism to notify all of the dependencies that the value of the variable has changed**. So that the task that already stored before can be run.
 
-Mari kita buat terlebih dahulu pengintai tersebut.
+Let's change the getter and setter function to match our discussion above and create a watcher to store the task.
+
+Let's create the watcher first.
 
 ```javascript {5,8}
-function mulai() {
-  // ... Kode sebelumnya
-  class Pengintai {
+function main() {
+  // ... Previous code
+  class Watcher {
     constructor() {
-      this.daftarPekerjaan = []
+      this.taskList = []
     }
   }
-  Pengintai.pekerjaan = null
+  Watcher.task = null
 }
 ```
 
-Pada contoh kode di atas kita membuat sebuah kelas bernama `Pengintai`. Di dalam kelas tersebut, kita juga mendeklarasikan sebuah konstruktor yang bertugas untuk membuat variabel `daftarPekerjaan` dan mengatur nilainya menjadi _array_ kosong. Variabel tersebut kita gunakan untuk **menyimpan daftar pekerjaan**.
+In the code snippet example above we create a class named `Watcher`. Inside of it, we declare a constructor that set the `taskList` variable and its value to an empty array. It will be used to **store all of the task list**.
 
-Selain itu kita juga mengatur kelas `Pengintai` agar memiliki properti `pekerjaan`. Properti `pekerjaan` ini akan kita gunakan untuk **menyimpan pekerjaan yang akan disimpan ke dalam daftar pekerjaan**.
+Besides that, we also set `Watcher` class in order to have `task` property. It will be used to **store current task that needed to store in the task list**.
 
-Properti `pekerjaan` sengaja kita letakkan pada kelas `Pengintai` secara langsung agar dalam satu waktu hanya satu pekerjaan yang disimpan ke dalam `daftarPekerjaan`. Selain itu untuk dapat mengubah nilainya kita tidak perlu menginisiasi kelas `Pengintai` menggunakan kata kunci `new` terlebih dahulu.
+We put the `task` property on the `Watcher` class itself because once at a time there is only one a task. And we don't have to initialize the class in order to change its value.
 
-Selain variabel tersebut, kita juga membutuhkan _method_ untuk menyimpan pekerjaan ke dalam daftar pekerjaan dan _method_ untuk menjalankan pekerjaan.
+We also need a method to store our task in the task list and to run the task.
 
 ```javascript {8-12}
-function mulai() {
-  // ... Kode sebelumnya
-  class Pengintai {
+function main() {
+  // ... Previous code
+  class Watcher {
     constructor() {
-      this.daftarPekerjaan = []
+      this.taskList = []
     }
 
-    simpanPekerjaan() {
-      if(Pengintai.pekerjaan) {
-        this.daftarPekerjaan.push(Pengintai.pekerjaan)
+    saveTask() {
+      if(Watcher.task) {
+        this.taskList.push(Watcher.task)
       }
     }
   }
-  Pengintai.pekerjaan = null
+  Watcher.task = null
 }
 ```
 
-Pada contoh kode di atas, kita mendeklarasi _method_ bernama `simpanPekerjaan`. Di dalam _method_ tersebut kita mengecek apakah properti `pekerjaan` memiliki nilai atau tidak. Jika ya, ia akan menyimpan nilai tersebut ke dalam `daftarPekerjaan`.
+In the code example above, we declare a method called `saveTask`. Inside of it we check whether `task` property has value or not. If yes, we will save it to the `taskList`.
 
-Kemudian kita juga membutuhkan _method_ untuk menjalankan semua daftar pekerjaan yang telah disimpan di dalam `daftarPekerjaan`.
+Then we also need a method to run all of the previously saved tasks.
 
 ```javascript {14-18}
-function mulai() {
-  // ... Kode sebelumnya
-  class Pengintai {
+function main() {
+  // ... Previous code
+  class Watcher {
     constructor() {
-      this.daftarPekerjaan = []
+      this.taskList = []
     }
 
-    simpanPekerjaan() {
-      if(Pengintai.pekerjaan) {
-        this.daftarPekerjaan.push(Pengintai.pekerjaan)
+    saveTask() {
+      if(Watcher.task) {
+        this.taskList.push(Watcher.task)
       }
     }
 
-    jalankanPekerjaan() {
-      this.daftarPekerjaan.forEach(pekerjaan => {
-        pekerjaan()
+    runTask() {
+      this.taskList.forEach(task => {
+        task()
       })
     }
   }
-  Pengintai.pekerjaan = null
+  Watcher.task = null
 }
 ```
 
-Pada contoh kode di atas, kita mendeklarasikan _method_ bernama `jalankanPekerjaan`. Di dalam _method_ tersebut kita melakukan pengulangan menggunakan _method_ `forEach`. Pengulangan tersebut akan menjalankan semua pekerjaan yang telah disimpan di dalam `daftarPekerjaan`.
+In the example above, we declare a method called `runTask`. Inside of it we do a looping using `forEach` that will run all of the tasks inside the `taskList`.
 
-Selanjutnya mari kita refaktor kode yang bertugas untuk membuat objek keadaan reaktif pada bagian sebelumnya.
+Then, let's refactor our previously code that makes an object reactive to make use of the newly created class.
 
 ```javascript {3,8,14,22}
-function mulai() {
-  // ... Kode sebelumnya
-  function observasi(objek) {
-    const daftarKunci = Object.keys(objek)
+function main() {
+  // ... Previous code
+  function observe(object) {
+    const keyList = Object.keys(object)
 
-    daftarKunci.forEach(kunci => {
-      let nilai = objek[kunci]
-      const pengintai = new Pengintai()
+    keyList.forEach(key => {
+      let value = object[key]
+      const watcher = new Watcher()
 
-      Object.defineProperty(objek, kunci, {
+      Object.defineProperty(object, key, {
         enumerable: true,
         configurable: true,
-        get: function pengambilReaktif() {
-          pengintai.simpanPekerjaan()
-          return nilai
+        get: function reactiveGetter() {
+          watcher.saveTask()
+          return value
         },
-        set: function pengaturReaktif(nilaiBaru) {
-          if(nilaiBaru === nilai) {
+        set: function reactiveSetter(newValue) {
+          if(newValue === value) {
             return
           }
-          nilai = nilaiBaru
-          pengintai.jalankanPekerjaan()
+          value = newValue
+          watcher.runTask()
         }
       })
     })
   }
-  // ... Kode setelahnya
+  // ... Next code
 }
 ```
 
-Pada contoh kode di atas, kita telah merefaktor kode yang bertugas untuk membuat objek keadaan reaktif dengan cara membuat fungsi bernama `observasi`. Fungsi tersebut menerima 1 parameter berupa objek.
+We have refactored our code that makes an object reactive by turning it into a function called `observe`. It will accept a parameter in the form of an object.
 
-Tidak banyak perubahan yang kita lakukan terhadap kode sebelumnya. Hanya saja terdapat beberapa perubahan pada kode sebelumnya.
+The first one is we change it into a function that has an object parameter. Then inside the looping, we initialize an object from `Watcher` class and store it into a variable called `watcher`.
 
-Yang pertama kita mengubahnya menjadi fungsi yang menerima parameter berupa objek. Kemudian di dalam pengulangan kita menginisialisasi objek sebenarnya dari kelas `Pengintai` dan menyimpannya ke dalam variabel bernama `pengintai`.
+Then inside the `reactiveGetter`, before we return the value, we call `saveTask` method.
 
-Selanjutnya di dalam fungsi `pengambilReaktif` sebelum kita mengembalikan nilai, kita memanggil _method_ `simpanPekerjaan` yang terdapat pada objek `pengintai`.
+The last change is we also call `runTask` inside of `reactiveSetter`.
 
-Dan yang terakhir kita memanggil _method_ `jalankanPekerjaan` yang terdapat pada objek `pengintai` di dalam fungsi `pengaturReaktif`.
+The code above has the same functionality as the previous code which makes an object reactive.
 
-Kode di atas memiliki fungsi yang sama seperti kode sebelumnya yakni membuat suatu objek menjadi reaktif.
+The only difference is in the previous code when there is a change, we execute the task directly in accordance with the property. And when the property is accessed, we only return its value without doing anything.
 
-Hanya saja pada kode sebelumnya ketika terdapat perubahan terhadap suatu properti yang dimiliki objek, kita langsung menjalankan pekerjaan yang berhubungan dengan properti tersebut. Dan ketika properti tersebut diakses, kita hanya mengembalikan nilainya tanpa melakukan apapun.
+But now, when the property is accessed, besides returning a value we also store the task in accordance with the property. And when there is a change, we executed the lastly stored function.
 
-Sedangkan pada kode di atas, ketika properti diakses selain mengembalikan nilai kita juga menyimpan pekerjaan yang berhubungan dengan properti tersebut. Dan ketika terdapat perubahan kita menjalankan semua pekerjaan yang telah disimpan sebelumnya.
-
-Setelah membuat kode di atas dapat digunakan secara berkali-kali, kita dapat memanggil fungsi `observasi` tersebut dengan parameter `keadaan` dan `keadaanDetik`.
+After refactoring it, we can call the `observe` function with a `state` and `secondState` parameter.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  observasi(keadaan)
-  observasi(keadaanDetik)
+function main() {
+  // ... Previous code
+  observe(state)
+  observe(secondState)
 }
 ```
 
-Dengan begitu secara otomatis semua properti yang dimiliki oleh kedua objek tersebut akan menjadi reaktif.
+Therefore all of the property that both of the object have will be reactive.
 
-Kemudian mungkin teman-teman timbul pertanyaan, darimanakah kode di dalam fungsi `observasi` tahu hubungan antara properti dengan pekerjaan yang harus dijalankan ketika terjadi perubahan padanya.
+Perhaps you wonder, from where does the code inside the `observe` knows the connection between the property and the task that should be run when there is a change.
 
-Untuk menjawab pertanyaan tersebut, kita membutuhkan satu fungsi lagi sebagai bantuan.
+To answer it, we need another function as a halper.
 
 ```javascript {4-6}
-function mulai() {
-  // ... Kode sebelumnya
-  function pelaksana(pekerjaan) {
-    Pengintai.pekerjaan = pekerjaan
-    pekerjaan()
-    Pengintai.pekerjaan = null
+function main() {
+  // ... Previous code
+  function runner(task) {
+    Watcher.task = task
+    task()
+    Watcher.task = null
   }
 }
 ```
 
-Pada contoh kode di atas kita membuat satu fungsi lagi sebagai bantuan. Fungsi tersebut bernama `pelaksana` yang menerima 1 parameter bernama `pekerjaan`.
+In the example above, we create another function as a helper. It is called `runner` which accepts a parameter called `task`.
 
-Ada 3 hal yang dilakukan fungsi tersebut, yang pertama adalah menyimpan parameter ke dalam properti `pekerjaan` yang dimiliki oleh kelas `Pengintai`.
+There are 3 things that the function is doing, the first one is saving its parameter to `task` property in `Watcher` class.
 
-Yang kedua adalah memanggil parameter sebagai fungsi. Dan yang terakhir adalah mengatur nilai properti `pekerjaan` pada kelas `Pengintai` menjadi `null`.
+Then it called its parameter as a function. And the last thing is set the `task` property in `Watcher` class to `null`.
 
-Fungsi `pelaksana` tersebut menerima 1 parameter bernama `pekerjaan`. Parameter tersebut berupa **fungsi yang akan dieksekusi jika terdapat perubahan pada properti reaktif** yang dibahas sebelumnya.
+The `runner` function accepts a parameter called `task`. It will be in the form of **function that will be executed when there is a change in the reactive property**.
 
-Properti reaktif tersebut memiliki fungsi pengambil yang akan dieksekusi ketika properti tersebut diakses. Properti tersebut **pasti** diakses di dalam fungsi yang harus dijalankan ketika properti tersebut berubah.
+The reactive property will **always** be accessed inside the function dependency.
 
-Mari kita lihat fungsi untuk memutakhirkan layar pada aplikasi kalkulator yang telah kita buat sebelumnya.
+Let's take a look on the `updateDisplay` function below:
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  function mutakhirkanTampilan() {
-    tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
-    tampilanHasil.innerText = keadaan.hasil.toString()
+function main() {
+  // ... Previous code
+  function updateDisplay() {
+    stateDisplay.innerText = JSON.stringify(state, null, 2)
+    resultDisplay.innerText = state.hasil.toString()
 
-    tampilanInput1.value = keadaan.input1.toString()
-    tampilanInput2.value = keadaan.input2.toString()
+    input1Display.value = state.input1.toString()
+    input2Display.value = state.input2.toString()
 
-    tampilanOperator.value = keadaan.operator
+    operatorDisplay.value = state.operator
   }
-  // ... Kode setelahnya
+  // ... Next code
 }
 ```
 
-Di dalam fungsi `mutakhirkanTampilan` di atas, kita mengakses properti `hasil`, `input1`, `input2` dan `operator`. Maka ketika semua properti tersebut di akses, fungsi `mutakhirkanTampilan` akan disimpan ke dalam daftar pekerjaan.
+In the body of it, we access the `result`, `input1`, `input2` and `operator` property. Therefore, the `updateDisplay` will be stored as a dependency in the task list.
 
-Oleh karena itu setelah kita memanggil fungsi `observasi` dengan parameter objek `keadaan` dan `keadaanDetik`, kita juga perlu memanggil fungsi `pelaksana` dengan parameter fungsi `mutakhirkanTampilan`.
+That's why after we call the `observe` function with `state` and `secondState`, we also need to call the `runner` function with the parameter of `updateDisplay`.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  pelaksana(mutakhirkanTampilan)
+function main() {
+  // ... Previous code
+  runner(updateDisplay)
 }
 ```
 
-Oya karena di dalam fungsi pelaksana kita telah memanggil parameternya sebagai fungsi, semua pemanggilan fungsi `mutakhirkanTampilan` harus kita hilangkan juga.
+And because inside the body of `runner` function, we already called the parameter as a function, all of others execution of the `updateDisplay` function should be removed.
 
-<app-demo-13 />
+<app-demo-13-en />
 
-Demo di atas kita telah berhasil menampilkan keadaan sebenarnya dari variabel `keadaan`. Tetapi ketika terjadi perubahan tidak terjadi kalkulasi secara otomatis.
+In the demo above, we display the real form of `state` object. But when there is a change, the calculation isn't done automatically.
 
-Hal tersebut dikarenakan kita hanya memanggil fungsi `pelaksana` dengan parameter fungsi `mutakhirkanTampilan` saja. Seharusnya kita juga perlu memanggil fungsi `pelaksana` dengan parameter fungsi `kalkulasiHasil`.
+That's because we only call the `runner` function with `updateDisplay` parameter. It should be called with `calculateResult` parameter as well.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  pelaksana(kalkulasiHasil)
+function main() {
+  // ... Previous code
+  runner(calculateResult)
 }
 ```
 
-Dengan begitu selain keadaan sebenarnya dari variabel `keadaan` ditampilkan hasil juga akan terkalkulasi secara otomatis.
+Therefore, besides the real form of `state` is displayed, the recalculation process will be done as well.
 
-<app-demo-14 />
+<app-demo-14-en />
 
-Kita telah berhasil merefaktor kode yang sebelumnya hanya dapat digunakan untuk satu pekerjaan menjadi dapat digunakan untuk banyak pekerjaan.
+We have refactored our code that only does a task at a time into code that can do many tasks.
 
-Namun kita belum mengecek apakah kode hasil refaktor kita memang benar dapat digunakan untuk banyak pekerjaan.
+But we still don't check whether our code is really can do it or not.
 
-Karena kita telah mengubah objek `keadaanDetik` menjadi reaktif menggunakan fungsi `observasi`. Maka hal terakhir yang perlu kita lakukan adalah memanggil fungsi `pelaksana` dengan `mutakhirkanPenghitungDetik` sebagai parameternya.
+Because we already have the `secondState` reactive by passing it as a parameter in `observe` function. The last thing we need to do is call the `runner` function with `updateStopwatch` as a parameter.
 
 ```javascript
-function mulai() {
-  // ... Kode sebelumnya
-  pelaksana(mutakhirkanPenghitungDetik)
+function main() {
+  // ... Previous code
+  runner(updateStopwatch)
 }
 ```
 
-Sekali lagi kita perlu menghapus semua pemanggilan fungsi `mutakhirkanPenghitungDetik` karena ketika dijadikan parameter pada fungsi `pelaksana`, ia akan secara otomatis dipanggil.
+And again, we need to remove all of other execution of the `updateStopwatch` function.
 
-<app-demo-15 />
+<app-demo-15-en />
 
-## Ikhtisar
+## Recap
 
-Pada bagian kedua ini kita telah berhasil membuat sistem reaktivitas yang dapat melakukan banyak hal dalam satu waktu. Teman-teman dapat mencobanya menggunakan demo di atas.
+In this second part, we have created our own reactivity system that can do many tasks at a time. You can try out using the demo above.
 
-Tekan tombol mulai dan biarkan detiknya berjalan sembari berinteraksi dengan aplikasi kalkulatornya.
+Press the start button and let the second counting while interacting with the calculator.
 
-Keadaan sebenarnya pada aplikasi kalkulator tidak dipengaruhi oleh keadaan sebenarnya penghitung detik dan begitu juga sebaliknya.
+The real state of the calculator isn't interfered by the real state of the stopwatch and it works otherwise as well.
 
-Yang telah kita lakukan untuk mewujudkan sistem reaktivitas yang dapat melakukan banyak hal dalam satu waktu adalah merefaktor kode untuk mengatur fungsi `pengambilReaktif` dan `pengaturReaktif` menjadi sebuah fungsi yang dapat dipanggil secara berulang kali. Fungsi tersebut kita beri nama `observasi`.
+What we have done to make our own reactivity system to do many tasks at a time is refactoring our previous code into a reusable piece of a function called `observe`.
 
-Oleh karena itu kita juga membutuhkan fungsi tambahan bernama `pelaksana`. Fungsi ini berfungsi sebagai penghubung antara properti dengan pekerjaan yang harus ia kerjakan ketika terjadi perubahan nilai.
+That's why we need another helper function called `runner`. It will be a gate between the task that should be done when there is a change.
 
-Oh ya kalau teman-teman bingung dengan penjelasannya, teman-teman dapat mengklik tautan yang terdapat pada setiap bagian demo. Tautan tersebut mengarah ke halaman Github yang menampilkan kode sumber dari demo yang bersangkutan.
+Besides that, we also created a class called `Watcher` which has methods to store and run the task.
 
-Walaupun kita telah berhasil membuat sistem reaktivitas kita sendiri menyerupai Vue.js. Namun sistem tersebut masih belum dapat dikatakan sama 100%.
+Anyway, if You still confuse with the explanation, You can always click the link below of the demo. It will direct you to Github pages that display the source of it.
 
-Hal tersebut dikarenakan kita masih belum menangani reaktivitas pada _array_. Dari bagian 1 hingga bagian 2 ini kita hanya berfokus pada membuat sistem reaktivitas yang bekerja pada objek.
+Eventhough we have our own reactivity system like the Vue.js has. But our system can't be said be the same 100%.
 
-Dan untuk membuat sistem reaktivitas tersebut bekerja pada _array_. Kita tidak dapat menggunakan fungsi pengambil dan pengatur.
+Because we still don't handle array reactivity. In part 1 and part 2 we only **focus on creating our own reactivity system worked on an object**.
 
-## Referensi
+Unfortunately, to make our own reactivity system worked in an array. We can't use getter and setter.
+
+We need to think out of how to make it worked. Perhaps You can help and give me a suggestion how to solve it. Then we will discuss it in the next part.
+
+Thanks for reading and hope you enjoy!
+
+## References
 
 1. [Medium JS Dojo: Understanding Vue Reactivity Step by Step](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
 2. [Vue.js: Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html)

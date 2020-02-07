@@ -326,7 +326,7 @@ Menambahkan pendengar peristiwa berfungsi untuk mengatur nilai properti `input1`
 
 Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel tersebut.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/add-event-listener-effect-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/add-event-listener-effect-by-jefrydco-id.webm" />
 
 Pada contoh animasi di atas, pertama-tama kita mengecek nilai awal dari `keadaan6`. Nilai dari properti `input1` dan `input2` adalah `0` dan nilai dari properti `operator` adalah `+`.
 
@@ -399,7 +399,7 @@ Kita dapat memanggil fungsi tersebut pada pendengar peristiwa. Sehingga setiap k
 
 Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel untuk demo 7 yakni `keadaan7`.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/reactivity-recalculation-automatically-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/reactivity-recalculation-automatically-by-jefrydco-id.webm" />
 
 Pada contoh animasi di atas, pertama-tama kita mengecek nilai awal dari `keadaan7`. Nilai dari properti `input1` dan `input2` adalah `0` dan nilai dari properti `operator` adalah `+`.
 
@@ -453,7 +453,7 @@ Sehingga ketika pengguna berinteraksi dengan input tersebut, kita memanggil fung
 
 Namun jika variabel di ubah tanpa adanya interaksi melalui input, misal melalui konsol peramban, tidak akan terjadi kalkulasi ulang dan hasilnya juga tidak akan ditampilkan ke layar peramban.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-does-not-affect-reactivity-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-does-not-affect-reactivity-by-jefrydco-id.webm" />
 
 Lain halnya pada sistem reaktivitas Vue.js, bagaimanapun caranya kita mengubah variabel. Entah melalui pendengar peristiwa maupun melalui konsol peramban secara langsung.
 
@@ -657,7 +657,7 @@ Sekarang kita telah berhasil menyelesaikan permasalahan sistem reaktivitas yang 
 
 Selain nilai akan dikalkulasi dan ditampilkan secara otomatis jika terdapat interaksi pengguna melalui input. Nilai tersebut juga akan dikalkulasi dan ditampilkan secara otomatis jika kita mengubahnya melalui konsol peramban.
 
-<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-affect-reactivity-by-jefrydco.webm" />
+<app-video src="/videos/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/change-via-console-affect-reactivity-by-jefrydco-id.webm" />
 
 ## Ikhtisar
 
@@ -672,6 +672,8 @@ Cara tersebut menerapkan konsep yang sama seperti sistem reaktivitas pada Vue.js
 Setiap properti yang dimiliki oleh objek keadaan kita ubah agar memiliki pengambil dan pengatur. Di dalam fungsi pengatur itulah kita dapat mengatur apa yang seharusnya dilakukan ketika terjadi perubahan nilai.
 
 Namun sekali lagi, sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan saja dalam satu waktu. Pada bagian selanjutnya kita akan menyelesaikan permasalahan tersebut.
+
+Terima kasih dan semoga bermanfaat!
 
 ## Referensi
 
