@@ -17,7 +17,7 @@
       <script>
         // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
         // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
-        const keadaan2 = (function() {
+        let keadaan2 = (function() {
           const OPERATOR = {
             TAMBAH: '+',
             KURANG: '-',

@@ -29,7 +29,7 @@
       <script>
         // We put the code inside immediately invoked function expression to avoid polluting global variable
         // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        const state12 = (function() {
+        let state12 = (function() {
           const OPERATOR = {
             PLUS: '+',
             SUBSTRACT: '-',
