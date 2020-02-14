@@ -537,11 +537,13 @@ Thanks for reading and hope you enjoy!
 2. [Vue.js: Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html)
 
 <script>
-const english = document.querySelector('.blog__translations__link')
-if(english) {
-  english.addEventListener('click', function(event) {
-    event.preventDefault()
-    location.href = event.target.href
-  })
+if (!window.english) {
+  window.english = document.querySelector('.blog__translations__link')
+  if(english) {
+    english.addEventListener('click', function(event) {
+      event.preventDefault()
+      location.href = event.target.href
+    })
+  }
 }
 </script>
