@@ -18,7 +18,7 @@
         if (!window.state6) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-          let state6 = (function() {
+          window.state6 = (function() {
             const OPERATOR = {
               PLUS: '+',
               SUBSTRACT: '-',
