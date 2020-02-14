@@ -15,37 +15,38 @@
       <div class="result"></div>
 
       <script>
-        // We put the code inside immediately invoked function expression to avoid polluting global variable
-        // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        let state2 = (function() {
-          const OPERATOR = {
-            PLUS: '+',
-            SUBSTRACT: '-',
-            MULTIPLY: '*',
-            DIVIDE: '/'
-          }
+        if (!window.state2) {
+          // We put the code inside immediately invoked function expression to avoid polluting global variable
+          // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
+          window.state2 = (function() {
+            const OPERATOR = {
+              PLUS: '+',
+              SUBSTRACT: '-',
+              MULTIPLY: '*',
+              DIVIDE: '/'
+            }
 
-          const state = {
-            result: 0,
-            operator: OPERATOR.PLUS,
-            input1: 0,
-            input2: 0
-          }
+            const state = {
+              result: 0,
+              operator: OPERATOR.PLUS,
+              input1: 0,
+              input2: 0
+            }
 
-          function main() {
-            // We have to prefixed the selector in accordance with the root component class
-            // It avoids the script to be applied to all demo
-            const stateDisplay = document.querySelector('.demo-card-2 .state')
-            stateDisplay.innerText = JSON.stringify(state, null, 2)
-          }
+            function main() {
+              // We have to prefixed the selector in accordance with the root component class
+              // It avoids the script to be applied to all demo
+              const stateDisplay = document.querySelector('.demo-card-2 .state')
+              stateDisplay.innerText = JSON.stringify(state, null, 2)
+            }
 
-          // We have to run the method because this script is executed inside vue component
-          // document.addEventListener('DOMContentLoaded', main)
-          main()
+            // We have to run the method because this script is executed inside vue component
+            // document.addEventListener('DOMContentLoaded', main)
+            main()
 
-          return state
-        })()
-        window.state2 = state2
+            return state
+          })()
+        }
       </script>
     </div>
   </app-demo>

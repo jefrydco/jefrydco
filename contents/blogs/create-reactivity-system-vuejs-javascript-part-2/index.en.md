@@ -11,7 +11,7 @@ id: create-reactivity-system-vuejs-javascript-part-2
 extraComponents: ['AppDemo11En', 'AppDemo12En', 'AppDemo13En', 'AppDemo14En', 'AppDemo15En']
 ---
 
-> Read the first part here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1)
+> Read the first part here, <a :href="localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } })">Create a Simplified Version of Vue.js Reactivity System - Part 1</a>
 
 In the previous part, we have created our own reactivity system. But it still lacks a feature, it can only do one task at a time.
 

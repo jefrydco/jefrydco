@@ -15,72 +15,79 @@
       <div class="result"></div>
 
       <script>
-        // We put the code inside immediately invoked function expression to avoid polluting global variable
-        // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-        let state6 = (function() {
-          const OPERATOR = {
-            PLUS: '+',
-            SUBSTRACT: '-',
-            MULTIPLY: '*',
-            DIVIDE: '/'
-          }
-
-          const state = {
-            result: 0,
-            operator: OPERATOR.PLUS,
-            input1: 0,
-            input2: 0
-          }
-
-          function main() {
-            // We have to prefixed the selector in accordance with the root component class
-            // It avoids the script to be applied to all demo
-            const stateDisplay = document.querySelector('.demo-card-6 .state')
-
-            const resultDisplay = document.querySelector('.demo-card-6 .result')
-
-            const input1Display = document.querySelector('.demo-card-6 .input1')
-            const input2Display = document.querySelector('.demo-card-6 .input2')
-
-            const operatorDisplay = document.querySelector(
-              '.demo-card-6 .operator'
-            )
-
-            function updateDisplay() {
-              stateDisplay.innerText = JSON.stringify(state, null, 2)
-              resultDisplay.innerText = state.result.toString()
-
-              input1Display.value = state.input1.toString()
-              input2Display.value = state.input2.toString()
-
-              operatorDisplay.value = state.operator
+        if (!window.state6) {
+          // We put the code inside immediately invoked function expression to avoid polluting global variable
+          // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
+          let state6 = (function() {
+            const OPERATOR = {
+              PLUS: '+',
+              SUBSTRACT: '-',
+              MULTIPLY: '*',
+              DIVIDE: '/'
             }
 
-            updateDisplay()
+            const state = {
+              result: 0,
+              operator: OPERATOR.PLUS,
+              input1: 0,
+              input2: 0
+            }
 
-            input1Display.addEventListener('input', function(event) {
-              const targetInput1 = event.target
-              state.input1 = parseInt(targetInput1.value)
-            })
-            input2Display.addEventListener('input', function(event) {
-              const targetInput2 = event.target
-              state.input2 = parseInt(targetInput2.value)
-            })
+            function main() {
+              // We have to prefixed the selector in accordance with the root component class
+              // It avoids the script to be applied to all demo
+              const stateDisplay = document.querySelector('.demo-card-6 .state')
 
-            operatorDisplay.addEventListener('change', function(event) {
-              const targetOperator = event.target
-              const selectedOperator = targetOperator.selectedOptions[0].value
-              state.operator = selectedOperator
-            })
-          }
+              const resultDisplay = document.querySelector(
+                '.demo-card-6 .result'
+              )
 
-          // We have to run the method because this script is executed inside vue component
-          // document.addEventListener('DOMContentLoaded', main)
-          main()
+              const input1Display = document.querySelector(
+                '.demo-card-6 .input1'
+              )
+              const input2Display = document.querySelector(
+                '.demo-card-6 .input2'
+              )
 
-          return state
-        })()
-        window.state6 = state6
+              const operatorDisplay = document.querySelector(
+                '.demo-card-6 .operator'
+              )
+
+              function updateDisplay() {
+                stateDisplay.innerText = JSON.stringify(state, null, 2)
+                resultDisplay.innerText = state.result.toString()
+
+                input1Display.value = state.input1.toString()
+                input2Display.value = state.input2.toString()
+
+                operatorDisplay.value = state.operator
+              }
+
+              updateDisplay()
+
+              input1Display.addEventListener('input', function(event) {
+                const targetInput1 = event.target
+                state.input1 = parseInt(targetInput1.value)
+              })
+              input2Display.addEventListener('input', function(event) {
+                const targetInput2 = event.target
+                state.input2 = parseInt(targetInput2.value)
+              })
+
+              operatorDisplay.addEventListener('change', function(event) {
+                const targetOperator = event.target
+                const selectedOperator = targetOperator.selectedOptions[0].value
+                state.operator = selectedOperator
+              })
+            }
+
+            // We have to run the method because this script is executed inside vue component
+            // document.addEventListener('DOMContentLoaded', main)
+            main()
+
+            return state
+          })()
+        }
       </script>
     </div>
   </app-demo>
