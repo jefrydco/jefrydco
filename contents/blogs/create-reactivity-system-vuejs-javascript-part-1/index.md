@@ -582,7 +582,7 @@ Info properti telah diakses muncul ketika properti `input1` di akses pada bagian
 
 Dengan menggunakan cara tersebut kita sudah dapat membuat sistem reaktivitas sendiri. Mari kita coba refaktor kode pada <a href="#AppDemo8Id">Demo 8</a> di atas agar menggunakan `defineProperty` sebagai sistem reaktivitasnya.
 
-```javascript {9,12-13}
+```javascript {9,13-14}
 function mulai() {
   // ... Kode sebelumnya
   let input1 = keadaan['input1']

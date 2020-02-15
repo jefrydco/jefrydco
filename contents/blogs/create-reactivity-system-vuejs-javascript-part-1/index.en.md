@@ -578,7 +578,7 @@ The property is accessed info appears when the `input1` property is accessed on 
 
 By using that way, actually we can make a better our own reactivity system. Let's refactor the code from <a href="#AppDemo8En">Demo 8</a> above in order to use `defineProperty` as its reactivity system.
 
-```javascript {9,12-13}
+```javascript {9,13-14}
 function main() {
   // ... Previous code
   let input1 = state['input1']
