@@ -90,7 +90,7 @@
     "jest": "^25.2.4",
     "lint-staged": "^10.1.1",
     "nuxt-responsive-loader": "^2.0.1",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "sharp": "^0.25.2",
     "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0",
