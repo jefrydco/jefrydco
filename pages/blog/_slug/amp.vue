@@ -10,7 +10,11 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${HOSTNAME}${this.$route.path}`.replace(/amp((\/.*$)|$)/gi, '')
+          href: `${HOSTNAME}${this.blog &&
+            this.localePath({
+              name: 'blog-slug',
+              params: { slug: this.blog.slug }
+            })}`
         }
       ],
       meta: [
