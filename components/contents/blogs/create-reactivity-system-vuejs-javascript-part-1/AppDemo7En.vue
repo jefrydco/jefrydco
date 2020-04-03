@@ -18,7 +18,7 @@
         if (!window.state7) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-          window.state7 = (function() {
+          window.state7 = (function () {
             const OPERATOR = {
               PLUS: '+',
               SUBSTRACT: '-',
@@ -84,18 +84,18 @@
 
               updateDisplay()
 
-              input1Display.addEventListener('input', function(event) {
+              input1Display.addEventListener('input', function (event) {
                 const targetInput1 = event.target
                 state.input1 = parseInt(targetInput1.value)
                 calculateResult()
               })
-              input2Display.addEventListener('input', function(event) {
+              input2Display.addEventListener('input', function (event) {
                 const targetInput2 = event.target
                 state.input2 = parseInt(targetInput2.value)
                 calculateResult()
               })
 
-              operatorDisplay.addEventListener('change', function(event) {
+              operatorDisplay.addEventListener('change', function (event) {
                 const targetOperator = event.target
                 const selectedOperator = targetOperator.selectedOptions[0].value
                 state.operator = selectedOperator

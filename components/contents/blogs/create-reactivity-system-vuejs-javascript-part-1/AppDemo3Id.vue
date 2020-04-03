@@ -18,7 +18,7 @@
         if (!window.keadaan3) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
-          window.keadaan3 = (function() {
+          window.keadaan3 = (function () {
             const OPERATOR = {
               TAMBAH: '+',
               KURANG: '-',

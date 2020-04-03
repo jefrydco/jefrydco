@@ -10,11 +10,13 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${HOSTNAME}${this.blog &&
+          href: `${HOSTNAME}${
+            this.blog &&
             this.localePath({
               name: 'blog-slug',
               params: { slug: this.blog.slug }
-            })}`
+            })
+          }`
         }
       ],
       meta: [
@@ -26,17 +28,20 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.blog &&
+          content: `${HOSTNAME}${
+            this.blog &&
             this.localePath({
               name: 'blog-slug-amp',
               params: { slug: this.blog.slug }
-            })}`
+            })
+          }`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${HOSTNAME}${this.blog &&
-            require(`~/assets/images${this.blog.img}`)}`
+          content: `${HOSTNAME}${
+            this.blog && require(`~/assets/images${this.blog.img}`)
+          }`
         },
         {
           hid: 'og:image:width',
@@ -71,27 +76,32 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
-            mainEntityOfPage: `${HOSTNAME}${this.blog &&
+            mainEntityOfPage: `${HOSTNAME}${
+              this.blog &&
               this.localePath({
                 name: 'blog-slug-amp',
                 params: { slug: this.blog.slug }
-              })}`,
+              })
+            }`,
             headline: this.blog && this.blog.title,
             description: this.blog && this.blog.description,
             datePublished: this.blog && this.blog.postedDate,
             dateCreated: this.blog && this.blog.postedDate,
             dateModified: this.blog && this.blog.updatedDate,
             wordcount: this.blog && this.blog.readingTime.words,
-            url: `${HOSTNAME}${this.blog &&
+            url: `${HOSTNAME}${
+              this.blog &&
               this.localePath({
                 name: 'blog-slug-amp',
                 params: { slug: this.blog.slug }
-              })}`,
+              })
+            }`,
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
-              url: `${HOSTNAME}${this.blog &&
-                require(`~/assets/images${this.blog.img}`)}`,
+              url: `${HOSTNAME}${
+                this.blog && require(`~/assets/images${this.blog.img}`)
+              }`,
               height: '1920',
               width: '1080'
             },
@@ -130,11 +140,13 @@ export default {
                 '@type': 'ListItem',
                 position: 2,
                 item: {
-                  '@id': `${HOSTNAME}${this.blog &&
+                  '@id': `${HOSTNAME}${
+                    this.blog &&
                     this.localePath({
                       name: 'blog-slug-amp',
                       params: { slug: this.blog.slug }
-                    })}`,
+                    })
+                  }`,
                   name: this.blog && this.blog.title
                 }
               }

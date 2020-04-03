@@ -30,7 +30,7 @@
         if (!window.state12) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-          window.state12 = (function() {
+          window.state12 = (function () {
             const OPERATOR = {
               PLUS: '+',
               SUBSTRACT: '-',
@@ -102,7 +102,7 @@
 
               const keyList = Object.keys(state)
 
-              keyList.forEach(function(key) {
+              keyList.forEach(function (key) {
                 let value = state[key]
 
                 Object.defineProperty(state, key, {
@@ -124,16 +124,16 @@
 
               updateDisplay()
 
-              input1Display.addEventListener('input', function(event) {
+              input1Display.addEventListener('input', function (event) {
                 const targetInput1 = event.target
                 state.input1 = parseInt(targetInput1.value)
               })
-              input2Display.addEventListener('input', function(event) {
+              input2Display.addEventListener('input', function (event) {
                 const targetInput2 = event.target
                 state.input2 = parseInt(targetInput2.value)
               })
 
-              operatorDisplay.addEventListener('change', function(event) {
+              operatorDisplay.addEventListener('change', function (event) {
                 const targetOperator = event.target
                 const selectedOperator = targetOperator.selectedOptions[0].value
                 state.operator = selectedOperator
@@ -165,7 +165,7 @@
               let idInterval = 0
 
               function start() {
-                idInterval = setInterval(function() {
+                idInterval = setInterval(function () {
                   secondState.second = secondState.second + 1
                 }, 1000)
               }
@@ -179,13 +179,13 @@
                 secondState.second = 0
               }
 
-              startButtonDisplay.addEventListener('click', function() {
+              startButtonDisplay.addEventListener('click', function () {
                 start()
               })
-              stopButtonDisplay.addEventListener('click', function() {
+              stopButtonDisplay.addEventListener('click', function () {
                 stop()
               })
-              resetButtonDisplay.addEventListener('click', function() {
+              resetButtonDisplay.addEventListener('click', function () {
                 reset()
               })
 
