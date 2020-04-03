@@ -1,30 +1,97 @@
+<template>
+  <div id="blog-index">
+    <div class="max-w-3xl my-12 ml-auto mr-auto">
+      <app-profile />
+    </div>
+    <div class="max-w-3xl ml-auto mr-auto">
+      <main>
+        <app-blog
+          v-for="blog in blogs"
+          :key="blog.id"
+          :img="blog.img"
+          :title="blog.title"
+          :summary="blog.summary"
+          :posted-date="blog.postedDate"
+          :updated-date="blog.updatedDate"
+          :reading-time="blog.readingTime"
+          :slug="blog.slug"
+        />
+      </main>
+    </div>
+    <div class="max-w-4xl my-12 ml-auto mr-auto text-center">
+      <a :href="rssLink" target="_blank" rel="noopener noreferrer">RSS</a>
+    </div>
+  </div>
+</template>
+
 <script>
-import Page from './index'
+import readingTime from 'reading-time'
+import AppProfile from '~/components/AppProfile'
+import AppBlog from '~/components/AppBlog'
+
+import slugs from '~/contents/blogs'
+
 import { HOSTNAME } from '~/constant'
 
 export default {
-  extends: Page,
+  components: {
+    AppProfile,
+    AppBlog
+  },
+  async asyncData({ app, redirect }) {
+    const { locale, defaultLocale } = app.i18n
+
+    async function asyncImport(slug) {
+      let blog = null
+      if (locale === defaultLocale) {
+        blog = await import(`~/contents/blogs/${slug}/index.md`)
+        return {
+          ...blog.attributes,
+          readingTime: readingTime(blog.html)
+        }
+      }
+      blog = await import(`~/contents/blogs/${slug}/index.${locale}.md`)
+      return {
+        ...blog.attributes,
+        readingTime: readingTime(blog.html)
+      }
+    }
+
+    const blogs = await Promise.all(slugs.map((slug) => asyncImport(slug)))
+    return {
+      blogs
+    }
+  },
+  data() {
+    return {
+      blogs: []
+    }
+  },
+  computed: {
+    rssLink() {
+      const { locale } = this.$i18n
+      if (locale === 'id') {
+        return `${HOSTNAME}/blog.xml`
+      }
+      return `${HOSTNAME}/${locale}/blog.xml`
+    }
+  },
   head() {
     const { locales } = this.$i18n
-    const link = locales
-      .map((locale) => {
-        let href = null
-        if (locale.code === 'id') {
-          href = `${HOSTNAME}/blog.xml`
-        } else {
-          href = `${HOSTNAME}/${locale.code}/blog.xml`
-        }
-        return {
-          rel: 'alternate',
-          type: 'application/rss+xml',
-          href,
-          title: `Blog - Jefrydco`
-        }
-      })
-      .concat({
-        rel: 'canonical',
-        href: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
-      })
+    const link = locales.map((locale) => {
+      let href = null
+      if (locale.code === 'id') {
+        href = `${HOSTNAME}/blog.xml`
+      } else {
+        href = `${HOSTNAME}/${locale.code}/blog.xml`
+      }
+      return {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href,
+        title: `Blog - Jefrydco`
+      }
+    })
     return {
       title: 'Blog',
       meta: [
@@ -35,7 +102,13 @@ export default {
           content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
         }
       ],
-      link,
+      link: [
+        ...link,
+        {
+          rel: 'canonical',
+          href: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
+        }
+      ],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
@@ -75,7 +148,7 @@ export default {
             blogPosts: this.blogs.map((blog) => ({
               '@type': 'blogPosting',
               mainEntityOfPage: `${HOSTNAME}${this.localePath({
-                name: 'blog-slug',
+                name: 'blog-slug-amp',
                 params: { slug: blog.slug }
               })}`,
               headline: blog.title,
@@ -85,7 +158,7 @@ export default {
               dateModified: blog.updatedDate,
               wordcount: blog.readingTime.words,
               url: `${HOSTNAME}${this.localePath({
-                name: 'blog-slug',
+                name: 'blog-slug-amp',
                 params: { slug: blog.slug }
               })}`,
               image: {

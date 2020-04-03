@@ -78,25 +78,20 @@ export default {
   },
   head() {
     const { locales } = this.$i18n
-    const link = locales
-      .map((locale) => {
-        let href = null
-        if (locale.code === 'id') {
-          href = `${HOSTNAME}/blog.xml`
-        } else {
-          href = `${HOSTNAME}/${locale.code}/blog.xml`
-        }
-        return {
-          rel: 'alternate',
-          type: 'application/rss+xml',
-          href,
-          title: `Blog - Jefrydco`
-        }
-      })
-      .concat({
-        rel: 'amphtml',
-        href: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
-      })
+    const link = locales.map((locale) => {
+      let href = null
+      if (locale.code === 'id') {
+        href = `${HOSTNAME}/blog.xml`
+      } else {
+        href = `${HOSTNAME}/${locale.code}/blog.xml`
+      }
+      return {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href,
+        title: `Blog - Jefrydco`
+      }
+    })
     return {
       title: 'Blog',
       meta: [
@@ -107,7 +102,13 @@ export default {
           content: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
         }
       ],
-      link,
+      link: [
+        ...link,
+        {
+          rel: 'amphtml',
+          href: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
+        }
+      ],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
