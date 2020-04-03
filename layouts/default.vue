@@ -12,11 +12,11 @@ const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
   components: {
-    AppSwitchTheme
+    AppSwitchTheme,
   },
   data() {
     return {
-      isDark: false
+      isDark: false,
     }
   },
   mounted() {
@@ -43,7 +43,7 @@ export default {
           this.isDark = darkModeOn
         })
       }
-    }
+    },
   },
   head() {
     const i18nSeo = this.$nuxtI18nSeo()
@@ -51,10 +51,10 @@ export default {
     return {
       title: this.$t('description'),
       bodyAttrs: {
-        class: this.isDark ? 'dark' : 'light'
+        class: this.isDark ? 'dark' : 'light',
       },
-      ...i18nSeo
+      ...i18nSeo,
     }
-  }
+  },
 }
 </script>

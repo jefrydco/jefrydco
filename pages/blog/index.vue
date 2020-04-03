@@ -36,7 +36,7 @@ import { HOSTNAME } from '~/constant'
 export default {
   components: {
     AppProfile,
-    AppBlog
+    AppBlog,
   },
   async asyncData({ app, redirect }) {
     const { locale, defaultLocale } = app.i18n
@@ -47,24 +47,24 @@ export default {
         blog = await import(`~/contents/blogs/${slug}/index.md`)
         return {
           ...blog.attributes,
-          readingTime: readingTime(blog.html)
+          readingTime: readingTime(blog.html),
         }
       }
       blog = await import(`~/contents/blogs/${slug}/index.${locale}.md`)
       return {
         ...blog.attributes,
-        readingTime: readingTime(blog.html)
+        readingTime: readingTime(blog.html),
       }
     }
 
     const blogs = await Promise.all(slugs.map((slug) => asyncImport(slug)))
     return {
-      blogs
+      blogs,
     }
   },
   data() {
     return {
-      blogs: []
+      blogs: [],
     }
   },
   computed: {
@@ -74,12 +74,12 @@ export default {
         return `${HOSTNAME}/blog.xml`
       }
       return `${HOSTNAME}/${locale}/blog.xml`
-    }
+    },
   },
   head() {
     const { locales } = this.$i18n
-    const link = locales
-      .map((locale) => {
+    const link = [
+      ...locales.map((locale) => {
         let href = null
         if (locale.code === 'id') {
           href = `${HOSTNAME}/blog.xml`
@@ -90,13 +90,10 @@ export default {
           rel: 'alternate',
           type: 'application/rss+xml',
           href,
-          title: `Blog - Jefrydco`
+          title: `Blog - Jefrydco`,
         }
-      })
-      .concat({
-        rel: 'amphtml',
-        href: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
-      })
+      }),
+    ]
     return {
       title: 'Blog',
       meta: [
@@ -104,8 +101,8 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
-        }
+          content: `${HOSTNAME}${this.localePath({ name: 'blog' })}`,
+        },
       ],
       link,
       __dangerouslyDisableSanitizers: ['script'],
@@ -131,7 +128,7 @@ export default {
               '@type': 'imageObject',
               url: `${HOSTNAME}/icon.png`,
               width: '2739',
-              height: '3102'
+              height: '3102',
             },
             publisher: {
               '@type': 'Organization',
@@ -141,14 +138,14 @@ export default {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,
                 width: '2739',
-                height: '3102'
-              }
+                height: '3102',
+              },
             },
             blogPosts: this.blogs.map((blog) => ({
               '@type': 'blogPosting',
               mainEntityOfPage: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug',
-                params: { slug: blog.slug }
+                params: { slug: blog.slug },
               })}`,
               headline: blog.title,
               description: blog.description,
@@ -158,13 +155,13 @@ export default {
               wordcount: blog.readingTime.words,
               url: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug',
-                params: { slug: blog.slug }
+                params: { slug: blog.slug },
               })}`,
               image: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
                 height: '1920',
-                width: '614'
+                width: '614',
               },
               publisher: {
                 '@type': 'Organization',
@@ -174,15 +171,15 @@ export default {
                   '@type': 'imageObject',
                   url: `${HOSTNAME}/icon.png`,
                   width: '2739',
-                  height: '3102'
-                }
+                  height: '3102',
+                },
               },
               author: {
                 '@type': 'Person',
-                name: 'Jefry Dewangga'
-              }
-            }))
-          })
+                name: 'Jefry Dewangga',
+              },
+            })),
+          }),
         },
         {
           type: 'application/ld+json',
@@ -195,14 +192,14 @@ export default {
                 position: 1,
                 item: {
                   '@id': `${HOSTNAME}${this.localePath({ name: 'blog' })}`,
-                  name: 'Blog'
-                }
-              }
-            ]
-          })
-        }
-      ]
+                  name: 'Blog',
+                },
+              },
+            ],
+          }),
+        },
+      ],
     }
-  }
+  },
 }
 </script>

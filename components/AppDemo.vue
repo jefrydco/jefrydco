@@ -17,12 +17,12 @@ export default {
   props: {
     path: {
       type: String,
-      default: ''
+      default: '',
     },
     name: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     githubUrl() {
@@ -30,7 +30,7 @@ export default {
         return `${BASE_URL}/${this.path}/${this.name}.vue`
       }
       return BASE_URL
-    }
-  }
+    },
+  },
 }
 </script>

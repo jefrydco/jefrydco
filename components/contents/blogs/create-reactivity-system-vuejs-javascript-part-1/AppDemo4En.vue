@@ -18,19 +18,19 @@
         if (!window.state4) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-          window.state4 = (function() {
+          window.state4 = (function () {
             const OPERATOR = {
               PLUS: '+',
               SUBSTRACT: '-',
               MULTIPLY: '*',
-              DIVIDE: '/'
+              DIVIDE: '/',
             }
 
             const state = {
               result: 0,
               operator: OPERATOR.PLUS,
               input1: 0,
-              input2: 0
+              input2: 0,
             }
 
             function main() {
@@ -71,6 +71,6 @@
 import AppDemoBase from './AppDemoBase'
 
 export default {
-  extends: AppDemoBase
+  extends: AppDemoBase,
 }
 </script>

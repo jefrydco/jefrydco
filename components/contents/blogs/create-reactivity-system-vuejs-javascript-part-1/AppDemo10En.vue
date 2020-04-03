@@ -18,19 +18,19 @@
         if (!window.state10) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
-          window.state10 = (function() {
+          window.state10 = (function () {
             const OPERATOR = {
               PLUS: '+',
               SUBSTRACT: '-',
               MULTIPLY: '*',
-              DIVIDE: '/'
+              DIVIDE: '/',
             }
 
             const state = {
               result: 0,
               operator: OPERATOR.PLUS,
               input1: 0,
-              input2: 0
+              input2: 0,
             }
 
             function main() {
@@ -86,7 +86,7 @@
 
               const keyList = Object.keys(state)
 
-              keyList.forEach(function(key) {
+              keyList.forEach(function (key) {
                 let value = state[key]
 
                 Object.defineProperty(state, key, {
@@ -102,22 +102,22 @@
                     value = newValue
                     updateDisplay()
                     calculateResult()
-                  }
+                  },
                 })
               })
 
               updateDisplay()
 
-              input1Display.addEventListener('input', function(event) {
+              input1Display.addEventListener('input', function (event) {
                 const targetInput1 = event.target
                 state.input1 = parseInt(targetInput1.value)
               })
-              input2Display.addEventListener('input', function(event) {
+              input2Display.addEventListener('input', function (event) {
                 const targetInput2 = event.target
                 state.input2 = parseInt(targetInput2.value)
               })
 
-              operatorDisplay.addEventListener('change', function(event) {
+              operatorDisplay.addEventListener('change', function (event) {
                 const targetOperator = event.target
                 const selectedOperator = targetOperator.selectedOptions[0].value
                 state.operator = selectedOperator
@@ -140,6 +140,6 @@
 import AppDemoBase from './AppDemoBase'
 
 export default {
-  extends: AppDemoBase
+  extends: AppDemoBase,
 }
 </script>

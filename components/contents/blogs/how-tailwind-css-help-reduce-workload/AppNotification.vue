@@ -162,6 +162,6 @@
 
 <script>
 export default {
-  name: 'AppNotification'
+  name: 'AppNotification',
 }
 </script>

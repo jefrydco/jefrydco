@@ -13,17 +13,17 @@ import { HOSTNAME } from '~/constant'
 
 export default {
   components: {
-    AppProfile
+    AppProfile,
   },
   head() {
     return {
       link: [
         {
           rel: 'amphtml',
-          href: `${HOSTNAME}${this.localePath({ name: 'amp' })}`
-        }
-      ]
+          href: `${HOSTNAME}${this.localePath({ name: 'amp' })}`,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

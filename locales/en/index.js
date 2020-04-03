@@ -10,5 +10,5 @@ export default {
   and: 'and',
   editDemoGithub: 'Edit the demo on Github',
   seeVideo: 'See the video in',
-  newTab: 'tab baru'
+  newTab: 'tab baru',
 }

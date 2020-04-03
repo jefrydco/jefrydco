@@ -53,35 +53,35 @@ export default {
   props: {
     img: {
       type: String,
-      default: ''
+      default: '',
     },
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     summary: {
       type: String,
-      default: ''
+      default: '',
     },
     postedDate: {
       type: String,
-      default: ''
+      default: '',
     },
     updatedDate: {
       type: String,
-      default: ''
+      default: '',
     },
     readingTime: {
       type: Object,
       default() {
         return null
-      }
+      },
     },
     slug: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

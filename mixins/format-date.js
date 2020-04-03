@@ -9,9 +9,9 @@ export default {
         return new Date(date).toLocaleDateString(locale, {
           day: 'numeric',
           month: 'short',
-          year: 'numeric'
+          year: 'numeric',
         })
       }
-    }
-  }
+    },
+  },
 }

@@ -23,6 +23,6 @@
 import AppDemoBase from './AppDemoBase'
 
 export default {
-  extends: AppDemoBase
+  extends: AppDemoBase,
 }
 </script>

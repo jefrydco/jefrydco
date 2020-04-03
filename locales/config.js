@@ -2,7 +2,7 @@ import { locales } from '../utils'
 
 export default {
   vueI18n: {
-    silentTranslationWarn: true
+    silentTranslationWarn: true,
   },
   baseUrl: 'https://jefrydco.id',
   seo: false,
@@ -11,5 +11,5 @@ export default {
   lazy: true,
   langDir: 'locales/',
   vueI18nLoader: true,
-  locales
+  locales,
 }

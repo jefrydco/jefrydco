@@ -52,16 +52,16 @@ export default {
   props: {
     value: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   watch: {
     value(value) {
       Cookie.set('d', Number(this.value), {
-        expires: 365
+        expires: 365,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

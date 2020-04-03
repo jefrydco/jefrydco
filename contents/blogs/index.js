@@ -11,5 +11,5 @@ export default [
   'struktur-html5-part-2',
   'struktur-html5-part-1',
   'seri-optimasi-website',
-  'halo-dunia'
+  'halo-dunia',
 ]

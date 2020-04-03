@@ -18,12 +18,12 @@ export default {
           rel: 'alternate',
           type: 'application/rss+xml',
           href,
-          title: `Blog - Jefrydco`
+          title: `Blog - Jefrydco`,
         }
       })
       .concat({
         rel: 'canonical',
-        href: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
+        href: `${HOSTNAME}${this.localePath({ name: 'blog' })}`,
       })
     return {
       title: 'Blog',
@@ -32,8 +32,8 @@ export default {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
-        }
+          content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`,
+        },
       ],
       link,
       __dangerouslyDisableSanitizers: ['script'],
@@ -59,7 +59,7 @@ export default {
               '@type': 'imageObject',
               url: `${HOSTNAME}/icon.png`,
               width: '2739',
-              height: '3102'
+              height: '3102',
             },
             publisher: {
               '@type': 'Organization',
@@ -69,14 +69,14 @@ export default {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,
                 width: '2739',
-                height: '3102'
-              }
+                height: '3102',
+              },
             },
             blogPosts: this.blogs.map((blog) => ({
               '@type': 'blogPosting',
               mainEntityOfPage: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug',
-                params: { slug: blog.slug }
+                params: { slug: blog.slug },
               })}`,
               headline: blog.title,
               description: blog.description,
@@ -86,13 +86,13 @@ export default {
               wordcount: blog.readingTime.words,
               url: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug',
-                params: { slug: blog.slug }
+                params: { slug: blog.slug },
               })}`,
               image: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
                 height: '1920',
-                width: '614'
+                width: '614',
               },
               publisher: {
                 '@type': 'Organization',
@@ -102,15 +102,15 @@ export default {
                   '@type': 'imageObject',
                   url: `${HOSTNAME}/icon.png`,
                   width: '2739',
-                  height: '3102'
-                }
+                  height: '3102',
+                },
               },
               author: {
                 '@type': 'Person',
-                name: 'Jefry Dewangga'
-              }
-            }))
-          })
+                name: 'Jefry Dewangga',
+              },
+            })),
+          }),
         },
         {
           type: 'application/ld+json',
@@ -123,14 +123,14 @@ export default {
                 position: 1,
                 item: {
                   '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`,
-                  name: 'Blog'
-                }
-              }
-            ]
-          })
-        }
-      ]
+                  name: 'Blog',
+                },
+              },
+            ],
+          }),
+        },
+      ],
     }
-  }
+  },
 }
 </script>

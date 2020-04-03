@@ -10,5 +10,5 @@ export default {
   and: 'dan',
   editDemoGithub: 'Sunting demo di Github',
   seeVideo: 'Lihat video di',
-  newTab: 'tab baru'
+  newTab: 'tab baru',
 }

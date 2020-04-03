@@ -27,41 +27,41 @@ export default {
   props: {
     src: {
       type: String,
-      required: true
+      required: true,
     },
     alt: {
       type: String,
-      required: true
+      required: true,
     },
     width: {
       type: [String, Number],
-      default: 1920
+      default: 1920,
     },
     height: {
       type: [String, Number],
-      default: 1080
+      default: 1080,
     },
     classes: {
       type: String,
-      default: ''
+      default: '',
     },
     caption: {
       type: Object,
       default() {
         return {
           en: {},
-          id: {}
+          id: {},
         }
-      }
+      },
     },
     source: {
       type: String,
-      default: ''
+      default: '',
     },
     sourceLink: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     imageRequired() {
@@ -72,7 +72,7 @@ export default {
         return Object.keys(this.caption.id)[0]
       }
       return null
-    }
+    },
   },
   created() {
     this.initLocaleI18n()
@@ -85,8 +85,8 @@ export default {
           this.$i18n.mergeLocaleMessage(key, this.caption[key])
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -30,23 +30,23 @@
         if (!window.keadaan12) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
-          window.keadaan12 = (function() {
+          window.keadaan12 = (function () {
             const OPERATOR = {
               TAMBAH: '+',
               KURANG: '-',
               KALI: '*',
-              BAGI: '/'
+              BAGI: '/',
             }
 
             const keadaan = {
               hasil: 0,
               operator: OPERATOR.TAMBAH,
               input1: 0,
-              input2: 0
+              input2: 0,
             }
 
             const keadaanDetik = {
-              detik: 0
+              detik: 0,
             }
 
             function mulai() {
@@ -102,7 +102,7 @@
 
               const daftarKunci = Object.keys(keadaan)
 
-              daftarKunci.forEach(function(kunci) {
+              daftarKunci.forEach(function (kunci) {
                 let nilai = keadaan[kunci]
 
                 Object.defineProperty(keadaan, kunci, {
@@ -118,22 +118,22 @@
                     nilai = nilaiBaru
                     mutakhirkanTampilan()
                     kalkulasiHasil()
-                  }
+                  },
                 })
               })
 
               mutakhirkanTampilan()
 
-              tampilanInput1.addEventListener('input', function(peristiwa) {
+              tampilanInput1.addEventListener('input', function (peristiwa) {
                 const targetInput1 = peristiwa.target
                 keadaan.input1 = parseInt(targetInput1.value)
               })
-              tampilanInput2.addEventListener('input', function(peristiwa) {
+              tampilanInput2.addEventListener('input', function (peristiwa) {
                 const targetInput2 = peristiwa.target
                 keadaan.input2 = parseInt(targetInput2.value)
               })
 
-              tampilanOperator.addEventListener('change', function(peristiwa) {
+              tampilanOperator.addEventListener('change', function (peristiwa) {
                 const targetOperator = peristiwa.target
                 const selectedOperator = targetOperator.selectedOptions[0].value
                 keadaan.operator = selectedOperator
@@ -169,7 +169,7 @@
               let idInterval = 0
 
               function mulai() {
-                idInterval = setInterval(function() {
+                idInterval = setInterval(function () {
                   keadaanDetik.detik = keadaanDetik.detik + 1
                 }, 1000)
               }
@@ -183,13 +183,13 @@
                 keadaanDetik.detik = 0
               }
 
-              tampilanTombolMulai.addEventListener('click', function() {
+              tampilanTombolMulai.addEventListener('click', function () {
                 mulai()
               })
-              tampilanTombolBerhenti.addEventListener('click', function() {
+              tampilanTombolBerhenti.addEventListener('click', function () {
                 berhenti()
               })
-              tampilanTombolReset.addEventListener('click', function() {
+              tampilanTombolReset.addEventListener('click', function () {
                 reset()
               })
 
@@ -202,7 +202,7 @@
 
             return {
               kalkulator: keadaan,
-              penghitungDetik: keadaanDetik
+              penghitungDetik: keadaanDetik,
             }
           })()
         }
@@ -215,6 +215,6 @@
 import AppDemoBase from './AppDemoBase'
 
 export default {
-  extends: AppDemoBase
+  extends: AppDemoBase,
 }
 </script>

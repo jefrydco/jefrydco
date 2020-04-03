@@ -21,6 +21,6 @@
 
 <script>
 export default {
-  name: 'AppButton'
+  name: 'AppButton',
 }
 </script>

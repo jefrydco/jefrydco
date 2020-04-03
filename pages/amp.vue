@@ -9,10 +9,10 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${HOSTNAME}${this.localePath({ name: 'index' })}`
-        }
-      ]
+          href: `${HOSTNAME}${this.localePath({ name: 'index' })}`,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

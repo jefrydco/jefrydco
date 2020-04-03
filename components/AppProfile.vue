@@ -53,16 +53,16 @@ export default {
         {
           code: 'linkedin',
           name: 'Linkedin',
-          url: 'https://www.linkedin.com/in/jefrydco'
+          url: 'https://www.linkedin.com/in/jefrydco',
         },
         {
           code: 'twitter',
           name: 'Twitter',
-          url: 'https://twitter.com/jefrydco'
-        }
-      ]
+          url: 'https://twitter.com/jefrydco',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

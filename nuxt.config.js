@@ -8,7 +8,7 @@ import {
   pwa,
   build,
   generate,
-  hooks
+  hooks,
 } from './config'
 
 export default {
@@ -29,7 +29,7 @@ export default {
    */
   loading: {
     color: 'var(--text-normal)',
-    failedColor: '#EF5753'
+    failedColor: '#EF5753',
   },
 
   /*
@@ -43,7 +43,7 @@ export default {
   plugins: [
     '~/plugins/vue-lazyload',
     '~/plugins/components.client',
-    '~/plugins/components'
+    '~/plugins/components',
   ],
 
   /*
@@ -55,7 +55,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
 
   /**
@@ -63,7 +63,7 @@ export default {
    */
   tailwindcss: {
     cssPath: '~/assets/styles/tailwind.pcss',
-    purgeCSSInDev: true
+    purgeCSSInDev: true,
   },
 
   /*
@@ -99,5 +99,5 @@ export default {
   /**
    * Listener to Nuxt event to generate amp version of all pages
    */
-  hooks
+  hooks,
 }
