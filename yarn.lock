@@ -5247,6 +5247,11 @@ find-versions@^3.2.0:
   dependencies:
     semver-regex "^2.0.0"
 
+firestore-parser@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.npmjs.org/firestore-parser/-/firestore-parser-0.9.0.tgz#ba4048c81097f60c51fe7e421d33a9170ebd64a9"
+  integrity sha512-tHMmDVHE4cwX3W4rSI2AN5nyknzfNf/hMyHNPkmOK0Xkjyl2Tfl0Pps0FiSFU4MUC6Nr9Q4WvpXGDQbUz+1NqQ==
+
 flat-cache@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/flat-cache/-/flat-cache-2.0.1.tgz#5d296d6f04bda44a4630a301413bdbc2ec085ec0"
