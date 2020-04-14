@@ -1,7 +1,7 @@
 ---
 title: Learn CSS Flexbox in Interactive Way
-description: 
-summary: 
+description: Learning CSS Flexbox has never been so interactive
+summary: Learning CSS Flexbox has never been so interactive, every detail of Flexbox properties can be played with full flexibility. Learn for yourself and find the answers yourself.
 img: /cover/2020/04/flexbox-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-04-01T01:00:00.000Z
