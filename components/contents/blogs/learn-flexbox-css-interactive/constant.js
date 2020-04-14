@@ -47,3 +47,9 @@ export const ALIGN_SELF = {
   AUTO,
   ...ALIGN_ITEMS
 }
+
+export const ANSWERS_MIN_LENGTH = 70
+
+export const COMMENT_MIN_LENGTH = 30
+
+export const COOKIE_KEY = 'bfs'
