@@ -8205,10 +8205,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@^6.9.0:
-  version "6.9.0"
-  resolved "https://registry.npmjs.org/nuxt-i18n/-/nuxt-i18n-6.9.0.tgz#3903ec6fc768989246c499b9c3897ac9cfc014bf"
-  integrity sha512-DpBx2+t4JwQ6BDryR2VkTa4GlJGFkp1qDzHZQFBL3MCexkIWn0YihJp14q24e16DHQFnUUp1dXKjHoQUCxip4g==
+nuxt-i18n@^6.9.1:
+  version "6.9.1"
+  resolved "https://registry.npmjs.org/nuxt-i18n/-/nuxt-i18n-6.9.1.tgz#73158fa0bc752b934c325a0366b4c42c8a6c5a4e"
+  integrity sha512-SWxLrWnOHVmO7HDL8wfRppEtQrjzQuUQDRE3nNjKccxUHvXJj7NmycPdWi78LLEFMHY+TKfTxuMgBfIZ2LIG2A==
   dependencies:
     "@babel/parser" "^7.5.5"
     "@babel/traverse" "^7.5.5"
