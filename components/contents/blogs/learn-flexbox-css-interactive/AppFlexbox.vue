@@ -1,7 +1,7 @@
 <i18n>
 {
   "id": {
-    "container": "Wadah",
+    "container": "Kontainer",
     "item": "Item",
     "itemCount": "Jumlah Item",
     "reset": "Atur Ulang",
@@ -24,14 +24,14 @@
     <div class="demo--combined">
       <div class="demo__interactive">
         <div class="interact">
-          <h2 class="interact__heading">{{ $t('container') }}</h2>
+          <h3 class="interact__heading">{{ $t('container') }}</h3>
           <div class="flex-property">
             <div
               class="flex-property__item flex-property__item--flex-direction"
             >
-              <h3 class="flex-property__heading">
+              <h4 class="flex-property__heading">
                 Flex Direction
-              </h3>
+              </h4>
               <div class="flex-property__options">
                 <div
                   v-for="flexDirection in flexDirectionList"
@@ -52,9 +52,9 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--flex-wrap">
-              <h3 class="flex-property__heading">
+              <h4 class="flex-property__heading">
                 Flex Wrap
-              </h3>
+              </h4>
               <div class="flex-property__options">
                 <div
                   v-for="flexWrap in flexWrapList"
@@ -77,9 +77,9 @@
             <div
               class="flex-property__item flex-property__item--justify-content"
             >
-              <h3 class="flex-property__heading">
+              <h4 class="flex-property__heading">
                 Justify Content
-              </h3>
+              </h4>
               <div class="flex-property__options">
                 <div
                   v-for="justifyContent in justifyContentList"
@@ -100,9 +100,9 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--align-items">
-              <h3 class="flex-property__heading">
+              <h4 class="flex-property__heading">
                 Align Items
-              </h3>
+              </h4>
               <div class="flex-property__options">
                 <div
                   v-for="alignItems in alignItemsList"
@@ -123,9 +123,9 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--align-content">
-              <h3 class="flex-property__heading">
+              <h4 class="flex-property__heading">
                 Align Content
-              </h3>
+              </h4>
               <div class="flex-property__options">
                 <div
                   v-for="alignContent in alignContentList"
@@ -158,7 +158,7 @@
               </label>
             </div>
           </div>
-          <h2 class="interact__heading">{{ $t('item') }}</h2>
+          <h3 class="interact__heading">{{ $t('item') }}</h3>
           <div class="flex-property__scrollable">
             <div
               v-for="flexItemItem in flexItemList"
@@ -175,9 +175,9 @@
               </h2>
               <div class="flex-property">
                 <div class="flex-property__item">
-                  <h3 class="flex-property__heading">
+                  <h4 class="flex-property__heading">
                     Order
-                  </h3>
+                  </h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -192,9 +192,9 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h3 class="flex-property__heading">
+                  <h4 class="flex-property__heading">
                     Flex Grow
-                  </h3>
+                  </h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -209,9 +209,9 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h3 class="flex-property__heading">
+                  <h4 class="flex-property__heading">
                     Flex Shrink
-                  </h3>
+                  </h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -226,9 +226,9 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h3 class="flex-property__heading">
+                  <h4 class="flex-property__heading">
                     Flex Basis
-                  </h3>
+                  </h4>
                   <div class="flex-property__options">
                     <div class="checkbox mb-5">
                       <label class="checkbox__label">
@@ -255,9 +255,9 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h3 class="flex-property__heading">
+                  <h4 class="flex-property__heading">
                     Align Self
-                  </h3>
+                  </h4>
                   <div class="flex-property__options">
                     <div
                       v-for="alignSelf in alignSelfList"
