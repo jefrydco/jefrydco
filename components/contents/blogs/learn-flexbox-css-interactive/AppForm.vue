@@ -291,6 +291,7 @@ export default {
           this.comment = fields.comment
         }
       } catch (error) {
+        this.isSubmitted = false
         Cookie.remove(COOKIE_KEY)
       } finally {
         this.isLoading = false
