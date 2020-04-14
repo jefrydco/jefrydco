@@ -433,7 +433,35 @@ quote {
     &:not(:last-child) {
       @apply mr-2;
     }
+
+    &:disabled {
+      background-color: var(--bg-disabled);
+      color: var(--text-disabled)
+    }
   }
+}
+
+.btn, .textarea, .input {
+  @apply mb-3 mt-1 py-1 px-2 rounded;
+  background-color: var(--bg);
+
+  &:focus {
+    outline-color: var(--text-link)
+  }
+
+  &:not(:last-child) {
+    @apply mr-2;
+  }
+
+  &:disabled {
+    background-color: var(--bg-disabled);
+    color: var(--text-disabled)
+  }
+}
+
+.textarea {
+  @apply mb-1;
+  min-height: 5rem
 }
 
 * {
