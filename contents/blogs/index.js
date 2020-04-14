@@ -1,4 +1,5 @@
 export default [
+  'learn-flexbox-css-interactive',
   'create-reactivity-system-vuejs-javascript-part-2',
   'create-reactivity-system-vuejs-javascript-part-1',
   'oop-object-oriented-programming-javascript-explanation',

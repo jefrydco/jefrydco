@@ -186,7 +186,9 @@ body {
 
   &.light {
     --bg: theme('colors.gray.200');
+    --bg-disabled: theme('colors.gray.100');
     --text-normal: theme('colors.gray.700');
+    --text-disabled: theme('colors.gray.400');
     --text-title: theme('colors.gray.700');
     --text-link: theme('colors.orange.500');
     --card-bg: theme('colors.white');
@@ -197,7 +199,9 @@ body {
 
   &.dark {
     --bg: theme('colors.gray.800');
+    --bg-disabled: theme('colors.gray.600');
     --text-normal: theme('colors.gray.300');
+    --text-disabled: theme('colors.gray.500');
     --text-title: theme('colors.gray.200');
     --text-link: theme('colors.orange.400');
     --card-bg: theme('colors.gray.700');
@@ -217,8 +221,9 @@ a {
 }
 
 hr {
-  @apply h-px mb-8;
-  background-color: var(--text-normal);
+  @apply mb-8;
+  height: 2px;
+  background-color: var(--inline-code-bg);
   border: none;
 }
 
@@ -363,6 +368,48 @@ quote {
 
 .demo {
   @apply mb-8;
+
+  &__interactive {
+    @apply p-4 rounded;
+    border-color: var(--inline-code-bg);
+
+    input:not([type=checkbox]):not([type=radio]),
+    select,
+    button {
+      @apply mb-3 py-1 px-2 rounded;
+      background-color: var(--bg);
+
+      &:focus {
+        outline-color: var(--text-link)
+      }
+
+      &:not(:last-child) {
+        @apply mr-2;
+      }
+
+      &:disabled {
+        background-color: var(--bg-disabled);
+        color: var(--text-disabled)
+      }
+    }
+  }
+
+  &--combined {
+    .demo {
+      &__interactive {
+        @apply border-t-2 border-l-2 border-r-2;
+        border-radius: .5rem .5rem 0 0;
+      }
+
+      &-card:not(.demo-card--custom--floating) {
+        @apply rounded-none
+      }
+
+      &__code {
+        border-radius: 0 0 .5rem .5rem;
+      }
+    }
+  }
 }
 
 .demo-card {
