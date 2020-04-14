@@ -38,6 +38,18 @@ export default {
       {
         urlPattern: 'https://fonts.gstatic.com/.*',
         handler: 'staleWhileRevalidate'
+      },
+      {
+        urlPattern: 'https://cdn.ampproject.org/.*',
+        handler: 'staleWhileRevalidate'
+      },
+      {
+        urlPattern: 'https://www.google.com/.*',
+        handler: 'staleWhileRevalidate'
+      },
+      {
+        urlPattern: 'https://www.gstatic.com/.*',
+        handler: 'staleWhileRevalidate'
       }
     ]
   }
