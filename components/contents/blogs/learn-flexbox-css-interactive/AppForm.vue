@@ -113,7 +113,7 @@
         <client-only>
           <vue-recaptcha
             ref="recaptcha"
-            :sitekey="process.env.RECAPTCHA_API_KEY"
+            :sitekey="RECAPTCHA_API_KEY"
             load-recaptcha-script=""
             badge="bottomleft"
             size="invisible"
@@ -158,6 +158,7 @@ export default {
       isLoading: false,
       isSubmitted: false,
       hints: [],
+      RECAPTCHA_API_KEY: process.env.RECAPTCHA_API_KEY,
       ANSWERS_MIN_LENGTH,
       COMMENT_MIN_LENGTH
     }
