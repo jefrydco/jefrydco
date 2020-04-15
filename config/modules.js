@@ -15,7 +15,8 @@ export default [
   [
     '@nuxtjs/sentry',
     {
-      dsn: process.env.SENTRY_DSN
+      dsn: process.env.SENTRY_DSN,
+      sourceMapStyle: 'hidden-source-map'
     }
   ],
 
