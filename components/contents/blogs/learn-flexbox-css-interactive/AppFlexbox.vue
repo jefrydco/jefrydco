@@ -159,6 +159,20 @@
             </div>
           </div>
           <h3 class="interact__heading">{{ $t('item') }}</h3>
+          <div class="flex-property">
+            <div class="flex-property__item">
+              <div class="checkbox">
+                <label class="checkbox__label">
+                  <input
+                    v-model="isDifferentHeight"
+                    type="checkbox"
+                    class="form-checkbox"
+                  />
+                  <span class="ml-2">{{ $t('differentHeight') }}</span>
+                </label>
+              </div>
+            </div>
+          </div>
           <div class="flex-property__scrollable">
             <div
               v-for="flexItemItem in flexItemList"
@@ -281,18 +295,6 @@
             </div>
           </div>
           <div class="flex-property">
-            <div class="flex-property__item">
-              <div class="checkbox">
-                <label class="checkbox__label">
-                  <input
-                    v-model="isDifferentHeight"
-                    type="checkbox"
-                    class="form-checkbox"
-                  />
-                  <span class="ml-2">{{ $t('differentHeight') }}</span>
-                </label>
-              </div>
-            </div>
             <div class="flex-property__item">
               <button class="btn" @click="onReset">
                 {{ $t('reset') }}
