@@ -1598,14 +1598,14 @@
   resolved "https://registry.npmjs.org/@nuxtjs/robots/-/robots-2.4.2.tgz#9a96c91abb70e39b414eec502ef1cf7d5ef0235e"
   integrity sha512-BW3qhvxlPBKlMkZHtARFPeliFraiZHS28G3j4qgRbSfOBtHC0yDX3Dnq1LkQMzAbPfbw6A1L3sdjgBVZZnfFAw==
 
-"@nuxtjs/sentry@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@nuxtjs/sentry/-/sentry-4.0.0.tgz#a69915fe27f49444d51d9cb1947cd6e463db81a9"
-  integrity sha512-T2Vxzl1Ghu1W+TKSiJUICT/GU8y/rdyPJ7rzDyet98hLETEelciPJbhsztcut754nStZ+OWUpKrta47o5PbLZg==
+"@nuxtjs/sentry@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/@nuxtjs/sentry/-/sentry-4.0.1.tgz#14792c2cf06b27dd013239284078dbf55952be86"
+  integrity sha512-14J/p40kst45znbgv7SZXlmYua/qMT7OtDZkBNpOYx/txwLcll0zv66oeUGNp9qXqHOdOWGc1eBkgubafIe6CA==
   dependencies:
-    "@sentry/browser" "^5.15.0"
-    "@sentry/integrations" "^5.15.0"
-    "@sentry/node" "^5.15.0"
+    "@sentry/browser" "^5.15.4"
+    "@sentry/integrations" "^5.15.4"
+    "@sentry/node" "^5.15.4"
     "@sentry/webpack-plugin" "^1.10.0"
     consola "^2.11.3"
     deepmerge "^4.2.2"
@@ -1671,7 +1671,7 @@
     "@sentry/utils" "5.15.4"
     tslib "^1.9.3"
 
-"@sentry/browser@5.15.4", "@sentry/browser@^5.15.0":
+"@sentry/browser@5.15.4", "@sentry/browser@^5.15.4":
   version "5.15.4"
   resolved "https://registry.npmjs.org/@sentry/browser/-/browser-5.15.4.tgz#5a7e7bad088556665ed8e69bceb0e18784e4f6c7"
   integrity sha512-l/auT1HtZM3KxjCGQHYO/K51ygnlcuOrM+7Ga8gUUbU9ZXDYw6jRi0+Af9aqXKmdDw1naNxr7OCSy6NBrLWVZw==
@@ -1713,7 +1713,7 @@
     "@sentry/utils" "5.15.4"
     tslib "^1.9.3"
 
-"@sentry/integrations@^5.15.0":
+"@sentry/integrations@^5.15.4":
   version "5.15.4"
   resolved "https://registry.npmjs.org/@sentry/integrations/-/integrations-5.15.4.tgz#c650ee5589d8234de7795b3e8f71c5d54603a103"
   integrity sha512-GaEVQf4R+WBJvTOGptOHIFSylnH1JAvBQZ7c45jGIDBp+upqzeI67KD+HoM4sSNT2Y2i8DLTJCWibe34knz5Kw==
@@ -1731,7 +1731,7 @@
     "@sentry/types" "5.15.4"
     tslib "^1.9.3"
 
-"@sentry/node@^5.15.0":
+"@sentry/node@^5.15.4":
   version "5.15.4"
   resolved "https://registry.npmjs.org/@sentry/node/-/node-5.15.4.tgz#e7bc3962d321a12b633743200165ca5f1757cb68"
   integrity sha512-OfdhNEvOJZ55ZkCUcVgctjaZkOw7rmLzO5VyDTSgevA4uLsPaTNXSAeK2GSQBXc5J0KdRpNz4sSIyuxOS4Z7Vg==
