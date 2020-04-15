@@ -92,11 +92,11 @@ exports.validateRecaptcha = functions.https.onRequest(async (req, res) => {
     const { success } = await response.json()
     res.send({ success })
 
-    console.log({ origin: req.get('origin') })
-    console.log(typeof req.body === 'string' ? JSON.parse(req.body) : req.body)
-    console.log({ success })
+    console.info({ origin: req.get('origin') })
+    console.info(typeof req.body === 'string' ? JSON.parse(req.body) : req.body)
+    console.info({ success })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.sendStatus(500)
   }
 })
