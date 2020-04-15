@@ -44,6 +44,10 @@ export default {
         handler: 'staleWhileRevalidate'
       },
       {
+        urlPattern: 'https://firestore.googleapis.com/.*',
+        handler: 'staleWhileRevalidate'
+      },
+      {
         urlPattern: 'https://www.google.com/.*',
         handler: 'staleWhileRevalidate'
       },
