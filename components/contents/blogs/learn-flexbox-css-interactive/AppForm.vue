@@ -230,29 +230,13 @@ export default {
           try {
             this.isLoading = true
             const id = ulid()
-            const response = await fetch(
-              `https://firestore.googleapis.com/v1/projects/jefrydco/databases/(default)/documents/flexbox-survey?documentId=${id}&key=${process.env.FIREBASE_API_KEY}`,
-              {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  fields: {
-                    token: {
-                      stringValue: this.token
-                    },
-                    answers: {
-                      stringValue: this.answers
-                    },
-                    comment: {
-                      stringValue: this.comment
-                    }
-                  }
-                })
-              }
-            )
-            const data = await response.json()
+            const { success } = (await this.validateRecaptcha()) || {
+              success: false
+            }
+            if (!success) {
+              this.$refs.recaptcha.execute()
+            }
+            const data = await this.sendData(id)
             if (data) {
               if (data.error) {
                 throw new Error('Failed to submit data')
@@ -274,6 +258,50 @@ export default {
       } else {
         this.$refs.recaptcha.execute()
       }
+    },
+    async validateRecaptcha() {
+      try {
+        const response = await fetch(
+          'https://us-central1-jefrydco.cloudfunctions.net/validateRecaptcha',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              token: this.token
+            })
+          }
+        )
+        return response.json()
+      } catch (error) {}
+    },
+    async sendData(id) {
+      try {
+        const response = await fetch(
+          `https://firestore.googleapis.com/v1/projects/jefrydco/databases/(default)/documents/flexbox-survey?documentId=${id}&key=${process.env.FIREBASE_API_KEY}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              fields: {
+                token: {
+                  stringValue: this.token
+                },
+                answers: {
+                  stringValue: this.answers
+                },
+                comment: {
+                  stringValue: this.comment
+                }
+              }
+            })
+          }
+        )
+        return response.json()
+      } catch (error) {}
     },
     async getData(id) {
       try {
