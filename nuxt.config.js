@@ -19,6 +19,14 @@ export default {
    */
   modern: !isDev,
 
+  /**
+   * Env variables
+   */
+  env: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+    RECAPTCHA_API_KEY: process.env.RECAPTCHA_API_KEY
+  },
+
   /*
    ** Headers of the page
    */
