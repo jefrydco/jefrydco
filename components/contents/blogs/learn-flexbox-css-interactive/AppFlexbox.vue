@@ -166,7 +166,7 @@
                   <input
                     v-model="isDifferentHeight"
                     type="checkbox"
-                    class="form-checkbox"
+                    class="checkbox__input form-checkbox"
                   />
                   <span class="ml-2">{{ $t('differentHeight') }}</span>
                 </label>
@@ -249,7 +249,7 @@
                         <input
                           v-model="flexItemItem.isFlexBasisAuto"
                           type="checkbox"
-                          class="form-checkbox"
+                          class="checkbox__input form-checkbox"
                         />
                         <span class="ml-2">Auto</span>
                       </label>
@@ -586,6 +586,15 @@ body {
 
   &__label {
     @apply inline-flex items-center;
+  }
+
+  &__input {
+    color: var(--text-link);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.5);
+      border-color: var(--text-link);
+    }
   }
 }
 .interact {
