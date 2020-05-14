@@ -83,7 +83,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.2",
     "@nuxtjs/eslint-module": "^1.2.0",
-    "@nuxtjs/stylelint-module": "^3.2.2",
+    "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^1.4.1",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@vue/test-utils": "^1.0.0-beta.33",
