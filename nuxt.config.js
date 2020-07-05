@@ -20,6 +20,11 @@ export default {
   modern: !isDev,
 
   /**
+   * Full static
+   */
+  target: 'static',
+
+  /**
    * Env variables
    */
   env: {
@@ -109,7 +114,7 @@ export default {
   /**
    * Generate all routes
    */
-  generate,
+  export: generate,
 
   /**
    * Listener to Nuxt event to generate amp version of all pages
