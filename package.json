@@ -35,7 +35,7 @@
     "dev": "nuxt",
     "build": "cross-env NODE_ENV=production nuxt build",
     "start": "nuxt start",
-    "generate": "cross-env NODE_ENV=production nuxt build && nuxt export",
+    "generate": "cross-env NODE_ENV=production nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
