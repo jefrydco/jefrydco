@@ -63,7 +63,7 @@
     "markdown-it-anchor": "^5.3.0",
     "markdown-it-highlight-lines": "^1.0.2",
     "markdown-it-link-attributes": "^3.0.0",
-    "markdown-it-prism": "^2.1.0",
+    "markdown-it-prism": "^2.1.1",
     "markdown-it-toc-done-right": "^4.1.0",
     "nuxt": "^2.14.1",
     "nuxt-i18n": "^6.13.7",
