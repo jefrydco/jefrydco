@@ -1,7 +1,0 @@
-{
-  "extends": ["@nuxtjs"],
-  "automerge": true,
-  "major": {
-    "automerge": false
-  }
-}
