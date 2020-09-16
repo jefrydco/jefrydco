@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "jest",
+      "@nuxt/types",
+      "@nuxt/typescript-build",
+      "@nuxt/http"
+    ]
+  }
+}

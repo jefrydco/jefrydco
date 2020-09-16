@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "types": [
+      "node",
+      "cypress",
+      "@nuxt/types",
+      "@nuxt/typescript-build",
+      "@nuxt/http"
+    ]
+  }
+}

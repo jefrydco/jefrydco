@@ -1,0 +1,16 @@
+# *** Warning! Your custom domain is not using HTTPS yet ***
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+http://jefrydco.dev/* https://jefrydco.id/:splat 301!
+http://www.jefrydco.dev/* https://jefrydco.id/:splat 301!
+
+https://jefrydco.dev/* https://jefrydco.id/:splat 301!
+https://www.jefrydco.dev/* https://jefrydco.id/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+http://jefrydco.netlify.com/* https://jefrydco.id/:splat 301!
+http://jefrydco.netlify.app/* https://jefrydco.id/:splat 301!
+
+https://jefrydco.netlify.com/* https://jefrydco.id/:splat 301!
+https://jefrydco.netlify.app/* https://jefrydco.id/:splat 301!

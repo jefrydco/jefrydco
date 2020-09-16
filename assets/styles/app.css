@@ -1,0 +1,72 @@
+/* purgecss start ignore  */
+* {
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1),
+    background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1),
+    box-shadow 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html {
+  &.light-mode {
+    --bg: theme('colors.gray.200');
+    --bg-disabled: theme('colors.gray.100');
+    --text-normal: theme('colors.gray.700');
+    --text-disabled: theme('colors.gray.400');
+    --text-title: theme('colors.gray.700');
+    --text-link: theme('colors.orange.500');
+    --card-bg: theme('colors.white');
+    --inline-code-bg: theme('colors.gray.300');
+    --inline-code-border: theme('colors.gray.300');
+    --inline-code-text: theme('colors.gray.700');
+    --error: theme('colors.red.500');
+  }
+  &.dark-mode {
+    --bg: theme('colors.gray.800');
+    --bg-disabled: theme('colors.gray.600');
+    --text-normal: theme('colors.gray.300');
+    --text-disabled: theme('colors.gray.500');
+    --text-title: theme('colors.gray.200');
+    --text-link: theme('colors.orange.400');
+    --card-bg: theme('colors.gray.700');
+    --inline-code-bg: theme('colors.gray.900');
+    --inline-code-border: theme('colors.gray.800');
+    --inline-code-text: theme('colors.gray.300');
+    --error: theme('colors.red.400');
+  }
+}
+
+:focus {
+  outline: .125rem solid var(--text-normal)
+}
+
+button {
+  &:focus {
+    outline: 0.125rem solid var(--text-normal);
+  }
+}
+
+body {
+  @apply antialiased break-words text-lg leading-normal;
+  background-color: var(--bg);
+  color: var(--text-normal);
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bitter', serif;
+  font-weight: 600;
+}
+
+a {
+  @apply underline;
+  color: var(--text-link);
+
+  &:hover {
+    @apply no-underline;
+  }
+}
+/* purgecss end ignore */
