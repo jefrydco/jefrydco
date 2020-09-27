@@ -67,7 +67,7 @@
     "markdown-it-toc-done-right": "^4.1.0",
     "nuxt": "^2.14.4",
     "nuxt-i18n": "^6.13.12",
-    "postcss-nested": "^4.2.3",
+    "postcss-nested": "^5.0.1",
     "prism": "^4.1.2",
     "reading-time": "^1.2.0",
     "style-object-to-css-string": "^1.0.1",
