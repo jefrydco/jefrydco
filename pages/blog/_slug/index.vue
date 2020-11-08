@@ -1,89 +1,101 @@
 <template>
-  <main id="blog-detail" class="max-w-4xl mx-auto">
-    <div class="max-w-4xl mx-auto">
-      <article v-if="blog" class="blog-detail__card">
-        <header class="blog-detail__meta">
-          <h1 id="blog-title" class="blog-detail__title">
-            {{ blog.title }}
-          </h1>
-          <div class="blog-detail__date">
-            <span>
-              <time :datetime="blog.postedDate">
-                {{ $t('postedOn') }}
-                {{ formatDate(blog.postedDate) }}
-              </time>
-            </span>
-            •
-            <span>
-              <time :datetime="blog.updatedDate">
-                {{ $t('updatedOn') }}
-                {{ formatDate(blog.updatedDate) }}
-              </time>
-            </span>
-            •
-            <span>
-              {{ Math.ceil(blog.readingTime.minutes.toFixed(2)) }}
-              {{ $t('minRead') }}
-            </span>
+  <main id="blog-detail">
+    <template v-if="blog">
+      <app-img
+        :src="blog.img"
+        :alt="blog.title"
+        class="blog-detail__img"
+      ></app-img>
+      <div class="max-w-4xl mx-auto">
+        <article class="blog-detail__card">
+          <header class="blog-detail__meta">
+            <h1 id="blog-title" class="blog-detail__title">
+              {{ blog.title }}
+            </h1>
+            <div class="blog-detail__date">
+              <span>
+                <time :datetime="blog.postedDate">
+                  {{ $t('postedOn') }}
+                  {{ formatDate(blog.postedDate) }}
+                </time>
+              </span>
+              •
+              <span>
+                <time :datetime="blog.updatedDate">
+                  {{ $t('updatedOn') }}
+                  {{ formatDate(blog.updatedDate) }}
+                </time>
+              </span>
+              •
+              <span>
+                {{ Math.ceil(blog.readingTime.minutes.toFixed(2)) }}
+                {{ $t('minRead') }}
+              </span>
+            </div>
+          </header>
+          <div class="blog-detail__translations">
+            {{ $t('readOtherLanguages') }}:
+            <nuxt-link
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              :aria-label="locale.name"
+              :to="switchLocalePath(locale.code)"
+              class="blog__translations__link"
+            >
+              {{ locale.name }}
+            </nuxt-link>
           </div>
-        </header>
-        <div class="blog-detail__translations">
-          {{ $t('readOtherLanguages') }}:
-          <nuxt-link
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            :aria-label="locale.name"
-            :to="switchLocalePath(locale.code)"
-            class="blog__translations__link"
-          >
-            {{ locale.name }}
-          </nuxt-link>
-        </div>
-        <nuxt-content :document="blog" class="prose prose-lg max-w-none" />
-        <footer class="blog-detail__footer">
-          <p v-if="blog.contributors && blog.contributors.length > 0">
-            {{ $t('contributor') }}:
-            <template v-for="(contributor, index) in blog.contributors">
+          <nuxt-content :document="blog" class="prose prose-lg max-w-none" />
+          <footer class="blog-detail__footer">
+            <p v-if="blog.contributors && blog.contributors.length > 0">
+              {{ $t('contributor') }}:
+              <template v-for="(contributor, index) in blog.contributors">
+                <a
+                  :key="`${contributor}_link`"
+                  :href="`https://github.com/${contributor}`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @{{ contributor }}
+                </a>
+                <!-- eslint-disable-next-line -->
+              <span v-if="index !== blog.contributors.length - 1" :key="`${contributor}_separator`">{{ separator(index) }}</span>
+                >
+              </template>
+            </p>
+            <p>
+              {{ $t('coverImageFrom') }}
               <a
-                :key="`${contributor}_link`"
-                :href="`https://github.com/${contributor}`"
+                :href="`https://unsplash.com/@${blog.imgCreator}`"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @{{ contributor }}
+                @{{ blog.imgCreator }}
               </a>
-              <!-- eslint-disable-next-line -->
-              <span v-if="index !== blog.contributors.length - 1" :key="`${contributor}_separator`">{{ separator(index) }}</span>
-            </template>
-          </p>
-          <p>
-            {{ $t('coverImageFrom') }}
-            <a
-              :href="`https://unsplash.com/@${blog.imgCreator}`"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @{{ blog.imgCreator }}
-            </a>
-          </p>
-          <p>
-            <a
-              :href="blog.discussLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ $t('discussTwitter') }}
-            </a>
-            <span> • </span>
-            <a :href="blog.editLink" target="_blank" rel="noopener noreferrer">
-              {{ $t('editGithub') }}
-            </a>
-          </p>
-        </footer>
-      </article>
-    </div>
+            </p>
+            <p>
+              <a
+                :href="blog.discussLink"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ $t('discussTwitter') }}
+              </a>
+              <span> • </span>
+              <a
+                :href="blog.editLink"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ $t('editGithub') }}
+              </a>
+            </p>
+          </footer>
+        </article>
+      </div>
+    </template>
     <app-header-link :to="localePath('blog')" label="Blog" />
-    <app-profile />
+    <app-profile class="my-12" />
     <app-to-top />
     <app-scroll-indicator />
   </main>
@@ -170,8 +182,17 @@ export default defineComponent({
 <style>
 /* purgecss start ignore */
 .blog-detail {
+  &__img {
+    @apply -m-40;
+
+    img {
+      @apply w-full h-128 object-cover;
+      filter: brightness(0.7);
+    }
+  }
+
   &__card {
-    @apply mb-12 p-6 mx-4 rounded overflow-hidden shadow relative;
+    @apply mb-4 p-6 mx-4 rounded overflow-hidden shadow relative;
     background-color: var(--card-bg);
   }
 
