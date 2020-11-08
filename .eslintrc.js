@@ -5,7 +5,7 @@ module.exports = {
     parser: '@typescript-eslint/parser'
   },
   extends: [
-    'plugin:vue/vue3-strongly-recommended',
+    'plugin:vue/strongly-recommended',
     '@nuxtjs/eslint-config-typescript',
     'prettier',
     'prettier/vue',
