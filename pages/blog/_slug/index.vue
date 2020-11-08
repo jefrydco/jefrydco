@@ -1,5 +1,6 @@
 <template>
   <main id="blog-detail">
+    <app-header-link :to="localePath('blog')" label="Blog" />
     <template v-if="blog">
       <app-img
         :src="blog.img"
@@ -94,7 +95,6 @@
         </article>
       </div>
     </template>
-    <app-header-link :to="localePath('blog')" label="Blog" />
     <app-profile class="my-12" />
     <app-to-top />
     <app-scroll-indicator />
