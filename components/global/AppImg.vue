@@ -27,6 +27,7 @@ import {
   getCurrentInstance
 } from '@nuxtjs/composition-api'
 import VueI18n from 'vue-i18n'
+// eslint-disable-next-line
 import type { Locales, LocalesType } from '~/types'
 
 export type AppImgPropsType = {
@@ -90,7 +91,7 @@ export default defineComponent<AppImgPropsType>({
     function initLocaleI18n() {
       const keys = Object.keys(props?.caption ?? {})
       keys.forEach((key) => {
-        vm?.$i18n.mergeLocaleMessage(
+        vm!.$i18n.mergeLocaleMessage(
           key,
           props?.caption?.[
             key as keyof typeof Locales

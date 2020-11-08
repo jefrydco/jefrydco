@@ -110,7 +110,7 @@ function useSeparator(
   return (index: number) => {
     const length = blog.contributors && blog.contributors.length
     if (length === 2 || (length >= 3 && index === length - 2)) {
-      return ` ${vm?.$t('and')}`
+      return ` ${vm.$t('and')}`
     }
     if (length > 2 && index !== length - 1) {
       return `, `
@@ -120,9 +120,9 @@ function useSeparator(
 }
 
 function useAvailableLocales(vm: InstanceType<VueConstructor>, locale: string) {
-  const locales = vm?.$i18n.locales as NuxtVueI18n.Options.LocaleObject[]
+  const locales = vm.$i18n.locales as NuxtVueI18n.Options.LocaleObject[]
   const availableLocales = ref<NuxtVueI18n.Options.LocaleObject[]>()
-  availableLocales.value = locales?.filter((i) => i.code !== locale)
+  availableLocales.value = locales.filter((i) => i.code !== locale)
   return availableLocales
 }
 
@@ -130,7 +130,7 @@ function useScrollIntoView() {
   const hash = window.location.hash
   if (hash) {
     const element = document.querySelector(hash) as HTMLHeadingElement
-    element?.scrollIntoView()
+    element.scrollIntoView()
   }
 }
 

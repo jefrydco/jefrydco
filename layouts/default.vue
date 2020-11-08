@@ -15,9 +15,9 @@ import {
 export default defineComponent({
   setup() {
     const vm = getCurrentInstance()
-    const i18nSeo = vm?.$nuxtI18nSeo()
+    const i18nSeo = vm!.$nuxtI18nSeo()
     useMeta({
-      title: vm?.$t('description') as string,
+      title: vm!.$t('description') as string,
       ...i18nSeo
     })
   },

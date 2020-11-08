@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs'
 import { loadTheme, getHighlighter, getTheme } from 'shiki'
 import { Highlighter } from 'shiki/dist/highlighter'
-import { languages } from 'shiki-languages'
+import { BUNDLED_LANGUAGES } from 'shiki-languages'
 import {
   twoslasher,
   TwoSlashOptions,
@@ -11,6 +11,7 @@ import {
   createDefaultMapFromNodeModules,
   addAllFilesFromFolder
 } from '@typescript/vfs'
+import type { HighlighterOptions } from 'shiki/dist/highlighter'
 import { twoslashRenderer } from './renderers/twoslash'
 import { plainTextRenderer } from './renderers/plain'
 import { defaultShikiRenderer } from './renderers/shiki'
@@ -24,7 +25,7 @@ export type ShikiTwoslashSettings = {
 
 /** Checks if a particular lang is available in shiki */
 export const canHighlightLang = (lang: string) =>
-  languages.some((l) => l.id === lang || l.aliases?.includes(lang))
+  BUNDLED_LANGUAGES.some((l) => l.id === lang || l.aliases?.includes(lang))
 
 /**
  * This gets filled in by the promise below, then should
@@ -40,9 +41,7 @@ let storedHighlighter: Highlighter = null as any
  * opinion that you should be in control of the highlighter, and not this library.
  *
  */
-export const createShikiHighlighter = (
-  options: import('shiki/dist/highlighter').HighlighterOptions
-) => {
+export const createShikiHighlighter = (options: HighlighterOptions) => {
   if (storedHighlighter) return Promise.resolve(storedHighlighter)
 
   const settings = options || {}
@@ -59,7 +58,7 @@ export const createShikiHighlighter = (
     }
   }
 
-  return getHighlighter({ theme: shikiTheme, langs: languages }).then(
+  return getHighlighter({ theme: shikiTheme, langs: BUNDLED_LANGUAGES }).then(
     (newHighlighter) => {
       storedHighlighter = newHighlighter
       return storedHighlighter

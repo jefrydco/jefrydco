@@ -5,7 +5,7 @@ export function useDate(vm: InstanceType<VueConstructor>) {
     if (!date) {
       return ''
     }
-    const locale = vm?.$i18n.locale || 'id-ID'
+    const locale = vm.$i18n.locale || 'id-ID'
     return new Date(date).toLocaleDateString(locale, {
       day: 'numeric',
       month: 'short',
