@@ -8490,10 +8490,10 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.npmjs.org/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha512-8z4efJYk43E0upd0NbVXwgSTQs6cT3T06etieCMEg7dRbzCbxUCK/GHlX8mhHRDcp+OLlHkPKsvqQTCvsRl2cg==
 
-markdown-it-anchor@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.npmjs.org/markdown-it-anchor/-/markdown-it-anchor-5.3.0.tgz#d549acd64856a8ecd1bea58365ef385effbac744"
-  integrity sha512-/V1MnLL/rgJ3jkMWo84UR+K+jF1cxNG1a+KwqeXqTIJ+jtA8aWSHuigx8lTzauiIjBDbwF3NcWQMotd0Dm39jA==
+markdown-it-anchor@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-7.0.0.tgz#6c43e6a3d3a0b56d0f7e04af7a122834ebbcc311"
+  integrity sha512-7n4ZT58WUoejDDPvk5bxdu/f+BIvRILxs29kPn3YDFJ9tejwOv9Ipw8VpqxXarMjflwYxqpFIYx7whGbLO62nA==
 
 markdown-it-highlight-lines@^1.0.2:
   version "1.0.2"
