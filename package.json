@@ -76,7 +76,7 @@
     "vkbeautify": "^0.99.3",
     "vue-intersect": "^1.1.6",
     "vue-lazyload": "^1.3.3",
-    "vue-prism-component": "^1.2.0",
+    "vue-prism-component": "^2.0.0",
     "vue-recaptcha": "^1.3.0",
     "vue-scroll-indicator": "^0.1.3"
   },
