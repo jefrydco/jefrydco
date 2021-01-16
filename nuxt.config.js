@@ -12,8 +12,6 @@ import {
 } from './config'
 
 export default {
-  mode: 'universal',
-
   /**
    * Modern mode on production
    */
@@ -114,7 +112,7 @@ export default {
   /**
    * Generate all routes
    */
-  export: generate,
+  generate,
 
   /**
    * Listener to Nuxt event to generate amp version of all pages
