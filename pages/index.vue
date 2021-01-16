@@ -7,9 +7,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import Vue from 'vue'
+import { HOSTNAME } from '~/constants'
 
-export default defineComponent({
-  setup() {}
+export default Vue.extend({
+  head() {
+    return {
+      link: [
+        {
+          rel: 'amphtml',
+          href: `${HOSTNAME}${this.localePath({ name: 'amp' })}`
+        }
+      ]
+    }
+  }
 })
 </script>

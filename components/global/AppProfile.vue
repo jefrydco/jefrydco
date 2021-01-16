@@ -43,26 +43,25 @@
   </aside>
 </template>
 
-<script>
-import { defineComponent, reactive } from '@nuxtjs/composition-api'
+<script lang="ts">
+import Vue from 'vue'
 
-export default defineComponent({
-  setup() {
-    const socials = reactive([
-      { code: 'github', name: 'Github', url: 'https://github.com/jefrydco' },
-      {
-        code: 'linkedin',
-        name: 'Linkedin',
-        url: 'https://www.linkedin.com/in/jefrydco'
-      },
-      {
-        code: 'twitter',
-        name: 'Twitter',
-        url: 'https://twitter.com/jefrydco'
-      }
-    ])
+export default Vue.extend({
+  data() {
     return {
-      socials
+      socials: [
+        { code: 'github', name: 'Github', url: 'https://github.com/jefrydco' },
+        {
+          code: 'linkedin',
+          name: 'Linkedin',
+          url: 'https://www.linkedin.com/in/jefrydco'
+        },
+        {
+          code: 'twitter',
+          name: 'Twitter',
+          url: 'https://twitter.com/jefrydco'
+        }
+      ]
     }
   }
 })

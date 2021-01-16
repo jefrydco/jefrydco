@@ -7,14 +7,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
-export type AppHeaderLinkPropsType = {
-  to: string
-  label: string
-}
-
-export default defineComponent<AppHeaderLinkPropsType>({
+export default Vue.extend({
   props: {
     to: {
       type: String,

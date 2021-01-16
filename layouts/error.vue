@@ -1,10 +1,9 @@
 <script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
-export default defineComponent({
-  setup() {
-    const { redirect } = useContext()
-    redirect('/')
+export default Vue.extend({
+  created() {
+    this.$router.replace('/')
   },
   render(h) {
     return h('div')

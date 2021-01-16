@@ -204,9 +204,6 @@ export default {
     // https://typescript.nuxtjs.org/guide/setup.html#installation
     '@nuxt/typescript-build',
 
-    // https://composition-api.nuxtjs.org/
-    '@nuxtjs/composition-api',
-
     // https://github.com/nuxt-community/color-mode-module
     '@nuxtjs/color-mode',
 
@@ -430,9 +427,9 @@ export default {
         'postcss-nested': {}
       }
     },
-    extend(config, { isDev, isClient }) {
+    extend(_config, { isDev, isClient }) {
       if (isDev && isClient) {
-        config.module?.rules.push({
+        _config.module?.rules.push({
           enforce: 'pre',
           test: /\.(ts|vue)$/,
           loader: 'eslint-loader',

@@ -6,21 +6,14 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  getCurrentInstance,
-  useMeta
-} from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
-export default defineComponent({
-  setup() {
-    const vm = getCurrentInstance()
-    const i18nSeo = vm!.$nuxtI18nSeo()
-    useMeta({
-      title: vm!.$t('description') as string,
-      ...i18nSeo
-    })
-  },
-  head: {}
+export default Vue.extend({
+  head() {
+    return {
+      title: this.$t('description'),
+      ...this.$nuxtI18nSeo()
+    }
+  }
 })
 </script>

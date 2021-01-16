@@ -36,15 +36,15 @@
           </header>
           <div class="blog-detail__translations">
             {{ $t('readOtherLanguages') }}:
-            <nuxt-link
+            <a
               v-for="locale in availableLocales"
               :key="locale.code"
               :aria-label="locale.name"
-              :to="switchLocalePath(locale.code)"
+              :href="switchLocalePath(locale.code)"
               class="blog__translations__link"
             >
               {{ locale.name }}
-            </nuxt-link>
+            </a>
           </div>
           <nuxt-content :document="blog" class="prose prose-lg max-w-none" />
           <footer class="blog-detail__footer">
@@ -102,78 +102,209 @@
 </template>
 
 <script lang="ts">
-import type { VueConstructor } from 'vue'
-import {
-  defineComponent,
-  getCurrentInstance,
-  useFetch,
-  ref,
-  computed,
-  onMounted
-} from '@nuxtjs/composition-api'
-import type { NuxtVueI18n } from 'nuxt-i18n'
-import { useDate } from '~/compositions'
+import { formatDate } from '~/extendables'
+import { HOSTNAME } from '~/constants'
 import type { BlogDataType } from '~/types/blog'
 
-function useSeparator(
-  vm: InstanceType<VueConstructor>,
-  blog: BlogDataType
-): (index: number) => string {
-  return (index: number) => {
-    const length = blog.contributors && blog.contributors.length
-    if (length === 2 || (length >= 3 && index === length - 2)) {
-      return ` ${vm.$t('and')}`
+export default formatDate.extend({
+  data() {
+    return {
+      availableLocales: [],
+      blog: null
     }
-    if (length > 2 && index !== length - 1) {
-      return `, `
-    }
-    return ``
-  }
-}
+  },
+  async asyncData({ app, route }) {
+    const { locale, locales } = app.i18n
+    const { slug } = route.params
 
-function useAvailableLocales(vm: InstanceType<VueConstructor>, locale: string) {
-  const locales = vm.$i18n.locales as NuxtVueI18n.Options.LocaleObject[]
-  const availableLocales = ref<NuxtVueI18n.Options.LocaleObject[]>()
-  availableLocales.value = locales.filter((i) => i.code !== locale)
-  return availableLocales
-}
-
-function useScrollIntoView() {
-  const hash = window.location.hash
-  if (hash) {
-    const element = document.querySelector(hash) as HTMLHeadingElement
-    element.scrollIntoView()
-  }
-}
-
-export default defineComponent({
-  setup() {
-    const vm = getCurrentInstance()
-    const locale = vm?.$i18n.locale
-    const formatDate = useDate(vm!)
-    const slug = vm?.$route.params.slug
-    const blog = ref<BlogDataType>()
-    const availableLocales = useAvailableLocales(vm!, locale!)
-
-    const { fetch } = useFetch(async () => {
-      const _blog = await vm!
-        .$content(`/${locale}/blog/${slug}`, { deep: true })
-        .fetch<BlogDataType>()
-      blog.value = _blog as BlogDataType
-    })
-    fetch()
-
-    const separator = computed(() => useSeparator(vm!, blog.value!))
-
-    onMounted(() => {
-      useScrollIntoView()
-    })
+    const availableLocales = locales.filter((i) => i.code !== locale)
+    const blog = await app
+      .$content(`/${locale}/blog/${slug}`, { deep: true })
+      .fetch<BlogDataType>()
+    const fullPath = `${HOSTNAME}/blog/${blog?.slug}`
 
     return {
-      formatDate,
-      blog,
       availableLocales,
-      separator
+      blog: {
+        ...blog,
+        discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
+          fullPath
+        )}`,
+        editLink: `https://github.com/jefrydco/jefrydco/edit/master/contents/${locale}/blogs/${slug}.md`
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.blog && this.blog.title,
+      link: [
+        {
+          rel: 'amphtml',
+          href: `${HOSTNAME}${
+            this.blog &&
+            this.localePath({
+              name: 'blog-slug-amp',
+              params: { slug: this.blog.slug }
+            })
+          }`
+        }
+      ],
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.blog && this.blog.title
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${HOSTNAME}${
+            this.blog &&
+            this.localePath({
+              name: 'blog-slug',
+              params: { slug: this.blog.slug }
+            })
+          }`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${HOSTNAME}${
+            this.blog && require(`~/assets/images${this.blog.img}`)
+          }`
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: '1920'
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: '1280'
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.blog && this.blog.title
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blog && this.blog.description
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.blog && this.blog.description
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'blogPosting',
+            mainEntityOfPage: `${HOSTNAME}${
+              this.blog &&
+              this.localePath({
+                name: 'blog-slug',
+                params: { slug: this.blog.slug }
+              })
+            }`,
+            headline: this.blog && this.blog.title,
+            description: this.blog && this.blog.description,
+            datePublished: this.blog && this.blog.postedDate,
+            dateCreated: this.blog && this.blog.postedDate,
+            dateModified: this.blog && this.blog.updatedDate,
+            wordcount: this.blog && this.blog.readingTime.words,
+            url: `${HOSTNAME}${
+              this.blog &&
+              this.localePath({
+                name: 'blog-slug',
+                params: { slug: this.blog.slug }
+              })
+            }`,
+            articleBody: this.blog && this.blog.content,
+            image: {
+              '@type': 'imageObject',
+              url: `${HOSTNAME}${
+                this.blog && require(`~/assets/images${this.blog.img}`)
+              }`,
+              height: '1920',
+              width: '1080'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Jefrydco',
+              sameAs: 'https://www.facebook.com/jefrydco.id',
+              logo: {
+                '@type': 'imageObject',
+                url: `${HOSTNAME}/icon.png`,
+                width: '2739',
+                height: '3102'
+              }
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Jefry Dewangga'
+            }
+          })
+        },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog' })}`,
+                  name: 'Blog'
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                item: {
+                  '@id': `${HOSTNAME}${
+                    this.blog &&
+                    this.localePath({
+                      name: 'blog-slug',
+                      params: { slug: this.blog.slug }
+                    })
+                  }`,
+                  name: this.blog && this.blog.title
+                }
+              }
+            ]
+          })
+        }
+      ]
+    }
+  },
+  computed: {
+    separator() {
+      return (index) => {
+        const length = this.blog.contributors && this.blog.contributors.length
+        if (length === 2 || (length >= 3 && index === length - 2)) {
+          return ` ${this.$t('and')} `
+        }
+        if (length > 2 && index !== length - 1) {
+          return `, `
+        }
+        return ``
+      }
+    }
+  },
+  mounted() {
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.querySelector(hash)
+      element.scrollIntoView({})
     }
   }
 })

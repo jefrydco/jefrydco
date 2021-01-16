@@ -1,4 +1,3 @@
-import { writeFileSync } from 'fs'
 import { loadTheme, getHighlighter, getTheme } from 'shiki'
 import { Highlighter } from 'shiki/dist/highlighter'
 import { BUNDLED_LANGUAGES } from 'shiki-languages'
@@ -41,11 +40,11 @@ let storedHighlighter: Highlighter = null as any
  * opinion that you should be in control of the highlighter, and not this library.
  *
  */
-export const createShikiHighlighter = (options: HighlighterOptions) => {
+export const createShikiHighlighter = (options?: HighlighterOptions) => {
   if (storedHighlighter) return Promise.resolve(storedHighlighter)
 
   const settings = options || {}
-  const theme: any = settings.theme || 'nord'
+  const theme: any = (settings as HighlighterOptions).theme || 'nord'
   let shikiTheme
 
   try {
@@ -100,8 +99,7 @@ export const renderCodeToHTML = (
 
   // Shiki does know the lang, so tokenize
   const renderHighlighter = highlighter || storedHighlighter
-  const tokens = renderHighlighter.codeToThemedTokens(code, lang as any)
-  writeFileSync('./a.json', JSON.stringify(tokens, null, 2))
+  const tokens = renderHighlighter.codeToThemedTokens(code, lang)
 
   // Twoslash specific renderer
   if (info.includes('twoslash') && twoslash) {

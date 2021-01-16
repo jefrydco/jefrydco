@@ -5,13 +5,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
-export type AppRssLinkProps = {
-  link: string
-}
-
-export default defineComponent<AppRssLinkProps>({
+export default Vue.extend({
   props: {
     link: {
       type: String,

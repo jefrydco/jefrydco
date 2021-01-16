@@ -21,27 +21,9 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  computed,
-  getCurrentInstance
-} from '@nuxtjs/composition-api'
-import VueI18n from 'vue-i18n'
-// eslint-disable-next-line
-import type { Locales, LocalesType } from '~/types'
+import Vue from 'vue'
 
-export type AppImgPropsType = {
-  src: string
-  alt: string
-  width?: string | number
-  height?: string | number
-  classes?: string
-  caption?: LocalesType
-  source?: string
-  sourceLink?: string
-}
-
-export default defineComponent<AppImgPropsType>({
+export default Vue.extend({
   props: {
     src: {
       type: String,
@@ -81,30 +63,23 @@ export default defineComponent<AppImgPropsType>({
       default: ''
     }
   },
-  setup(props) {
-    const imageRequired = computed(() => require(`~/assets/images${props.src}`))
-    const captionKey = computed(() => {
-      return Object.keys(props?.caption?.id ?? {})[0] || null
-    })
-    const vm = getCurrentInstance()
-
-    function initLocaleI18n() {
-      const keys = Object.keys(props?.caption ?? {})
-      keys.forEach((key) => {
-        vm!.$i18n.mergeLocaleMessage(
-          key,
-          props?.caption?.[
-            key as keyof typeof Locales
-          ] as VueI18n.LocaleMessageObject
-        )
-      })
+  computed: {
+    imageRequired() {
+      return require(`~/assets/images${this.src}`)
+    },
+    captionKey() {
+      return Object.keys(this?.caption?.id ?? {})[0] || null
     }
-
-    initLocaleI18n()
-
-    return {
-      captionKey,
-      imageRequired
+  },
+  created() {
+    this.initLocaleI18n()
+  },
+  methods: {
+    initLocaleI18n() {
+      const keys = Object.keys(this?.caption ?? {})
+      keys.forEach((key) => {
+        this.$i18n.mergeLocaleMessage(key, this.caption[key])
+      })
     }
   }
 })

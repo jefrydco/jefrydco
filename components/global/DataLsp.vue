@@ -8,14 +8,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
 import { VTooltip } from 'v-tooltip'
 
-export type DataLspPropsType = {
-  lsp: string
-}
-
-export default defineComponent<DataLspPropsType>({
+export default {
   directives: {
     tooltip: VTooltip
   },
@@ -25,7 +20,7 @@ export default defineComponent<DataLspPropsType>({
       required: true
     }
   }
-})
+}
 </script>
 
 <style>

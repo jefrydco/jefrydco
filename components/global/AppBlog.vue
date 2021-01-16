@@ -44,65 +44,39 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from '@nuxtjs/composition-api'
-import { useDate } from '~/compositions'
-import type { ReadingTimeType } from '~/types'
+import { formatDate } from '~/extendables'
 
-export type AppBlogPropsType = {
-  img: string
-  title: string
-  summary: string
-  postedDate: string
-  updatedDate: string
-  readingTime: ReadingTimeType
-  slug: string
-}
-
-export default defineComponent<AppBlogPropsType>({
+export default formatDate.extend({
   props: {
     img: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     title: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     summary: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     postedDate: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     updatedDate: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     readingTime: {
       type: Object,
       default() {
         return null
-      },
-      required: true
+      }
     },
     slug: {
       type: String,
       required: true
-    }
-  },
-  setup() {
-    const vm = getCurrentInstance()
-    const formatDate = useDate(vm!)
-
-    return {
-      formatDate
     }
   }
 })

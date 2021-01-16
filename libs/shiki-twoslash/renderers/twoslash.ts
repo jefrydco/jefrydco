@@ -1,4 +1,7 @@
 import { Highlighter } from 'shiki/dist/highlighter'
+import type { TwoSlashReturn } from '@typescript/twoslash'
+import type { IThemedToken } from 'shiki'
+
 import { ShikiRenderOptions } from '../types'
 import {
   createHighlightedString2,
@@ -8,8 +11,8 @@ import {
 } from '../utils'
 import { defaultShikiRenderer } from './shiki'
 
-type Lines = import('shiki').IThemedToken[][]
-type TwoSlash = import('@typescript/twoslash').TwoSlashReturn
+type Lines = IThemedToken[][]
+type TwoSlash = TwoSlashReturn
 
 // OK, so - this is just straight up complex code.
 
@@ -32,8 +35,8 @@ export function twoslashRenderer(
   lines: Lines,
   options: ShikiRenderOptions,
   twoslash: TwoSlash,
-  highlighter: Highlighter,
-  lineHighlights?: number[]
+  highlighter: Highlighter
+  // lineHighlights?: number[]
 ) {
   let html = ''
 
@@ -127,7 +130,7 @@ export function twoslashRenderer(
             if ('targetString' in token) {
               range.classes = 'lsp'
               range.lsp = defaultShikiRenderer(
-                highlighter.codeToThemedTokens(token.text, 'ts'),
+                highlighter.codeToThemedTokens(token.text, 'typescript'),
                 {}
               )
             }

@@ -6,52 +6,39 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  onMounted,
-  ref,
-  computed,
-  onBeforeUnmount
-} from '@nuxtjs/composition-api'
+import Vue from 'vue'
 
-function useScrollIndicator() {
-  const scrollTop = ref(0)
-  const scrollHeight = ref(0)
-  const width = computed(() => {
-    const divided = scrollTop.value / scrollHeight.value
-    if (isNaN(divided)) {
-      return `0%`
-    }
-    return `${divided * 100}%`
-  })
-
-  function scrollHandler() {
-    scrollTop.value =
-      document.body.scrollTop || document.documentElement.scrollTop
-    scrollHeight.value =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
-  }
-
-  onMounted(() => {
-    window.addEventListener('load', scrollHandler)
-    window.addEventListener('scroll', scrollHandler)
-  })
-
-  onBeforeUnmount(() => {
-    window.removeEventListener('load', scrollHandler)
-    window.removeEventListener('scroll', scrollHandler)
-  })
-
-  return width
-}
-
-export default defineComponent({
-  setup() {
-    const width = useScrollIndicator()
-
+export default Vue.extend({
+  data() {
     return {
-      width
+      scrollTop: 0,
+      scrollHeight: 0
+    }
+  },
+  computed: {
+    width() {
+      const divided = this.scrollTop / this.scrollHeight
+      if (isNaN(divided)) {
+        return '0%'
+      }
+      return `${divided * 100}%`
+    }
+  },
+  mounted() {
+    window.addEventListener('load', this.scrollHandler)
+    window.addEventListener('scroll', this.scrollHandler)
+  },
+  beforeDestroy() {
+    window.removeEventListener('load', this.scrollHandler)
+    window.removeEventListener('scroll', this.scrollHandler)
+  },
+  methods: {
+    scrollHandler() {
+      this.scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop
+      this.scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight
     }
   }
 })
