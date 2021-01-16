@@ -16,7 +16,7 @@
         <div v-if="$route.name.includes('blog-slug')" class="profile__name">
           Jefrydco
         </div>
-        <h1 v-else="" class="profile__name">Jefrydco</h1>
+        <h1 v-else class="profile__name">Jefrydco</h1>
         <h2 class="profile__description">
           {{ $t('description') }}
         </h2>

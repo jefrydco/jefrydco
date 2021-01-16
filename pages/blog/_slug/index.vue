@@ -144,83 +144,6 @@ export default {
       blog: null
     }
   },
-  computed: {
-    separator() {
-      return (index) => {
-        const length = this.blog.contributors && this.blog.contributors.length
-        if (length === 2 || (length >= 3 && index === length - 2)) {
-          return ` ${this.$t('and')} `
-        }
-        if (length > 2 && index !== length - 1) {
-          return `, `
-        }
-        return ``
-      }
-    }
-  },
-  created() {
-    const slug = this.$route && this.$route.params && this.$route.params.slug
-    const locale = this.$i18n.locale
-    const locales = this.$i18n.locales
-    const defaultLocale = this.$i18n.defaultLocale
-    const availableLocales = locales.filter((i) => i.code !== locale)
-    let editPath = null
-    let blog = null
-    try {
-      if (locale === defaultLocale) {
-        editPath = `contents/blogs/${slug}/index.md`
-        blog = require(`~/contents/blogs/${slug}/index.md`)
-      } else {
-        editPath = `contents/blogs/${slug}/index.${locale}.md`
-        blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
-      }
-      if (isExists(blog)) {
-        const fullPath = `${HOSTNAME}/blog/${blog.attributes.slug}`
-
-        if (
-          isExists(blog.attributes.extraComponents) &&
-          Array.isArray(blog.attributes.extraComponents) &&
-          blog.attributes.extraComponents.length > 0
-        ) {
-          blog.attributes.extraComponents.forEach((component) => {
-            Vue.component(
-              component,
-              require(`~/components/contents/blogs/${blog.attributes.slug}/${component}`)
-                .default
-            )
-          })
-        }
-
-        this.availableLocales = availableLocales
-        this.blog = {
-          img: blog.attributes.img,
-          imgCreator: blog.attributes.imgCreator,
-          title: blog.attributes.title,
-          description: blog.attributes.description,
-          postedDate: blog.attributes.postedDate,
-          updatedDate: blog.attributes.updatedDate,
-          slug: blog.attributes.slug,
-          contributors: blog.attributes.contributors,
-          readingTime: readingTime(blog.html),
-          component: blog.vue.component,
-          fullPath,
-          discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
-            fullPath
-          )}`,
-          editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
-        }
-      }
-    } catch (error) {
-      this.$router.replace(this.localePath({ name: 'blog' }))
-    }
-  },
-  mounted() {
-    const hash = window.location.hash
-    if (hash) {
-      const element = document.querySelector(hash)
-      element.scrollIntoView({})
-    }
-  },
   head() {
     return {
       title: this.blog && this.blog.title,
@@ -371,6 +294,83 @@ export default {
           })
         }
       ]
+    }
+  },
+  computed: {
+    separator() {
+      return (index) => {
+        const length = this.blog.contributors && this.blog.contributors.length
+        if (length === 2 || (length >= 3 && index === length - 2)) {
+          return ` ${this.$t('and')} `
+        }
+        if (length > 2 && index !== length - 1) {
+          return `, `
+        }
+        return ``
+      }
+    }
+  },
+  created() {
+    const slug = this.$route && this.$route.params && this.$route.params.slug
+    const locale = this.$i18n.locale
+    const locales = this.$i18n.locales
+    const defaultLocale = this.$i18n.defaultLocale
+    const availableLocales = locales.filter((i) => i.code !== locale)
+    let editPath = null
+    let blog = null
+    try {
+      if (locale === defaultLocale) {
+        editPath = `contents/blogs/${slug}/index.md`
+        blog = require(`~/contents/blogs/${slug}/index.md`)
+      } else {
+        editPath = `contents/blogs/${slug}/index.${locale}.md`
+        blog = require(`~/contents/blogs/${slug}/index.${locale}.md`)
+      }
+      if (isExists(blog)) {
+        const fullPath = `${HOSTNAME}/blog/${blog.attributes.slug}`
+
+        if (
+          isExists(blog.attributes.extraComponents) &&
+          Array.isArray(blog.attributes.extraComponents) &&
+          blog.attributes.extraComponents.length > 0
+        ) {
+          blog.attributes.extraComponents.forEach((component) => {
+            Vue.component(
+              component,
+              require(`~/components/contents/blogs/${blog.attributes.slug}/${component}`)
+                .default
+            )
+          })
+        }
+
+        this.availableLocales = availableLocales
+        this.blog = {
+          img: blog.attributes.img,
+          imgCreator: blog.attributes.imgCreator,
+          title: blog.attributes.title,
+          description: blog.attributes.description,
+          postedDate: blog.attributes.postedDate,
+          updatedDate: blog.attributes.updatedDate,
+          slug: blog.attributes.slug,
+          contributors: blog.attributes.contributors,
+          readingTime: readingTime(blog.html),
+          component: blog.vue.component,
+          fullPath,
+          discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
+            fullPath
+          )}`,
+          editLink: `https://github.com/jefrydco/jefrydco/edit/master/${editPath}`
+        }
+      }
+    } catch (error) {
+      this.$router.replace(this.localePath({ name: 'blog' }))
+    }
+  },
+  mounted() {
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.querySelector(hash)
+      element.scrollIntoView({})
     }
   }
 }

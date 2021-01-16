@@ -19,6 +19,17 @@ export default {
       isDark: false
     }
   },
+  head() {
+    const i18nSeo = this.$nuxtI18nSeo()
+
+    return {
+      title: this.$t('description'),
+      bodyAttrs: {
+        class: this.isDark ? 'dark' : 'light'
+      },
+      ...i18nSeo
+    }
+  },
   mounted() {
     this.initColorScheme()
   },
@@ -43,17 +54,6 @@ export default {
           this.isDark = darkModeOn
         })
       }
-    }
-  },
-  head() {
-    const i18nSeo = this.$nuxtI18nSeo()
-
-    return {
-      title: this.$t('description'),
-      bodyAttrs: {
-        class: this.isDark ? 'dark' : 'light'
-      },
-      ...i18nSeo
     }
   }
 }

@@ -91,7 +91,7 @@
                     })
                   }}
                 </small>
-                <small v-else="">
+                <small v-else>
                   {{ $t('comment_info.cool') }}
                 </small>
               </transition>
@@ -123,7 +123,7 @@
           </vue-recaptcha>
         </client-only>
       </div>
-      <div v-else="" class="flex-form__success">
+      <div v-else class="flex-form__success">
         <p>{{ $t('comments_is_saved') }}</p>
         <p>{{ $t('your_opinion') }}</p>
         <div class="mb-8">

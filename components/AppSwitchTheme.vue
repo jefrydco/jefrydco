@@ -28,7 +28,7 @@
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
       <svg
-        v-else=""
+        v-else
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"

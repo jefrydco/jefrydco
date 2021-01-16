@@ -29,9 +29,7 @@
             <div
               class="flex-property__item flex-property__item--flex-direction"
             >
-              <h4 class="flex-property__heading">
-                Flex Direction
-              </h4>
+              <h4 class="flex-property__heading">Flex Direction</h4>
               <div class="flex-property__options">
                 <div
                   v-for="flexDirection in flexDirectionList"
@@ -52,9 +50,7 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--flex-wrap">
-              <h4 class="flex-property__heading">
-                Flex Wrap
-              </h4>
+              <h4 class="flex-property__heading">Flex Wrap</h4>
               <div class="flex-property__options">
                 <div
                   v-for="flexWrap in flexWrapList"
@@ -77,9 +73,7 @@
             <div
               class="flex-property__item flex-property__item--justify-content"
             >
-              <h4 class="flex-property__heading">
-                Justify Content
-              </h4>
+              <h4 class="flex-property__heading">Justify Content</h4>
               <div class="flex-property__options">
                 <div
                   v-for="justifyContent in justifyContentList"
@@ -100,9 +94,7 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--align-items">
-              <h4 class="flex-property__heading">
-                Align Items
-              </h4>
+              <h4 class="flex-property__heading">Align Items</h4>
               <div class="flex-property__options">
                 <div
                   v-for="alignItems in alignItemsList"
@@ -123,9 +115,7 @@
               </div>
             </div>
             <div class="flex-property__item flex-property__item--align-content">
-              <h4 class="flex-property__heading">
-                Align Content
-              </h4>
+              <h4 class="flex-property__heading">Align Content</h4>
               <div class="flex-property__options">
                 <div
                   v-for="alignContent in alignContentList"
@@ -189,9 +179,7 @@
               </h2>
               <div class="flex-property">
                 <div class="flex-property__item">
-                  <h4 class="flex-property__heading">
-                    Order
-                  </h4>
+                  <h4 class="flex-property__heading">Order</h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -206,9 +194,7 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h4 class="flex-property__heading">
-                    Flex Grow
-                  </h4>
+                  <h4 class="flex-property__heading">Flex Grow</h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -223,9 +209,7 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h4 class="flex-property__heading">
-                    Flex Shrink
-                  </h4>
+                  <h4 class="flex-property__heading">Flex Shrink</h4>
                   <div class="flex-property__options">
                     <label class="block">
                       <span>{{ $t('value') }}</span>
@@ -240,9 +224,7 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h4 class="flex-property__heading">
-                    Flex Basis
-                  </h4>
+                  <h4 class="flex-property__heading">Flex Basis</h4>
                   <div class="flex-property__options">
                     <div class="checkbox mb-5">
                       <label class="checkbox__label">
@@ -269,9 +251,7 @@
                   </div>
                 </div>
                 <div class="flex-property__item">
-                  <h4 class="flex-property__heading">
-                    Align Self
-                  </h4>
+                  <h4 class="flex-property__heading">Align Self</h4>
                   <div class="flex-property__options">
                     <div
                       v-for="alignSelf in alignSelfList"

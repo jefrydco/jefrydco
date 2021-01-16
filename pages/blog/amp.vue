@@ -67,15 +67,6 @@ export default {
       blogs: []
     }
   },
-  computed: {
-    rssLink() {
-      const { locale } = this.$i18n
-      if (locale === 'id') {
-        return `${HOSTNAME}/blog.xml`
-      }
-      return `${HOSTNAME}/${locale}/blog.xml`
-    }
-  },
   head() {
     const { locales } = this.$i18n
     const link = locales.map((locale) => {
@@ -203,6 +194,15 @@ export default {
           })
         }
       ]
+    }
+  },
+  computed: {
+    rssLink() {
+      const { locale } = this.$i18n
+      if (locale === 'id') {
+        return `${HOSTNAME}/blog.xml`
+      }
+      return `${HOSTNAME}/${locale}/blog.xml`
     }
   }
 }
