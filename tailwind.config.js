@@ -123,10 +123,13 @@ module.exports = {
             '.shiki__meta': {
               display: 'flex',
               justifyContent: 'space-between',
-              padding: `${theme('spacing.0')} ${theme('spacing.2')}`
+              padding: `${theme('spacing.2')} ${theme('spacing.4')}`
             },
             '.shiki__code code': {
-              borderRadius: 'unset'
+              borderRadius: 'unset',
+              backgroundColor: '#1a202c',
+              borderColor: '#2d3748',
+              padding: `${theme('spacing.2')} ${theme('spacing.4')}`
             },
             '.shiki__code .highlight, .shiki__code .error': {
               position: 'relative',
@@ -139,8 +142,8 @@ module.exports = {
               backgroundColor: 'rgba(203, 213, 224, .1)',
               backgroundImage:
                 'linear-gradient(to right, rgba(203, 213, 224, .1) 50%, rgba(203, 213, 224, 0))',
-              left: '-.55rem',
-              right: '-.55rem',
+              left: '-1rem',
+              right: '-1rem',
               zIndex: theme('zIndex.0')
             },
             '.shiki__code .highlight::before': {

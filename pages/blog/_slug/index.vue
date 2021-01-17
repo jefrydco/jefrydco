@@ -2,11 +2,14 @@
   <main id="blog-detail">
     <app-header-link :to="localePath('blog')" label="Blog" />
     <template v-if="blog">
-      <app-img
-        :src="blog.img"
-        :alt="blog.title"
-        class="blog-detail__img"
-      ></app-img>
+      <div class="blog-detail__img-wrapper">
+        <app-img
+          v-if="isLoaded"
+          :src="blog.img"
+          :alt="blog.title"
+          class="blog-detail__img"
+        ></app-img>
+      </div>
       <div class="max-w-4xl mx-auto">
         <article class="blog-detail__card">
           <header class="blog-detail__meta">
@@ -102,11 +105,14 @@
 </template>
 
 <script lang="ts">
-import { formatDate } from '~/extendables'
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Vue from 'vue'
+import { formatDate, isLoaded } from '~/extendables'
 import { HOSTNAME } from '~/constants'
 import type { BlogDataType } from '~/types/blog'
 
-export default formatDate.extend({
+export default formatDate.extend(isLoaded).extend({
   data() {
     return {
       availableLocales: [],
@@ -119,7 +125,9 @@ export default formatDate.extend({
 
     const availableLocales = locales.filter((i) => i.code !== locale)
     const blog = await app
-      .$content(`/${locale}/blog/${slug}`, { deep: true })
+      .$content(`/${locale}/blog/${slug}`, {
+        deep: true
+      })
       .fetch<BlogDataType>()
     const fullPath = `${HOSTNAME}/blog/${blog?.slug}`
 
@@ -313,11 +321,18 @@ export default formatDate.extend({
 <style>
 /* purgecss start ignore */
 .blog-detail {
+  &__img-wrapper {
+    @apply -m-40;
+    height: 48rem;
+    background-color: var(--inline-code-bg);
+  }
+
   &__img {
     @apply -m-40;
 
     img {
-      @apply w-full h-128 object-cover;
+      @apply w-full object-cover;
+      height: 48rem;
       filter: brightness(0.7);
     }
   }
@@ -332,11 +347,11 @@ export default formatDate.extend({
   }
 
   &__title {
-    @apply font-bold text-2xl mt-0 mb-4 leading-loose;
+    @apply font-bold text-2xl mt-0 mb-4;
   }
 
   &__date {
-    @apply leading-normal mb-4 text-base;
+    @apply leading-normal mb-4 text-sm;
   }
 
   &__translations {

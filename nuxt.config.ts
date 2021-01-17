@@ -222,11 +222,13 @@ export default {
   // https://content.nuxtjs.org/
   content: {
     dir: 'contents',
+    liveEdit: false,
     markdown: {
       remarkPlugins: ['remark-toc'],
       remarkToc: {
         heading: 'daftar isi|toc|table[ -]of[ -]contents?',
-        maxDepth: 3
+        maxDepth: 3,
+        ordered: true
       },
       async highlighter() {
         const highlighter = await createShikiHighlighter({
@@ -281,6 +283,8 @@ export default {
 
   // https://github.com/nuxt-community/google-fonts-module
   googleFonts: {
+    download: true,
+    base64: true,
     families: {
       Bitter: true,
       'Merriweather Sans': true,

@@ -12,7 +12,7 @@ extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
 <blockquote v-if="$route.name.includes('amp')">
-  <p>Kamu membuka versi AMP halaman ini, jika ingin menggunakan fitur interaktifnya silahkan beralih ke halaman versi biasanya melalui, <a :href="localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Belajar CSS Flexbox Secara Interaktif</a></p>
+  <!-- <p>Kamu membuka versi AMP halaman ini, jika ingin menggunakan fitur interaktifnya silahkan beralih ke halaman versi biasanya melalui, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Belajar CSS Flexbox Secara Interaktif</a></p> -->
 </blockquote>
 
 ## Bermain Flexbox

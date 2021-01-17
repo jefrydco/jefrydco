@@ -1,0 +1,63 @@
+<template>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name">
+    <div class="demo__card demo__card-2">
+      <pre class="demo__display keadaan"></pre>
+
+      <input type="number" class="demo__form input1" min="0" />
+      <select class="demo__form operator">
+        <option value="+">&plus;</option>
+        <option value="-">&minus;</option>
+        <option value="*">&times;</option>
+        <option value="/">&divide;</option>
+      </select>
+      <input type="number" class="demo__form input2" min="0" />
+
+      <div class="hasil"></div>
+
+      <script>
+        if (!window.keadaan2) {
+          // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
+          // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
+          window.keadaan2 = (function () {
+            const OPERATOR = {
+              TAMBAH: '+',
+              KURANG: '-',
+              KALI: '*',
+              BAGI: '/'
+            }
+
+            const keadaan = {
+              hasil: 0,
+              operator: OPERATOR.TAMBAH,
+              input1: 0,
+              input2: 0
+            }
+
+            function mulai() {
+              // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
+              // Hal tersebut mencegah scrip dieksekusi untuk semua demo
+              const tampilanKeadaan = document.querySelector(
+                '.demo__card-2 .keadaan'
+              )
+              tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
+            }
+
+            // Kita harus menjalankan fungsi karena skrip ini dieksekusi di dalam komponen vue
+            // document.addEventListener('DOMContentLoaded', mulai)
+            mulai()
+
+            return keadaan
+          })()
+        }
+      </script>
+    </div>
+  </app-demo>
+</template>
+
+<script lang="ts">
+import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
+
+export default ExtendableCreateReactivity1.extend({
+  name: 'AppDemo2Id'
+})
+</script>

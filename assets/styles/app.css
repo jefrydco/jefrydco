@@ -57,8 +57,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold;
   font-family: 'Bitter', serif;
-  font-weight: 600;
 }
 
 a {
@@ -67,6 +67,108 @@ a {
 
   &:hover {
     @apply no-underline;
+  }
+}
+
+.prose {
+  h1, h2, h3, h4, h5, h6 {
+    @apply mt-12 mb-5;
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h5 + h6 {
+    @apply mt-5;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+  
+  ol {
+    @apply list-decimal list-inside;
+  }
+  
+  ul, ol {
+    @apply ml-6;
+  
+    li {
+      @apply mb-3;
+
+      p:only-child {
+        @apply mb-0;
+      }
+  
+      ul, ol {
+        @apply my-3 ml-4;
+      }
+    }
+  }
+
+  blockquote,
+  quote {
+    @apply leading-loose mb-8 py-3 px-4 border-l-4 italic;
+    border-color: var(--inline-code-border);
+
+    p:only-child {
+      @apply mb-0;
+    }
+  }
+
+  .embed, .demo, .nuxt-content-highlight, .image-placeholder {
+    @apply mb-8;
+  }
+  
+  .embed {
+    @apply relative block h-0 p-0 overflow-hidden;
+  
+    video {
+      @apply absolute top-0 left-0 bottom-0 h-full w-full;
+      border: 0;
+    }
+  
+    &__square {
+      padding-top: 100%;
+    }
+  
+    &__16\/9 {
+      padding-top: 56.25%;
+    }
+  
+    &__4\/3 {
+      padding-top: 75%;
+    }
+  
+    &__21\/9 {
+      padding-top: 42.86%;
+    }
+  }
+  
+  .demo {
+    &__card {
+      @apply rounded p-4;
+      background-color: var(--bg);
+    }
+  
+    &__form {
+      @apply mb-4 py-1 px-2 rounded;
+      background-color: var(--card-bg);
+  
+      &:not(:last-child) {
+        @apply mr-2;
+      }
+  
+      &:disabled {
+        background-color: var(--bg-disabled);
+        color: var(--text-disabled);
+      }
+    }
+  
+    &__display {
+      @apply mb-4;
+      padding: .5rem 1rem;
+    }
   }
 }
 /* purgecss end ignore */

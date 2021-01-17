@@ -12,7 +12,7 @@ extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
 <blockquote v-if="$route.name.includes('amp')">
-  <p>You open the AMP version of this page, if you want to use the interactive features, please switch to the normal version via, <a :href="localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Learn CSS Flexbox in Interactive Way</a></p>
+  <!-- <p>You open the AMP version of this page, if you want to use the interactive features, please switch to the normal version via, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Learn CSS Flexbox in Interactive Way</a></p> -->
 </blockquote>
 
 ## Flexbox Playground

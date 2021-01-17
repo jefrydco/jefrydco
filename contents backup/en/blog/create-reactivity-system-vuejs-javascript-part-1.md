@@ -8,9 +8,10 @@ postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-1
 id: create-reactivity-system-vuejs-javascript-part-1
+extraComponents: ['AppDemo1En', 'AppDemo2En', 'AppDemo3En', 'AppDemo4En', 'AppDemo5En', 'AppDemo6En', 'AppDemo7En', 'AppDemo8En', 'AppDemo9En', 'AppDemo10En']
 ---
 
-> Read the second part here, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Create a Simplified Version of Vue.js Reactivity System - Bagian 2</app-locale-path-link>
+<!-- > Read the second part here, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } })">Create a Simplified Version of Vue.js Reactivity System - Bagian 2</a> -->
 
 Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly.
 
@@ -98,7 +99,7 @@ As a case point, we will create a simple calculator. Let say it has 2 input text
 <script></script>
 ```
 
-<app-demo-1-en></app-demo-1-en>
+<app-demo-1-en />
 
 First, we declare a `pre` tag which has a class attribute called `state`. It will be used to render the real value of the variable we use.
 
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', main)
 
 It aims to call the `main` function when the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) is already loaded.
 
-<app-demo-2-en></app-demo-2-en>
+<app-demo-2-en />
 
 After all, we also need to render the value of `result` property inside of `h1` tag.
 
@@ -196,7 +197,7 @@ It has the same way as displaying state to `pre` tag. The only difference is the
 
 Because of the type of the property value is `number`, we have to call `toString` function to change it into `string`.
 
-<app-demo-3-en></app-demo-3-en>
+<app-demo-3-en />
 
 Besides that, we also need to render the value of `input1` and `input2` property to both of the `input` tags.
 
@@ -215,7 +216,7 @@ We still use the same way as before to render the value of the state, the differ
 
 Before we set the `innerText` property, and then we use the `value` property.
 
-<app-demo-4-en></app-demo-4-en>
+<app-demo-4-en />
 
 After we apply the code above, both of the text input will render `0` because we also set the initial value of `input1` and `input2` property in `state` object to `0`.
 
@@ -231,7 +232,7 @@ function main() {
 
 After we add the code above the result won't make any difference because by default the `select` tag will render the first option.
 
-<app-demo-5-en></app-demo-5-en>
+<app-demo-5-en />
 
 Before we continue to the next step, let's make a little refactor to our code.
 
@@ -315,7 +316,7 @@ Each of the objects in the array has `value` property. So we get the value by ac
 
 After we get the value, we can set the `operator` property using it.
 
-<app-demo-6-en></app-demo-6-en>
+<app-demo-6-en />
 
 Adding the event listener is useful for setting `input1`, `input2` and `operator` property value when there is a change in both of the `input` tag and the `select` tag.
 
@@ -392,7 +393,7 @@ function main() {
 
 We can call the function inside the event listener callback. So that whenever there is a change in both of the input and the operator, it will calculate the result automatically.
 
-<app-demo-7-en></app-demo-7-en>
+<app-demo-7-en />
 
 We can check it by opening the browser console in this page and type the name of the variable for demo 7, which is `state7`.
 
@@ -438,7 +439,7 @@ The only thing we need to do is the same as `calculateResult` function, calling 
 
 We have to run the `calculateResult` first then the `updateDisplay`. So that the redisplayed value is in accordance with the result of the calculation.
 
-<app-demo-8-en></app-demo-8-en>
+<app-demo-8-en />
 
 On the demo above we already successfully create our own reactivity system, when there is a change in the input as well as in the operator. The result will recalculate automatically and the change will rerender to the browser view.
 
@@ -601,7 +602,7 @@ Pada contoh kode di atas kita memindahkan pemanggilan fungsi `calculateResult` d
 
 Hal tersebut bertujuan ketika properti `input1` diubah nilainya, akan dilakukan kalkulasi hasil dan pemutakhiran tampilan secara otomatis.
 
-<app-demo-9-en></app-demo-9-en>
+<app-demo-9-en />
 
 But on the example above we make the reactivity system running only on the `input1` property, but what we need is it runs on all of the property.
 
@@ -644,7 +645,7 @@ We also need to check inside of the `reactiveSetter` whether the value that will
 
 It is the same value, so the execution of the `reactiveSetter` function won't be continued. It avoids infinite loop execution.
 
-<app-demo-10-en></app-demo-10-en>
+<app-demo-10-en />
 
 By using that way, all of the property in the `state` object become reactive.
 

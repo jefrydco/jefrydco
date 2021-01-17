@@ -11,7 +11,7 @@ id: create-reactivity-system-vuejs-javascript-part-2
 extraComponents: ['AppDemo11Id', 'AppDemo12Id', 'AppDemo13Id', 'AppDemo14Id', 'AppDemo15Id']
 ---
 
-> Baca bagian pertama di sini, <a :href="localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } })">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1</a>
+<!-- > Baca bagian pertama di sini, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } })">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1</a> -->
 
 Pada bagian sebelumnya kita telah berhasil membuat sistem reaktivitas sendiri. Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan dalam satu waktu.
 

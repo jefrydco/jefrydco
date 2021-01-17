@@ -1,7 +1,7 @@
 <template>
   <article :id="slug" class="blog-item">
     <div class="blog-item__img">
-      <app-img :src="img" :alt="title" />
+      <app-img v-if="isLoaded" :src="img" :alt="title" />
     </div>
     <div class="blog-item__meta">
       <header>
@@ -44,9 +44,9 @@
 </template>
 
 <script lang="ts">
-import { formatDate } from '~/extendables'
+import { formatDate, isLoaded } from '~/extendables'
 
-export default formatDate.extend({
+export default formatDate.extend(isLoaded).extend({
   props: {
     img: {
       type: String,
@@ -88,6 +88,11 @@ export default formatDate.extend({
   @apply mb-12 mx-4 max-w-3xl rounded overflow-hidden shadow relative;
   background-color: var(--card-bg);
 
+  &__img {
+    @apply h-64 rounded;
+    background-color: var(--inline-code-bg);
+  }
+
   img {
     @apply h-64 w-full object-cover;
   }
@@ -105,7 +110,7 @@ export default formatDate.extend({
   }
 
   &__date {
-    @apply leading-normal mb-4 text-base;
+    @apply leading-normal mb-4 text-sm;
   }
 
   &__summary {

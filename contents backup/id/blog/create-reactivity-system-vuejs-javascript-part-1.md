@@ -8,9 +8,10 @@ postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-1
 id: create-reactivity-system-vuejs-javascript-part-1
+extraComponents: ['AppDemo1Id', 'AppDemo2Id', 'AppDemo3Id', 'AppDemo4Id', 'AppDemo5Id', 'AppDemo6Id', 'AppDemo7Id', 'AppDemo8Id', 'AppDemo9Id', 'AppDemo10Id']
 ---
 
-> Baca bagian kedua di sini, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 2</app-locale-path-link>
+<!-- > Baca bagian kedua di sini, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } })">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 2</a> -->
 
 Pernahkah teman-teman terpikirkan bagaimana Vue.js membuat suatu variabel menjadi reaktif? Menuliskan sesuatu di teks input dan melihat hasilnya di tempat lain secara instan.
 
@@ -98,7 +99,7 @@ Sebagai contoh kasus, kita akan membuat kalkulator sederhana. Katakanlah kalkula
 <script></script>
 ```
 
-<app-demo-1-id></app-demo-1-id>
+<app-demo-1-id />
 
 Pertama-tama kita mendeklarasikan sebuah tag `pre` yang memiliki atribut kelas bernama `keadaan`. Tag tersebut yang akan kita gunakan untuk menampilkan keadaan nyata dari variabel yang kita deklarasikan.
 
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', mulai)
 
 Fungsi tersebut bertujuan untuk memanggil fungsi `mulai` pada saat Model Objek Dokumen ([Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)) telah termuat.
 
-<app-demo-2-id></app-demo-2-id>
+<app-demo-2-id />
 
 Setelah berhasil menampilkan keadaan ke dalam tag `pre`, kita perlu juga menampilkan nilai properti `hasil` ke dalam tag `h1`.
 
@@ -196,7 +197,7 @@ Caranya hampir sama seperti menampilkan keadaan ke dalam tag `pre`. Perbedaannya
 
 Namun karena nilai dari properti tersebut bertipe `number`, kita harus memanggil fungsi `toString` untuk mengubahnya menjadi `string`.
 
-<app-demo-3-id></app-demo-3-id>
+<app-demo-3-id />
 
 Selain itu kita juga perlu menampilkan nilai dari properti `input1` dan `input2` pada kedua tag `input`.
 
@@ -215,7 +216,7 @@ Kita masih menggunakan cara yang sama untuk menampilkan nilai dari objek keadaan
 
 Jika sebelumnya kita mengeset properti `innerText`, untuk tag `input` yang kita set adalah properti `value`.
 
-<app-demo-4-id></app-demo-4-id>
+<app-demo-4-id />
 
 Setelah kita menerapkan kode di atas, kedua input teks akan menampilkan angka `0` karena kita juga mengeset nilai properti `input1` dan `input2` pada objek `keadaan` bernilai `0`.
 
@@ -231,7 +232,7 @@ function mulai() {
 
 Setelah menambahkan kode di atas hasilnya tidak akan berbeda jauh dengan demo sebelumnya karena secara standar tag `select` akan menampilkan opsi pertama.
 
-<app-demo-5-id></app-demo-5-id>
+<app-demo-5-id />
 
 Sebelum melanjutkan ke tahap selanjutnya, mari kita lakukan sedikit refaktor pada kode yang telah kita tulis sebelumnya.
 
@@ -317,7 +318,7 @@ Setiap objek di dalam daftar tersebut memiliki properti `value`. Sehingga kita d
 
 Setelah nilai dapat kita dapatkan, kita dapat mengatur properti `operator` pada objek `keadaan` dengan nilai tersebut.
 
-<app-demo-6-id></app-demo-6-id>
+<app-demo-6-id />
 
 Menambahkan pendengar peristiwa berfungsi untuk mengatur nilai properti `input1`, `input2` dan `operator` ketika terjadi perubahan pada kedua tag `input` dan tag `select`.
 
@@ -394,7 +395,7 @@ function mulai() {
 
 Kita dapat memanggil fungsi tersebut pada pendengar peristiwa. Sehingga setiap kali terjadi perubahan pada kedua input dan operator, secara otomatis nilai properti `hasil` akan dikalkulasi ulang.
 
-<app-demo-7-id></app-demo-7-id>
+<app-demo-7-id />
 
 Kita dapat mengeceknya dengan cara membuka konsol peramban pada halaman ini dan mengetikkan nama variabel untuk demo 7 yakni `keadaan7`.
 
@@ -440,7 +441,7 @@ Yang perlu kita lakukan sama seperti pada fungsi `kalkulasiHasil`, memanggil fun
 
 Kita harus memanggil fungsi `kalkulasiHasil` terlebih dahulu kemudian fungsi `mutakhirkanTampilan`. Sehingga nilai yang ditampilkan sesuai dengan hasil kalkulasi.
 
-<app-demo-8-id></app-demo-8-id>
+<app-demo-8-id />
 
 Pada demo di atas, kita telah berhasil membuat sistem reaktivitas sendiri, ketika terjadi perubahan nilai pada kedua input maupun pilihan operator. Hasilnya akan secara otomatis ditampilkan perubahannya di layar peramban.
 
@@ -605,7 +606,7 @@ Pada contoh kode di atas kita memindahkan pemanggilan fungsi `kalkulasiHasil` da
 
 Hal tersebut bertujuan ketika properti `input1` diubah nilainya, akan dilakukan kalkulasi hasil dan pemutakhiran tampilan secara otomatis.
 
-<app-demo-9-id></app-demo-9-id>
+<app-demo-9-id />
 
 Tetapi pada contoh di atas kita hanya membuat sistem reaktivitas berjalan pada properti `input1` saja, padahal yang kita perlukan dapat berjalan di semua properti.
 
@@ -648,7 +649,7 @@ Kita juga perlu melakukan pengecekan di dalam fungsi `pengaturReaktif` apakah ni
 
 Jika nilai tersebut sama, maka fungsi `pengaturReaktif` tidak akan dilanjutkan. Hal tersebut bertujuan untuk mencegah fungsi `pengaturReaktif` dieksekusi secara berulang hingga tak hingga.
 
-<app-demo-10-id></app-demo-10-id>
+<app-demo-10-id />
 
 Dengan menggunakan cara tersebut semua properti yang dimiliki oleh objek `keadaan` akan menjadi reaktif.
 

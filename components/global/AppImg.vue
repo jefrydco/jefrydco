@@ -1,5 +1,5 @@
 <template>
-  <figure v-lazy-container="{ selector: 'img' }" class="image-placeholder">
+  <figure v-lazy-container="{ selector: 'img' }" class="image__placeholder">
     <img
       :data-src="imageRequired.src"
       :data-srcset="imageRequired.srcSet"
@@ -88,7 +88,7 @@ export default Vue.extend({
 <style lang="postcss">
 /* purgecss start ignore */
 html:not([⚡]) {
-  .image-placeholder {
+  .image__placeholder {
     @apply overflow-hidden;
 
     img {
