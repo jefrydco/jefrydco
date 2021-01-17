@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
-    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/browserconfig": "^0.0.13",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/google-fonts": "^1.2.0",
@@ -56,7 +56,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@nuxt/types": "^2.14.12",
-    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/color-mode": "^2.0.2",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
