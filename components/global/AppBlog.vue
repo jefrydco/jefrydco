@@ -1,7 +1,7 @@
 <template>
   <article :id="slug" class="blog-item">
     <div class="blog-item__img">
-      <app-img v-if="isLoaded" :src="img" :alt="title" />
+      <app-img :src="img" :alt="title" />
     </div>
     <div class="blog-item__meta">
       <header>
@@ -44,9 +44,9 @@
 </template>
 
 <script lang="ts">
-import { formatDate, isLoaded } from '~/extendables'
+import { formatDate } from '~/extendables'
 
-export default formatDate.extend(isLoaded).extend({
+export default formatDate.extend({
   props: {
     img: {
       type: String,

@@ -4,7 +4,6 @@
     <template v-if="blog">
       <div class="blog-detail__img-wrapper">
         <app-img
-          v-if="isLoaded"
           :src="blog.img"
           :alt="blog.title"
           class="blog-detail__img"
@@ -108,11 +107,11 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Vue from 'vue'
-import { formatDate, isLoaded } from '~/extendables'
+import { formatDate } from '~/extendables'
 import { HOSTNAME } from '~/constants'
 import type { BlogDataType } from '~/types/blog'
 
-export default formatDate.extend(isLoaded).extend({
+export default formatDate.extend({
   data() {
     return {
       availableLocales: [],
@@ -322,23 +321,19 @@ export default formatDate.extend(isLoaded).extend({
 /* purgecss start ignore */
 .blog-detail {
   &__img-wrapper {
-    @apply -m-40;
-    height: 48rem;
+    @apply h-128;
     background-color: var(--inline-code-bg);
   }
 
   &__img {
-    @apply -m-40;
-
     img {
-      @apply w-full object-cover;
-      height: 48rem;
+      @apply w-full h-128 object-cover;
       filter: brightness(0.7);
     }
   }
 
   &__card {
-    @apply mb-4 p-6 mx-4 rounded overflow-hidden shadow relative;
+    @apply -m-64 mb-4 p-6 mx-4 rounded overflow-hidden shadow relative;
     background-color: var(--card-bg);
   }
 
