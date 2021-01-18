@@ -142,8 +142,8 @@ module.exports = {
               backgroundColor: 'rgba(203, 213, 224, .1)',
               backgroundImage:
                 'linear-gradient(to right, rgba(203, 213, 224, .1) 50%, rgba(203, 213, 224, 0))',
-              left: '-1rem',
-              right: '-1rem',
+              left: '-1.1rem',
+              right: '-1.1rem',
               zIndex: theme('zIndex.0')
             },
             '.shiki__code .highlight::before': {
