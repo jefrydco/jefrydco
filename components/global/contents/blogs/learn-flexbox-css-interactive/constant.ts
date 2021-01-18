@@ -50,4 +50,4 @@ export const ANSWERS_MIN_LENGTH = 70
 
 export const COMMENT_MIN_LENGTH = 30
 
-export const COOKIE_KEY = 'bfs'
+export const STORAGE_KEY = 'bfs'

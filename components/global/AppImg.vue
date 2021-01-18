@@ -6,9 +6,10 @@
       :data-loading="imageRequired.placeholder"
       :width="width"
       :height="height"
-      :class="classes"
+      :class="`${!rounded ? 'image__image--rounded-none' : null} ${classes}`"
       :alt="alt"
       :src="imageRequired.placeholder"
+      class="image__image"
     />
     <figcaption
       v-if="caption && source && sourceLink"
@@ -61,6 +62,10 @@ export default Vue.extend({
     sourceLink: {
       type: String,
       default: ''
+    },
+    rounded: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -90,20 +95,24 @@ export default Vue.extend({
 html:not([⚡]) {
   .image__placeholder {
     @apply overflow-hidden;
+  }
 
-    img {
-      @apply opacity-0 object-cover rounded;
-      transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-    }
+  .image__image {
+    @apply opacity-0 object-cover rounded;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
 
-    img[lazy='loading'] {
-      @apply opacity-100;
-      filter: blur(0.9375rem);
+    &--rounded-none {
+      @apply rounded-none;
     }
+  }
 
-    img[lazy='loaded'] {
-      @apply opacity-100;
-    }
+  .image__image[lazy='loading'] {
+    @apply opacity-100;
+    filter: blur(0.9375rem);
+  }
+
+  .image__image[lazy='loaded'] {
+    @apply opacity-100;
   }
 }
 /* purgecss end ignore */

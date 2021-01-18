@@ -42,7 +42,7 @@
     <transition name="fade" mode="out-in">
       <div v-if="!isSubmitted" class="flex-form__content">
         <client-only>
-          <intersect
+          <app-intersect
             :threshold="[0.5]"
             @enter="onContentRandomEnter"
             @leave="onContentRandomLeave"
@@ -59,7 +59,7 @@
                 </button>
               </transition-group>
             </div>
-          </intersect>
+          </app-intersect>
         </client-only>
         <div class="content__textarea">
           <label class="block">
@@ -110,18 +110,6 @@
             {{ isLoading ? $t('sending') : $t('send') }}
           </button>
         </div>
-        <client-only>
-          <vue-recaptcha
-            ref="recaptcha"
-            :sitekey="RECAPTCHA_API_KEY"
-            load-recaptcha-script=""
-            badge="bottomleft"
-            size="invisible"
-            @verify="onVerify"
-            @expired="onExpired"
-          >
-          </vue-recaptcha>
-        </client-only>
       </div>
       <div v-else class="flex-form__success">
         <p>{{ $t('comments_is_saved') }}</p>
@@ -142,33 +130,26 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ulid } from 'ulid'
-import firestoreParser from 'firestore-parser'
-import { ANSWERS_MIN_LENGTH, COMMENT_MIN_LENGTH, COOKIE_KEY } from './constant'
+import { ANSWERS_MIN_LENGTH, COMMENT_MIN_LENGTH, STORAGE_KEY } from './constant'
 import { isExists } from '~/utils'
-
-const Cookie = process.client ? require('js-cookie') : undefined
 
 export default Vue.extend({
   data() {
     return {
-      token: '',
       answers: '',
       comment: '',
-      rating: 0,
       isLoading: false,
       isSubmitted: false,
       hints: [],
-      RECAPTCHA_API_KEY: process.env.RECAPTCHA_API_KEY,
       ANSWERS_MIN_LENGTH,
       COMMENT_MIN_LENGTH
     }
   },
-  created() {
-    this.initHints({ random: false, reset: true })
-  },
   mounted() {
-    this.initForm()
+    this.getData()
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      this.initHints({ random: false, reset: true })
+    }
   },
   methods: {
     // Taken from: https://gist.github.com/guilhermepontes/17ae0cc71fa2b13ea8c20c94c5c35dc4#gistcomment-2271465
@@ -189,25 +170,11 @@ export default Vue.extend({
       }
       this.hints = hints
     },
-    initForm() {
-      const id = Cookie.get(COOKIE_KEY)
-      if (isExists(id) && id.length === 26) {
-        this.isSubmitted = true
-        this.getData(id)
-      }
-    },
     onContentRandomEnter() {
       this.initHints()
     },
     onContentRandomLeave() {
       this.initHints({ random: false })
-    },
-    onVerify(token) {
-      this.token = token
-      this.onSubmit()
-    },
-    onExpired() {
-      this.token = ''
     },
     onChoose(hint, i) {
       if (this.answers.length === 0) {
@@ -222,107 +189,43 @@ export default Vue.extend({
       this.initHints({ reset: true })
       this.answers = ''
       this.comment = ''
+      localStorage.removeItem(STORAGE_KEY)
     },
-    async onSubmit() {
-      if (isExists(this.token) && this.token.length > 0) {
-        if (
-          isExists(this.answers) &&
-          this.answers.length >= ANSWERS_MIN_LENGTH
-        ) {
-          try {
-            this.isLoading = true
-            const id = ulid()
-            const { success } = (await this.validateRecaptcha()) || {
-              success: false
-            }
-            if (!success) {
-              this.$refs.recaptcha.execute()
-            }
-            const data = await this.sendData(id)
-            if (data) {
-              if (data.error) {
-                throw new Error('Failed to submit data')
-              }
-              this.isSubmitted = true
-              this.token = ''
-              this.answers = ''
-              this.comment = ''
-              Cookie.set(COOKIE_KEY, id, {
-                expires: 30
-              })
-              await this.getData(id)
-            }
-          } catch (error) {
-          } finally {
-            this.isLoading = false
-          }
+    onSubmit() {
+      if (isExists(this.answers) && this.answers.length >= ANSWERS_MIN_LENGTH) {
+        try {
+          this.isLoading = true
+          this.sendData()
+          this.isSubmitted = true
+          this.answers = ''
+          this.comment = ''
+          this.getData()
+        } catch (error) {
+        } finally {
+          this.isLoading = false
         }
-      } else {
-        this.$refs.recaptcha.execute()
       }
     },
-    async validateRecaptcha() {
-      try {
-        const response = await fetch(
-          'https://us-central1-jefrydco.cloudfunctions.net/validateRecaptcha',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              token: this.token
-            })
-          }
-        )
-        return response.json()
-      } catch (error) {}
+    sendData() {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          answers: this.answers,
+          comment: this.comment
+        })
+      )
     },
-    async sendData(id) {
-      try {
-        const response = await fetch(
-          `https://firestore.googleapis.com/v1/projects/jefrydco/databases/(default)/documents/flexbox-survey?documentId=${id}&key=${process.env.FIREBASE_API_KEY}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              fields: {
-                token: {
-                  stringValue: this.token
-                },
-                answers: {
-                  stringValue: this.answers
-                },
-                comment: {
-                  stringValue: this.comment
-                }
-              }
-            })
-          }
-        )
-        return response.json()
-      } catch (error) {}
-    },
-    async getData(id) {
+    getData() {
       try {
         this.isLoading = true
-        const response = await fetch(
-          `https://firestore.googleapis.com/v1/projects/jefrydco/databases/(default)/documents/flexbox-survey/${id}?key=${process.env.FIREBASE_API_KEY}`
-        )
-        const data = await response.json()
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY))
         if (data) {
-          if (data.error) {
-            throw new Error('Failed to load data')
-          }
-          const { fields } = firestoreParser(data)
-          this.hints = fields.answers.split(' ')
-          this.comment = fields.comment
+          this.hints = data.answers.split(' ')
+          this.comment = data.comment
+          this.isSubmitted = true
         }
       } catch (error) {
         this.isSubmitted = false
-        Cookie.remove(COOKIE_KEY)
       } finally {
         this.isLoading = false
       }
@@ -332,19 +235,21 @@ export default Vue.extend({
 </script>
 
 <style>
-.content {
-  &__random,
-  &__action {
-    @apply flex flex-wrap;
-  }
+.prose {
+  .content {
+    &__random,
+    &__action {
+      @apply flex flex-wrap;
+    }
 
-  &__random,
-  &__textarea {
-    @apply mb-8;
-  }
+    &__random,
+    &__textarea {
+      @apply mb-8;
+    }
 
-  &__action {
-    @apply justify-end;
+    &__action {
+      @apply justify-end;
+    }
   }
 }
 </style>

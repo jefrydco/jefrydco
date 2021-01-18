@@ -151,24 +151,73 @@ a {
       background-color: var(--bg);
     }
   
-    &__form {
-      @apply mb-4 py-1 px-2 rounded;
-      background-color: var(--card-bg);
-  
-      &:not(:last-child) {
-        @apply mr-2;
-      }
-  
-      &:disabled {
-        background-color: var(--bg-disabled);
-        color: var(--text-disabled);
-      }
-    }
-  
-    &__display {
+    &__code {
       @apply mb-4;
       padding: .5rem 1rem;
     }
+
+    &__interactive {
+      @apply p-4;
+      border-color: var(--inline-code-bg)
+    }
+
+    &--combined {
+      .demo {
+        &__interactive {
+          @apply border-t-2 border-l-2 border-r-2 rounded-t-lg;
+        }
+  
+        &__card:not(.demo-card--custom--floating) {
+          @apply rounded-none
+        }
+  
+        &__code {
+          @apply rounded-b-lg rounded-t-none;
+        }
+      }
+    }
+  }
+
+  .btn, .textarea, .input, .demo__form {
+    @apply mb-4 py-1 px-2 rounded;
+  
+    &:not(:last-child) {
+      @apply mr-2;
+    }
+  
+    &:disabled {
+      background-color: var(--bg-disabled);
+      color: var(--text-disabled);
+    }
+  }
+
+  .radio,
+  .checkbox {
+    &__label,
+    &__input {
+      @apply cursor-pointer;
+    }
+
+    &__label {
+      @apply inline-flex items-center;
+    }
+
+    &__input {
+      color: var(--text-link);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.5);
+        border-color: var(--text-link);
+      }
+    }
+  }
+
+  .btn, .textarea, .input {
+    background-color: var(--bg);
+  }
+
+  .demo__form {
+    background-color: var(--card-bg)
   }
 }
 /* purgecss end ignore */

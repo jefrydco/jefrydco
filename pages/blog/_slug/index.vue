@@ -6,6 +6,7 @@
         <app-img
           :src="blog.img"
           :alt="blog.title"
+          :rounded="false"
           class="blog-detail__img"
         ></app-img>
       </div>
@@ -327,7 +328,7 @@ export default formatDate.extend({
 
   &__img {
     img {
-      @apply w-full h-128 object-cover;
+      @apply w-full h-128;
       filter: brightness(0.7);
     }
   }

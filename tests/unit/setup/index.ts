@@ -2,7 +2,6 @@ import { config, RouterLinkStub } from '@vue/test-utils'
 import {
   mockNuxtColorMode,
   mockNuxtContext,
-  mockNuxtHttp,
   mockRoute,
   mockAccessor
 } from '~/tests/unit/mocks'
@@ -20,7 +19,6 @@ config.mocks = {
   $nuxt: {
     context: {
       ...mockNuxtContext,
-      $http: mockNuxtHttp,
       route: mockRoute,
       app: {
         $accessor: mockAccessor

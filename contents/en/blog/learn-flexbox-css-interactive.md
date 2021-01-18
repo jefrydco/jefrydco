@@ -12,12 +12,12 @@ extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
 <blockquote v-if="$route.name.includes('amp')">
-  <!-- <p>You open the AMP version of this page, if you want to use the interactive features, please switch to the normal version via, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Learn CSS Flexbox in Interactive Way</a></p> -->
+  <p>You open the AMP version of this page, if you want to use the interactive features, please switch to the normal version via, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }">Learn CSS Flexbox in Interactive Way</app-locale-path-link></p>
 </blockquote>
 
 ## Flexbox Playground
 
-<app-flexbox />
+<app-flexbox></app-flexbox>
 
 ## Key Takeaways
 
@@ -25,7 +25,7 @@ So what do you think is Flexbox? Please answer by **ordering the random words** 
 
 So whenever you access this page, You still be able to see your answers, as long as it's within the 30 day period.
 
-<app-form />
+<app-form></app-form>
 
 ## References
 1. [CSS Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

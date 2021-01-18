@@ -20,8 +20,8 @@
 </i18n>
 
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo--combined">
+  <client-only>
+    <app-demo :path="DEFAULT_PATH" :name="$options.name" class="demo--combined">
       <div class="demo__interactive">
         <div class="interact">
           <h3 class="interact__heading">{{ $t('container') }}</h3>
@@ -140,7 +140,7 @@
                 <span>{{ $t('itemCount') }}</span>
                 <input
                   v-model.number="itemCount"
-                  class="mt-1 block w-full"
+                  class="input mt-1 block w-full"
                   type="number"
                   min="3"
                   max="27"
@@ -185,7 +185,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.order"
-                        class="mt-1 block w-full"
+                        class="input mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -200,7 +200,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.flexGrow"
-                        class="mt-1 block w-full"
+                        class="input mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -215,7 +215,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.flexShrink"
-                        class="mt-1 block w-full"
+                        class="input mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -241,7 +241,7 @@
                       <input
                         v-model.number="flexItemItem.flexBasis"
                         :disabled="flexItemItem.isFlexBasisAuto"
-                        class="mt-1 block w-full"
+                        class="input mt-1 block w-full"
                         type="number"
                         min="0"
                         max="100"
@@ -307,18 +307,16 @@
           is-floating=""
         />
       </transition>
-      <v-prism class="demo__code" language="markup">{{ html }}</v-prism>
-    </div>
-  </app-demo>
+      <pre class="demo__code">{{ html }}</pre>
+    </app-demo>
+  </client-only>
 </template>
 
 <script lang="ts">
-import VPrism from 'vue-prism-component'
 import vkbeautify from 'vkbeautify'
 import objToStyle from 'style-object-to-css-string'
 
 import ExtendableLearnFlexbox from './ExtendableLearnFlexbox'
-import AppFlexboxDemo from './AppFlexboxDemo'
 import {
   FLEX,
   FLEX_DIRECTION,
@@ -332,10 +330,6 @@ import {
 
 export default ExtendableLearnFlexbox.extend({
   name: 'AppFlexbox',
-  components: {
-    VPrism,
-    AppFlexboxDemo
-  },
   data() {
     return {
       itemCount: 3,
@@ -557,51 +551,33 @@ body {
     --text-box: theme('colors.gray.300');
   }
 }
-.radio,
-.checkbox {
-  &__label,
-  &__input {
-    @apply cursor-pointer;
-  }
-
-  &__label {
-    @apply inline-flex items-center;
-  }
-
-  &__input {
-    color: var(--text-link);
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.5);
-      border-color: var(--text-link);
+.prose {
+  .interact {
+    &__heading {
+      @apply my-0;
     }
   }
-}
-.interact {
-  &__heading {
-    @apply my-0;
-  }
-}
-.flex-property {
-  @apply flex flex-wrap;
+  .flex-property {
+    @apply flex flex-wrap;
 
-  &__item {
-    @apply mr-10 mb-5 flex-grow;
-  }
+    &__item {
+      @apply mr-10 mb-5 flex-grow;
+    }
 
-  &__heading {
-    @apply my-0;
-  }
+    &__heading {
+      @apply my-0;
+    }
 
-  &__scrollable {
-    @apply overflow-auto mb-8 p-6 shadow-inner rounded;
-    max-height: 24rem;
+    &__scrollable {
+      @apply overflow-auto mb-8 p-6 shadow-inner rounded;
+      max-height: 24rem;
+    }
   }
-}
-.scrollable {
-  &__item {
-    @apply p-4 mb-5 rounded border;
-    border-color: var(--inline-code-border);
+  .scrollable {
+    &__item {
+      @apply p-4 mb-5 rounded border;
+      border-color: var(--inline-code-border);
+    }
   }
 }
 /* purgecss end ignore */

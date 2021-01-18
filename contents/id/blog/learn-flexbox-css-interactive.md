@@ -12,12 +12,12 @@ extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
 <blockquote v-if="$route.name.includes('amp')">
-  <!-- <p>Kamu membuka versi AMP halaman ini, jika ingin menggunakan fitur interaktifnya silahkan beralih ke halaman versi biasanya melalui, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } })">Belajar CSS Flexbox Secara Interaktif</a></p> -->
+  <p>Kamu membuka versi AMP halaman ini, jika ingin menggunakan fitur interaktifnya silahkan beralih ke halaman versi biasanya melalui, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }">Belajar CSS Flexbox Secara Interaktif</app-locale-path-link></p>
 </blockquote>
 
 ## Bermain Flexbox
 
-<app-flexbox />
+<app-flexbox></app-flexbox>
 
 ## Poin Pembelajaran
 
@@ -25,7 +25,7 @@ Jadi menurut Kamu apa itu Flexbox? Jawab dengan cara **mengurutkan kata acak** d
 
 Sehingga ketika Kamu mengakses halaman ini lagi, Kamu masih dapat melihat jawaban kamu kembali, asalkan masih dalam tenggang waktu 30 hari tersebut.
 
-<app-form />
+<app-form></app-form>
 
 ## Referensi
 1. [CSS Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

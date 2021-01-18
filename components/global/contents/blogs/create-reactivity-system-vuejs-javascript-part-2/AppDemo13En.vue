@@ -1,7 +1,7 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
     <div class="demo__card demo__card-13">
-      <pre class="demo__display state"></pre>
+      <pre class="demo__code state"></pre>
 
       <input type="number" class="demo__form input1" min="0" />
       <select class="demo__form operator">
