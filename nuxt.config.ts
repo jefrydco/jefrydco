@@ -10,6 +10,7 @@ import {
   runTwoSlash,
   renderCodeToHTML
 } from './libs/shiki-twoslash'
+import ampify from './libs/ampify'
 
 DotEnv.config()
 
@@ -193,7 +194,7 @@ export default {
     '@nuxtjs/robots',
 
     // https://github.com/nuxt-community/sentry-module
-    // '@nuxtjs/sentry',
+    '@nuxtjs/sentry',
 
     // https://github.com/nuxt-community/nuxt-i18n
     'nuxt-i18n'
@@ -420,6 +421,18 @@ export default {
         document.readingTime = require('reading-time')(
           document.text as string
         ) as ReadingTimeType
+      }
+    },
+    // This hook is called before saving the html to flat file
+    'generate:page': (page: any) => {
+      if (/\/amp((\/.*$)|$)/gi.test(page.route)) {
+        page.html = ampify(page.html)
+      }
+    },
+    // This hook is called before serving the html to the browser
+    'render:route': (url: string, page: any) => {
+      if (/\/amp((\/.*$)|$)/gi.test(url)) {
+        page.html = ampify(page.html)
       }
     }
   },

@@ -13,7 +13,8 @@ const logger = consola.withScope('nuxt-responsive-loader')
 function initNuxtResponsiveLoader(
   nuxtResponsiveLoaderOptions: NuxtResponsiveLoaderOptions
 ): ExtendFunction {
-  return (config: WebpackConfiguration, ctx: ExtendFunctionContext) => {
+  // @ts-ignore
+  const extendedFunction: ExtendFunction = (conf: WebpackConfiguration, ctx: ExtendFunctionContext) => {
     const fileNames = ctx.isDev
       ? '[path][name].[ext]'
       : 'img/[name].[contenthash:7].[ext]'
@@ -31,7 +32,7 @@ function initNuxtResponsiveLoader(
       '.webp',
       '.avif'
     ]
-    const existingImageLoader = config.module?.rules.find((rule) =>
+    const existingImageLoader = conf.module?.rules.find((rule) =>
       extensions.every((ext) => (rule.test as RegExp).test(ext))
     )
 
@@ -58,7 +59,7 @@ function initNuxtResponsiveLoader(
     /**
      * Add the new loader rule
      */
-    config.module?.rules.push({
+    conf.module?.rules.push({
       test: /\.(png|jpe?g|webp|avif)$/i,
       loader: 'responsive-loader',
       options: {
@@ -67,6 +68,7 @@ function initNuxtResponsiveLoader(
       } as NuxtResponsiveLoaderOptions
     })
   }
+  return extendedFunction
 }
 
 const nuxtResponsiveLoader: Module<NuxtResponsiveLoaderOptions> = function () {
