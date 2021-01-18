@@ -11,7 +11,7 @@ id: create-reactivity-system-vuejs-javascript-part-2
 extraComponents: ['AppDemo11En', 'AppDemo12En', 'AppDemo13En', 'AppDemo14En', 'AppDemo15En']
 ---
 
-<!-- > Read the first part here, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } })">Create a Simplified Version of Vue.js Reactivity System - Part 1</a> -->
+> Read the first part here, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }">Create a Simplified Version of Vue.js Reactivity System - Part 1</app-locale-path-link>
 
 In the previous part, we have created our own reactivity system. But it still lacks a feature, it can only do one task at a time.
 
@@ -64,7 +64,7 @@ Then we also add 3 buttons that have name correspond to their function. They are
 
 Then we add the `h2` tag which will be used to display the stopwatch.
 
-<app-demo-11-en />
+<app-demo-11-en></app-demo-11-en>
 
 In the demo above, the previous calculator app is still working fine.
 
@@ -198,7 +198,7 @@ function main() {
 
 We also need to call the `updateStopwatch` function in order to the state of `secondState` is rendered on the browser view.
 
-<app-demo-12-en />
+<app-demo-12-en></app-demo-12-en>
 
 ### Reactive Creator
 
@@ -471,7 +471,7 @@ function main() {
 
 And because inside the body of `runner` function, we already called the parameter as a function, all of others execution of the `updateDisplay` function should be removed.
 
-<app-demo-13-en />
+<app-demo-13-en></app-demo-13-en>
 
 In the demo above, we display the real form of `state` object. But when there is a change, the calculation isn't done automatically.
 
@@ -486,7 +486,7 @@ function main() {
 
 Therefore, besides the real form of `state` is displayed, the recalculation process will be done as well.
 
-<app-demo-14-en />
+<app-demo-14-en></app-demo-14-en>
 
 We have refactored our code that only does a task at a time into code that can do many tasks.
 
@@ -503,7 +503,7 @@ function main() {
 
 And again, we need to remove all of other execution of the `updateStopwatch` function.
 
-<app-demo-15-en />
+<app-demo-15-en></app-demo-15-en>
 
 ## Recap
 

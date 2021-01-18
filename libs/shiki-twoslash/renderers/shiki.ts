@@ -1,11 +1,13 @@
+import type { IThemedToken } from 'shiki'
 import { ShikiRenderOptions } from '../types'
 import { escapeHtml } from '../utils'
 
-type Lines = import('shiki').IThemedToken[][]
+type Lines = IThemedToken[][]
 
 export function defaultShikiRenderer(
   lines: Lines,
   options: ShikiRenderOptions,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   lineHighlights?: number[]
 ) {
   let html = ''
@@ -21,6 +23,7 @@ export function defaultShikiRenderer(
   html += `</div>`
   html += `<div class="shiki__code"><code>`
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   lines.forEach((l, i) => {
     if (l.length === 0) {
       html += `\n`

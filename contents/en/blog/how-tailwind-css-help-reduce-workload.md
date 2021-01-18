@@ -25,13 +25,15 @@ Then he thought what kind of bottleneck he faces when developing a new feature, 
 
 ## Table of Contents
 
+## Use Case Example
+
 A principal engineer who has a daily basis, thinking and creating a tool to speed up feature development realizes these things.
 
 Several days before, he is instructed to add a new notification feature. He thought the notification he would make should be able to be reused by other engineers. Besides that, it should have various kinds of status, like success and error.
 
 First he created the notification like these,
 
-<app-notification />
+<app-notification></app-notification>
 
 using this code,
 
@@ -214,7 +216,7 @@ Tailwind CSS never force us to remember any single class. All of the class can b
 
 Let say we want to create a button like this,
 
-<app-button />
+<app-button></app-button>
 
 we can create a new class and use `@apply` to apply predefined class utilities from Tailwind CSS. The results will be as follow,
 

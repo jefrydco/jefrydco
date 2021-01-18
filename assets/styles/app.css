@@ -75,6 +75,30 @@ a {
     @apply mt-12 mb-5;
   }
 
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+  
+  h3 {
+    @apply text-lg;
+  }
+  
+  h4 {
+    @apply text-base;
+  }
+  
+  h5 {
+    @apply text-sm;
+  }
+  
+  h6 {
+    @apply text-xs;
+  }
+
   h1 + h2,
   h2 + h3,
   h3 + h4,
@@ -91,12 +115,12 @@ a {
   }
   
   ul, ol {
-    @apply ml-6;
+    @apply ml-8;
   
     li {
       @apply mb-3;
 
-      p:only-child {
+      p {
         @apply mb-0;
       }
   
@@ -116,7 +140,7 @@ a {
     }
   }
 
-  .embed, .demo, .nuxt-content-highlight, .image-placeholder {
+  .embed, .demo, .nuxt-content-highlight, .image__placeholder {
     @apply mb-8;
   }
   
@@ -203,7 +227,7 @@ a {
     }
 
     &__input {
-      color: var(--bg);
+      color: var(--inline-code-bg);
 
       &:focus {
         @apply shadow-none border-none;

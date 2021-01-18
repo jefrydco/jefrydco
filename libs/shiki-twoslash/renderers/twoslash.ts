@@ -35,8 +35,9 @@ export function twoslashRenderer(
   lines: Lines,
   options: ShikiRenderOptions,
   twoslash: TwoSlash,
-  highlighter: Highlighter
-  // lineHighlights?: number[]
+  highlighter: Highlighter,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  lineHighlights?: number[]
 ) {
   let html = ''
 

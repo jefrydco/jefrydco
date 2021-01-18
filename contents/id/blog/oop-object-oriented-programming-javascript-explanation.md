@@ -23,9 +23,9 @@ Oke langsung saja, pertama-tama untuk dapat memahami versi ribet konsep pemrogra
 
 ## Daftar Isi
 
-Sedangkan pada poin 5 - 8 baru akan di bahas versi ribet konsep pemrograman berbasis objek pada JavaScript. Kalau teman-teman merasa telah memahami konsep dasar yang saya sebutkan di atas, teman-teman dapat langsung meloncati pembahasan tersebut dan langsung menuju ke pembahasan inti.
-
 ## Objek
+
+Omong-omong, sedangkan pada poin 5 - 8 baru akan di bahas versi ribet konsep pemrograman berbasis objek pada JavaScript. Kalau teman-teman merasa telah memahami konsep dasar yang saya sebutkan di atas, teman-teman dapat langsung meloncati pembahasan tersebut dan langsung menuju ke pembahasan inti.
 
 Objek adalah suatu tipe data pada JavaScript yang terdiri dari kunci (_key_) dan nilai (_value_). Nilai tersebut dapat berupa semua tipe data lain pada JavaScript, seperti angka (_number_), huruf/alfabet/karakter (_string_), benar salah (_boolean_), _array_, fungsi atau bahkan berisi objek lain. Contoh objek seperti berikut:
 

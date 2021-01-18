@@ -3,7 +3,7 @@ import { escapeHtml } from '../utils'
 import { tsconfig } from '../tsconfig-oneliners.generated'
 import { ShikiRenderOptions } from '../types'
 
-type Lines = import('shiki').IThemedToken[][]
+type Lines = IThemedToken[][]
 
 /** Uses tmLanguage scopes to determine what the content of the token is */
 const tokenIsJSONKey = (token: IThemedToken) => {
@@ -29,6 +29,7 @@ const isKeyInTSConfig = (token: IThemedToken) => {
 export function tsconfigJSONRenderer(
   lines: Lines,
   options: ShikiRenderOptions,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   lineHighlights?: number[]
 ) {
   let html = ''
@@ -44,6 +45,7 @@ export function tsconfigJSONRenderer(
   html += `</div>`
   html += `<div class="shiki__code"><code>`
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   lines.forEach((l, i) => {
     if (l.length === 0) {
       html += `\n`

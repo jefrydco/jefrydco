@@ -11,7 +11,7 @@ id: create-reactivity-system-vuejs-javascript-part-2
 extraComponents: ['AppDemo11Id', 'AppDemo12Id', 'AppDemo13Id', 'AppDemo14Id', 'AppDemo15Id']
 ---
 
-<!-- > Baca bagian pertama di sini, <a :href="$i18n.localePath({ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } })">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1</a> -->
+> Baca bagian pertama di sini, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1</app-locale-path-link>
 
 Pada bagian sebelumnya kita telah berhasil membuat sistem reaktivitas sendiri. Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan dalam satu waktu.
 
@@ -64,7 +64,7 @@ Kemudian kita juga menambahkan 3 tombol yang memiliki nama sesuai fungsinya masi
 
 Kemudian kita juga menambahkan tag `h2` yang berfungsi untuk menampilkan detik.
 
-<app-demo-11-id />
+<app-demo-11-id></app-demo-11-id>
 
 Pada demo di atas, aplikasi kalkulator yang sebelumnya kita buat juga masih dapat bekerja dengan baik.
 
@@ -198,7 +198,7 @@ function mulai() {
 
 Kita juga perlu memanggil fungsi `mutakhirkanPenghitungDetik` agar keadaan sebenarnya objek `keadaanDetik` ditampilkan di layar peramban.
 
-<app-demo-12-id />
+<app-demo-12-id></app-demo-12-id>
 
 ### Pembuat Reaktif
 
@@ -471,7 +471,7 @@ function mulai() {
 
 Oya karena di dalam fungsi pelaksana kita telah memanggil parameternya sebagai fungsi, semua pemanggilan fungsi `mutakhirkanTampilan` harus kita hilangkan juga.
 
-<app-demo-13-id />
+<app-demo-13-id></app-demo-13-id>
 
 Demo di atas kita telah berhasil menampilkan keadaan sebenarnya dari variabel `keadaan`. Tetapi ketika terjadi perubahan tidak terjadi kalkulasi secara otomatis.
 
@@ -486,7 +486,7 @@ function mulai() {
 
 Dengan begitu selain keadaan sebenarnya dari variabel `keadaan` ditampilkan hasil juga akan terkalkulasi secara otomatis.
 
-<app-demo-14-id />
+<app-demo-14-id></app-demo-14-id>
 
 Kita telah berhasil merefaktor kode yang sebelumnya hanya dapat digunakan untuk satu pekerjaan menjadi dapat digunakan untuk banyak pekerjaan.
 
@@ -503,7 +503,7 @@ function mulai() {
 
 Sekali lagi kita perlu menghapus semua pemanggilan fungsi `mutakhirkanPenghitungDetik` karena ketika dijadikan parameter pada fungsi `pelaksana`, ia akan secara otomatis dipanggil.
 
-<app-demo-15-id />
+<app-demo-15-id></app-demo-15-id>
 
 ## Ikhtisar
 

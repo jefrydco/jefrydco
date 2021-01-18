@@ -11,9 +11,7 @@ id: learn-flexbox-css-interactive
 extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
-<blockquote v-if="$route.name.includes('amp')">
-  <p>You open the AMP version of this page, if you want to use the interactive features, please switch to the normal version via, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }">Learn CSS Flexbox in Interactive Way</app-locale-path-link></p>
-</blockquote>
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }" label="Learn CSS Flexbox in Interactive Way"></app-amp-notice>
 
 ## Flexbox Playground
 
@@ -21,9 +19,7 @@ extraComponents: ['AppFlexbox', 'AppForm']
 
 ## Key Takeaways
 
-So what do you think is Flexbox? Please answer by **ordering the random words** below to make the right answer. Your answers will be **stored** in Firestore database **for 30 days**.
-
-So whenever you access this page, You still be able to see your answers, as long as it's within the 30 day period.
+So what do you think is Flexbox? Please answer by **ordering the random words** below to make the right answer. Your answers will be **stored** in _localStorage_ database.
 
 <app-form></app-form>
 

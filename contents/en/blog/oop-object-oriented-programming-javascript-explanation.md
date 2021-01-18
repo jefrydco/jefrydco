@@ -23,9 +23,9 @@ Let's get started, the first thing we have to know before understanding the diff
 
 ## Table of Contents
 
-While in point 5 - 8, we will discuss the object-oriented programming in JavaScript itself. If You feel confident about the basic, You can jump up on to the core discussion directly.
-
 ## Object
+
+Anyway, while in point 5 - 8, we will discuss the object-oriented programming in JavaScript itself. If You feel confident about the basic, You can jump up on to the core discussion directly.
 
 Object is one kind of data type in JavaScript which consists of several keys and values. The values can be any others data type in JavaScript, like number, string, boolean, array, function or event another object.
 

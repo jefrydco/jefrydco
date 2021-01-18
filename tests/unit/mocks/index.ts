@@ -1,5 +1,3 @@
 export * from './nuxt-color-mode'
 export * from './nuxt-context'
-export * from './nuxt-http'
 export * from './router'
-export * from './store'

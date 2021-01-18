@@ -25,13 +25,15 @@ Lantas ia memikirkan selama ini hal-hal apa saja yang dapat menghambat pengemban
 
 ## Daftar Isi
 
+## Contoh Studi Kasus
+
 _Principal engineer_ yang kesehariannya memikirkan dan membuat _tool_ untuk mempercepat pengembangan suatu fitur menyadari hal ini.
 
 Beberapa hari yang lalu, ia baru saja diminta untuk menambahkan fitur notifikasi. Ia berpikir notifikasi yang ia buat harusnya dapat digunakan lagi oleh _engineer_ lain kedepannya. Selain itu, notifikasi tersebut juga seharusnya memiliki berbagai macam status, seperti sukses dan gagal.
 
 Awalnya ia membuat notifikasi tersebut seperti ini,
 
-<app-notification />
+<app-notification></app-notification>
 
 dengan kode seperti ini,
 
@@ -218,7 +220,7 @@ Sehingga agar lebih memudahkan penggunaan _class_ pada hal-hal yang umum seperti
 
 Katakanlah kita ingin membuat tombol seperti ini,
 
-<app-button />
+<app-button></app-button>
 
 kita dapat membuat nama _class_ baru dan menggunakan `@apply` untuk menerapkan utilitas _class_ yang telah disediakan Tailwind CSS. Hasilnya seperti berikut,
 

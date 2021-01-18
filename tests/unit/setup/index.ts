@@ -2,8 +2,7 @@ import { config, RouterLinkStub } from '@vue/test-utils'
 import {
   mockNuxtColorMode,
   mockNuxtContext,
-  mockRoute,
-  mockAccessor
+  mockRoute
 } from '~/tests/unit/mocks'
 
 config.stubs = {
@@ -13,16 +12,12 @@ config.stubs = {
 }
 
 config.mocks = {
-  $accessor: mockAccessor,
   $colorMode: mockNuxtColorMode,
   $route: mockRoute,
   $nuxt: {
     context: {
       ...mockNuxtContext,
-      route: mockRoute,
-      app: {
-        $accessor: mockAccessor
-      }
+      route: mockRoute
     }
   }
 }

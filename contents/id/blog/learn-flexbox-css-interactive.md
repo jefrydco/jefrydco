@@ -11,9 +11,7 @@ id: learn-flexbox-css-interactive
 extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
-<blockquote v-if="$route.name.includes('amp')">
-  <p>Kamu membuka versi AMP halaman ini, jika ingin menggunakan fitur interaktifnya silahkan beralih ke halaman versi biasanya melalui, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }">Belajar CSS Flexbox Secara Interaktif</app-locale-path-link></p>
-</blockquote>
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }" label="Belajar CSS Flexbox Secara Interaktif"></app-amp-notice>
 
 ## Bermain Flexbox
 
@@ -21,9 +19,7 @@ extraComponents: ['AppFlexbox', 'AppForm']
 
 ## Poin Pembelajaran
 
-Jadi menurut Kamu apa itu Flexbox? Jawab dengan cara **mengurutkan kata acak** di bawah ini agar menjadi jawaban yang tepat ya. Jawaban Kamu akan **disimpan** di basis data Firestore **selama 30 hari**. 
-
-Sehingga ketika Kamu mengakses halaman ini lagi, Kamu masih dapat melihat jawaban kamu kembali, asalkan masih dalam tenggang waktu 30 hari tersebut.
+Jadi menurut Kamu apa itu Flexbox? Jawab dengan cara **mengurutkan kata acak** di bawah ini agar menjadi jawaban yang tepat ya. Jawaban Kamu akan **disimpan** di basis data _localStorage_.
 
 <app-form></app-form>
 

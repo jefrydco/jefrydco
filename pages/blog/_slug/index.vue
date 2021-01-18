@@ -39,15 +39,15 @@
           </header>
           <div class="blog-detail__translations">
             {{ $t('readOtherLanguages') }}:
-            <a
+            <nuxt-link
               v-for="locale in availableLocales"
               :key="locale.code"
               :aria-label="locale.name"
-              :href="switchLocalePath(locale.code)"
+              :to="switchLocalePath(locale.code)"
               class="blog__translations__link"
             >
               {{ locale.name }}
-            </a>
+            </nuxt-link>
           </div>
           <nuxt-content :document="blog" class="prose prose-lg max-w-none" />
           <footer class="blog-detail__footer">

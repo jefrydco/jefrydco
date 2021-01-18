@@ -119,10 +119,17 @@
             {{ hint }}
           </button>
         </div>
-        <p>{{ $t('your_comments') }}</p>
-        <blockquote>
-          <p>{{ comment }}</p>
-        </blockquote>
+        <template v-if="comment">
+          <p>{{ $t('your_comments') }}</p>
+          <blockquote>
+            <p>{{ comment }}</p>
+          </blockquote>
+        </template>
+        <div class="content__action">
+          <button class="btn" :disabled="isLoading" @click="onReset">
+            {{ $t('reset') }}
+          </button>
+        </div>
       </div>
     </transition>
   </div>
@@ -187,6 +194,7 @@ export default Vue.extend({
     },
     onReset() {
       this.initHints({ reset: true })
+      this.isSubmitted = false
       this.answers = ''
       this.comment = ''
       localStorage.removeItem(STORAGE_KEY)

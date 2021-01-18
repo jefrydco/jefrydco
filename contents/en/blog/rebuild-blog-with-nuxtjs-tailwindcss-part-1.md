@@ -26,6 +26,7 @@ By the way, I don't provide a TLDR section because I think each section on this 
 
 ## Table of Contents
 
+## What JS framework/library I will use?
 Back off to the topic. In a few moments later I thought, sometimes I just want to write short sentences to express my feeling, can I do that in Medium? Probably, but I think Medium is not a place to do that.
 
 Medium has had a lot of users. The writing experience there is so good. Medium focuses on content, many great writers write on medium.
@@ -34,7 +35,6 @@ But in my opinion, my blog is not just the content I write, but also the blog it
 
 After long consideration, I decided to rebuild my own blog. I commit making my site more personal, writing there more frequent and spread it to the world more often. Here's come for the questions I mentioned above again.
 
-## What JS framework/library I will use?
 There are three choices for me regarding JS framework, they are jQuery, React and Vue. 
 
 ### jQuery

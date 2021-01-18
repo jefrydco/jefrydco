@@ -26,6 +26,7 @@ Omong-omong, saya tidak menyediakan bagian TLDR karena saya pikir setiap bagian 
 
 ## Daftar Isi
 
+## **Apa kerangka CSS yang akan saya gunakan?**
 Kembali ke topik. Dalam beberapa saat kemudian saya berpikir, kadang-kadang saya hanya ingin menulis kalimat pendek untuk mengekspresikan perasaan saya, dapatkah saya melakukannya di Medium? Mungkin, tapi saya pikir Medium bukan tempat untuk melakukan itu.
 
 Medium telah memiliki banyak pengguna. Pengalaman menulis di sana sangat bagus. Medium berfokus pada konten, banyak penulis hebat menulis di media.
@@ -34,7 +35,6 @@ Namun menurut saya, blog saya bukan hanya konten yang saya tulis, tetapi juga bl
 
 Setelah pertimbangan panjang, saya memutuskan untuk membangun kembali blog saya sendiri. Saya berkomitmen membuat situs saya lebih pribadi, menulis di sana lebih sering dan menyebarkannya ke dunia lebih sering. Inilah pertanyaan-pertanyaan yang saya sebutkan di atas lagi.
 
-## **Apa kerangka CSS yang akan saya gunakan?**
 Ada tiga pilihan bagi saya mengenai kerangka kerja JS, yaitu jQuery, React dan Vue.
 
 ### jQuery
