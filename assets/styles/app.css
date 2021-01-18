@@ -203,11 +203,11 @@ a {
     }
 
     &__input {
-      color: var(--text-link);
+      color: var(--bg);
 
       &:focus {
-        box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.5);
-        border-color: var(--text-link);
+        @apply shadow-none border-none;
+        outline: .125rem solid var(--text-normal)
       }
     }
   }
