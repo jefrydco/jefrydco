@@ -3,25 +3,25 @@
     <div class="demo__card demo__card-13">
       <pre class="demo__code keadaan"></pre>
 
-      <input type="number" class="input1" min="0" />
-      <select class="operator">
+      <input type="number" class="demo__form input1" min="0" />
+      <select class="demo__form operator">
         <option value="+">&plus;</option>
         <option value="-">&minus;</option>
         <option value="*">&times;</option>
         <option value="/">&divide;</option>
       </select>
-      <input type="number" class="input2" min="0" />
+      <input type="number" class="demo__form input2" min="0" />
 
       <div class="hasil"></div>
 
       <hr />
 
-      <pre class="keadaan-2"></pre>
+      <pre class="demo__code keadaan-2"></pre>
 
       <div>
-        <button class="mulai">Mulai</button>
-        <button class="berhenti">Berhenti</button>
-        <button class="reset">Reset</button>
+        <button class="btn mulai">Mulai</button>
+        <button class="btn berhenti">Berhenti</button>
+        <button class="btn reset">Reset</button>
       </div>
 
       <div class="detik"></div>

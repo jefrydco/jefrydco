@@ -1,5 +1,5 @@
 <template>
-  <a :href="localePath(to)" :target="target">
+  <a :href="localePath(to)">
     <slot />
   </a>
 </template>
@@ -15,10 +15,6 @@ export default Vue.extend({
       default() {
         return null
       }
-    },
-    target: {
-      type: String,
-      default: null
     }
   }
 })

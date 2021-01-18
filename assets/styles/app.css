@@ -71,6 +71,10 @@ a {
 }
 
 .prose {
+  hr {
+    @apply my-5;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply mt-12 mb-5;
   }
@@ -170,6 +174,10 @@ a {
   }
   
   .demo {
+    .btn, .textarea, .input {
+      background-color: var(--card-bg);
+    }
+
     &__card {
       @apply rounded p-4;
       background-color: var(--bg);

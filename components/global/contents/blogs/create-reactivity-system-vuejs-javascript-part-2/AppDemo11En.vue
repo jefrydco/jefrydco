@@ -16,12 +16,12 @@
 
       <hr />
 
-      <pre class="state-2"></pre>
+      <pre class="demo__code state-2"></pre>
 
       <div>
-        <button class="start">Start</button>
-        <button class="stop">Stop</button>
-        <button class="reset">Reset</button>
+        <button class="btn start">Start</button>
+        <button class="btn stop">Stop</button>
+        <button class="btn reset">Reset</button>
       </div>
 
       <div class="detik"></div>

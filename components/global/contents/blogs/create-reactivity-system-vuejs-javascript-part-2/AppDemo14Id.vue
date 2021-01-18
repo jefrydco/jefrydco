@@ -16,12 +16,12 @@
 
       <hr />
 
-      <pre class="keadaan-2"></pre>
+      <pre class="demo__code keadaan-2"></pre>
 
       <div>
-        <button class="mulai">Mulai</button>
-        <button class="berhenti">Berhenti</button>
-        <button class="reset">Reset</button>
+        <button class="btn mulai">Mulai</button>
+        <button class="btn berhenti">Berhenti</button>
+        <button class="btn reset">Reset</button>
       </div>
 
       <div class="detik"></div>
