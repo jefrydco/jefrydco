@@ -14,8 +14,27 @@
 
       <div class="hasil"></div>
 
-      <script>
-        if (!window.keadaan7) {
+      <div ref="script7" class="script"></div>
+    </div>
+  </app-demo>
+</template>
+
+<script lang="ts">
+import onetime from 'onetime'
+import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
+
+export default ExtendableCreateReactivity1.extend({
+  name: 'AppDemo7Id',
+  updated() {
+    this.init()
+  },
+  methods: {
+    init: onetime(function () {
+      // @ts-expect-error
+      const script7 = this.$refs?.script7 as Element
+      if (script7) {
+        const newScript = document.createElement('script')
+        const inlineScript = document.createTextNode(`if (!window.keadaan7) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
           window.keadaan7 = (function () {
@@ -111,16 +130,11 @@
 
             return keadaan
           })()
-        }
-      </script>
-    </div>
-  </app-demo>
-</template>
-
-<script lang="ts">
-import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
-
-export default ExtendableCreateReactivity1.extend({
-  name: 'AppDemo7Id'
+        }`)
+        newScript.appendChild(inlineScript)
+        script7.appendChild(newScript)
+      }
+    })
+  }
 })
 </script>

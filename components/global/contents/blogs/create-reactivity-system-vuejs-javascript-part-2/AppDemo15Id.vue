@@ -26,8 +26,27 @@
 
       <div class="detik"></div>
 
-      <script>
-        if (!window.keadaan15) {
+      <div refs="script15" class="script"></div>
+    </div>
+  </app-demo>
+</template>
+
+<script lang="ts">
+import onetime from 'onetime'
+import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
+
+export default ExtendableCreateReactivity2.extend({
+  name: 'AppDemo15En',
+  updated() {
+    this.init()
+  },
+  methods: {
+    init: onetime(function () {
+      // @ts-expect-error
+      const script15 = this.$refs?.script15 as Element
+      if (script15) {
+        const newScript = document.createElement('script')
+        const inlineScript = document.createTextNode(`if (!window.keadaan15) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
           window.keadaan15 = (function () {
@@ -238,16 +257,11 @@
               penghitungDetik: keadaanDetik
             }
           })()
-        }
-      </script>
-    </div>
-  </app-demo>
-</template>
-
-<script lang="ts">
-import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
-
-export default ExtendableCreateReactivity2.extend({
-  name: 'AppDemo15En'
+        }`)
+        newScript.appendChild(inlineScript)
+        script15.appendChild(newScript)
+      }
+    })
+  }
 })
 </script>

@@ -14,8 +14,27 @@
 
       <div class="result"></div>
 
-      <script>
-        if (!window.state3) {
+      <div ref="script3" class="script"></div>
+    </div>
+  </app-demo>
+</template>
+
+<script lang="ts">
+import onetime from 'onetime'
+import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
+
+export default ExtendableCreateReactivity1.extend({
+  name: 'AppDemo3En',
+  updated() {
+    this.init()
+  },
+  methods: {
+    init: onetime(function () {
+      // @ts-expect-error
+      const script3 = this.$refs?.script3 as Element
+      if (script3) {
+        const newScript = document.createElement('script')
+        const inlineScript = document.createTextNode(`if (!window.state3) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
           window.state3 = (function () {
@@ -53,16 +72,11 @@
 
             return state
           })()
-        }
-      </script>
-    </div>
-  </app-demo>
-</template>
-
-<script lang="ts">
-import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
-
-export default ExtendableCreateReactivity1.extend({
-  name: 'AppDemo3En'
+        }`)
+        newScript.appendChild(inlineScript)
+        script3.appendChild(newScript)
+      }
+    })
+  }
 })
 </script>

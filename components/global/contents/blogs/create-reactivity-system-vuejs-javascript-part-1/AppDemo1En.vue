@@ -14,15 +14,31 @@
 
       <div class="result"></div>
 
-      <script></script>
+      <div ref="script1" class="script"></div>
     </div>
   </app-demo>
 </template>
 
 <script lang="ts">
+import onetime from 'onetime'
 import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
 
 export default ExtendableCreateReactivity1.extend({
-  name: 'AppDemo1En'
+  name: 'AppDemo1En',
+  updated() {
+    this.init()
+  },
+  methods: {
+    init: onetime(function () {
+      // @ts-expect-error
+      const script1 = this.$refs?.script1 as Element
+      if (script1) {
+        const newScript = document.createElement('script')
+        const inlineScript = document.createTextNode(``)
+        newScript.appendChild(inlineScript)
+        script1.appendChild(newScript)
+      }
+    })
+  }
 })
 </script>

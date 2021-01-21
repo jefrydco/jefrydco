@@ -26,8 +26,27 @@
 
       <div class="second"></div>
 
-      <script>
-        if (!window.state15) {
+      <div refs="script15" class="script"></div>
+    </div>
+  </app-demo>
+</template>
+
+<script lang="ts">
+import onetime from 'onetime'
+import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
+
+export default ExtendableCreateReactivity2.extend({
+  name: 'AppDemo15En',
+  updated() {
+    this.init()
+  },
+  methods: {
+    init: onetime(function () {
+      // @ts-expect-error
+      const script15 = this.$refs?.script15 as Element
+      if (script15) {
+        const newScript = document.createElement('script')
+        const inlineScript = document.createTextNode(`if (!window.state15) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
           window.state15 = (function () {
@@ -234,16 +253,11 @@
               stopwatch: secondState
             }
           })()
-        }
-      </script>
-    </div>
-  </app-demo>
-</template>
-
-<script lang="ts">
-import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
-
-export default ExtendableCreateReactivity2.extend({
-  name: 'AppDemo15En'
+        }`)
+        newScript.appendChild(inlineScript)
+        script15.appendChild(newScript)
+      }
+    })
+  }
 })
 </script>
