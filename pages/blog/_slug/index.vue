@@ -123,7 +123,9 @@ export default formatDate.extend({
     const { locale, locales } = app.i18n
     const { slug } = route.params
 
+    // @ts-expect-error
     const availableLocales = locales.filter((i) => i.code !== locale)
+    // @ts-expect-error
     const blog = await app
       .$content(`/${locale}/blog/${slug}`, {
         deep: true
@@ -144,14 +146,17 @@ export default formatDate.extend({
   },
   head() {
     return {
+      // @ts-expect-error
       title: this.blog && this.blog.title,
       link: [
         {
           rel: 'amphtml',
           href: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog &&
             this.localePath({
               name: 'blog-slug-amp',
+              // @ts-expect-error
               params: { slug: this.blog.slug }
             })
           }`
@@ -161,15 +166,18 @@ export default formatDate.extend({
         {
           hid: 'og:title',
           property: 'og:title',
+          // @ts-expect-error
           content: this.blog && this.blog.title
         },
         {
           hid: 'og:url',
           property: 'og:url',
           content: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog &&
             this.localePath({
               name: 'blog-slug',
+              // @ts-expect-error
               params: { slug: this.blog.slug }
             })
           }`
@@ -178,6 +186,7 @@ export default formatDate.extend({
           hid: 'og:image',
           property: 'og:image',
           content: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog && require(`~/assets/images${this.blog.img}`)
           }`
         },
@@ -194,16 +203,19 @@ export default formatDate.extend({
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
+          // @ts-expect-error
           content: this.blog && this.blog.title
         },
         {
           hid: 'description',
           name: 'description',
+          // @ts-expect-error
           content: this.blog && this.blog.description
         },
         {
           hid: 'og:description',
           property: 'og:description',
+          // @ts-expect-error
           content: this.blog && this.blog.description
         }
       ],
@@ -215,29 +227,41 @@ export default formatDate.extend({
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
             mainEntityOfPage: `${HOSTNAME}${
+              // @ts-expect-error
               this.blog &&
               this.localePath({
                 name: 'blog-slug',
+                // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
             }`,
+            // @ts-expect-error
             headline: this.blog && this.blog.title,
+            // @ts-expect-error
             description: this.blog && this.blog.description,
+            // @ts-expect-error
             datePublished: this.blog && this.blog.postedDate,
+            // @ts-expect-error
             dateCreated: this.blog && this.blog.postedDate,
+            // @ts-expect-error
             dateModified: this.blog && this.blog.updatedDate,
+            // @ts-expect-error
             wordcount: this.blog && this.blog.readingTime.words,
             url: `${HOSTNAME}${
+              // @ts-expect-error
               this.blog &&
               this.localePath({
                 name: 'blog-slug',
+                // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
             }`,
+            // @ts-expect-error
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
               url: `${HOSTNAME}${
+                // @ts-expect-error
                 this.blog && require(`~/assets/images${this.blog.img}`)
               }`,
               height: '1920',
@@ -279,12 +303,15 @@ export default formatDate.extend({
                 position: 2,
                 item: {
                   '@id': `${HOSTNAME}${
+                    // @ts-expect-error
                     this.blog &&
                     this.localePath({
                       name: 'blog-slug',
+                      // @ts-expect-error
                       params: { slug: this.blog.slug }
                     })
                   }`,
+                  // @ts-expect-error
                   name: this.blog && this.blog.title
                 }
               }
@@ -296,7 +323,8 @@ export default formatDate.extend({
   },
   computed: {
     separator() {
-      return (index) => {
+      return (index: number) => {
+        // @ts-expect-error
         const length = this.blog.contributors && this.blog.contributors.length
         if (length === 2 || (length >= 3 && index === length - 2)) {
           return ` ${this.$t('and')} `
@@ -311,7 +339,7 @@ export default formatDate.extend({
   mounted() {
     const hash = window.location.hash
     if (hash) {
-      const element = document.querySelector(hash)
+      const element = document.querySelector(hash)!
       element.scrollIntoView({})
     }
   }

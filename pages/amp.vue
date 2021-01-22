@@ -8,6 +8,7 @@ export default {
     return {
       link: [
         {
+          hid: 'i18n-can',
           rel: 'canonical',
           href: `${HOSTNAME}${this.localePath({ name: 'index' })}`
         }

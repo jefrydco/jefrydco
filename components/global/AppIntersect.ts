@@ -33,6 +33,7 @@ export default Vue.extend({
     }
   },
   mounted() {
+    // @ts-expect-error
     this.observer = new IntersectionObserver(
       (entries) => {
         if (!entries[0].isIntersecting) {
@@ -44,8 +45,11 @@ export default Vue.extend({
         this.$emit('change', [entries[0]])
       },
       {
+        // @ts-expect-error
         threshold: this.threshold,
+        // @ts-expect-error
         root: this.root,
+        // @ts-expect-error
         rootMargin: this.rootMargin
       }
     )
@@ -62,13 +66,16 @@ export default Vue.extend({
         return
       }
 
+      // @ts-expect-error
       this.observer.observe(this.$slots.default[0].elm)
     })
   },
   destroyed() {
     this.$emit('destroyed')
+    // @ts-expect-error
     this.observer.disconnect()
   },
+  // @ts-expect-error
   render() {
     return this.$slots.default ? this.$slots.default[0] : null
   }

@@ -17,6 +17,7 @@ export default Vue.extend({
   },
   computed: {
     width() {
+      // @ts-expect-error
       const divided = this.scrollTop / this.scrollHeight
       if (isNaN(divided)) {
         return '0%'

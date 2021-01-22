@@ -25,19 +25,21 @@ import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
 
 export default ExtendableCreateReactivity1.extend({
   name: 'AppDemo1Id',
-  updated() {
-    this.init()
-  },
-  methods: {
-    init: onetime(function () {
-      // @ts-expect-error
+  mounted() {
+    const interval = setInterval(() => {
       const script1 = this.$refs?.script1 as Element
       if (script1) {
-        const newScript = document.createElement('script')
-        const inlineScript = document.createTextNode(``)
-        newScript.appendChild(inlineScript)
-        script1.appendChild(newScript)
+        this.init(script1)
+        clearInterval(interval)
       }
+    }, 50)
+  },
+  methods: {
+    init: onetime(function (script1: Element) {
+      const newScript = document.createElement('script')
+      const inlineScript = document.createTextNode(``)
+      newScript.appendChild(inlineScript)
+      script1.appendChild(newScript)
     })
   }
 })

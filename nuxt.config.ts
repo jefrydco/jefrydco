@@ -11,6 +11,7 @@ import {
   renderCodeToHTML
 } from './libs/shiki-twoslash'
 import ampify from './libs/ampify'
+import type { BlogListDataType } from './types/blog'
 
 DotEnv.config()
 
@@ -27,7 +28,6 @@ export default {
       return 'Jefrydco'
     },
     meta: [
-      { charset: 'utf-8' },
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, minimum-scale=1'
@@ -285,7 +285,6 @@ export default {
   // https://github.com/nuxt-community/google-fonts-module
   googleFonts: {
     download: true,
-    base64: true,
     families: {
       Bitter: true,
       'Merriweather Sans': true,
@@ -412,7 +411,25 @@ export default {
   // https://nuxtjs.org/guides/configuration-glossary/configuration-generate
   generate: {
     // choose to suit your project
-    interval: 3000
+    interval: 5000,
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      // @ts-expect-error
+      const paths: BlogListDataType = await $content(`/id/blog`, {
+        deep: true
+      })
+        .only(['slug'])
+        .sortBy('postedDate', 'desc')
+        .fetch<BlogListDataType>()
+
+      return locales
+        .map((locale) =>
+          locale.code === 'id'
+            ? paths.map((path) => `/blog/${path.slug}/amp`)
+            : paths.map((path) => `/${locale.code}/blog/${path.slug}/amp`)
+        )
+        .flat()
+    }
   },
 
   hooks: {

@@ -9,6 +9,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  // @ts-expect-error
   head() {
     return {
       title: this.$t('description'),

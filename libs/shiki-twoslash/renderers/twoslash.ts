@@ -167,7 +167,7 @@ export function twoslashRenderer(
         .map((e) => escapeHtml(e.renderedMessage))
         .join('</br>')
       const codes = errors.map((e) => e.code).join('<br/>')
-      html += `<div class="error"><span class="code">[${codes}]</span> <span>${messages}</span></div>`
+      html += `<div class="error"><span class="error__code">[${codes}]</span> <span class="error__message">${messages}</span></div>`
       // html += `<span class="error-behind">${messages}</span>`
     }
 

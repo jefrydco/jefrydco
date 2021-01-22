@@ -25,16 +25,19 @@ import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
 
 export default ExtendableCreateReactivity1.extend({
   name: 'AppDemo5En',
-  updated() {
-    this.init()
-  },
-  methods: {
-    init: onetime(function () {
-      // @ts-expect-error
+  mounted() {
+    const interval = setInterval(() => {
       const script5 = this.$refs?.script5 as Element
       if (script5) {
-        const newScript = document.createElement('script')
-        const inlineScript = document.createTextNode(`if (!window.state5) {
+        this.init(script5)
+        clearInterval(interval)
+      }
+    }, 50)
+  },
+  methods: {
+    init: onetime(function (script5: Element) {
+      const newScript = document.createElement('script')
+      const inlineScript = document.createTextNode(`if (!window.state5) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
           window.state5 = (function () {
@@ -88,9 +91,8 @@ export default ExtendableCreateReactivity1.extend({
             return state
           })()
         }`)
-        newScript.appendChild(inlineScript)
-        script5.appendChild(newScript)
-      }
+      newScript.appendChild(inlineScript)
+      script5.appendChild(newScript)
     })
   }
 })

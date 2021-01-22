@@ -161,21 +161,24 @@ export default Vue.extend({
   methods: {
     // Taken from: https://gist.github.com/guilhermepontes/17ae0cc71fa2b13ea8c20c94c5c35dc4#gistcomment-2271465
     initHints(
-      { random = true, reset = false } = { random: true, reset: false }
+      {
+        random = true,
+        reset = false
+      }: { random?: boolean; reset?: boolean } = { random: true, reset: false }
     ) {
       let hints = []
       if (reset) {
-        hints = this.$t('flexbox').split(' ')
+        hints = (this.$t('flexbox') as string).split(' ')
       } else {
         hints = this.hints
       }
       if (random) {
         hints = hints
           .map((a) => [Math.random(), a])
-          .sort((a, b) => a[0] - b[0])
+          .sort((a: any, b: any) => a[0] - b[0])
           .map((a) => a[1])
       }
-      this.hints = hints
+      this.hints = hints as never[]
     },
     onContentRandomEnter() {
       this.initHints()
@@ -183,7 +186,7 @@ export default Vue.extend({
     onContentRandomLeave() {
       this.initHints({ random: false })
     },
-    onChoose(hint, i) {
+    onChoose(hint: string, i: number) {
       if (this.answers.length === 0) {
         this.answers = hint
         this.hints.splice(i, 1)
@@ -226,7 +229,7 @@ export default Vue.extend({
     getData() {
       try {
         this.isLoading = true
-        const data = JSON.parse(localStorage.getItem(STORAGE_KEY))
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY) as string)
         if (data) {
           this.hints = data.answers.split(' ')
           this.comment = data.comment

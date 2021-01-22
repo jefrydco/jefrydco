@@ -26,7 +26,7 @@
 
       <div class="detik"></div>
 
-      <div refs="script12" class="script"></div>
+      <div ref="script12" class="script"></div>
     </div>
   </app-demo>
 </template>
@@ -37,16 +37,19 @@ import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
 
 export default ExtendableCreateReactivity2.extend({
   name: 'AppDemo12Id',
-  updated() {
-    this.init()
-  },
-  methods: {
-    init: onetime(function () {
-      // @ts-expect-error
+  mounted() {
+    const interval = setInterval(() => {
       const script12 = this.$refs?.script12 as Element
       if (script12) {
-        const newScript = document.createElement('script')
-        const inlineScript = document.createTextNode(`if (!window.keadaan12) {
+        this.init(script12)
+        clearInterval(interval)
+      }
+    }, 50)
+  },
+  methods: {
+    init: onetime(function (script12: Element) {
+      const newScript = document.createElement('script')
+      const inlineScript = document.createTextNode(`if (!window.keadaan12) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
           window.keadaan12 = (function () {
@@ -225,9 +228,8 @@ export default ExtendableCreateReactivity2.extend({
             }
           })()
         }`)
-        newScript.appendChild(inlineScript)
-        script12.appendChild(newScript)
-      }
+      newScript.appendChild(inlineScript)
+      script12.appendChild(newScript)
     })
   }
 })

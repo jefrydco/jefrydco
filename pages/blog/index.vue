@@ -32,6 +32,7 @@ export default Vue.extend({
   async asyncData({ app }) {
     const { locale } = app.i18n
 
+    // @ts-expect-error
     const blogList = await app
       .$content(`/${locale}/blog`, { deep: true })
       .only([
@@ -58,11 +59,14 @@ export default Vue.extend({
   },
   head() {
     const { locales } = this.$i18n
+    // @ts-expect-error
     const link = locales.map((locale) => {
       let href = null
+      // @ts-expect-error
       if (locale.code === 'id') {
         href = `${HOSTNAME}/blog.xml`
       } else {
+        // @ts-expect-error
         href = `${HOSTNAME}/${locale.code}/blog.xml`
       }
       return {
@@ -125,6 +129,7 @@ export default Vue.extend({
                 height: '3102'
               }
             },
+            // @ts-expect-error
             blogPosts: this.blogList.map((blog) => ({
               '@type': 'blogPosting',
               mainEntityOfPage: `${HOSTNAME}${this.localePath({

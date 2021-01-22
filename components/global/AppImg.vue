@@ -6,7 +6,9 @@
       :data-loading="imageRequired.placeholder"
       :width="width"
       :height="height"
-      :class="`${!rounded ? 'image__image--rounded-none' : null} ${classes}`"
+      :class="
+        `${!rounded ? 'image__image--rounded-none' : ''} ${classes}`.trim()
+      "
       :alt="alt"
       :src="imageRequired.placeholder"
       class="image__image"
@@ -77,13 +79,16 @@ export default Vue.extend({
     }
   },
   created() {
+    // @ts-expect-error
     this.initLocaleI18n()
   },
   methods: {
     initLocaleI18n() {
+      // @ts-expect-error
       const keys = Object.keys(this?.caption ?? {})
       keys.forEach((key) => {
-        this.$i18n.mergeLocaleMessage(key, this.caption[key])
+        // @ts-expect-error
+        this.$i18n.mergeLocaleMessage(key, this?.caption[key])
       })
     }
   }

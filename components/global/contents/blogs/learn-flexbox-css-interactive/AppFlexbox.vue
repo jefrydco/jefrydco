@@ -314,6 +314,7 @@
 
 <script lang="ts">
 import vkbeautify from 'vkbeautify'
+// @ts-ignore
 import objToStyle from 'style-object-to-css-string'
 
 import ExtendableLearnFlexbox from './ExtendableLearnFlexbox'
@@ -361,20 +362,22 @@ export default ExtendableLearnFlexbox.extend({
   },
   computed: {
     containerClass() {
-      return this.$t('container').toLowerCase()
+      return (this.$t('container') as string).toLowerCase()
     },
     itemClass() {
-      return this.$t('item').toLowerCase()
+      return (this.$t('item') as string).toLowerCase()
     },
     flexContainerStyle() {
+      // @ts-ignore
       return `.${this.containerClass} {${objToStyle(this.flexContainer).replace(
         /\n/g,
         ''
       )}}`
     },
     flexItemStyle() {
+      // @ts-ignore
       return this.flexItemList
-        .map((flexItemItem) =>
+        .map((flexItemItem: any) =>
           !(
             Object.values(flexItemItem.style).join('') ===
             [0, 0, 1, AUTO, ALIGN_SELF.AUTO].join('')
@@ -388,21 +391,25 @@ export default ExtendableLearnFlexbox.extend({
     },
     style() {
       return vkbeautify.css(
+        // @ts-expect-error
         `${this.flexContainerStyle}.${this.itemClass} {background-color: #ed8936;color: #fff;width: 4rem;height: 4rem;border-radius: 0.25rem;margin: 0.25rem;padding: 1rem;text-align: center;font-size: 1.25rem;cursor: pointer;}${this.flexItemStyle}`,
         '  '
       )
     },
     html() {
       return vkbeautify.xml(
+        // @ts-expect-error
         `<div class="${this.containerClass}">
           ${Array.from(
             {
+              // @ts-expect-error
               length: this.itemCount
             },
             (_, i) => i
           )
             .map(
               (i) =>
+                // @ts-expect-error
                 `<div class="${this.itemClass} ${this.itemClass}-${i + 1}">${
                   i + 1
                 }</div>`
@@ -411,7 +418,10 @@ export default ExtendableLearnFlexbox.extend({
         </div>
 
         <style>
-${this.style}</style>`,
+${
+  // @ts-expect-error
+  this.style
+}</style>`,
         '  '
       )
     }
@@ -455,6 +465,7 @@ ${this.style}</style>`,
         if (itemCount > 12) {
           this.itemCount = 12
         }
+        // @ts-expect-error
         this.flexItemList = Array.from({ length: itemCount }, (_, i) => ({
           index: i + 1,
           isFlexBasisAuto: true,
@@ -475,6 +486,7 @@ ${this.style}</style>`,
     onReset() {
       this.isDifferentHeight = false
       this.itemCount = 3
+      // @ts-expect-error
       this.flexItemList = Array.from({ length: this.itemCount }, (_, i) => ({
         index: i + 1,
         isFlexBasisAuto: true,
@@ -499,7 +511,7 @@ ${this.style}</style>`,
       this.onBoxClicked(1)
     },
     // Taken from: https://stackoverflow.com/a/45411081/7711812
-    scrollParentToChild(parent, child) {
+    scrollParentToChild(parent: HTMLElement, child: HTMLElement) {
       // Where is the parent on page
       const parentRect = parent.getBoundingClientRect()
       // What can you see?
@@ -524,11 +536,13 @@ ${this.style}</style>`,
         })
       }
     },
-    onBoxClicked(index) {
-      const scrollable = document.querySelector('.flex-property__scrollable')
+    onBoxClicked(index: number) {
+      const scrollable = document.querySelector(
+        '.flex-property__scrollable'
+      ) as HTMLElement
       const scrollableItem = document.querySelector(
         `.scrollable__item--${index}`
-      )
+      ) as HTMLElement
       this.scrollParentToChild(scrollable, scrollableItem)
     },
     onFlexboxDemoEnter() {

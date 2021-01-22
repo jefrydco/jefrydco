@@ -1,11 +1,26 @@
+<i18n>
+{
+  "id": {
+    "demo_notice": "Jika demo di atas tidak bekerja, silahkan muat ulang halaman ini"
+  },
+  "en": {
+    "demo_notice": "If the demo above doesn't work, please kindly refresh this page"
+  }
+}
+</i18n>
+
 <template>
   <figure :id="name" class="demo">
     <slot />
     <figcaption class="text-sm text-center mt-4">
-      {{ $t('editDemoGithub') }}
-      <a :href="githubUrl" target="_blank" rel="noopener noreferrer">
-        {{ name }}
-      </a>
+      <p>{{ $t('demo_notice') }}.</p>
+      <p>
+        {{ $t('editDemoGithub') }}
+        <a :href="githubUrl" target="_blank" rel="noopener noreferrer">
+          {{ name }}
+        </a>
+        .
+      </p>
     </figcaption>
   </figure>
 </template>

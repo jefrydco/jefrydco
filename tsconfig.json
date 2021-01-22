@@ -35,6 +35,7 @@
     ]
   },
   "exclude": [
+    "tests",
     "node_modules"
   ]
 }

@@ -7,6 +7,19 @@ const ampAnalyticsScript = `<script async custom-element="amp-analytics" src="ht
 const ampVideoScript = `<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>`
 const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>`
 const ampAnalytics = `<amp-analytics type="gtag" data-credentials="include"><script type="application/json">{"vars":{"gtag_id":"${process.env.GOOGLE_ANALYTICS}","config":{"${process.env.GOOGLE_ANALYTICS}":{"groups":"default"}}}}</script></amp-analytics>`
+const colorMap = {
+  "--bg": "#2d3748",
+  "--bg-disabled": "#718096",
+  "--text-normal": "#e2e8f0",
+  "--text-disabled": "#a0aec0",
+  "--text-title": "#edf2f7",
+  "--text-link": "#f6ad55",
+  "--card-bg": "#4a5568",
+  "--inline-code-bg": "#1a202c",
+  "--inline-code-border": "#2d3748",
+  "--inline-code-text": "#e2e8f0",
+  "--error": "#fc8181"
+} as Record<string, string>
 
 export default (html: string) => {
   const isHasVideo = html.match(/<video([^>]*)>/gi)
@@ -23,13 +36,20 @@ export default (html: string) => {
       return ''
     }
   )
+
+  // Remove media query. Regex taken from: https://stackoverflow.com/a/27616920
+  styleConcat = styleConcat.replace(/@media[^{]+\{([\s\S]+?\})\s*\}/gi, '')
+  Object.keys(colorMap).forEach((colorKey) => {
+    styleConcat = styleConcat.replace(new RegExp(`var\\(${colorKey}\\)`, 'gi'), colorMap[colorKey])
+  })
+
   html = html.replace(
     '</head>',
     `<style amp-custom>${styleConcat}</style></head>`
   )
 
   // Remove preload and prefetch tags
-  html = html.replace(/<link[^>]*rel="(?:preload|prefetch)?"[^>]*>/gi, '')
+  html = html.replace(/<link[^>]*rel="(?:preload|prefetch|modulepreload)?"[^>]*>/gi, '')
 
   // Remove amphtml tag
   html = html.replace(/<link[^>]*rel="(?:amphtml)?"[^>]*>/gi, '')
@@ -42,8 +62,12 @@ export default (html: string) => {
     }
   )
 
+
   // Replace img tags with amp-img
-  html = html.replace(/<img([^>]*)>/gi, (_match, sub) => {
+  html = html.replace(/<img([^>]*)>/gi, (_match, sub: string) => {
+    if (/data-src="([^"]*)"/gi.exec(sub)?.length) {
+      sub = sub.replace(/(?<!data-)src="(data:image\/[^;]+;base64[^"]+)"/gi, '')
+    }
     sub = sub.replace(/data-src/gi, 'src')
     sub = sub.replace(/data-srcset/gi, 'srcset')
     return `<amp-img ${sub} layout=intrinsic></amp-img>`

@@ -1,19 +1,25 @@
 <script lang="ts">
-import Page from './index'
+import Page from './index.vue'
 import { HOSTNAME } from '~/constants'
 
 export default {
   extends: Page,
+  // @ts-expect-error
   head() {
     return {
+      // @ts-expect-error
       title: this.blog && this.blog.title,
       link: [
         {
+          hid: 'i18n-can',
           rel: 'canonical',
           href: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog &&
+            // @ts-expect-error
             this.localePath({
               name: 'blog-slug',
+              // @ts-expect-error
               params: { slug: this.blog.slug }
             })
           }`
@@ -23,15 +29,19 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
+          // @ts-expect-error
           content: this.blog && this.blog.title
         },
         {
           hid: 'og:url',
           property: 'og:url',
           content: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog &&
+            // @ts-expect-error
             this.localePath({
               name: 'blog-slug-amp',
+              // @ts-expect-error
               params: { slug: this.blog.slug }
             })
           }`
@@ -40,6 +50,7 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: `${HOSTNAME}${
+            // @ts-expect-error
             this.blog && require(`~/assets/images${this.blog.img}`)
           }`
         },
@@ -56,16 +67,19 @@ export default {
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
+          // @ts-expect-error
           content: this.blog && this.blog.title
         },
         {
           hid: 'description',
           name: 'description',
+          // @ts-expect-error
           content: this.blog && this.blog.description
         },
         {
           hid: 'og:description',
           property: 'og:description',
+          // @ts-expect-error
           content: this.blog && this.blog.description
         }
       ],
@@ -77,29 +91,43 @@ export default {
             '@context': 'https://schema.org/',
             '@type': 'blogPosting',
             mainEntityOfPage: `${HOSTNAME}${
+              // @ts-expect-error
               this.blog &&
+              // @ts-expect-error
               this.localePath({
                 name: 'blog-slug-amp',
+                // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
             }`,
+            // @ts-expect-error
             headline: this.blog && this.blog.title,
+            // @ts-expect-error
             description: this.blog && this.blog.description,
+            // @ts-expect-error
             datePublished: this.blog && this.blog.postedDate,
+            // @ts-expect-error
             dateCreated: this.blog && this.blog.postedDate,
+            // @ts-expect-error
             dateModified: this.blog && this.blog.updatedDate,
+            // @ts-expect-error
             wordcount: this.blog && this.blog.readingTime.words,
             url: `${HOSTNAME}${
+              // @ts-expect-error
               this.blog &&
+              // @ts-expect-error
               this.localePath({
                 name: 'blog-slug-amp',
+                // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
             }`,
+            // @ts-expect-error
             articleBody: this.blog && this.blog.content,
             image: {
               '@type': 'imageObject',
               url: `${HOSTNAME}${
+                // @ts-expect-error
                 this.blog && require(`~/assets/images${this.blog.img}`)
               }`,
               height: '1920',
@@ -132,6 +160,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
+                  // @ts-expect-error
                   '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`,
                   name: 'Blog'
                 }
@@ -141,12 +170,16 @@ export default {
                 position: 2,
                 item: {
                   '@id': `${HOSTNAME}${
+                    // @ts-expect-error
                     this.blog &&
+                    // @ts-expect-error
                     this.localePath({
                       name: 'blog-slug-amp',
+                      // @ts-expect-error
                       params: { slug: this.blog.slug }
                     })
                   }`,
+                  // @ts-expect-error
                   name: this.blog && this.blog.title
                 }
               }

@@ -25,16 +25,19 @@ import ExtendableCreateReactivity1 from './ExtendableCreateReactivity1'
 
 export default ExtendableCreateReactivity1.extend({
   name: 'AppDemo7Id',
-  updated() {
-    this.init()
-  },
-  methods: {
-    init: onetime(function () {
-      // @ts-expect-error
+  mounted() {
+    const interval = setInterval(() => {
       const script7 = this.$refs?.script7 as Element
       if (script7) {
-        const newScript = document.createElement('script')
-        const inlineScript = document.createTextNode(`if (!window.keadaan7) {
+        this.init(script7)
+        clearInterval(interval)
+      }
+    }, 50)
+  },
+  methods: {
+    init: onetime(function (script7: Element) {
+      const newScript = document.createElement('script')
+      const inlineScript = document.createTextNode(`if (!window.keadaan7) {
           // Kita meletakkan kode di dalam ekspresi fungsi yang dipanggil secara langsung untuk mencegah mengotori variabel global
           // Kita juga mengganti fungsi panah menjadi fungsi anonim karena fungsi panah akan diserialisasi oleh Nuxt.
           window.keadaan7 = (function () {
@@ -131,9 +134,8 @@ export default ExtendableCreateReactivity1.extend({
             return keadaan
           })()
         }`)
-        newScript.appendChild(inlineScript)
-        script7.appendChild(newScript)
-      }
+      newScript.appendChild(inlineScript)
+      script7.appendChild(newScript)
     })
   }
 })

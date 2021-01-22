@@ -26,7 +26,7 @@
 
       <div class="second"></div>
 
-      <div refs="script14" class="script"></div>
+      <div ref="script14" class="script"></div>
     </div>
   </app-demo>
 </template>
@@ -37,16 +37,19 @@ import ExtendableCreateReactivity2 from './ExtendableCreateReactivity2'
 
 export default ExtendableCreateReactivity2.extend({
   name: 'AppDemo14En',
-  updated() {
-    this.init()
-  },
-  methods: {
-    init: onetime(function () {
-      // @ts-expect-error
+  mounted() {
+    const interval = setInterval(() => {
       const script14 = this.$refs?.script14 as Element
       if (script14) {
-        const newScript = document.createElement('script')
-        const inlineScript = document.createTextNode(`if (!window.state14) {
+        this.init(script14)
+        clearInterval(interval)
+      }
+    }, 50)
+  },
+  methods: {
+    init: onetime(function (script14: Element) {
+      const newScript = document.createElement('script')
+      const inlineScript = document.createTextNode(`if (!window.state14) {
           // We put the code inside immediately invoked function expression to avoid polluting global variable
           // We also change the arrow function to anonymous function because the arrow function will serialized by Nuxt.
           window.state14 = (function () {
@@ -255,9 +258,8 @@ export default ExtendableCreateReactivity2.extend({
             }
           })()
         }`)
-        newScript.appendChild(inlineScript)
-        script14.appendChild(newScript)
-      }
+      newScript.appendChild(inlineScript)
+      script14.appendChild(newScript)
     })
   }
 })

@@ -14,6 +14,14 @@ id: create-reactivity-system-vuejs-javascript-part-1
 
 Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly.
 
+```typescript{}[] twoslash
+// @errors: 2345
+declare function pad(s: string, n: number, direction: "left" | "right"): string;
+// ---cut---
+let s = "right";
+pad("hi", 10, s); // error: 'string' is not assignable to '"left" | "right"'
+```
+
 What is the secret of that reactivity system? Let's deep dive into it together.
 
 ## Table of Contents
