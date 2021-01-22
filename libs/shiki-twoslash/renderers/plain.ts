@@ -5,7 +5,7 @@ import { escapeHtml } from '../utils'
 export function plainTextRenderer(code: string, options: ShikiRenderOptions) {
   let html = ''
 
-  html += `<pre class="shiki">`
+  html += `<div class="shiki">`
   html += `<div class="shiki__meta">`
   if (options.langId) {
     html += `<div class="shiki__language">${options.langId}</div>`
@@ -14,10 +14,10 @@ export function plainTextRenderer(code: string, options: ShikiRenderOptions) {
     html += `<div class="shiki__filename">${options.fileName}</div>`
   }
   html += `</div>`
-  html += `<div class="shiki__code"><code>`
+  html += `<pre class="shiki__pre"><code class="shiki__code">`
   html += escapeHtml(code)
 
   html = html.replace(/\n*$/, '') // Get rid of final new lines
-  html += `</code></div></pre>`
+  html += `</code></pre></div>`
   return html
 }

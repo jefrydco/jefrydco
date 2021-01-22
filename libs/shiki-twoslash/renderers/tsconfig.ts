@@ -34,7 +34,7 @@ export function tsconfigJSONRenderer(
 ) {
   let html = ''
 
-  html += `<pre class="shiki shiki--tsconfig shiki--lsp">`
+  html += `<div class="shiki shiki--tsconfig shiki--lsp">`
   html += `<div class="shiki__meta">`
   if (options.langId) {
     html += `<div class="shiki__language">${options.langId}</div>`
@@ -43,7 +43,7 @@ export function tsconfigJSONRenderer(
     html += `<div class="shiki__filename">${options.fileName}</div>`
   }
   html += `</div>`
-  html += `<div class="shiki__code"><code>`
+  html += `<pre class="shiki__pre"><code class="shiki__code">`
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   lines.forEach((l, i) => {
@@ -79,6 +79,6 @@ export function tsconfigJSONRenderer(
   })
 
   html = html.replace(/\n*$/, '') // Get rid of final new lines
-  html += `</code></div></pre>`
+  html += `</code></pre></div>`
   return html
 }

@@ -151,6 +151,14 @@ a {
   }
 
   .shiki {
+    @apply rounded-lg;
+    background-color: #1a202c;
+    color: #e2e8f0;
+
+    &__pre, &__code {
+      border-radius: 0 0 .5rem .5rem;
+    }
+
     &__dim {
       @apply opacity-50;
       transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1)
@@ -203,12 +211,9 @@ a {
     }
 
     &__code {
-      code {
-        border-radius: unset;
-        background-color: #1a202c;
-        border-color: #2d3748;
-        padding: .5rem 1rem;
-      }
+      background-color: #1a202c;
+      border-color: #2d3748;
+      padding: .5rem 1rem;
     }
 
     &:hover {

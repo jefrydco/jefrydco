@@ -41,7 +41,7 @@ export function twoslashRenderer(
 ) {
   let html = ''
 
-  html += `<pre class="shiki shiki--twoslash shiki--lsp">`
+  html += `<div class="shiki shiki--twoslash shiki--lsp">`
   html += `<div class="shiki__meta">`
   if (options.langId) {
     html += `<div class="shiki__language">${options.langId}</div>`
@@ -50,7 +50,7 @@ export function twoslashRenderer(
     html += `<div class="shiki__filename">${options.fileName}</div>`
   }
   html += `</div>`
-  html += `<div class="shiki__code"><code>`
+  html += `<pre class="shiki__pre"><code class="shiki__code">`
 
   const errorsGroupedByLine =
     groupBy(twoslash.errors, (e) => e.line) || new Map()
@@ -217,7 +217,7 @@ export function twoslashRenderer(
   })
   html = replaceTripleArrowEncoded(html.replace(/\n*$/, '')) // Get rid of final new lines
   // const playgroundLink = `<a href='${twoslash.playgroundURL}'>Try</a>`
-  html += `</code></div></pre>`
+  html += `</code></pre></div>`
 
   return html
 }
