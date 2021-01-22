@@ -39,8 +39,17 @@ export default (html: string) => {
 
   // Remove media query. Regex taken from: https://stackoverflow.com/a/27616920
   styleConcat = styleConcat.replace(/@media[^{]+\{([\s\S]+?\})\s*\}/gi, '')
+
   Object.keys(colorMap).forEach((colorKey) => {
     styleConcat = styleConcat.replace(new RegExp(`var\\(${colorKey}\\)`, 'gi'), colorMap[colorKey])
+  })
+
+  // RegEx taken from: https://stackoverflow.com/a/2694121
+  styleConcat.replace(/(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}/gi, (m) => {
+    if (m.includes('tooltip')) {
+      styleConcat = styleConcat.replace(m, '')
+    }
+    return ''
   })
 
   html = html.replace(
