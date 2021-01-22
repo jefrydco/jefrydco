@@ -143,19 +143,19 @@ export function twoslashRenderer(
           tokenContent += subTripleArrow(token.content)
         }
 
-        htmlLines += `<span style="color: ${token.color}">${tokenContent}</span>`
+        htmlLines += `<div class="shiki__token" style="color: ${token.color}">${tokenContent}</div>`
         tokenPos += token.content.length
         filePos += token.content.length
       })
 
       if (lineHighlights?.length) {
         if (lineHighlights?.includes(i + 1)) {
-          html += `<div class="highlight">${htmlLines}</div>`
+          html += `<div class="shiki__highlight">${htmlLines}</div>`
         } else {
-          html += `<div class="dim">${htmlLines}</div>`
+          html += `<div class="shiki__dim">${htmlLines}</div>`
         }
       } else {
-        html += `<div class="line">${htmlLines}</div>`
+        html += `<div class="shiki__line">${htmlLines}</div>`
       }
       // html += `\n`
       filePos += 1
@@ -167,7 +167,7 @@ export function twoslashRenderer(
         .map((e) => escapeHtml(e.renderedMessage))
         .join('</br>')
       const codes = errors.map((e) => e.code).join('<br/>')
-      html += `<div class="error"><span class="error__code">[${codes}]</span> <span class="error__message">${messages}</span></div>`
+      html += `<div class="shiki__error"><span class="error__code">[${codes}]</span> <span class="error__message">${messages}</span></div>`
       // html += `<span class="error-behind">${messages}</span>`
     }
 

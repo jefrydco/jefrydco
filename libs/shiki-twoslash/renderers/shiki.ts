@@ -30,18 +30,18 @@ export function defaultShikiRenderer(
     } else {
       let htmlLines = ''
       l.forEach((token) => {
-        htmlLines += `<span style="color: ${token.color}">${escapeHtml(
+        htmlLines += `<div class="shiki__token" style="color: ${token.color}">${escapeHtml(
           token.content
-        )}</span>`
+        )}</div>`
       })
       if (lineHighlights?.length) {
         if (lineHighlights?.includes(i + 1)) {
-          html += `<div class="highlight">${htmlLines}</div>`
+          html += `<div class="shiki__highlight">${htmlLines}</div>`
         } else {
-          html += `<div class="dim">${htmlLines}</div>`
+          html += `<div class="shiki__dim">${htmlLines}</div>`
         }
       } else {
-        html += `<div class="line">${htmlLines}</div>`
+        html += `<div class="shiki__line">${htmlLines}</div>`
       }
       // html += `\n`
     }
