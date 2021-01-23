@@ -17,6 +17,8 @@ import type { BlogListDataType } from './types/blog'
 
 DotEnv.config()
 
+const isProductionBuild = process.env.NODE_ENV === 'production'
+
 export default {
   // https://nuxtjs.org/guides/configuration-glossary/configuration-target
   target: 'static',
@@ -506,13 +508,13 @@ export default {
     },
     // This hook is called before saving the html to flat file
     'generate:page': (page: any) => {
-      if (/\/amp((\/.*$)|$)/gi.test(page.route)) {
+      if (isProductionBuild && /\/amp((\/.*$)|$)/gi.test(page.route)) {
         page.html = ampify(page.html)
       }
     },
     // This hook is called before serving the html to the browser
     'render:route': (url: string, page: any) => {
-      if (/\/amp((\/.*$)|$)/gi.test(url)) {
+      if (isProductionBuild && /\/amp((\/.*$)|$)/gi.test(url)) {
         page.html = ampify(page.html)
       }
     }
