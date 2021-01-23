@@ -153,7 +153,7 @@ const keadaan = {
 
 Selanjutnya kita perlu mendeklarasikan sebuah fungsi untuk menjalankan semua kode JavaScript yang akan kita tulis nantinya. Fungsi ini dapat kita beri nama `mulai`.
 
-```js{3}
+```javascript{3}
 function mulai() {
   const tampilanKeadaan = document.querySelector('.keadaan')
   tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
@@ -186,7 +186,7 @@ Fungsi tersebut bertujuan untuk memanggil fungsi `mulai` pada saat Model Objek D
 
 Setelah berhasil menampilkan keadaan ke dalam tag `pre`, kita perlu juga menampilkan nilai properti `hasil` ke dalam tag `h1`.
 
-```js{4}
+```javascript{4}
 function mulai() {
   // ... Kode sebelumnya
   const tampilanHasil = document.querySelector('.hasil')
@@ -202,7 +202,7 @@ Namun karena nilai dari properti tersebut bertipe `number`, kita harus memanggil
 
 Selain itu kita juga perlu menampilkan nilai dari properti `input1` dan `input2` pada kedua tag `input`.
 
-```js{6-7}
+```javascript{6-7}
 function mulai() {
   // ... Kode sebelumnya
   const tampilanInput1 = document.querySelector('.input1')
@@ -223,7 +223,7 @@ Setelah kita menerapkan kode di atas, kedua input teks akan menampilkan angka `0
 
 Selanjutnya kita juga perlu menampilkan nilai dari properti `operator` pada tag `select`.
 
-```js{4}
+```javascript{4}
 function mulai() {
   // ... Kode sebelumnya
   const tampilanOperator = document.querySelector('.operator')
@@ -243,7 +243,7 @@ Kode tersebut mempunyai fungsi untuk menampilkan nilai dari setiap properti yang
 
 Kita dapat mengekstrak semua kode yang telah saya beri cetak terang ke dalam suatu fungsi sendiri, kita dapat memberi nama fungsi tersebut sesuai dengan fungsinya, `mutakhirkanTampilan`.
 
-```js{13}
+```javascript{13}
 function mulai() {
   // ... Kode sebelumnya
   function mutakhirkanTampilan() {
@@ -268,7 +268,7 @@ Selanjutnya yang kita perlu lakukan adalah memikirkan bagaimana caranya agar ket
 
 Untuk melakukan hal tersebut, kita dapat menambahkan pendengar peristiwa (_event listener_) pada kedua tag `input` dan tag `select`.
 
-```js{4-5,8-9}
+```javascript{4-5,8-9}
 function mulai() {
   // ... Kode sebelumnya
   tampilanInput1.addEventListener('input', (peristiwa) => {
@@ -298,7 +298,7 @@ Nilai tersebut berbentuk `string`, sehingga kita perlu mengubahnya ke bentuk `nu
 
 Setelah nilai kita dapatkan, kita dapat mengatur properti `input1` dan `input2` pada objek `keadaan` agar memiliki nilai tersebut.
 
-```js{4-8}
+```javascript{4-8}
 function mulai() {
   // ... Kode sebelumnya
   tampilanOperator.addEventListener('change', (peristiwa) => {
@@ -349,7 +349,7 @@ Kita juga masih belum melakukan kalkulasi secara langsung ketika terjadi perubah
 
 Mari kita selesaikan terlebih dahulu permasalahan kalkulasi secara langsung tersebut. Untuk menyelesaikan permasalahan itu, kita memerlukan fungsi kalkulasi berdasarkan operator yang kita pilih melalui tag `select`.
 
-```js{5-6,8-9,11-12,14-15}
+```javascript{5-6,8-9,11-12,14-15}
 function mulai() {
   // ... Kode sebelumnya
   function kalkulasiHasil() {
@@ -375,7 +375,7 @@ function mulai() {
 
 Fungsi tersebut kita beri nama `kalkulasiHasil`. Fungsi `kalkulasiHasil` berfungsi untuk mengkalkulasi nilai `input1` dan `input2` sesuai dengan keadaan `operator`. Hasil dari kalkulasi tersebut akan disimpan pada properti `hasil`.
 
-```js{5,9,13}
+```javascript{5,9,13}
 function mulai() {
   // ... Kode sebelumnya
   tampilanInput1.addEventListener('input', (peristiwa) => {
@@ -416,7 +416,7 @@ Kita juga telah merefaktor kode tersebut ke dalam sebuah fungsi bernama `mutakhi
 
 Seharusnya kita juga dapat menggunakan fungsi `mutakhirkanTampilan` tersebut untuk menampilkan ulang nilai properti objek `keadaan` ke tampilan peramban setelah proses kalkulasi terjadi.
 
-```js{6,11,16}
+```javascript{6,11,16}
 function mulai() {
   // ... Kode sebelumnya
   tampilanInput1.addEventListener('input', (peristiwa) => {
@@ -492,7 +492,7 @@ Misalkan kita memiliki objek bernama `manusia` seperti di atas. Objek tersebut m
 
 Kita ingin membuat ketika kita mengakses properti `nama`, kita mencetak info bahwa properti tersebut telah diakses. Dan ketika kita mengubah nilainya, kita juga mencetak info bahwa properti telah diubah.
 
-```js{2,8-9,12-13}
+```javascript{2,8-9,12-13}
 
 let nama = manusia['nama']
 
@@ -583,7 +583,7 @@ Info properti telah diakses muncul ketika properti `input1` di akses pada bagian
 
 Dengan menggunakan cara tersebut kita sudah dapat membuat sistem reaktivitas sendiri. Mari kita coba refaktor kode pada <a href="#AppDemo8Id">Demo 8</a> di atas agar menggunakan `defineProperty` sebagai sistem reaktivitasnya.
 
-```js{9,13-14}
+```javascript{9,13-14}
 function mulai() {
   // ... Kode sebelumnya
   let input1 = keadaan['input1']
@@ -613,7 +613,7 @@ Tetapi pada contoh di atas kita hanya membuat sistem reaktivitas berjalan pada p
 
 Untuk mengatasi permasalahan tersebut, kita dapat menggunakan _method_ `keys` yang terdapat pada kelas `Object`.
 
-```js{3,5,6,8,15-17}
+```javascript{3,5,6,8,15-17}
 function mulai() {
   // ... Kode sebelumnya
   const daftarKunci = Object.keys(keadaan)

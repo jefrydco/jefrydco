@@ -206,7 +206,7 @@ We also need to call the `updateStopwatch` function in order to the state of `se
 
 Before we continue the discussion, let's remember how the reactivity system is working behind the curtain.
 
-```js{3,5,6,8,19-20}
+```javascript{3,5,6,8,19-20}
 function main() {
   // ... Previous code
   const keyList = Object.keys(state)
@@ -290,7 +290,7 @@ Let's change the getter and setter function to match our discussion above and cr
 
 Let's create the watcher first.
 
-```js{5,8}
+```javascript{5,8}
 function main() {
   // ... Previous code
   class Watcher {
@@ -310,7 +310,7 @@ We put the `task` property on the `Watcher` class itself because once at a time 
 
 We also need a method to store our task in the task list and to run the task.
 
-```js{8-12}
+```javascript{8-12}
 function main() {
   // ... Previous code
   class Watcher {
@@ -332,7 +332,7 @@ In the code example above, we declare a method called `saveTask`. Inside of it w
 
 Then we also need a method to run all of the previously saved tasks.
 
-```js{14-18}
+```javascript{14-18}
 function main() {
   // ... Previous code
   class Watcher {
@@ -360,7 +360,7 @@ In the example above, we declare a method called `runTask`. Inside of it we do a
 
 Then, let's refactor our previously code that makes an object reactive to make use of the newly created class.
 
-```js{3,8,14,22}
+```javascript{3,8,14,22}
 function main() {
   // ... Previous code
   function observe(object) {
@@ -421,7 +421,7 @@ Perhaps you wonder, from where does the code inside the `observe` knows the conn
 
 To answer it, we need another function as a halper.
 
-```js{4-6}
+```javascript{4-6}
 function main() {
   // ... Previous code
   function runner(task) {

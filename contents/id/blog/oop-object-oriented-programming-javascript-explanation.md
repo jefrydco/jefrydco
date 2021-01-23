@@ -29,7 +29,7 @@ Omong-omong, sedangkan pada poin 5 - 8 baru akan di bahas versi ribet konsep pem
 
 Objek adalah suatu tipe data pada JavaScript yang terdiri dari kunci (_key_) dan nilai (_value_). Nilai tersebut dapat berupa semua tipe data lain pada JavaScript, seperti angka (_number_), huruf/alfabet/karakter (_string_), benar salah (_boolean_), _array_, fungsi atau bahkan berisi objek lain. Contoh objek seperti berikut:
 
-```js{2}
+```javascript{2}
 var objek = {
   angka: 7,                   // angka (number)
   huruf: 'ini string',        // huruf/alfabet/karakter (string)
@@ -82,7 +82,7 @@ Objek global tersebut berisi beberapa hal berikut:
 
 Ada 3 cara untuk mendeklarasikan variabel pada JavaScript, menggunakan kata kunci `var`, `let` atau `const`. Nah kalau kita mendeklarasikan sebuah variabel menggunakan kata kunci `var`, secara otomatis variabel tersebut akan dilekatkan pada objek global, contohnya sebagai berikut:
 
-```js{3,6}
+```javascript{3,6}
 var nama = 'jefrydco'
 
 window.nama
@@ -96,7 +96,7 @@ katakanlah kita mendeklarasikan sebuah variabel bernama `nama` menggunakan kata 
 
 Begitu pula jika kita mendeklarasikan sebuah fungsi, secara otomatis fungsi tersebut akan dilekatkan pada objek global,
 
-```js{5,8}
+```javascript{5,8}
 function fungsi() {
   return 'ini fungsi'
 }
@@ -145,7 +145,7 @@ Yang kedua adalah `this` pada konteks objek. Secara singkat, `this` pada **konte
 
 Contohnya sebagai berikut:
 
-```js{5}
+```javascript{5}
 var murid = {
   nama: "Budi",
   umur: 12,
@@ -160,7 +160,7 @@ murid.ucapkanSalam()
 
 Sebenarnya, kita juga bisa melakukan hal yang sama tanpa menggunakan `this` dengan mereferensikan langsung ke variable penampungnya:
 
-```js{6}
+```javascript{6}
 var murid = {
   nama: "Budi",
   umur: 12,
@@ -176,7 +176,7 @@ murid.ucapkanSalam()
 
 Namun kode seperti ini dinilai tidak baik karena dapat menghasilkan bug seperti pada kasus dibawah:
 
-```js{6}
+```javascript{5}
 var murid = {
   nama: "Budi",
   umur: 12,
@@ -197,7 +197,7 @@ Karena itu, jika kita menggunakan `this`, maka bug tersebut dapat dihindari.
 
 Tidak seperti bahasa pemograman lain dimana nilai dari `this` ditentukan pada waktu kompilasi, nilai dari `this` di Javascript ditentukan pada saat kode dijalankan dan tergantung pada objek sebelum tanda titik ".".
 
-```js{12,13}
+```javascript{12,13}
 var guru = {
   nama: "Deni"
 }
@@ -226,7 +226,7 @@ Kemudian kita mengesekusi fungsi `func` tersebut dengan cara `guru.func()` dan `
 
 Berhati-hatilah karena pada beberapa kasus, isi dari `this` dapat menghilang, seperti pada contoh dibawah ini:
 
-```js{5,8}
+```javascript{5,8}
 var jam = 13
 
 var murid = {
@@ -267,7 +267,7 @@ Operasi seperti assignment `=` dapat menghilangkan `ReferenceType` ini. Karena i
 
 Berikut contoh yang lebih sederhana:
 
-```js{9}
+```javascript{9}
 var murid = {
   nama: "Budi",
   ucapkanSalam: function() {
@@ -311,7 +311,7 @@ Oleh karena itu, jika kita menggunakan `this` pada suatu fungsi, `this` tersebut
 
 Sehingga jika kita mendeklarasikan fungsi seperti berikut:
 
-```js{2}
+```javascript{2}
 function fungsi() {
   return this
 }
@@ -724,7 +724,7 @@ Pewarisan pada JavaScript akan dibagi menjadi 2 bagian, pewarisan sifat untuk ob
 
 Katakanlah kita memiliki objek `kucing` dan `burung` seperti pada kode berikut:
 
-```js{2-4, 8-10}
+```javascript{2-4, 8-10}
 var kucing = {
   kenyang: false,
   makan: function() {
@@ -754,7 +754,7 @@ Kedua objek tersebut sama-sama meiliki properti `kenyang` dan _method_ `makan`, 
 
 Kita dapat menggabungkan kemampuan makan kedua objek ke dalam satu objek lain, katakanlah objek tersebut adalah `binatang`.
 
-```js{8,15}
+```javascript{8,15}
 var binatang = {
   kenyang: false,
   makan: function() {
@@ -834,7 +834,7 @@ Sebelum kita mengubah kode di atas menjadi lebih teratur, ada baiknya kita memah
 
 Jika kita mendeklarasikan sebuah fungsi, pada umumnya kita harus memanggilnya terlebih dahulu agar kode di dalam fungsi tersebut tereksekusi.
 
-```js{5}
+```javascript{5}
 function fungsi() {
   console.log('Ini fungsi...')
 }
@@ -862,7 +862,7 @@ Pada umumnya tujuan mendeklarasikan ekspresi fungsi yang segera dipanggil adalah
 
 Oke setelah memahami apa itu ekspresi fungsi yang segera dipanggil, mari kita coba mengubah deklarasi kelas di atas agar terlihat sedikit rapi dengan menggunakan metode tersebut,
 
-```js{2-8,13-16,21-24}
+```javascript{2-8,13-16,21-24}
 var Binatang = (function() {
   function Binatang() {
     this.kenyang = false
@@ -907,7 +907,7 @@ Suatu kelas anak (_child class_) JavaScript dikatakan mewarisi sifat jika:
 
 Dari 3 aturan tersebut kita dapat membuat suatu fungsi pembantu untuk membuat kelas dapat mewarisi sifat kelas lain. Berikut kode untuk fungsi pembantu tersebut:
 
-```js{2,5,7}
+```javascript{2,5,7}
 function __extends(ChildClass, ParentClass) {
   Object.setPrototypeOf(ChildClass, ParentClass)
 
@@ -932,7 +932,7 @@ Namun untuk membuat aturan kedua, kita memerlukan kelas bantuan yang akan mengat
 
 Untuk mengecek aturan ketiga, mari kita ubah terlebih dahulu kelas `Kucing` dan `Burung` di atas agar mewarisi sifat dari kelas `Binatang`.
 
-```js{2,3,5,11}
+```javascript{2,3,5,11}
 
 var Kucing = (function(_super) {
   __extends(Kucing, _super)

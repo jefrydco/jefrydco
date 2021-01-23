@@ -206,7 +206,7 @@ Kita juga perlu memanggil fungsi `mutakhirkanPenghitungDetik` agar keadaan seben
 
 Sebelum melanjutkan pembahasan mari kita mengingat kembali bagaimana sistem reaktivitas yang telah kita buat bekerja di balik layar.
 
-```js{3,5,6,8,19-20}
+```javascript{3,5,6,8,19-20}
 function mulai() {
   // ... Kode sebelumnya
   const daftarKunci = Object.keys(keadaan)
@@ -290,7 +290,7 @@ Oke langsung saja kita ubah fungsi pengambil dan pengatur agar sesuai dengan pem
 
 Mari kita buat terlebih dahulu pengintai tersebut.
 
-```js{5,8}
+```javascript{5,8}
 function mulai() {
   // ... Kode sebelumnya
   class Pengintai {
@@ -310,7 +310,7 @@ Properti `pekerjaan` sengaja kita letakkan pada kelas `Pengintai` secara langsun
 
 Selain variabel tersebut, kita juga membutuhkan _method_ untuk menyimpan pekerjaan ke dalam daftar pekerjaan dan _method_ untuk menjalankan pekerjaan.
 
-```js{8-12}
+```javascript{8-12}
 function mulai() {
   // ... Kode sebelumnya
   class Pengintai {
@@ -332,7 +332,7 @@ Pada contoh kode di atas, kita mendeklarasi _method_ bernama `simpanPekerjaan`. 
 
 Kemudian kita juga membutuhkan _method_ untuk menjalankan semua daftar pekerjaan yang telah disimpan di dalam `daftarPekerjaan`.
 
-```js{14-18}
+```javascript{14-18}
 function mulai() {
   // ... Kode sebelumnya
   class Pengintai {
@@ -360,7 +360,7 @@ Pada contoh kode di atas, kita mendeklarasikan _method_ bernama `jalankanPekerja
 
 Selanjutnya mari kita refaktor kode yang bertugas untuk membuat objek keadaan reaktif pada bagian sebelumnya.
 
-```js{3,8,14,22}
+```javascript{3,8,14,22}
 function mulai() {
   // ... Kode sebelumnya
   function observasi(objek) {
@@ -421,7 +421,7 @@ Kemudian mungkin teman-teman timbul pertanyaan, darimanakah kode di dalam fungsi
 
 Untuk menjawab pertanyaan tersebut, kita membutuhkan satu fungsi lagi sebagai bantuan.
 
-```js{4-6}
+```javascript{4-6}
 function mulai() {
   // ... Kode sebelumnya
   function pelaksana(pekerjaan) {

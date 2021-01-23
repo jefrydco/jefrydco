@@ -153,7 +153,7 @@ const state = {
 
 The next thing we need to do is declaring a function to run all of our JavaScript. We can call it `main` function.
 
-```js{3}
+```javascript{3}
 function main() {
   const stateDisplay = document.querySelector('.state')
   stateDisplay.innerText = JSON.stringify(state, null, 2)
@@ -186,7 +186,7 @@ It aims to call the `main` function when the [Document Object Model](https://dev
 
 After all, we also need to render the value of `result` property inside of `h1` tag.
 
-```js{4}
+```javascript{4}
 function main() {
   // ... Previous code
   const resultDisplay = document.querySelector('.result')
@@ -202,7 +202,7 @@ Because of the type of the property value is `number`, we have to call `toString
 
 Besides that, we also need to render the value of `input1` and `input2` property to both of the `input` tags.
 
-```js{6-7}
+```javascript{6-7}
 function main() {
   // ... Previous code
   const input1Display = document.querySelector('.input1')
@@ -223,7 +223,7 @@ After we apply the code above, both of the text input will render `0` because we
 
 Then we need to render the value of `operator` property into `select` tag.
 
-```js{4}
+```javascript{4}
 function main() {
   // ... Previous code
   const operatorDisplay = document.querySelector('.operator')
@@ -243,7 +243,7 @@ They are useful to render all the value of the `state` property to the browser.
 
 We can extract them to their own function, we can call it `updateDisplay`.
 
-```js{13}
+```javascript{13}
 function main() {
   // ... Previous code
   function updateDisplay() {
@@ -268,7 +268,7 @@ The next thing we need to do is thinking how to make the value of the state upda
 
 To make it worked, we can add an event listener to both of the `input` tag and the `select` tag.
 
-```js{4-5,8-9}
+```javascript{4-5,8-9}
 function main() {
   // ... Previous code
   input1Display.addEventListener('input', (event) => {
@@ -296,7 +296,7 @@ The type is `string`, so we need to change it into `number` using `parseInt` fun
 
 After we get the value, we can set the property of `input1` and `input2` to it.
 
-```js{4-8}
+```javascript{4-8}
 function main() {
   // ... Previous code
   operatorDisplay.addEventListener('change', (event) => {
@@ -347,7 +347,7 @@ We also don't make any instant calculation when there is a change in both of the
 
 Let's solve the instant calculation problem. To overcome it we need a calculation function based on the operator.
 
-```js{5-6,8-9,11-12,14-15}
+```javascript{5-6,8-9,11-12,14-15}
 function main() {
   // ... Previous code
   function calculateResult() {
@@ -373,7 +373,7 @@ function main() {
 
 We call the function `calculateResult`. It is useful to calculate the value of the `input1` and the `input2` in accordance with the state of the `operator`. The result is saved in the `result` property.
 
-```js{5,9,13}
+```javascript{5,9,13}
 function main() {
   // ... Previous code
   input1Display.addEventListener('input', (event) => {
@@ -414,7 +414,7 @@ We also have refactored it to a function called `updateDisplay`. And then we cal
 
 Actually we can do call it again to rerender the state of the browser view after the calculation happen.
 
-```js{6,11,16}
+```javascript{6,11,16}
 function main() {
   // ... Previous code
   input1Display.addEventListener('input', (event) => {
@@ -488,7 +488,7 @@ For instance, we have an object called `human` like the example above. It has a 
 
 We want that whenever we access the `name` property, we print info that the property is accessed. And when we change the value, we also print info that the property is changed.
 
-```js{2,8-9,12-13}
+```javascript{2,8-9,12-13}
 
 let name = human['name']
 
@@ -579,7 +579,7 @@ The property is accessed info appears when the `input1` property is accessed on 
 
 By using that way, actually we can make a better our own reactivity system. Let's refactor the code from <a href="#AppDemo8En">Demo 8</a> above in order to use `defineProperty` as its reactivity system.
 
-```js{9,13-14}
+```javascript{9,13-14}
 function main() {
   // ... Previous code
   let input1 = state['input1']
@@ -609,7 +609,7 @@ But on the example above we make the reactivity system running only on the `inpu
 
 To solve that problem, we need to use `keys` method that exist in the `Object` class.
 
-```js{3,5,6,8,15-17}
+```javascript{3,5,6,8,15-17}
 function main() {
   // ... Previous code
   const keyList = Object.keys(state)

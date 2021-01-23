@@ -29,7 +29,7 @@ Anyway, while in point 5 - 8, we will discuss the object-oriented programming in
 
 Object is one kind of data type in JavaScript which consists of several keys and values. The values can be any others data type in JavaScript, like number, string, boolean, array, function or event another object.
 
-```js{2}
+```javascript{2}
 var object = {
   number: 7,
   string: 'this is string',
@@ -82,7 +82,7 @@ The global object contains following things:
 
 There are 3 ways to declare a variable in JavaScript, using `var`, `let` or `const` keyword. If we declare a variable using `var` keyword, it will be attached to the global object automatically.
 
-```js{3,6}
+```javascript{3,6}
 var name = 'jefrydco'
 
 window.name
@@ -96,7 +96,7 @@ let say we declare a variable called `name` using `var` keyword. We can access t
 
 Declaring a function will be attached to the global object as well,
 
-```js{5,8}
+```javascript{5,8}
 function func() {
   return 'this is function'
 }
@@ -145,7 +145,7 @@ The second one is `this` in the object context. `this` in this context **will re
 
 Take a look on the following code:
 
-```js{5}
+```javascript{5}
 var student = {
   name: "Budi",
   age: 12,
@@ -160,7 +160,7 @@ student.greet()
 
 Actually, we can do the same way without using `this` by referring it directly to the container variable like as follows:
 
-```js{6}
+```javascript{6}
 var student = {
   name: "Budi",
   age: 12,
@@ -179,7 +179,7 @@ Because of that, if we use `this`, the bug will be prevented.
 
 Not like any other programming language that the value of `this` determined in compile-time, in JavaScript, it determines in the runtime and depends on the object before the dot symbol ".".
 
-```js{12,13}
+```javascript{12,13}
 var teacher = {
   name: "Deni"
 }
@@ -208,7 +208,7 @@ After that we executed the `func` function by calling `teacher.func()` and `stud
 
 But take care on certain cases, the value of `this` can be gone, like as follows:
 
-```js{5,8}
+```javascript{5,8}
 var time = 13
 
 var student = {
@@ -249,7 +249,7 @@ Assignment operator `=` can also remove the `ReferenceType`. Because of that the
 
 Take a look on the easier snippet below:
 
-```js{9}
+```javascript{9}
 var student = {
   name: "Budi",
   greet: function() {
@@ -291,7 +291,7 @@ And in <a href="#this-in-object-context">_this_ in object context</a> also discu
 
 Because of that, if we use `this` inside a function, it will **refer to the object itself** and the object is **global object** which is `window`.
 
-```js{2}
+```javascript{2}
 function func() {
   return this
 }
@@ -702,7 +702,7 @@ Inheritance in JavaScript will divide into 2 section, inheritance for object and
 
 Let say we have `cat` and `bird` object as follows:
 
-```js{2-4, 8-10}
+```javascript{2-4, 8-10}
 var cat = {
   full: false,
   eat: function() {
@@ -732,7 +732,7 @@ Both of them has the same `full` property and `eat` method, we can apply inherit
 
 We can combine the eating ability of them to another object, let say the object is `animal`.
 
-```js{8,15}
+```javascript{8,15}
 var animal = {
   full: false,
   eat: function() {
@@ -812,7 +812,7 @@ But before we do it, it's better to get to know about immediately invoked functi
 
 If we declare a function, in order to make the code inside of it run, it's common for us to call the function.
 
-```js{5}
+```javascript{5}
 function func() {
   console.log('This is function...')
 }
@@ -840,7 +840,7 @@ The common use case for IIFE is to prevent polluting <a href="#global-object">gl
 
 After getting to know about IIFE, let's get started to change the declaration of the class above to make it well organized.
 
-```js{2-8,13-16,21-24}
+```javascript{2-8,13-16,21-24}
 var Animal = (function() {
   function Animal() {
     this.full = false
@@ -885,7 +885,7 @@ A child class in JavaScript called inherits when:
 
 From the 3 rules above, we can make a helper function to turn a class inherits another class. More or less, the function will be like as follows:
 
-```js{2,5,7}
+```javascript{2,5,7}
 function __extends(ChildClass, ParentClass) {
   Object.setPrototypeOf(ChildClass, ParentClass)
 
@@ -908,7 +908,7 @@ In order to follow the second rule, we need a new helper class that set the `con
 
 To check the third rule, let's change the `Cat` and `Bird` class to inherit the `Animal` class.
 
-```js{2,3,5,11}
+```javascript{2,3,5,11}
 
 var Cat = (function(_super) {
   __extends(Cat, _super)
