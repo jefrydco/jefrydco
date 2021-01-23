@@ -60,22 +60,18 @@ export default Vue.extend({
   head() {
     const { locales } = this.$i18n
     // @ts-expect-error
-    const link = locales.map((locale) => {
-      let href = null
-      // @ts-expect-error
-      if (locale.code === 'id') {
-        href = `${HOSTNAME}/blog.xml`
-      } else {
+    const link = locales.map((locale) => ({
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      href:
         // @ts-expect-error
-        href = `${HOSTNAME}/${locale.code}/blog.xml`
-      }
-      return {
-        rel: 'alternate',
-        type: 'application/rss+xml',
-        href,
-        title: `Blog - Jefrydco`
-      }
-    })
+        locale.code === 'id'
+          ? `${HOSTNAME}/blog.xml`
+          : // @ts-expect-error
+            `${HOSTNAME}/${locale.code}/blog.xml`,
+      title: `Blog - Jefrydco`
+    }))
+
     return {
       title: 'Blog',
       meta: [
