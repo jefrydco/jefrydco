@@ -1,6 +1,8 @@
 import { resolve } from 'path'
 import { NuxtOptions } from '@nuxt/types'
 import { ThematicBlock, AstUtility } from '@nuxt/content/types/highlighter'
+import { $content } from '@nuxt/content'
+import type { Feed } from 'feed'
 import { multirange } from 'multi-integer-range'
 import DotEnv from 'dotenv'
 import { HOSTNAME, locales } from './constants'
@@ -183,6 +185,9 @@ export default {
 
     // https://github.com/nuxt-community/modules/tree/master/packages/browserconfig
     '@nuxtjs/browserconfig',
+
+    // https://github.com/nuxt-community/feed-module
+    '@nuxtjs/feed',
 
     // https://github.com/nuxt-community/google-fonts-module
     '@nuxtjs/google-fonts',
@@ -413,14 +418,66 @@ export default {
     adapter: require('responsive-loader/sharp')
   },
 
+  // https://github.com/nuxt-community/feed-module
+  feed() {
+    return locales.map((locale) => {
+      const path =
+        locale.code === 'id' ? '/blog.xml' : `/${locale.code}/blog.xml`
+
+      return {
+        path,
+        type: 'rss2',
+        async create(feed: Feed) {
+          feed.options = {
+            title: 'Blog - Jefrydco',
+            id: `${HOSTNAME}${path}/`,
+            link: `${HOSTNAME}${path}/`,
+            language: locale.code,
+            description: 'A personal site of Jefry Dewangga.',
+            copyright: new Date().getFullYear().toString()
+          }
+
+          feed.addContributor({
+            name: 'Jefry Dewangga',
+            email: 'jefrydco@gmail.com',
+            link: `${HOSTNAME}`
+          })
+
+          // @ts-expect-error
+          const contents: BlogListDataType = await $content(`/id/blog`, {
+            deep: true
+          })
+            .only(['title', 'slug', 'img', 'postedDate', 'summary'])
+            .sortBy('postedDate', 'desc')
+            .fetch<BlogListDataType>()
+
+          contents.forEach((content) => {
+            feed.addItem({
+              title: content.title,
+              id:
+                locale.code === 'id'
+                  ? `${HOSTNAME}/blog/${content.slug}`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+              link:
+                locale.code === 'id'
+                  ? `${HOSTNAME}/blog/${content.slug}`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+              date: new Date(content.postedDate),
+              description: content.summary
+            })
+          })
+        }
+      }
+    })
+  },
+
   // https://nuxtjs.org/guides/configuration-glossary/configuration-generate
   generate: {
     // choose to suit your project
     interval: 5000,
     async routes() {
-      const { $content } = require('@nuxt/content')
       // @ts-expect-error
-      const paths: BlogListDataType = await $content(`/id/blog`, {
+      const contents: BlogListDataType = await $content(`/id/blog`, {
         deep: true
       })
         .only(['slug'])
@@ -430,8 +487,10 @@ export default {
       return locales
         .map((locale) =>
           locale.code === 'id'
-            ? paths.map((path) => `/blog/${path.slug}/amp`)
-            : paths.map((path) => `/${locale.code}/blog/${path.slug}/amp`)
+            ? contents.map((content) => `/blog/${content.slug}/amp`)
+            : contents.map(
+                (content) => `/${locale.code}/blog/${content.slug}/amp`
+              )
         )
         .flat()
     }
