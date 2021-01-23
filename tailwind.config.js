@@ -128,9 +128,11 @@ module.exports = {
     require('@tailwindcss/typography')
   ],
   purge: {
-    content: ['contents/**/*.md', 'nuxt.config.ts'],
-    options: {
-      whitelistPatternsChildren: [/shiki.*/]
-    }
+    content: [
+      'contents/**/*.md',
+      'nuxt.config.ts',
+      'buildModules/**/*.ts',
+      'libs/shiki-twoslash/renderers/*.ts'
+    ]
   }
 }

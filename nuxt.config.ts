@@ -401,6 +401,11 @@ export default {
     fix: true
   },
 
+  // https://tailwindcss.nuxtjs.org/
+  tailwindcss: {
+    viewer: false
+  },
+
   responsiveLoader: {
     size: 1920,
     placeholder: true,

@@ -63,7 +63,12 @@
                   @{{ contributor }}
                 </a>
                 <!-- eslint-disable-next-line -->
-              <span v-if="index !== blog.contributors.length - 1" :key="`${contributor}_separator`">{{ separator(index) }}</span>
+                <span
+                  v-if="index !== blog.contributors.length - 1"
+                  :key="`${contributor}_separator`"
+                >
+                  {{ separator(index) }}
+                </span>
                 >
               </template>
             </p>
@@ -348,6 +353,11 @@ export default formatDate.extend({
 
 <style>
 /* purgecss start ignore */
+.shiki {
+  &__token {
+    @apply inline;
+  }
+}
 .blog-detail {
   &__img-wrapper {
     @apply h-128;

@@ -1,10 +1,10 @@
 <template>
-  <span
+  <div
     v-tooltip.top="{ content: lsp, autoHide: false, html: true }"
-    class="data-lsp"
+    class="shiki__data-lsp"
   >
     <slot />
-  </span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -24,6 +24,21 @@ export default {
 </script>
 
 <style>
+/* purgecss start ignore */
+.shiki {
+  &__data-lsp {
+    @apply inline;
+  }
+
+  &:hover {
+    .shiki {
+      &__data-lsp {
+        border-bottom: 0.1rem dotted #e2e8f0;
+      }
+    }
+  }
+}
+
 .tooltip {
   @apply block z-50;
 
@@ -113,4 +128,5 @@ export default {
     transition: opacity 0.15s;
   }
 }
+/* purgecss end ignore */
 </style>

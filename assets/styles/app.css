@@ -1,4 +1,4 @@
-/* purgecss start ignore  */
+/* purgecss start ignore */
 * {
   transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1),
     background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1),
@@ -67,12 +67,6 @@ a {
 
   &:hover {
     @apply no-underline;
-  }
-}
-
-.shiki {
-  &__token {
-    @apply inline;
   }
 }
 
@@ -164,12 +158,6 @@ a {
       transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1)
     }
 
-    .data-err {
-      .data-lsp {
-        border-bottom: .1rem solid var(--error);
-      }
-    }
-
     &__meta {
       @apply flex justify-between;
       padding: .5rem 1rem;
@@ -220,16 +208,6 @@ a {
       .shiki {
         &__dim {
           @apply opacity-100;
-        }
-      }
-
-      .data-lsp {
-        border-bottom: .1rem dotted #e2e8f0;
-      }
-
-      .data-err {
-        .data-lsp {
-          border-bottom: .1rem solid var(--error);
         }
       }
     }
