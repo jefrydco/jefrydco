@@ -69,7 +69,6 @@
                 >
                   {{ separator(index) }}
                 </span>
-                >
               </template>
             </p>
             <p>
