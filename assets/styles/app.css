@@ -39,6 +39,20 @@ html {
   }
 }
 
+html[⚡] {
+  .prose {
+    h2, h3 {
+      > a {
+        @apply ml-5;
+
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+}
+
 :focus {
   outline: .125rem solid var(--text-normal)
 }
@@ -77,6 +91,28 @@ a {
 
   h1, h2, h3, h4, h5, h6 {
     @apply mt-12 mb-5;
+  }
+
+  h2, h3 {
+    > a {
+      &:focus {
+        @apply outline-none;
+      }
+
+      &::before {
+        @apply absolute -ml-5 pr-2 opacity-0;
+        content: "#";
+        color: var(--text-link);
+      }
+    }
+
+    &:hover {
+      > a {
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
   }
 
   h1 {
@@ -319,6 +355,20 @@ a {
 
   .demo__form {
     background-color: var(--card-bg)
+  }
+}
+
+@media (max-width: 992px) {
+  .prose {
+    h2, h3 {
+      > a {
+        @apply ml-5;
+
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
   }
 }
 /* purgecss end ignore */

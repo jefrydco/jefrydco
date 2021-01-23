@@ -10,6 +10,8 @@ slug: create-reactivity-system-vuejs-javascript-part-1
 id: create-reactivity-system-vuejs-javascript-part-1
 ---
 
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }" label="Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1"></app-amp-notice>
+
 > Baca bagian kedua di sini, <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 2</app-locale-path-link>
 
 Pernahkah teman-teman terpikirkan bagaimana Vue.js membuat suatu variabel menjadi reaktif? Menuliskan sesuatu di teks input dan melihat hasilnya di tempat lain secara instan.

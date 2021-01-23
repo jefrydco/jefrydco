@@ -79,7 +79,7 @@ export default Vue.extend({
   .flex-container {
     .box {
       @apply w-16 h-16 rounded m-1 p-4 text-center text-xl cursor-pointer z-20 bg-orange-500;
-      color: var(--text-box);
+      color: var(--text-normal);
 
       &:hover {
         transform: scale(1.1);
