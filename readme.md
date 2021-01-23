@@ -1,79 +1,29 @@
-# Nuxt Typescript PWA Tailwind CSS Composition API Starter
+# [Jefrydco](https://jefrydco.id)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b739d022-860a-4c43-a681-1bde9600ec51/deploy-status)](https://app.netlify.com/sites/nuxt-typescript-pwa-tailwindcss-composition-api/deploys)
-[![CircleCI Build Status](https://badgen.net/circleci/github/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api/master)](https://circleci.com/gh/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api)
-[![Azure Build Status](https://dev.azure.com/jefrydco/jefrydco/_apis/build/status/jefrydco.nuxt-typescript-pwa-tailwindcss-composition-api?branchName=master)](https://dev.azure.com/jefrydco/jefrydco/_build/latest?definitionId=5&branchName=master)
-[![Coverage Status](https://badgen.net/codecov/c/github/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api/master)](https://codecov.io/gh/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api)
-
-> Nuxt.js + Typescript + PWA + Tailwind CSS + Composition API starter project
-
-**⚠️ Please be aware that this starter project contains experimental composition API features that may subject unstable or changed in the future**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95ed6895-3a5b-4355-8b93-30a7fe00473d/deploy-status)](https://app.netlify.com/sites/jefrydco/deploys)
 
 ## Languages
 
-Read this description in another languages:
+Read this description in another language:
 
 - [Indonesian](./readme-id.md)
 
-## Features
+## Brief Description
 
-This starter project includes official Nuxt.js modules:
+A personal site of [Jefry Dewangga](https://twitter.com/jefrydco). This site is based on [Nuxt.js](https://nuxtjs.org), [Nuxt Content](https://content.nuxtjs.org/) and [Tailwind CSS](https://tailwindcss.com).
 
-- [Http](https://github.com/nuxt/http)
-- [Google Analytics](https://github.com/nuxt-community/analytics-module)
-- [PWA](https://github.com/nuxt-community/pwa-module)
-- [Sentry](https://github.com/nuxt-community/sentry-module)
-- [Nuxt TailwindCSS](https://tailwindcss.nuxtjs.org/)
-- [Color Mode](https://github.com/nuxt-community/color-mode-module)
-- [Nuxt Composition API](https://composition-api.nuxtjs.org/)
+To run locally, run `yarn`, then `yarn dev`, after that open https://localhost:3000 in your browser. You can also run `npm install` then `npm run dev` if you prefer to use NPM.
 
-It is also enriched with the best Vue's UI framework:
+## Contributing
 
-- [Tailwind CSS](https://tailwindcss.com/)
-- [VeeValidate](https://logaretm.github.io/vee-validate)
+You can contribute to this site by submitting pull request. You can also help me to fix gramatical error, since my mother tounge isn't English. Or if you have more sparetime, you can help me to translate this site into your language as well. :)
 
-and for the best typed experience, it also includes:
-
-- [Nuxt Typed Vuex](https://nuxt-typed-vuex.roe.dev/)
-
-## Setup
-
-```bash
-# install dependencies
-$ yarn # Or npm install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-
-# Run unit test
-$ yarn test
-
-# Run E2E test
-$ yarn dev
-$ yarn test:e2e
-```
-
-## Sentry and Google Analytics
-
-To activate Sentry and Google Analytics:
-
-1. Rename `.env.example` to `.env`
-2. Change your Sentry DSN and Google Analytics tracking identity config in `.env` file
-3. Uncomment the modules configuration code in `nuxt.config.ts`
-
-## More Information
-
-For detailed explanation on how things work, check out the [Nuxt.js](https://nuxtjs.org/) and [Tailwind CSS](https://tailwindcss.com/) documentation.
+To translate the content into your language, add a Markdown file with the translation to corresponding content folder using following format `contents/<language-code>/<section>/<file-name>.md`. For instance, if you want to add Javanese language for blog section, add new file in `contents/jv/blog/halo-dunia.md`.
 
 ## License
 
-[MIT License](./license.md)
+Source code is available under [MIT License](./license.md).
 
-Copyright (c) Jefry Dewangga ([@jefrydco](https://jefrydco.id))
+The content published **before 2021** is available under [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
+
+The content published **in 2021 and the following year** is available under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).

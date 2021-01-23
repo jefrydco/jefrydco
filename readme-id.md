@@ -1,79 +1,29 @@
-# Nuxt Typescript PWA TailwindCSS Composition API
+# [Jefrydco](https://jefrydco.id)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b739d022-860a-4c43-a681-1bde9600ec51/deploy-status)](https://app.netlify.com/sites/nuxt-typescript-pwa-tailwindcss-composition-api/deploys)
-[![CircleCI Build Status](https://badgen.net/circleci/github/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api/master)](https://circleci.com/gh/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api)
-[![Azure Build Status](https://dev.azure.com/jefrydco/jefrydco/_apis/build/status/jefrydco.nuxt-typescript-pwa-tailwindcss-composition-api?branchName=master)](https://dev.azure.com/jefrydco/jefrydco/_build/latest?definitionId=5&branchName=master)
-[![Coverage Status](https://badgen.net/codecov/c/github/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api/master)](https://codecov.io/gh/jefrydco/nuxt-typescript-pwa-tailwindcss-composition-api)
-
-> Proyek awalan untuk Nuxt.js + Typescript + PWA + TailwindCSS + Composition API
-
-**⚠️ Perlu diketahui bahwa proyek awalan ini berisi fitur eksperimental _Composition API_ yang mungkin tidak stabil atau berubah di kemudian hari**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95ed6895-3a5b-4355-8b93-30a7fe00473d/deploy-status)](https://app.netlify.com/sites/jefrydco/deploys)
 
 ## Bahasa
 
-Baca deskripsi ini di bahasa lain:
+Baca deskripsi ini dalam bahasa lain:
 
-- [English](./readme.md)
+- [Inggris](./readme.md)
 
-## Fitur
+## Deskripsi Singkat
 
-Proyek awalan ini menyertakan beberapa modul resmi Nuxt.js berikut:
+Situs pribadi [Jefry Dewangga](https://twitter.com/jefrydco). Situs ini dibangun menggunakan [Nuxt.js](https://nuxtjs.org), [Nuxt Content](https://content.nuxtjs.org/) dan [Tailwind CSS](https://tailwindcss.com).
 
-- [Http](https://github.com/nuxt/http)
-- [Google Analytics](https://github.com/nuxt-community/analytics-module)
-- [PWA](https://github.com/nuxt-community/pwa-module)
-- [Sentry](https://github.com/nuxt-community/sentry-module)
-- [Nuxt TailwindCSS](https://tailwindcss.nuxtjs.org/)
-- [Color Mode](https://github.com/nuxt-community/color-mode-module)
-- [Nuxt Composition API](https://composition-api.nuxtjs.org/)
+Untuk menjalankan situs ini secara lokal, jalankan perintah `yarn`, kemudian `yarn dev`, setelah itu buka https://localhost:3000 di peramban (_browser_) Anda. Anda juga dapat menjalankan `npm install` kemudian `npm run dev` jika Anda lebih suka menggunakan NPM.
 
-juga diperkaya dengan kerangka kerja antarmuka Vue terbaik berikut:
+## Berkontribusi
 
-- [Tailwind CSS](https://tailwindcss.com/)
-- [VeeValidate](https://logaretm.github.io/vee-validate)
+Anda dapat berkontribusi pada situs ini dengan mengirimkan _pull request_. Anda juga dapat membantu saya membetulkan tata bahasa yang salah, karena bahasa ibu saya juga bukanlah Bahasa Inggris. Atau jika Anda mempunyai waktu luang, Anda juga dapat membantu saya untuk menerjemahkan situs ini kedalam bahasa Anda juga. :)
 
-dan untuk pengalaman pengembang terbaik, juga menyertakan:
+Untuk menerjemahkan konten ke dalam bahasa Anda, tambahkan berkas Markdown dengan terjemahan ke dalam direktori konten yang sesuai dengan format berikut `contents/<kode-bahasa>/<bagian>/<nama-berkas>.md`. Sebagai contoh, jika Anda ingin menambahkan Bahasa Jawa untuk bagian blog, tambahkan berkas baru di `contents/jv/blog/halo-dunia.md`.
 
-- [Nuxt Typed Vuex](https://nuxt-typed-vuex.roe.dev/)
+## Perizinan
 
-## Persiapan
+Kode sumber berlisensi [MIT](./license.md).
 
-```bash
-# memasang dependensi
-$ yarn # Atau npm install
+Konten tulisan yang diterbitkan **sebelum tahun 2021** berlisensi [Creative Commons Atribusi 4.0 Internasional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.id).
 
-# menjalankan dengan _hot reload_ di localhost:3000
-$ yarn dev
-
-# _build_ untuk produksi dan meluncurkan peladen
-$ yarn build
-$ yarn start
-
-# _generate_ untuk proyek statis
-$ yarn generate
-
-# Menjalankan tes unit
-$ yarn test
-
-# Menjalankan tes E2E
-$ yarn dev
-$ yarn test:e2e
-```
-
-## Sentry dan _Google Analytics_
-
-Untuk mengaktifkan Sentry dan _Google Analytics_:
-
-1. Ganti nama `.env.example` menjadi `.env`
-2. Ubah konfigurasi DSN Sentry dan identitas pelacak _Google Analytics_ pada berkas `.env`
-3. Hapus komentar pada kode konfigurasi pada berkas `nuxt.config.ts`
-
-## Informasi Lebih Lanjut
-
-Untuk informasi lebih lanjut, silahkan cek dokumentasi resmi [Nuxt.js](https://id.nuxtjs.org/) dan [Tailwind CSS](https://tailwindcss.com/).
-
-## Lisensi
-
-[Lisensi MIT](./license.md)
-
-Hak Cipta (c) Jefry Dewangga ([@jefrydco](https://jefrydco.id))
+Konten tulisan yang diterbitkan **pada tahun 2021 dan tahun selanjutnya** berlisensi [Creative Commons Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id).
