@@ -144,7 +144,7 @@ export default formatDate.extend({
         discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
           fullPath
         )}`,
-        editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/${locale}/blogs/${slug}.md`
+        editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/${locale}/blog/${slug}.md`
       }
     }
   },
