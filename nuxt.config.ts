@@ -170,11 +170,6 @@ export default {
   // https://nuxtjs.org/guides/configuration-glossary/configuration-components
   components: true,
 
-  // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router/#trailingslash
-  router: {
-    trailingSlash: true
-  },
-
   // https://nuxtjs.org/guides/configuration-glossary/configuration-plugins
   plugins: ['~/plugins/vue-lazyload.client'],
 
@@ -443,8 +438,8 @@ export default {
         async create(feed: Feed) {
           feed.options = {
             title: 'Blog - Jefrydco',
-            id: `${HOSTNAME}${path}/`,
-            link: `${HOSTNAME}${path}/`,
+            id: `${HOSTNAME}${path}`,
+            link: `${HOSTNAME}${path}`,
             language: locale.code,
             description: 'A personal site of Jefry Dewangga.',
             copyright: new Date().getFullYear().toString()
@@ -469,12 +464,12 @@ export default {
               title: content.title,
               id:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}/`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
+                  ? `${HOSTNAME}/blog/${content.slug}`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
               link:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}/`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
+                  ? `${HOSTNAME}/blog/${content.slug}`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
               date: new Date(content.postedDate),
               description: content.summary
             })
@@ -488,7 +483,6 @@ export default {
   sitemap: {
     hostname: HOSTNAME,
     gzip: true,
-    trailingSlash: true,
     async routes(): Promise<Partial<SitemapItemOptions>[]> {
       // @ts-expect-error
       const contents: BlogListDataType = await $content(`/id/blog`, {
@@ -506,16 +500,16 @@ export default {
             locale.code === 'id'
               ? (contents.map((content) => ({
                   url: isAmp
-                    ? `/blog/${content.slug}/amp/`
-                    : `/blog/${content.slug}/`,
+                    ? `/blog/${content.slug}/amp`
+                    : `/blog/${content.slug}`,
                   changefreq: EnumChangefreq.DAILY,
                   priority: 1,
                   lastmod: new Date(content.updatedDate).toISOString()
                 })) as Partial<SitemapItemOptions>[])
               : (contents.map((content) => ({
                   url: isAmp
-                    ? `/${locale.code}/blog/${content.slug}/amp/`
-                    : `/${locale.code}/blog/${content.slug}/`,
+                    ? `/${locale.code}/blog/${content.slug}/amp`
+                    : `/${locale.code}/blog/${content.slug}`,
                   changefreq: EnumChangefreq.DAILY,
                   priority: 1,
                   lastmod: new Date(content.updatedDate).toISOString()
@@ -542,9 +536,9 @@ export default {
       return locales
         .map((locale) =>
           locale.code === 'id'
-            ? contents.map((content) => `/blog/${content.slug}/amp/`)
+            ? contents.map((content) => `/blog/${content.slug}/amp`)
             : contents.map(
-                (content) => `/${locale.code}/blog/${content.slug}/amp/`
+                (content) => `/${locale.code}/blog/${content.slug}/amp`
               )
         )
         .flat()
