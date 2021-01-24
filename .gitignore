@@ -90,3 +90,6 @@ sw.*
 *.swp
 
 blog.xml
+
+# Local Netlify folder
+.netlify
