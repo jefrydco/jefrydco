@@ -465,12 +465,12 @@ export default {
               title: content.title,
               id:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+                  ? `${HOSTNAME}/blog/${content.slug}/`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
               link:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+                  ? `${HOSTNAME}/blog/${content.slug}/`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
               date: new Date(content.postedDate),
               description: content.summary
             })
@@ -501,16 +501,16 @@ export default {
             locale.code === 'id'
               ? (contents.map((content) => ({
                   url: isAmp
-                    ? `/blog/${content.slug}/amp`
-                    : `/blog/${content.slug}`,
+                    ? `/blog/${content.slug}/amp/`
+                    : `/blog/${content.slug}/`,
                   changefreq: EnumChangefreq.DAILY,
                   priority: 1,
                   lastmod: new Date(content.updatedDate).toISOString()
                 })) as Partial<SitemapItemOptions>[])
               : (contents.map((content) => ({
                   url: isAmp
-                    ? `/${locale.code}/blog/${content.slug}/amp`
-                    : `/${locale.code}/blog/${content.slug}`,
+                    ? `/${locale.code}/blog/${content.slug}/amp/`
+                    : `/${locale.code}/blog/${content.slug}/`,
                   changefreq: EnumChangefreq.DAILY,
                   priority: 1,
                   lastmod: new Date(content.updatedDate).toISOString()
@@ -537,9 +537,9 @@ export default {
       return locales
         .map((locale) =>
           locale.code === 'id'
-            ? contents.map((content) => `/blog/${content.slug}/amp`)
+            ? contents.map((content) => `/blog/${content.slug}/amp/`)
             : contents.map(
-                (content) => `/${locale.code}/blog/${content.slug}/amp`
+                (content) => `/${locale.code}/blog/${content.slug}/amp/`
               )
         )
         .flat()

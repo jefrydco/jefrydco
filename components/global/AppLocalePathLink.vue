@@ -1,5 +1,5 @@
 <template>
-  <a :href="localePath(to)">
+  <a :href="`${localePath(to)}/`">
     <slot />
   </a>
 </template>
