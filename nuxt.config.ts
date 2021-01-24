@@ -4,6 +4,7 @@ import { ThematicBlock, AstUtility } from '@nuxt/content/types/highlighter'
 import { $content } from '@nuxt/content'
 import type { Feed } from 'feed'
 import { multirange } from 'multi-integer-range'
+import { Integrations } from '@sentry/tracing'
 import DotEnv from 'dotenv'
 import { HOSTNAME, locales } from './constants'
 import type { ReadingTimeType } from './types'
@@ -366,7 +367,14 @@ export default {
 
   // https://github.com/nuxt-community/sentry-module
   sentry: {
-    dsn: process.env.SENTRY_DSN
+    dsn: process.env.SENTRY_DSN,
+    clientConfig: {
+      integrations: [new Integrations.BrowserTracing()],
+      tracesSampleRate: 0.5,
+      tracingOptions: {
+        trackComponents: true
+      }
+    }
   },
 
   // https://github.com/nuxt-community/nuxt-i18n
