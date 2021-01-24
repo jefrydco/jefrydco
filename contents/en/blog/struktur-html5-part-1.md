@@ -7,7 +7,6 @@ imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z
 updatedDate: 2017-08-27T11:00:00.000Z
 slug: struktur-html5-part-1
-id: struktur-html5-part-1
 ---
 
 > Read the second part here, <nuxt-link to="/en/blog/struktur-html5-part-2">Good HTML5 Structure - Part 2</nuxt-link>

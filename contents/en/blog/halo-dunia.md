@@ -7,7 +7,6 @@ imgCreator: marceloquinan
 postedDate: 2017-08-23T11:00:00.000Z
 updatedDate: 2017-08-23T11:00:00.000Z
 slug: halo-dunia
-id: halo-dunia
 ---
 
 Hello my friends, this is my first post on this blog. Actually I made a blog many times and in the end it didn't work, the reason was classic, because of the hectic daily activities so that I became lazy to write. My old blog can also be accessed at https://jefryd.com (**Update: the domain has been expired**), the last article there was February 19, 2017.

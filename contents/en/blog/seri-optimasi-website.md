@@ -7,7 +7,6 @@ imgCreator: spacex
 postedDate: 2017-08-25T04:14:03.000Z
 updatedDate: 2017-08-25T04:14:03.000Z
 slug: seri-optimasi-website
-id: seri-optimasi-website
 ---
 
 Hello my friends, this time I want to make a website optimization series. Through this series, I will discuss in detail how our website have optimally optimized.

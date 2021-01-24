@@ -7,7 +7,6 @@ imgCreator: jefrydco
 postedDate: 2020-01-10T01:00:00.000Z
 updatedDate: 2020-01-10T01:00:00.000Z
 slug: oop-object-oriented-programming-javascript-explanation
-id: oop-object-oriented-programming-javascript-explanation
 contributors: ['edwardanthony', 'jefrydco']
 ---
 

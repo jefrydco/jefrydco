@@ -7,8 +7,6 @@ imgCreator: jefrydco
 postedDate: 2020-02-01T01:00:00.000Z
 updatedDate: 2020-02-01T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-2
-id: create-reactivity-system-vuejs-javascript-part-2
-extraComponents: ['AppDemo11En', 'AppDemo12En', 'AppDemo13En', 'AppDemo14En', 'AppDemo15En']
 ---
 
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }" label="Create a Simplified Version of Vue.js Reactivity System - Part 2"></app-amp-notice>

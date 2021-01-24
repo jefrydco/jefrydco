@@ -7,7 +7,6 @@ imgCreator: mkwlsn
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
 slug: jalur-rendering-penting-link-preload
-id: jalur-rendering-penting-link-preload
 ---
 
 Hello my friends, this time I will discuss about the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing the important rendering path, I also discussed preload links, which are actually related to each other.
@@ -76,11 +75,11 @@ For example, for friends' websites using bootstrap and custom CSS made by their 
 
 ```css
 #selector {
-  background-color: blue; // Properti ini akan ditimpa
+  background-color: blue; /* Properti ini akan ditimpa */
 }
 /* CSS lainnya */
 #selector {
-  background-color: #2196f3; // Properti ini yang digunakan peramban
+  background-color: #2196f3; /* Properti ini yang digunakan peramban */
 }
 ```
 

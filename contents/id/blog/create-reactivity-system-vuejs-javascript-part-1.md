@@ -7,7 +7,6 @@ imgCreator: jefrydco
 postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
 slug: create-reactivity-system-vuejs-javascript-part-1
-id: create-reactivity-system-vuejs-javascript-part-1
 ---
 
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }" label="Membuat Sistem Reaktivitas Vue.js Versi Sederhana - Bagian 1"></app-amp-notice>

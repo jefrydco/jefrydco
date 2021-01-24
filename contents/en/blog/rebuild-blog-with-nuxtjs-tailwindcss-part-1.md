@@ -7,7 +7,6 @@ imgCreator: markusspiske
 postedDate: 2019-04-17T07:15:21.689Z
 updatedDate: 2019-04-24T11:12:51.265Z
 slug: rebuild-blog-with-nuxtjs-tailwindcss-part-1
-id: rebuild-blog-with-nuxtjs-tailwindcss-part-1
 ---
 
 > Read the second part here, <nuxt-link to="/en/blog/rebuild-blog-with-nuxtjs-tailwindcss-part-2">Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2</nuxt-link>

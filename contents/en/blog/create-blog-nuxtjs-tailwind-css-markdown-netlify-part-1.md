@@ -7,7 +7,6 @@ imgCreator: jefrydco
 postedDate: 2019-12-17T02:48:54.928Z
 updatedDate: 2019-12-17T02:48:54.928Z
 slug: create-blog-nuxtjs-tailwind-css-markdown-netlify-part-1
-id: create-blog-nuxtjs-tailwind-css-markdown-netlify-part-1
 ---
 
 This section discuss the background why we have to get our hands dirty writing blog content using Markdown even though there are others blog platform which has WYSIWYG (What you see is what you get) feature. Using Nuxt.js as a blogging platform even though other blog platform has many template and plugin options which can help us do many things easier.

@@ -7,8 +7,6 @@ imgCreator: jefrydco
 postedDate: 2020-04-01T01:00:00.000Z
 updatedDate: 2020-04-01T01:00:00.000Z
 slug: learn-flexbox-css-interactive
-id: learn-flexbox-css-interactive
-extraComponents: ['AppFlexbox', 'AppForm']
 ---
 
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'learn-flexbox-css-interactive' } }" label="Learn CSS Flexbox in Interactive Way"></app-amp-notice>

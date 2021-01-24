@@ -7,7 +7,6 @@ imgCreator: mkwlsn
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
 slug: jalur-rendering-penting-link-preload
-id: jalur-rendering-penting-link-preload
 ---
 
 Halo teman-teman, kali ini saya bakalan bahas mengenai jalur _rendering_ penting. Mungkin teman-teman bertanya-tanya, istilah apaan sih itu, kok kedengarannya asing. Sabar teman-teman, pertanyaan itu akan terjawab pada penjelasan selanjutnya. Selain membahas mengenai jalur _rendering_ penting, saya juga bahas mengenai link preload, yang sebenarnya kedua hal tersebut saling berhubungan satu sama lain.
@@ -77,11 +76,11 @@ Contohnya misal situs web teman-teman menggunakan bootstrap dan CSS kustom buata
 
 ```css
 #selector {
-  background-color: blue; // Properti ini akan ditimpa
+  background-color: blue; /* Properti ini akan ditimpa */
 }
 /* CSS lainnya */
 #selector {
-  background-color: #2196f3; // Properti ini yang digunakan peramban
+  background-color: #2196f3; /* Properti ini yang digunakan peramban */
 }
 ```
 

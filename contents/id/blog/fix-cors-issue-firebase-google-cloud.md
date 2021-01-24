@@ -7,7 +7,6 @@ imgCreator: heftiba
 postedDate: 2019-04-27T17:37:21.057Z
 updatedDate: 2019-04-27T17:37:21.057Z
 slug: fix-cors-issue-firebase-google-cloud
-id: fix-cors-issue-firebase-google-cloud
 ---
 
 Saya memperbaiki bug yang sudah lama ditinggalkan dalam proyek saya. Kesalahan sebenarnya cukup sederhana yakni gambar yang disimpan di Firebase Cloud Storage tidak dapat diambil melalui permintaan AJAX. Saya memeriksa konsol JavaScript dan kesalahan ini muncul:

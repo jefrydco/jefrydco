@@ -7,7 +7,6 @@ imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z
 updatedDate: 2017-08-27T11:00:00.000Z
 slug: struktur-html5-part-1
-id: struktur-html5-part-1
 ---
 
 > Baca bagian kedua di sini, <nuxt-link to="/blog/struktur-html5-part-2">Struktur HTML5 yang Baik - Bagian 2</nuxt-link>

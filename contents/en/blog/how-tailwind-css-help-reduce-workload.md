@@ -7,8 +7,6 @@ imgCreator: jefrydco
 postedDate: 2019-12-25T05:05:00.000Z
 updatedDate: 2019-12-25T05:05:00.000Z
 slug: how-tailwind-css-help-reduce-workload
-id: how-tailwind-css-help-reduce-workload
-extraComponents: ['AppNotification', 'AppButton']
 ---
 
 Imagine we are a principal engineer in a well-known technological company in Indonesia, let say company A. All of the engineers in this company 100% from Indonesia.

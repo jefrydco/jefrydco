@@ -7,7 +7,6 @@ imgCreator: heftiba
 postedDate: 2019-04-27T17:37:21.057Z
 updatedDate: 2019-04-27T17:37:21.057Z
 slug: fix-cors-issue-firebase-google-cloud
-id: fix-cors-issue-firebase-google-cloud
 ---
 
 I was fixing a long-abandoned bug in my project. The error was quite simple actually. It was the image stored in Firebase Cloud Storage cannot be retrieved through AJAX request. I checked on the JavaScript console and this error appeared:

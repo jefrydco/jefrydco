@@ -7,7 +7,6 @@ imgCreator: marceloquinan
 postedDate: 2017-08-23T11:00:00.000Z
 updatedDate: 2017-08-23T11:00:00.000Z
 slug: halo-dunia
-id: halo-dunia
 ---
 
 Halo teman-teman, ini adalah pos pertama saya di blog ini. Sebenarnya saya udah berkali-kali bikin blog dan ujung-ujungnya jadi ga keurus, alasannya klasik, karena kesibukan sehari-hari yang semakin padat sehingga saya jadi malas untuk menulis. Blog yang lama saya juga masih bisa diakses di https://jefryd.com (**Pembaruan: domain telah kedaluwarsa**), tulisan terakhir di sana 19 Februari 2017 lalu.
