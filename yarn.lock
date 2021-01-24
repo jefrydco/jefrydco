@@ -1801,7 +1801,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/tracing@6.0.1":
+"@sentry/tracing@6.0.1", "@sentry/tracing@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.0.1.tgz#82001ce3369e05fe161e57dfb3cb3784fbe3f23b"
   integrity sha512-p4laeCu7isrvXiCgM/ix4GU5lckoL2Mw2OI3l93lRYL7fKU8XJs+/2Cybs0J+QY1HP5OTrNIF+VpnJZbpM6MQg==
