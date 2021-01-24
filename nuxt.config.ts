@@ -72,14 +72,6 @@ export default {
         href: `${HOSTNAME}/humans.txt`
       },
       {
-        rel: 'dns-prefetch',
-        href: 'https://fonts.googleapis.com'
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'https://fonts.gstatic.com'
-      },
-      {
         rel: 'preconnect',
         href: 'https://d33wubrfki0l68.cloudfront.net'
       },
