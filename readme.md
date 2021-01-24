@@ -24,6 +24,6 @@ To translate the content into your language, add a Markdown file with the transl
 
 Source code is available under [MIT License](./license.md).
 
-The content published **before 2021** is available under [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
+Content published **before 2021** is available under [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
 
-The content published **in 2021 and the following year** is available under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
+Content published **in 2021 and the following year** is available under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
