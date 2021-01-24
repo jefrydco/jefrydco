@@ -184,7 +184,7 @@ export default {
   },
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-plugins
-  plugins: ['~/plugins/vue-lazyload'],
+  plugins: ['~/plugins/vue-lazyload.client'],
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-css
   css: ['~/assets/styles/transitions', '~/assets/styles/app'],
