@@ -530,8 +530,6 @@ export default {
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-generate
   generate: {
-    // choose to suit your project
-    interval: 5000,
     async routes() {
       // @ts-expect-error
       const contents: BlogListDataType = await $content(`/id/blog`, {
