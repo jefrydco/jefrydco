@@ -1,20 +1,23 @@
 import { resolve } from 'path'
-import { NuxtOptions } from '@nuxt/types'
-import { ThematicBlock, AstUtility } from '@nuxt/content/types/highlighter'
+import { AstUtility, ThematicBlock } from '@nuxt/content/types/highlighter'
 import { $content } from '@nuxt/content'
-import type { Feed } from 'feed'
-import { multirange } from 'multi-integer-range'
-import { Integrations } from '@sentry/tracing'
 import DotEnv from 'dotenv'
-import { HOSTNAME, locales } from './constants'
+import { EnumChangefreq } from 'sitemap'
+import type { Feed } from 'feed'
+import { Integrations } from '@sentry/tracing'
+import { NuxtOptions } from '@nuxt/types'
+import type { SitemapItemOptions } from 'sitemap'
+import { multirange } from 'multi-integer-range'
+
 import type { ReadingTimeType } from './types'
-import {
-  createShikiHighlighter,
-  runTwoSlash,
-  renderCodeToHTML
-} from './libs/shiki-twoslash'
 import ampify from './libs/ampify'
 import type { BlogListDataType } from './types/blog'
+import {
+  createShikiHighlighter,
+  renderCodeToHTML,
+  runTwoSlash
+} from './libs/shiki-twoslash'
+import { HOSTNAME, locales } from './constants'
 
 DotEnv.config()
 
@@ -175,6 +178,11 @@ export default {
   // https://nuxtjs.org/guides/configuration-glossary/configuration-components
   components: true,
 
+  // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router/#trailingslash
+  router: {
+    trailingSlash: true
+  },
+
   // https://nuxtjs.org/guides/configuration-glossary/configuration-plugins
   plugins: ['~/plugins/vue-lazyload'],
 
@@ -205,7 +213,10 @@ export default {
     '@nuxtjs/sentry',
 
     // https://github.com/nuxt-community/nuxt-i18n
-    'nuxt-i18n'
+    'nuxt-i18n',
+
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap'
   ],
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-modules#buildmodules
@@ -466,12 +477,12 @@ export default {
               title: content.title,
               id:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+                  ? `${HOSTNAME}/blog/${content.slug}/`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
               link:
                 locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}`,
+                  ? `${HOSTNAME}/blog/${content.slug}/`
+                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
               date: new Date(content.postedDate),
               description: content.summary
             })
@@ -479,6 +490,50 @@ export default {
         }
       }
     })
+  },
+
+  // https://sitemap.nuxtjs.org/
+  sitemap: {
+    hostname: HOSTNAME,
+    gzip: true,
+    trailingSlash: true,
+    async routes(): Promise<Partial<SitemapItemOptions>[]> {
+      // @ts-expect-error
+      const contents: BlogListDataType = await $content(`/id/blog`, {
+        deep: true
+      })
+        .only(['slug', 'updatedDate'])
+        .sortBy('postedDate', 'desc')
+        .fetch<BlogListDataType>()
+
+      function generateSitemap(
+        { isAmp }: { isAmp?: boolean } = { isAmp: false }
+      ) {
+        return locales
+          .map((locale) =>
+            locale.code === 'id'
+              ? (contents.map((content) => ({
+                  url: isAmp
+                    ? `/blog/${content.slug}/amp/`
+                    : `/blog/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.updatedDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+              : (contents.map((content) => ({
+                  url: isAmp
+                    ? `/${locale.code}/blog/${content.slug}/amp/`
+                    : `/${locale.code}/blog/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.updatedDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+          )
+          .flat()
+      }
+
+      return [...generateSitemap(), ...generateSitemap({ isAmp: true })]
+    }
   },
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-generate
@@ -497,9 +552,9 @@ export default {
       return locales
         .map((locale) =>
           locale.code === 'id'
-            ? contents.map((content) => `/blog/${content.slug}/amp`)
+            ? contents.map((content) => `/blog/${content.slug}/amp/`)
             : contents.map(
-                (content) => `/${locale.code}/blog/${content.slug}/amp`
+                (content) => `/${locale.code}/blog/${content.slug}/amp/`
               )
         )
         .flat()
