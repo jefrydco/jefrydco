@@ -92,9 +92,14 @@ export const renderCodeToHTML = (
     )
   }
 
+  const options: ShikiRenderOptions = {
+    langId: lang,
+    ...shikiOptions
+  }
+
   // Shiki doesn't know this lang
   if (!canHighlightLang(lang)) {
-    return plainTextRenderer(code, { langId: lang, ...shikiOptions })
+    return plainTextRenderer(code, options)
   }
 
   // Shiki does know the lang, so tokenize
@@ -105,7 +110,7 @@ export const renderCodeToHTML = (
   if (info.includes('twoslash') && twoslash) {
     return twoslashRenderer(
       tokens,
-      { langId: lang, ...shikiOptions },
+      options,
       twoslash,
       highlighter as Highlighter,
       lineHighlights
@@ -116,13 +121,13 @@ export const renderCodeToHTML = (
   if (lang === 'json' && info.includes('tsconfig')) {
     return tsconfigJSONRenderer(
       tokens,
-      { langId: lang, ...shikiOptions },
+      options,
       lineHighlights
     )
   }
 
   // Otherwise just the normal shiki renderer
-  return defaultShikiRenderer(tokens, { langId: lang }, lineHighlights)
+  return defaultShikiRenderer(tokens, options, lineHighlights)
 }
 
 // Basically so that we can store this once, then re-use it in the same process
