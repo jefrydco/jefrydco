@@ -303,7 +303,6 @@ export default {
 
   // https://github.com/nuxt-community/google-fonts-module
   googleFonts: {
-    download: true,
     display: 'swap',
     families: {
       Bitter: true,
