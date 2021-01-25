@@ -489,6 +489,8 @@ export default formatDate.extend({
     }
 
     &__error {
+      padding: 0.375rem 0;
+
       span {
         color: #e2e8f0;
       }
@@ -513,7 +515,7 @@ export default formatDate.extend({
       }
 
       &::before {
-        @apply absolute h-full z-0;
+        @apply absolute h-full z-0 top-0 bottom-0;
         content: '';
         left: -1.05rem;
         right: -1.05rem;
