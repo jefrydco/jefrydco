@@ -40,7 +40,13 @@ export function tsconfigJSONRenderer(
     html += `<div class="shiki__language">${options.langId}</div>`
   }
   if (options.fileName) {
-    html += `<div class="shiki__filename">${options.fileName}</div>`
+    if (options.fileName.includes('tsconfig')) {
+      let i = 0
+      // Taken from: https://stackoverflow.com/a/50012120
+      html += `<div class="shiki__filename">${options.fileName.replace(/tsconfig/gi, m => !i++ ? m : '')}</div>`
+    } else {
+      html += `<div class="shiki__filename">${options.fileName}</div>`
+    }
   }
   html += `</div>`
   html += `<pre class="shiki__pre"><code class="shiki__code">`
@@ -58,21 +64,21 @@ export function tsconfigJSONRenderer(
           const key = token.content
           const oneliner = (tsconfig as Record<string, string>)[key]
           // prettier-ignore
-          htmlLines += `<div class="shiki__token" style="color: ${token.color}"><data-lsp lsp="${oneliner}">${escapeHtml(key)}</data-lsp></div>`
+          htmlLines += `<span class="shiki__token shiki__token--color-${token.color?.replace('#', '')}"><data-lsp lsp="${oneliner}">${escapeHtml(key)}</data-lsp></span>`
         } else {
-          htmlLines += `<div class="shiki__token" style="color: ${token.color}">${escapeHtml(
+          htmlLines += `<span class="shiki__token shiki__token--color-${token.color?.replace('#', '')}">${escapeHtml(
             token.content
-          )}</div>`
+          )}</span>`
         }
       })
       if (lineHighlights?.length) {
         if (lineHighlights?.includes(i + 1)) {
-          html += `<div class="shiki__highlight">${htmlLines}</div>`
+          html += `<span class="shiki__highlight">${htmlLines}</span>`
         } else {
-          html += `<div class="shiki__dim">${htmlLines}</div>`
+          html += `<span class="shiki__dim">${htmlLines}</span>`
         }
       } else {
-        html += `<div class="shiki__line">${htmlLines}</div>`
+        html += `<span class="shiki__line">${htmlLines}</span>`
       }
       // html += `\n`
     }

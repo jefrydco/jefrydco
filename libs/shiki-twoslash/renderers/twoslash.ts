@@ -47,7 +47,11 @@ export function twoslashRenderer(
     html += `<div class="shiki__language">${options.langId}</div>`
   }
   if (options.fileName) {
-    html += `<div class="shiki__filename">${options.fileName}</div>`
+    if (options.fileName.includes('twoslash')) {
+      html += `<div class="shiki__filename">${options.fileName.replace(/twoslash/gi, '')}</div>`
+    } else {
+      html += `<div class="shiki__filename">${options.fileName}</div>`
+    }
   }
   html += `</div>`
   html += `<pre class="shiki__pre"><code class="shiki__code">`
@@ -143,19 +147,19 @@ export function twoslashRenderer(
           tokenContent += subTripleArrow(token.content)
         }
 
-        htmlLines += `<div class="shiki__token" style="color: ${token.color}">${tokenContent}</div>`
+        htmlLines += `<span class="shiki__token shiki__token--color-${token.color?.replace('#', '')}">${tokenContent}</span>`
         tokenPos += token.content.length
         filePos += token.content.length
       })
 
       if (lineHighlights?.length) {
         if (lineHighlights?.includes(i + 1)) {
-          html += `<div class="shiki__highlight">${htmlLines}</div>`
+          html += `<span class="shiki__highlight">${htmlLines}</span>`
         } else {
-          html += `<div class="shiki__dim">${htmlLines}</div>`
+          html += `<span class="shiki__dim">${htmlLines}</span>`
         }
       } else {
-        html += `<div class="shiki__line">${htmlLines}</div>`
+        html += `<span class="shiki__line">${htmlLines}</span>`
       }
       // html += `\n`
       filePos += 1
@@ -167,7 +171,7 @@ export function twoslashRenderer(
         .map((e) => escapeHtml(e.renderedMessage))
         .join('</br>')
       const codes = errors.map((e) => e.code).join('<br/>')
-      html += `<div class="shiki__error"><span class="error__code">[${codes}]</span> <span class="error__message">${messages}</span></div>`
+      html += `<span class="shiki__error"><span class="error__code">[${codes}]</span> <span class="error__message">${messages}</span></span>`
       // html += `<span class="error-behind">${messages}</span>`
     }
 
