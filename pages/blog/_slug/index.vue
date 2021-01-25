@@ -749,7 +749,7 @@ export default formatDate.extend({
   }
 }
 
-@screen sm {
+@media (max-width: 992px) {
   .prose {
     h2,
     h3 {
@@ -762,7 +762,9 @@ export default formatDate.extend({
       }
     }
   }
+}
 
+@screen sm {
   .blog-detail {
     &__card {
       @apply px-16 py-10;
