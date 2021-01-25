@@ -352,11 +352,308 @@ export default formatDate.extend({
 
 <style>
 /* purgecss start ignore */
-.shiki {
-  &__token {
-    @apply inline;
+.prose {
+  hr {
+    @apply my-5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-12 mb-5;
+  }
+
+  h2,
+  h3 {
+    > a {
+      &:focus {
+        @apply outline-none;
+      }
+
+      &::before {
+        @apply absolute -ml-5 pr-2 opacity-0;
+        content: '#';
+        color: var(--text-link);
+      }
+    }
+
+    &:hover {
+      > a {
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  h4 {
+    @apply text-base;
+  }
+
+  h5 {
+    @apply text-sm;
+  }
+
+  h6 {
+    @apply text-xs;
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h5 + h6 {
+    @apply mt-5;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  ul,
+  ol {
+    @apply ml-8;
+
+    li {
+      @apply mb-3;
+
+      p {
+        @apply mb-0;
+      }
+
+      ul,
+      ol {
+        @apply my-3 ml-4;
+      }
+    }
+  }
+
+  blockquote,
+  quote {
+    @apply leading-loose mb-8 py-3 px-4 border-l-4 italic;
+    border-color: var(--inline-code-border);
+
+    p:only-child {
+      @apply mb-0;
+    }
+  }
+
+  .shiki {
+    @apply rounded-lg;
+    background-color: #1a202c;
+    color: #e2e8f0;
+
+    &__pre,
+    &__code {
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    &__dim {
+      @apply opacity-50;
+      transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+
+    &__meta {
+      @apply flex justify-between;
+      padding: 0.5rem 1rem;
+    }
+
+    &__highlight {
+      &::before {
+        border-left: 0.3rem solid var(--text-link);
+        background-color: rgba(203, 213, 224, 0.1);
+        background-image: linear-gradient(
+          to right,
+          rgba(203, 213, 224, 0.1) 50%,
+          rgba(203, 213, 224, 0)
+        );
+      }
+    }
+
+    &__error {
+      span {
+        color: #e2e8f0;
+      }
+
+      &::before {
+        border-left: 0.3rem solid var(--error);
+        background-color: rgba(245, 101, 101, 0.1);
+        background-image: linear-gradient(
+          to right,
+          rgba(245, 101, 101, 0.3) 50%,
+          rgba(245, 101, 101, 0)
+        );
+      }
+    }
+
+    &__highlight,
+    &__error {
+      @apply relative opacity-100;
+
+      span {
+        @apply relative z-10;
+      }
+
+      &::before {
+        @apply absolute h-full z-0;
+        content: '';
+        left: -1.05rem;
+        right: -1.05rem;
+      }
+    }
+
+    &__code {
+      background-color: #1a202c;
+      border-color: #2d3748;
+      padding: 0.5rem 1rem;
+    }
+
+    &:hover {
+      .shiki {
+        &__dim {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+
+  .embed,
+  .demo,
+  .nuxt-content-highlight,
+  .image__placeholder {
+    @apply mb-8;
+  }
+
+  .embed {
+    @apply relative block h-0 p-0 overflow-hidden;
+
+    video {
+      @apply absolute top-0 left-0 bottom-0 h-full w-full;
+      border: 0;
+    }
+
+    &__square {
+      padding-top: 100%;
+    }
+
+    &__16\/9 {
+      padding-top: 56.25%;
+    }
+
+    &__4\/3 {
+      padding-top: 75%;
+    }
+
+    &__21\/9 {
+      padding-top: 42.86%;
+    }
+  }
+
+  .demo {
+    .btn,
+    .textarea,
+    .input {
+      background-color: var(--card-bg);
+    }
+
+    &__card {
+      @apply rounded p-4;
+      background-color: var(--bg);
+    }
+
+    &__code {
+      @apply mb-4;
+      padding: 0.5rem 1rem;
+    }
+
+    &__interactive {
+      @apply p-4;
+      border-color: var(--inline-code-bg);
+    }
+
+    &--combined {
+      .demo {
+        &__interactive {
+          @apply border-t-2 border-l-2 border-r-2 rounded-t-lg;
+        }
+
+        &__card:not(.demo-card--custom--floating) {
+          @apply rounded-none;
+        }
+
+        &__code {
+          @apply rounded-b-lg rounded-t-none;
+        }
+      }
+    }
+  }
+
+  .btn,
+  .textarea,
+  .input,
+  .demo__form {
+    @apply mb-4 py-1 px-2 rounded;
+
+    &:not(:last-child) {
+      @apply mr-2;
+    }
+
+    &:disabled {
+      background-color: var(--bg-disabled);
+      color: var(--text-disabled);
+    }
+  }
+
+  .radio,
+  .checkbox {
+    &__label,
+    &__input {
+      @apply cursor-pointer;
+    }
+
+    &__label {
+      @apply inline-flex items-center;
+    }
+
+    &__input {
+      color: var(--inline-code-bg);
+
+      &:focus {
+        @apply shadow-none border-none;
+        outline: 0.125rem solid var(--text-normal);
+      }
+    }
+  }
+
+  .btn,
+  .textarea,
+  .input {
+    background-color: var(--bg);
+  }
+
+  .demo__form {
+    background-color: var(--card-bg);
   }
 }
+
 .blog-detail {
   &__img-wrapper {
     @apply h-128;
@@ -405,7 +702,65 @@ export default formatDate.extend({
   }
 }
 
+.shiki {
+  &__line,
+  &__block,
+  &__dim,
+  &__highlight {
+    @apply block;
+  }
+
+  &__token {
+    &--color-282A36 {
+      color: #282a36;
+    }
+    &--color-F8F8F2 {
+      color: #f8f8f2;
+    }
+    &--color-44475A {
+      color: #44475a;
+    }
+    &--color-6272A4 {
+      color: #6272a4;
+    }
+    &--color-8BE9FD {
+      color: #8be9fd;
+    }
+    &--color-50FA7B {
+      color: #50fa7b;
+    }
+    &--color-FFB86C {
+      color: #ffb86c;
+    }
+    &--color-FF79C6 {
+      color: #ff79c6;
+    }
+    &--color-BD93F9 {
+      color: #bd93f9;
+    }
+    &--color-FF5555 {
+      color: #ff5555;
+    }
+    &--color-F1FA8C {
+      color: #f1fa8c;
+    }
+  }
+}
+
 @screen sm {
+  .prose {
+    h2,
+    h3 {
+      > a {
+        @apply ml-5;
+
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+
   .blog-detail {
     &__card {
       @apply px-16 py-10;
