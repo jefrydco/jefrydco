@@ -318,7 +318,7 @@ Di dalam fungsi _callback_, kita melakukan pengecekan jika `$refs.nav` telah ter
 
 Dengan cara tersebut, kita tidak perlu mengetahui berapa lama waktu tunggu yang dibutuhkan sampai nilai `$refs.nav` tersedia. Selama pemanggilan fungsi _callback_ masih berjalan, akan dilakukan pengecekan terhadap nilai tersebut.
 
-Jika teman-teman ingin mengetahui bagaimana implementasi cara tersebut pada demo interaktif, silahkan melihatnya di [AppDemo10Id.vue](https://github.com/jefrydco/jefrydco/tree/main/components/global/contents/create-reactivity-system-vuejs-javascript-part-1/AppDemo10Id.vue).
+Jika teman-teman ingin mengetahui bagaimana implementasi cara tersebut pada demo interaktif, silahkan melihatnya di [AppDemo10Id.vue](https://github.com/jefrydco/jefrydco/blob/e37cf5c48417e57d7489f30ba407eddc713962ec/components/global/contents/blogs/create-reactivity-system-vuejs-javascript-part-1/AppDemo10Id.vue#L29-L35).
 
 ## Kesimpulan
 

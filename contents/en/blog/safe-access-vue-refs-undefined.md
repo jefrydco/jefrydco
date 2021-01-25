@@ -317,7 +317,7 @@ Inside the callback function, we do checking if `$refs.nav` exists, we do someth
 
 By doing that, we don't have to know how long the delay until `$refs.nav` is available. As long as the interval is running, it will execute the callback and do if checking for that.
 
-If you want to know the implementation in the interactive demo, please take a look at [AppDemo10En.vue](https://github.com/jefrydco/jefrydco/tree/main/components/global/contents/create-reactivity-system-vuejs-javascript-part-1/AppDemo10En.vue).
+If you want to know the implementation in the interactive demo, please take a look at [AppDemo10En.vue](https://github.com/jefrydco/jefrydco/blob/e37cf5c48417e57d7489f30ba407eddc713962ec/components/global/contents/blogs/create-reactivity-system-vuejs-javascript-part-1/AppDemo10En.vue#L29-L35).
 
 ## Conclusion
 
