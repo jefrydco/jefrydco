@@ -9,6 +9,8 @@ module.exports = {
         ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen']
       }
     ],
-    'block-no-empty': null
+    'block-no-empty': null,
+    'no-descending-specificity': null,
+    'selector-type-no-unknown': null
   }
 }
