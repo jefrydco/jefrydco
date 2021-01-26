@@ -1601,10 +1601,10 @@
     data2xml "^1.3.4"
     lodash "^4.17.19"
 
-"@nuxtjs/color-mode@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/@nuxtjs/color-mode/-/color-mode-2.0.2.tgz#98292e44b9774262c66aad1782b1430593441492"
-  integrity sha512-j5xsy3R6rWNRon8Rvzut7J4QyGWWsAYfdMS80vp+1u9I+9k/lOeFzwzQW4Sxsan+nhQmsKi9XaWS7o0Vk1g1JA==
+"@nuxtjs/color-mode@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/@nuxtjs/color-mode/-/color-mode-2.0.3.tgz#6ba5ab0a6364c966b48386867f2660bf0dcd7b5d"
+  integrity sha512-yfTkUbXcq42YW7qCv66kqAttnjr+sLpxY+HIJq7nlLadDQeEyjl+QMR8AHKS2KQMVfMwd7rbJyE+jU2PKjwDcQ==
   dependencies:
     defu "^3.2.2"
     lodash.template "^4.5.0"
@@ -1782,6 +1782,15 @@
     "@sentry/utils" "6.0.1"
     tslib "^1.9.3"
 
+"@sentry/hub@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.0.2.tgz#6bb33b072bef6bf9ad50599f19f9674438717cb8"
+  integrity sha512-/rByl+ak5Ni6xTSfzIcJqKaaErJbDw0kXgNlHGPRQ4bM5hjDDuKbdykMk4J6BfPWt2dfwe13P25bIjz9M3a7kw==
+  dependencies:
+    "@sentry/types" "6.0.2"
+    "@sentry/utils" "6.0.2"
+    tslib "^1.9.3"
+
 "@sentry/integrations@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sentry/integrations/-/integrations-6.0.1.tgz#43eabf40eb8e004a8a59449dad651615129fff11"
@@ -1801,6 +1810,15 @@
     "@sentry/types" "6.0.1"
     tslib "^1.9.3"
 
+"@sentry/minimal@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.0.2.tgz#09b3e9f67329090da713860e40560f77ad4afc48"
+  integrity sha512-wrSTTIvDsRCXbNcfha/fjkP7Mj1xzNHzGeBRMRlNg3T+nYZSrs5SihVTXT/gcABhO5PpWu8EXbMpv0bAahaEGw==
+  dependencies:
+    "@sentry/hub" "6.0.2"
+    "@sentry/types" "6.0.2"
+    tslib "^1.9.3"
+
 "@sentry/node@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sentry/node/-/node-6.0.1.tgz#fe8d030047d4101a5d9e674dfd3ee98730537eb0"
@@ -1816,7 +1834,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/tracing@6.0.1", "@sentry/tracing@^6.0.1":
+"@sentry/tracing@6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.0.1.tgz#82001ce3369e05fe161e57dfb3cb3784fbe3f23b"
   integrity sha512-p4laeCu7isrvXiCgM/ix4GU5lckoL2Mw2OI3l93lRYL7fKU8XJs+/2Cybs0J+QY1HP5OTrNIF+VpnJZbpM6MQg==
@@ -1827,10 +1845,26 @@
     "@sentry/utils" "6.0.1"
     tslib "^1.9.3"
 
+"@sentry/tracing@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.0.2.tgz#f89645159dcee8d9aedac2ee4481feb4dd231b76"
+  integrity sha512-e8u1pRcpJIoQY8mO9J1Yk0RPi/eEejQqagP888PHbmx2E9Tk7eiTW7TfHha2ECagOfMiCmKbcUUULmVeF1C58Q==
+  dependencies:
+    "@sentry/hub" "6.0.2"
+    "@sentry/minimal" "6.0.2"
+    "@sentry/types" "6.0.2"
+    "@sentry/utils" "6.0.2"
+    tslib "^1.9.3"
+
 "@sentry/types@6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sentry/types/-/types-6.0.1.tgz#4d1a281a4a79541b607361523e08058c6676409e"
   integrity sha512-cEoe19vtam75Tf6eWmaobfbeV8XwBdr5FJoSVTomzcSsEiP2FHGOEhlE7kVBigzeH5Lri0aibiW6BDi1hIqHdg==
+
+"@sentry/types@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.0.2.tgz#8c1f6b5bc41708b5d6133847988752d9d184b237"
+  integrity sha512-aDUJuOe0MsqjDzx6dUTS6xXe+gNjYuZTHUuUB7EpihzoHGre7gUN3/WCCghiR4OJ703fxyl24cex6vDboZJLvg==
 
 "@sentry/utils@6.0.1":
   version "6.0.1"
@@ -1838,6 +1872,14 @@
   integrity sha512-bjGuBYnG6fulZ8mLhPGBxttNu96DCN6d7Glw2sfLf4aurn1kjJ/58hP2c8dH0OqWO5e+rGYTsZ5Dr5kqVKNGTg==
   dependencies:
     "@sentry/types" "6.0.1"
+    tslib "^1.9.3"
+
+"@sentry/utils@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.0.2.tgz#ffa53e7f6873683a5aa8a50f5fcb391ca37ffab4"
+  integrity sha512-X2hAFMkfht4GzdtqrjuVJfK07af5r6h2BfYJGSS/XYa8KBVlDGAtvffP9uYuNWUoLxr+Vrc+ePrPoi4xCREcDQ==
+  dependencies:
+    "@sentry/types" "6.0.2"
     tslib "^1.9.3"
 
 "@sentry/webpack-plugin@^1.14.0":
