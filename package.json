@@ -34,7 +34,7 @@
     "@nuxtjs/browserconfig": "^0.0.13",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/google-fonts": "^1.2.0",
-    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sentry": "^5.0.0",
     "@nuxtjs/sitemap": "^2.4.0",
