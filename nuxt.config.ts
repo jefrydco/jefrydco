@@ -295,7 +295,6 @@ export default {
     families: {
       Bitter: true,
       'Merriweather Sans': true,
-      'PT Sans': true,
       'Fira Code': true
     }
   },
