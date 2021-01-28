@@ -90,7 +90,7 @@
     "prettier": "^2.2.1",
     "remark-toc": "^7.0.0",
     "responsive-loader": "^2.3.0",
-    "sharp": "^0.27.0",
+    "sharp": "^0.27.1",
     "shiki": "^0.2.7",
     "shiki-languages": "^0.2.7",
     "stylelint": "^13.9.0",
