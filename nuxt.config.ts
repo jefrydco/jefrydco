@@ -425,6 +425,7 @@ export default {
     size: 1920,
     placeholder: true,
     quality: 60,
+    progressive: true,
     adapter: require('responsive-loader/sharp')
   },
 

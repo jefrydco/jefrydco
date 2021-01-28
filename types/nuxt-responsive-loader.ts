@@ -15,5 +15,6 @@ export type NuxtResponsiveLoaderOptions = {
   size: number
   placeholder: boolean
   quality: number
+  progressive: boolean
   adapter: ResponsiveLoaderAdapter
 }
