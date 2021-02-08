@@ -1,8 +1,8 @@
 name: Generate PSI report
 on:
-  # Run once a week on 1:30 every saturday
+  # Run once a week on 01:30 every Wednesday
   schedule:
-  - cron: "30 1 * * 6"
+  - cron: "30 1 * * 3"
 
 jobs:
   run_psi:
