@@ -1,0 +1,29 @@
+name: Generate PSI report
+on:
+  # Run once a week on 1:30 every saturday
+  schedule:
+  - cron: "30 1 * * 6"
+
+jobs:
+  run_psi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+         persist-credentials: false
+         fetch-depth: 0
+
+      - name: psi-gh-action
+        uses: mazipan/psi-gh-action@1.1.0
+        with:
+          api_key: ${{ secrets.PSI_API_KEY }}
+          urls: |
+            https://jefrydco.id/
+            https://jefrydco.id/blog
+          devices: |
+            mobile
+            desktop
+          runs: 1
+          branch: master
+          push_back: true
+          token: ${{ secrets.GITHUB_TOKEN }}
