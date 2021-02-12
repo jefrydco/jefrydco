@@ -236,8 +236,7 @@ export default {
       remarkPlugins: ['remark-toc'],
       remarkToc: {
         heading: 'daftar isi|toc|table[ -]of[ -]contents?',
-        maxDepth: 3,
-        ordered: true
+        maxDepth: 3
       },
       async highlighter() {
         const highlighter = await createShikiHighlighter({
@@ -293,6 +292,7 @@ export default {
   // https://github.com/nuxt-community/google-fonts-module
   googleFonts: {
     download: true,
+    stylePath: 'styles/fonts.css',
     display: 'swap',
     families: {
       Bitter: true,
