@@ -1,10 +1,14 @@
 <template>
-  <div
+  <span
+    v-if="!$route.name.includes('amp')"
     v-tooltip.top="{ content: lsp, autoHide: false, html: true }"
-    class="shiki__data-lsp"
+    class="shiki__d-lsp"
   >
     <slot />
-  </div>
+  </span>
+  <span v-else class="shiki__d-lsp">
+    <slot />
+  </span>
 </template>
 
 <script lang="ts">
@@ -26,13 +30,13 @@ export default {
 <style>
 /* purgecss start ignore */
 .shiki {
-  &__data-lsp {
+  &__d-lsp {
     @apply inline;
   }
 
   &:hover {
     .shiki {
-      &__data-lsp {
+      &__d-lsp {
         border-bottom: 0.1rem dotted #e2e8f0;
       }
     }
