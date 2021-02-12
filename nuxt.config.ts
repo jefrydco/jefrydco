@@ -344,7 +344,7 @@ export default {
     dsn: process.env.SENTRY_DSN,
     clientConfig: {
       integrations: [new Integrations.BrowserTracing()],
-      tracesSampleRate: 0.5,
+      tracesSampleRate: 1,
       tracingOptions: {
         trackComponents: true
       }
