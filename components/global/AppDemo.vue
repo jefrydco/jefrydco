@@ -28,7 +28,7 @@
 <script lang="ts">
 import Vue from 'vue'
 const BASE_URL =
-  'https://github.com/jefrydco/jefrydco/tree/main/components/global'
+  'https://github.com/jefrydco/jefrydco/blob/main/components/global'
 
 export default Vue.extend({
   props: {
