@@ -13,6 +13,7 @@ export default {
   newTab: 'tab baru',
   about: 'About',
   blog: 'Blog',
+  speed: 'Speed',
   postedOn: 'Posted on',
   updatedOn: 'Updated on'
 }
