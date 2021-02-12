@@ -26,7 +26,8 @@
     "test:e2e": "cypress run",
     "test:e2e:open": "cypress open",
     "test:unit": "jest ./tests/unit",
-    "coverage": "codecov"
+    "coverage": "codecov",
+    "log:psi": "ts-node ./cli/log-psi.ts"
   },
   "dependencies": {
     "@nuxt/content": "^1.13.1",

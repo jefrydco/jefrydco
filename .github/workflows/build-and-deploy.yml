@@ -73,6 +73,9 @@ jobs:
         with:
           utcOffset: '+07:00'
 
+      - name: Peak PSI Reports
+        run: yarn log:psi
+
       - name: Build
         env:
           GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
