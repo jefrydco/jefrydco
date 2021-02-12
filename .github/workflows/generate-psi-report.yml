@@ -19,7 +19,7 @@ jobs:
           api_key: ${{ secrets.PSI_API_KEY }}
           urls: |
             https://jefrydco.id/
-            https://jefrydco.id/blog
+            https://jefrydco.id/blog/
           devices: |
             mobile
             desktop
