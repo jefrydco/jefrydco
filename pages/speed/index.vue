@@ -155,6 +155,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { HOSTNAME } from '~/constants'
 
 export default Vue.extend({
   async asyncData() {
@@ -182,7 +183,13 @@ export default Vue.extend({
   head() {
     const title = this.$t('speed')
     return {
-      title
+      title,
+      link: [
+        {
+          rel: 'amphtml',
+          href: `${HOSTNAME}${this.localePath({ name: 'speed-amp' })}`
+        }
+      ]
     }
   },
   computed: {
