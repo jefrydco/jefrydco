@@ -1,4 +1,4 @@
-import { Highlighter } from 'shiki/dist/highlighter'
+import { Highlighter } from 'shiki'
 import type { TwoSlashReturn } from '@typescript/twoslash'
 import type { IThemedToken } from 'shiki'
 
