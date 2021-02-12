@@ -14,5 +14,3 @@ http://jefrydco.netlify.app/* https://jefrydco.id/:splat 301!
 
 https://jefrydco.netlify.com/* https://jefrydco.id/:splat 301!
 https://jefrydco.netlify.app/* https://jefrydco.id/:splat 301!
-
-/* / 404

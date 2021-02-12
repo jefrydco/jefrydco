@@ -527,6 +527,7 @@ export default {
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-generate
   generate: {
+    fallback: true,
     async routes() {
       // @ts-expect-error
       const contents: BlogListDataType = await $content(`/id/blog`, {
