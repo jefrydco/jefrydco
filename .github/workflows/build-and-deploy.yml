@@ -76,6 +76,8 @@ jobs:
       - name: Build
         uses: netlify/actions/cli@master
         env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -90,4 +92,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --messages="${{ steps.current-time.outputs.formattedTime }}"
+          args: deploy --message=${{ steps.current-time.outputs.formattedTime }}
