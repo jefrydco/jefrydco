@@ -10,7 +10,7 @@ import type { NuxtOptions } from '@nuxt/types'
 import type { Feed } from 'feed'
 import type { SitemapItemOptions } from 'sitemap'
 
-import { HOSTNAME, locales } from './constants'
+import { HOSTNAME, locales, runtimeCachingList } from './constants'
 import {
   createShikiHighlighter,
   renderCodeToHTML,
@@ -327,36 +327,10 @@ export default {
     // https://pwa.nuxtjs.org/modules/workbox.html
     workbox: {
       offlineAnalytics: true,
-      runtimeCaching: [
-        {
-          urlPattern: 'https://ajax.cloudflare.com/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://d33wubrfki0l68.cloudfront.net/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://fonts.gstatic.com/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://cdn.ampproject.org/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://firestore.googleapis.com/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://www.google.com/.*',
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: 'https://www.gstatic.com/.*',
-          handler: 'staleWhileRevalidate'
-        }
-      ]
+      runtimeCaching: runtimeCachingList.map((runtimeCaching) => ({
+        urlPattern: `${runtimeCaching}/.*`,
+        handler: 'staleWhileRevalidate'
+      }))
     }
   },
 

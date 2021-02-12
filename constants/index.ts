@@ -16,3 +16,15 @@ export const locales: NuxtVueI18n.Options.LocaleObject[] = [
     file: 'en/index.ts'
   }
 ]
+
+export const runtimeCachingList = [
+  'https://ajax.cloudflare.com',
+  'https://d33wubrfki0l68.cloudfront.net',
+  'https://fonts.gstatic.com',
+  'https://cdn.ampproject.org',
+  'https://firestore.googleapis.com',
+  'https://www.google.com',
+  'https://www.gstatic.com',
+  'https://i3.ytimg.com',
+  'https://cari-teks-video-api.vercel.app'
+]
