@@ -27,9 +27,14 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        About
+        {{ $t('about') }}
       </a>
-      <nuxt-link :to="localePath('blog')" :title="$t('blog')">Blog</nuxt-link>
+      <nuxt-link :to="localePath('blog')" :title="$t('blog')">
+        {{ $t('blog') }}
+      </nuxt-link>
+      <nuxt-link :to="localePath('speed')" :title="$t('speed')">
+        {{ $t('speed') }}
+      </nuxt-link>
       <a
         v-for="social in socials"
         :key="social.code"
