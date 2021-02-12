@@ -187,7 +187,7 @@ export default Vue.extend({
   },
   computed: {
     formatValue() {
-      return (value: number) => value.toFixed(0)
+      return (value: number) => (value / 1000).toFixed(0)
     }
   },
   methods: {
