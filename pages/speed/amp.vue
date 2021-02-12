@@ -18,127 +18,125 @@
 <template>
   <main id="blog-speed" class="max-w-3xl mx-auto">
     <section>
-      <h3 class="pt-12 mb-4 text-4xl font-bold text-center">
-        {{ $t('speed') }} ⚡️
-      </h3>
+      <div class="mb-5 mt-12">
+        <h3 class="text-4xl font-bold text-center">{{ $t('speed') }} ⚡️</h3>
 
-      <div class="mb-4 text-center">
-        {{ $t('generated_by') }}
-        <a
-          href="https://github.com/mazipan/psi-gh-action"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          psi-gh-action
-        </a>
+        <div class="text-center">
+          {{ $t('generated_by') }}
+          <a
+            href="https://github.com/mazipan/psi-gh-action"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            psi-gh-action
+          </a>
+        </div>
       </div>
 
       <div>
-        <div class="px-6 py-4 mb-2">
-          <h4 class="mb-4 text-lg md:text-xl font-bold text-center">
-            🗓 {{ $t('last_update') }}
-            {{ reportData.timestamp.substring(0, 10) }}
-          </h4>
+        <h4 class="mb-5 text-lg md:text-xl font-bold text-center">
+          🗓 {{ $t('last_update') }}
+          {{ reportData.timestamp.substring(0, 10) }}
+        </h4>
 
-          <div
-            v-for="report in reportData.reports"
-            :key="`${report.url}${report.device}`"
-          >
-            <div class="speed-card">
-              <div class="mb-4 text-center">
-                <h4 class="text-lg md:text-xl font-bold">
-                  {{ report.url }}
-                </h4>
-                <small class="capitalize">
-                  {{ report.device === 'desktop' ? '💻  ' : '📱  ' }}
-                  {{ report.device }}
-                </small>
+        <div
+          v-for="report in reportData.reports"
+          :key="`${report.url}${report.device}`"
+        >
+          <div class="speed-card">
+            <div class="mb-5 text-center">
+              <h4 class="text-lg md:text-xl font-bold">
+                {{ report.url }}
+              </h4>
+              <small class="capitalize">
+                {{ report.device === 'desktop' ? '💻  ' : '📱  ' }}
+                {{ report.device }}
+              </small>
+            </div>
+            <div class="mb-5 grid grid-cols-2 md:grid-cols-4">
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>Perf</small>
+                <div
+                  :class="`text-4xl font-bold ${getPerfColorClass(
+                    report.perf
+                  )}`"
+                >
+                  {{ report.perf * 100 }}
+                </div>
               </div>
-              <div class="mb-4 grid grid-cols-2 md:grid-cols-4">
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>PERF</small>
-                  <div
-                    :class="`text-4xl font-bold ${getPerfColorClass(
-                      report.perf
+
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>FID</small>
+                <div>
+                  <span
+                    :class="`text-4xl font-bold ${getFIDColorClass(
+                      report.fid
                     )}`"
                   >
-                    {{ report.perf * 100 }}
-                  </div>
+                    {{ report.fid }}
+                  </span>
+                  <small class="text-lg md:text-xl font-bold">ms</small>
                 </div>
+              </div>
 
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>FID</small>
-                  <div>
-                    <span
-                      :class="`text-4xl font-bold ${getFIDColorClass(
-                        report.fid
-                      )}`"
-                    >
-                      {{ report.fid }}
-                    </span>
-                    <small class="text-lg md:text-xl font-bold">ms</small>
-                  </div>
-                </div>
-
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>LCP</small>
-                  <div>
-                    <span
-                      :class="`text-4xl font-bold ${getLCPColorClass(
-                        report.lcp
-                      )}`"
-                    >
-                      {{ formatValue(report.lcp) }}
-                    </span>
-                    <small class="text-lg md:text-xl font-bold">s</small>
-                  </div>
-                </div>
-
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>CLS</small>
-                  <div
-                    :class="`text-4xl font-bold ${getCLSColorClass(
-                      report.cls
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>LCP</small>
+                <div>
+                  <span
+                    :class="`text-4xl font-bold ${getLCPColorClass(
+                      report.lcp
                     )}`"
                   >
-                    {{ formatValue(report.cls) }}
-                  </div>
+                    {{ report.lcp }}
+                  </span>
+                  <small class="text-lg md:text-xl font-bold">s</small>
                 </div>
+              </div>
 
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>FCP</small>
-                  <div>
-                    <span class="text-4xl font-bold">
-                      {{ formatValue(report.fcp) }}
-                    </span>
-                    <small class="text-lg md:text-xl font-bold">s</small>
-                  </div>
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>CLS</small>
+                <div
+                  :class="`text-4xl font-bold ${getCLSColorClass(report.cls)}`"
+                >
+                  {{ report.cls }}
                 </div>
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>TTI</small>
-                  <div>
-                    <span class="text-4xl font-bold">
-                      {{ formatValue(report.tti) }}
-                    </span>
-                    <small class="text-lg md:text-xl font-bold">s</small>
-                  </div>
-                </div>
+              </div>
 
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small v-html="$t('total_request')"></small>
-                  <div class="text-4xl font-bold">
-                    {{ report.req }}
-                  </div>
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>FCP</small>
+                <div>
+                  <span class="text-4xl font-bold">
+                    {{ report.fcp }}
+                  </span>
+                  <small class="text-lg md:text-xl font-bold">s</small>
                 </div>
+              </div>
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>TTI</small>
+                <div>
+                  <span class="text-4xl font-bold">
+                    {{ report.tti }}
+                  </span>
+                  <small class="text-lg md:text-xl font-bold">s</small>
+                </div>
+              </div>
 
-                <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
-                  <small>{{ $t('total_size') }}</small>
-                  <div>
-                    <span class="text-4xl font-bold">
-                      {{ formatValue(report.size) }}
-                    </span>
-                    <small class="text-lg md:text-xl font-bold">kB</small>
-                  </div>
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small v-html="$t('total_request')"></small>
+                <div class="text-4xl font-bold">
+                  {{ report.req }}
+                </div>
+              </div>
+
+              <div class="mb-2 mr-2 px-6 py-4 rounded text-center">
+                <small>{{ $t('total_size') }}</small>
+                <div>
+                  <span class="text-4xl font-bold">
+                    {{ prettyBytes(report.size).value }}
+                  </span>
+                  <small class="text-lg md:text-xl font-bold">
+                    {{ prettyBytes(report.size).unit }}
+                  </small>
                 </div>
               </div>
             </div>
@@ -154,6 +152,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import prettyBytes from 'pretty-bytes'
 import { HOSTNAME } from '~/constants'
 
 export default Vue.extend({
@@ -193,8 +192,14 @@ export default Vue.extend({
     }
   },
   computed: {
-    formatValue() {
-      return (value: number) => (value / 1000).toFixed(0)
+    prettyBytes() {
+      return (value: number) => {
+        const size = prettyBytes(value).split(' ')
+        return {
+          value: size[0],
+          unit: size[1]
+        }
+      }
     }
   },
   methods: {
