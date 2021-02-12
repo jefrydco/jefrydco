@@ -196,7 +196,7 @@ import {
 const clone = rfdc()
 
 export default ExtendableSearchText.extend({
-  name: 'AppSearchTextDemo',
+  name: 'AppSearchYoutubeClosedCaptionsDemo',
   components: {
     AppYoutubeVideo
   },
