@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'psi-reports/**'
   pull_request:
     branches:
       - main
-  paths-ignore:
-    - 'psi-reports/**'
+    paths-ignore:
+      - 'psi-reports/**'
 
 jobs:
   run-psi:
