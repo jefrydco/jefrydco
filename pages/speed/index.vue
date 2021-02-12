@@ -160,11 +160,11 @@ import { HOSTNAME } from '~/constants'
 export default Vue.extend({
   async asyncData() {
     const availableReports = await import(
-      '../psi-reports/available-reports.json'
+      '~/psi-reports/available-reports.json'
     )
 
     const latestReport = await import(
-      `../psi-reports/${availableReports.latest}`
+      `~/psi-reports/${availableReports.latest}`
     )
 
     return {
