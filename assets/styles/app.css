@@ -57,11 +57,13 @@ html[⚡] {
 
 :focus {
   outline: 0.125rem solid var(--text-normal);
+  outline-offset: 0.25rem;
 }
 
 button {
   &:focus {
     outline: 0.125rem solid var(--text-normal);
+    outline-offset: 0.25rem;
   }
 }
 
@@ -88,6 +90,31 @@ a {
 
   &:hover {
     @apply no-underline;
+  }
+}
+
+.embed {
+  @apply relative block h-0 p-0 overflow-hidden;
+
+  video {
+    @apply absolute top-0 left-0 bottom-0 h-full w-full;
+    border: 0;
+  }
+
+  &__square {
+    padding-top: 100%;
+  }
+
+  &__16\/9 {
+    padding-top: 56.25%;
+  }
+
+  &__4\/3 {
+    padding-top: 75%;
+  }
+
+  &__21\/9 {
+    padding-top: 42.86%;
   }
 }
 
