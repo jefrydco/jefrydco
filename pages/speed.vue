@@ -102,7 +102,7 @@
                       report.cls
                     )}`"
                   >
-                    {{ report.cls }}
+                    {{ formatValue(report.cls) }}
                   </div>
                 </div>
 
