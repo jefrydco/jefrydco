@@ -89,7 +89,7 @@
                         report.lcp
                       )}`"
                     >
-                      {{ (report.lcp / 1000).toFixed(0) }}
+                      {{ formatValue(report.lcp) }}
                     </span>
                     <small class="text-lg md:text-xl font-bold">s</small>
                   </div>
@@ -110,7 +110,7 @@
                   <small>FCP</small>
                   <div>
                     <span class="text-4xl font-bold">
-                      {{ (report.fcp / 1000).toFixed(0) }}
+                      {{ formatValue(report.fcp) }}
                     </span>
                     <small class="text-lg md:text-xl font-bold">s</small>
                   </div>
@@ -119,7 +119,7 @@
                   <small>TTI</small>
                   <div>
                     <span class="text-4xl font-bold">
-                      {{ (report.tti / 1000).toFixed(0) }}
+                      {{ formatValue(report.tti) }}
                     </span>
                     <small class="text-lg md:text-xl font-bold">s</small>
                   </div>
@@ -136,7 +136,7 @@
                   <small>{{ $t('total_size') }}</small>
                   <div>
                     <span class="text-4xl font-bold">
-                      {{ (report.size / 1000).toFixed(0) }}
+                      {{ formatValue(report.size) }}
                     </span>
                     <small class="text-lg md:text-xl font-bold">kB</small>
                   </div>
@@ -183,6 +183,11 @@ export default Vue.extend({
     const title = this.$t('speed')
     return {
       title
+    }
+  },
+  computed: {
+    formatValue() {
+      return (value: number) => value.toFixed(0)
     }
   },
   methods: {
