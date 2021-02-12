@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - 'psi-reports/**'
+
   pull_request:
     branches:
       - main
