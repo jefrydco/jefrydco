@@ -1,5 +1,4 @@
-import { loadTheme, getHighlighter, getTheme } from 'shiki'
-import { Highlighter } from 'shiki/dist/highlighter'
+import { loadTheme, getHighlighter, Highlighter, HighlighterOptions } from 'shiki'
 import { BUNDLED_LANGUAGES } from 'shiki-languages'
 import {
   twoslasher,
@@ -10,7 +9,6 @@ import {
   createDefaultMapFromNodeModules,
   addAllFilesFromFolder
 } from '@typescript/vfs'
-import type { HighlighterOptions } from 'shiki/dist/highlighter'
 import { twoslashRenderer } from './renderers/twoslash'
 import { plainTextRenderer } from './renderers/plain'
 import { defaultShikiRenderer } from './renderers/shiki'
@@ -40,7 +38,7 @@ let storedHighlighter: Highlighter = null as any
  * opinion that you should be in control of the highlighter, and not this library.
  *
  */
-export const createShikiHighlighter = (options?: HighlighterOptions) => {
+export async function createShikiHighlighter(options?: HighlighterOptions) {
   if (storedHighlighter) return Promise.resolve(storedHighlighter)
 
   const settings = options || {}
@@ -48,13 +46,14 @@ export const createShikiHighlighter = (options?: HighlighterOptions) => {
   let shikiTheme
 
   try {
-    shikiTheme = getTheme(theme)
+    shikiTheme = await loadTheme(theme)
   } catch (error) {
-    try {
-      shikiTheme = loadTheme(theme)
-    } catch (error) {
-      throw new Error('Unable to load theme: ' + theme + ' - ' + error.message)
-    }
+    // try {
+    //   shikiTheme = loadTheme(theme)
+    // } catch (error) {
+      
+    // }
+    throw new Error('Unable to load theme: ' + theme + ' - ' + error.message)
   }
 
   return getHighlighter({ theme: shikiTheme, langs: BUNDLED_LANGUAGES }).then(
@@ -77,7 +76,7 @@ export const createShikiHighlighter = (options?: HighlighterOptions) => {
  * @param highlighter optional, but you should use it, highlighter
  * @param twoslash optional, but required when info contains 'twoslash' as a string
  */
-export const renderCodeToHTML = (
+export function renderCodeToHTML (
   code: string,
   lang: string,
   info: string[],
@@ -85,7 +84,7 @@ export const renderCodeToHTML = (
   shikiOptions?: ShikiRenderOptions,
   highlighter?: Highlighter,
   twoslash?: TwoSlashReturn
-) => {
+) {
   if (!highlighter && !storedHighlighter) {
     throw new Error(
       "The highlighter object hasn't been initialised via `setupHighLighter` yet in render-shiki-twoslash"
@@ -136,12 +135,12 @@ let nodeModulesMap: Map<string, string> | undefined
 /**
  * Runs Twoslash over the code passed in with a particular language as the default file.
  */
-export const runTwoSlash = (
+export function runTwoSlash(
   code: string,
   lang: string,
   settings: ShikiTwoslashSettings = {},
   twoslashDefaults: TwoSlashOptions = {}
-): TwoSlashReturn => {
+): TwoSlashReturn {
   let map: Map<string, string> | undefined
 
   // Shiki doesn't respect json5 as an input, so switch it
