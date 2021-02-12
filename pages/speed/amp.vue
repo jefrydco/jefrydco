@@ -28,7 +28,6 @@
           href="https://github.com/mazipan/psi-gh-action"
           target="_blank"
           rel="noopener noreferrer"
-          alt="psi-gh-action"
         >
           psi-gh-action
         </a>
