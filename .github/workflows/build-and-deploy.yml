@@ -73,6 +73,10 @@ jobs:
           format: YYYYMMDD
           utcOffset: '+07:00'
 
+      - name: Peek the Dir
+        run: ls -al
+        run: cat package.json
+
       - name: Build
         uses: netlify/actions/cli@master
         env:
