@@ -74,7 +74,7 @@ jobs:
           utcOffset: '+07:00'
 
       - name: Peek Dir Before Build
-        run: ls -al | grep dist
+        run: ls -al
 
       - name: Build
         env:
@@ -86,7 +86,7 @@ jobs:
         run: yarn generate
 
       - name: Peek Dir After Build
-        run: ls -al | grep dist
+        run: ls -al
 
       - name: Deploy
         uses: netlify/actions/cli@master
