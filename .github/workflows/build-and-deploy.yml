@@ -70,11 +70,7 @@ jobs:
         uses: 1466587594/get-current-time@v2
         id: current-time
         with:
-          format: YYYYMMDD
           utcOffset: '+07:00'
-
-      - name: Peek Dir Before Build
-        run: ls -al
 
       - name: Build
         env:
@@ -85,13 +81,10 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: yarn generate
 
-      - name: Peek Dir After Build
-        run: ls -al
-
       - name: Deploy
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --message=${{ steps.current-time.outputs.formattedTime }}
+          args: deploy --message=${{ steps.current-time.outputs.readableTime }}
