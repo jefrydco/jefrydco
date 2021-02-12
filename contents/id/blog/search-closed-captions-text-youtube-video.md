@@ -1,5 +1,5 @@
 ---
-title: Bagaimana Jika Kita Dapat Mencari Apapun dari Video YouTube Manapun Melalui Captionnya?
+title: Bagaimana Jika Kita Dapat Mencari Kata Kunci Apapun dari Video YouTube Manapun Melalui Captionnya?
 description: Cari kata kunci apa pun dari video YouTube mana pun melalui captionnya.
 summary: Bayangkan ketika kita ingat suatu momen dari sebuah video YouTube tetapi lupa pada jam, menit atau detik keberapa momen tersebut berlangsung. Bagaimana jika kita dapat mencari kata kunci apapun dari video YouTube manapun menggunakan captionnya?
 img: /cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
@@ -9,7 +9,7 @@ updatedDate: 2021-02-12T00:00:00.000Z
 slug: search-closed-captions-text-youtube-video
 ---
 
-<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'search-closed-captions-text-youtube-video' } }" label="Bagaimana Jika Kita Dapat Mencari Apapun dari Video YouTube Manapun Melalui Captionnya?"></app-amp-notice>
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'search-closed-captions-text-youtube-video' } }" label="Bagaimana Jika Kita Dapat Mencari Kata Kunci Apapun dari Video YouTube Manapun Melalui Captionnya?"></app-amp-notice>
 
 Lompat ke [artikel utama](#daftar-isi).
 
@@ -295,7 +295,7 @@ Bagian terakhir dari bagian ini adalah memanggil fungsi `goto` dengan pranala _e
 
 ### Index Fetcher
 
-Setelah kita mendapatkan pranala _caption_ dari [YouTube Closed Captions Fetcher](#youtube-closed-caption-fetcher), kita dapat mengambil data WebVTT-nya.
+Setelah kita mendapatkan pranala _caption_ dari [YouTube Closed Captions Fetcher](#youtube-closed-captions-fetcher), kita dapat mengambil data WebVTT-nya.
 
 ```typescript{4,6-8,12-13,17,21-23}[] twoslash
 declare function getYoutubeCC(url: string): Promise<string>

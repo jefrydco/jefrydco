@@ -1,5 +1,5 @@
 ---
-title: What If We Could Search Anything from Any YouTube Video through The Closed Captions Text?
+title: What If We Could Search Any Keyword from Any YouTube Video through Its Closed Captions Text?
 description: Search any keywords from any YouTube video through their closed captions text.
 summary: Imagine when we remember a moment from a YouTube video but forgot at what time it occurs. What if we could search any keywords from any YouTube video through its closed captions text?
 img: /cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
@@ -9,7 +9,7 @@ updatedDate: 2021-02-12T00:00:00.000Z
 slug: search-closed-captions-text-youtube-video
 ---
 
-<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'search-closed-captions-text-youtube-video' } }" label="What If We Could Search Anything from Any YouTube Video through The Closed Captions Text?"></app-amp-notice>
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'search-closed-captions-text-youtube-video' } }" label="What If We Could Search Any Keyword from Any YouTube Video through Its Closed Captions Text?"></app-amp-notice>
 
 Skip to [main article](#table-of-contents).
 
@@ -297,7 +297,7 @@ The last part of this section is calling the `goto` method with YouTube embed UR
 
 #### Index Fetcher
 
-After we get the closed captions url from [YouTube Closed Captions Fetcher](#youtube-closed-caption-fetcher), we have to fetch the WebVTT data. That is the function of this fetcher.
+After we get the closed captions url from [YouTube Closed Captions Fetcher](#youtube-closed-captions-fetcher), we have to fetch the WebVTT data. That is the function of this fetcher.
 
 ```typescript{4,6-8,12-13,17,21-23}[] twoslash
 declare function getYoutubeCC(url: string): Promise<string>
