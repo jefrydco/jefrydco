@@ -39,15 +39,15 @@
           </header>
           <div class="blog-detail__translations">
             {{ $t('readOtherLanguages') }}:
-            <nuxt-link
+            <a
               v-for="locale in availableLocales"
               :key="locale.code"
               :aria-label="locale.name"
-              :to="switchLocalePath(locale.code)"
+              :href="`${switchLocalePath(locale.code)}/`"
               class="blog__translations__link"
             >
               {{ locale.name }}
-            </nuxt-link>
+            </a>
           </div>
           <nuxt-content :document="blog" class="prose prose-lg max-w-none" />
           <footer class="blog-detail__footer">
@@ -74,7 +74,7 @@
             <p>
               {{ $t('coverImageFrom') }}
               <a
-                :href="`https://unsplash.com/@${blog.imgCreator}`"
+                :href="`https://unsplash.com/@${blog.imgCreator}?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText`"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -464,6 +464,7 @@ export default formatDate.extend({
     &__pre,
     &__code {
       border-radius: 0 0 0.5rem 0.5rem;
+      color: #e2e8f0;
     }
 
     &__dim {
@@ -544,32 +545,12 @@ export default formatDate.extend({
     @apply mb-8;
   }
 
-  .embed {
-    @apply relative block h-0 p-0 overflow-hidden;
-
-    video {
-      @apply absolute top-0 left-0 bottom-0 h-full w-full;
-      border: 0;
-    }
-
-    &__square {
-      padding-top: 100%;
-    }
-
-    &__16\/9 {
-      padding-top: 56.25%;
-    }
-
-    &__4\/3 {
-      padding-top: 75%;
-    }
-
-    &__21\/9 {
-      padding-top: 42.86%;
-    }
-  }
-
   .demo {
+    blockquote,
+    quote {
+      border-color: var(--inline-code-text);
+    }
+
     .btn,
     .textarea,
     .input {
