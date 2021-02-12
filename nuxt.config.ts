@@ -578,6 +578,12 @@ export default {
       }
     },
     extend(_config, { isDev, isClient }) {
+      _config.module?.rules.push({
+        test: /\.(txt)$/,
+        loader: 'file-loader',
+        exclude: /node_modules/
+      })
+
       if (isDev && isClient) {
         _config.module?.rules.push({
           enforce: 'pre',
