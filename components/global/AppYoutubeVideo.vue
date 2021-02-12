@@ -8,7 +8,7 @@
   >
     <transition name="fade">
       <div v-if="!isPlayed" class="youtube__image">
-        <img :src="thumbnailUrl" :alt="label" width="1920" height="1080" />
+        <img :src="thumbnailUrl" :alt="label" width="816" height="459" />
       </div>
       <div v-else class="youtube__embed">
         <iframe
