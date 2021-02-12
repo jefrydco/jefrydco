@@ -1,15 +1,15 @@
 <template>
-  <div class="shiki__data-err"><slot /></div>
+  <span class="shiki__d-err"><slot /></span>
 </template>
 
 <style>
 /* purgecss start ignore */
 .shiki {
-  &__data-err {
+  &__d-err {
     @apply inline;
 
     .shiki {
-      &__data-lsp {
+      &__d-lsp {
         border-bottom: 0.1rem solid var(--error);
       }
     }
@@ -17,9 +17,9 @@
 
   &:hover {
     .shiki {
-      &__data-err {
+      &__d-err {
         .shiki {
-          &__data-lsp {
+          &__d-lsp {
             border-bottom: 0.1rem solid var(--error);
           }
         }
