@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-02-12T06:51:53.908Z",
+  "timestamp": "2021-02-12T07:12:12.056Z",
   "reports": [
     {
       "url": "https://jefrydco.id/",
@@ -32,7 +32,7 @@
       "size": 0
     },
     {
-      "url": "https://jefrydco.id/blog",
+      "url": "https://jefrydco.id/blog/",
       "device": "mobile",
       "perf": 0,
       "fid": 0,
@@ -47,7 +47,7 @@
       "size": 0
     },
     {
-      "url": "https://jefrydco.id/blog",
+      "url": "https://jefrydco.id/blog/",
       "device": "desktop",
       "perf": 0,
       "fid": 0,
