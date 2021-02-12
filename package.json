@@ -17,9 +17,8 @@
     "url": "https://jefrydco.id"
   },
   "scripts": {
-    "build": "nuxt-ts build --modern",
+    "build": "nuxt-ts generate --modern",
     "dev": "nuxt-ts",
-    "generate": "nuxt-ts generate --modern",
     "lint": "eslint --ext .ts,.vue .",
     "start": "nuxt-ts start",
     "test": "npm run test:unit",
