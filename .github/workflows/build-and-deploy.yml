@@ -10,8 +10,8 @@ on:
 
 jobs:
   run-psi:
+    name: Generate PSI Report
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -35,8 +35,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
+    name: Build and Deploy
+    needs: [run-psi]
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -78,7 +79,6 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         with:
           args: build
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
       - name: Deploy
         uses: netlify/actions/cli@master
@@ -86,5 +86,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --messages=${{ steps.current-time.outputs.formattedTime }}
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+          args: deploy --messages="${{ steps.current-time.outputs.formattedTime }}"
