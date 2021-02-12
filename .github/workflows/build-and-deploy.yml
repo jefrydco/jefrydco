@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  run-psi:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,11 +30,15 @@ jobs:
             mobile
             desktop
           runs: 1
-          branch: main
+          branch: ${{ github.head_ref }}
           push_back: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Re-checkout Code
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
         uses: actions/checkout@v2
         with:
           persist-credentials: false
