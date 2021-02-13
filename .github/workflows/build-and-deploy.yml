@@ -68,4 +68,4 @@ jobs:
         with:
           publish-dir: dist
           production-branch: main
-          deploy-message: '${{ steps.current-time.outputs.time }} - ${{ github.event.head_commit.message }}'
+          deploy-message: '${{ steps.current-time.outputs.readableTime }} - ${{ github.event.head_commit.message }}'
