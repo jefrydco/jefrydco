@@ -29,10 +29,10 @@
       >
         {{ $t('about') }}
       </a>
-      <nuxt-link :to="`${localePath('blog')}/`" :title="$t('blog')">
+      <nuxt-link :to="localePath('blog')" :title="$t('blog')">
         {{ $t('blog') }}
       </nuxt-link>
-      <nuxt-link :to="`${localePath('speed')}/`" :title="$t('speed')">
+      <nuxt-link :to="localePath('speed')" :title="$t('speed')">
         {{ $t('speed') }}
       </nuxt-link>
       <a

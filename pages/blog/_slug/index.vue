@@ -1,6 +1,6 @@
 <template>
   <main id="blog-detail">
-    <app-header-link :to="`${localePath('blog')}/`" label="Blog" />
+    <app-header-link :to="localePath('blog')" label="Blog" />
     <template v-if="blog">
       <div class="blog-detail__img-wrapper">
         <app-img

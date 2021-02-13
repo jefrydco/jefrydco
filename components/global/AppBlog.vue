@@ -34,7 +34,7 @@
       </p>
       <nuxt-link
         :aria-label="title"
-        :to="`${localePath({ name: 'blog-slug', params: { slug } })}/`"
+        :to="localePath({ name: 'blog-slug', params: { slug } })"
         class="blog-item__link"
       >
         {{ title }}
