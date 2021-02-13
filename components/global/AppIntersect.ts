@@ -8,13 +8,13 @@ const warn = (msg: string) => {
 }
 
 export default Vue.extend({
-  name: 'VIntersect',
+  name: 'AppIntersect',
   abstract: true,
   props: {
     threshold: {
       type: Array,
       required: false,
-      default: () => [0, 0.2]
+      default: () => [0]
     },
     root: {
       type: typeof HTMLElement !== 'undefined' ? HTMLElement : Object,
@@ -54,21 +54,21 @@ export default Vue.extend({
       }
     )
 
-    this.$nextTick(() => {
+    setTimeout(() => {
       if (this.$slots.default && this.$slots.default.length > 1) {
         warn(
-          '[VueIntersect] You may only wrap one element in a <intersect> component.'
+          '[AppIntersect] You may only wrap one element in a <app-intersect> component.'
         )
       } else if (!this.$slots.default || this.$slots.default.length < 1) {
         warn(
-          '[VueIntersect] You must have one child inside a <intersect> component.'
+          '[AppIntersect] You must have one child inside a <app-intersect> component.'
         )
         return
       }
 
       // @ts-expect-error
       this.observer.observe(this.$slots.default[0].elm)
-    })
+    }, 0)
   },
   destroyed() {
     this.$emit('destroyed')
