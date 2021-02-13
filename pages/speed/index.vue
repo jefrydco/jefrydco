@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="mx-4">
         <h4 class="mb-5 text-lg md:text-xl font-bold text-center">
           🗓 {{ $t('last_update') }}
           {{ reportData.timestamp.substring(0, 10) }}
