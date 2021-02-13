@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="mx-4">
         <h4 class="mb-5 text-lg md:text-xl font-bold text-center">
           🗓 {{ $t('last_update') }}
           {{ reportData.timestamp.substring(0, 10) }}
@@ -87,7 +87,7 @@
                       report.lcp
                     )}`"
                   >
-                    {{ report.lcp }}
+                    {{ toSecond(report.lcp) }}
                   </span>
                   <small class="text-lg md:text-xl font-bold">s</small>
                 </div>
@@ -98,7 +98,7 @@
                 <div
                   :class="`text-4xl font-bold ${getCLSColorClass(report.cls)}`"
                 >
-                  {{ report.cls }}
+                  {{ report.cls.toFixed(2) }}
                 </div>
               </div>
 
@@ -106,7 +106,7 @@
                 <small>FCP</small>
                 <div>
                   <span class="text-4xl font-bold">
-                    {{ report.fcp }}
+                    {{ toSecond(report.fcp) }}
                   </span>
                   <small class="text-lg md:text-xl font-bold">s</small>
                 </div>
@@ -115,7 +115,7 @@
                 <small>TTI</small>
                 <div>
                   <span class="text-4xl font-bold">
-                    {{ report.tti }}
+                    {{ toSecond(report.tti) }}
                   </span>
                   <small class="text-lg md:text-xl font-bold">s</small>
                 </div>
@@ -200,6 +200,9 @@ export default Vue.extend({
           unit: size[1]
         }
       }
+    },
+    toSecond() {
+      return (value: number) => (value / 1000).toFixed(2)
     }
   },
   methods: {
