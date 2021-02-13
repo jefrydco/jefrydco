@@ -61,9 +61,11 @@ jobs:
         run: yarn generate
 
       - name: Deploy
-        uses: netlify/actions/cli@master
+        uses: nwtgck/actions-netlify@v1.1.13
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --message="${{ steps.current-time.outputs.time }} - ${{ github.event.head_commit.message }}"
+          publish-dir: dist
+          production-branch: main
+          deploy-message: '${{ steps.current-time.outputs.time }} - ${{ github.event.head_commit.message }}'
