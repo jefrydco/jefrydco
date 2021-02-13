@@ -66,4 +66,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --message="${{ steps.current-time.outputs.time }}"
+          args: deploy --message="${{ steps.current-time.outputs.time }} - ${{ github.event.head_commit.message }}"
