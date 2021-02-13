@@ -43,7 +43,7 @@
               v-for="locale in availableLocales"
               :key="locale.code"
               :aria-label="locale.name"
-              :href="`${switchLocalePath(locale.code)}/`"
+              :href="getTranslationsLink(locale.code)"
               class="blog__translations__link"
             >
               {{ locale.name }}
@@ -337,6 +337,24 @@ export default formatDate.extend({
           return `, `
         }
         return ``
+      }
+    },
+    addTrailingSlash() {
+      return (url: string) => {
+        if (url.endsWith('/')) {
+          return url
+        }
+        return `${url}/`
+      }
+    },
+    getTranslationsLink() {
+      return (localeCode: string) => {
+        const localePath = this.switchLocalePath(localeCode) as string
+        if (localePath.includes('#')) {
+          const newPath = localePath.split('#')[0]
+          return this.addTrailingSlash(newPath)
+        }
+        return this.addTrailingSlash(localePath)
       }
     }
   },
