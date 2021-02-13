@@ -83,7 +83,7 @@
     "codecov": "^3.8.1",
     "consola": "^2.15.3",
     "cypress": "^6.3.0",
-    "eslint": "^7.19.0",
+    "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-cypress": "^2.11.2",
