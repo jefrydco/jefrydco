@@ -1,7 +1,4 @@
 # [Jefrydco](https://jefrydco.id)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/95ed6895-3a5b-4355-8b93-30a7fe00473d/deploy-status)](https://app.netlify.com/sites/jefrydco/deploys)
-
 ## Bahasa
 
 Baca deskripsi ini dalam bahasa lain:
