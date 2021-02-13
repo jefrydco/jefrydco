@@ -164,6 +164,10 @@ export default {
     ]
   },
 
+  router: {
+    trailingSlash: true
+  },
+
   loading: {
     color: 'var(--text-normal)',
     failedColor: '#f56565'

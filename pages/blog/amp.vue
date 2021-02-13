@@ -79,7 +79,7 @@ export default Vue.extend({
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`
+          content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`
         }
       ],
       link: [
@@ -87,7 +87,7 @@ export default Vue.extend({
         {
           hid: 'i18n-can',
           rel: 'canonical',
-          href: `${HOSTNAME}${this.localePath({ name: 'blog' })}/`
+          href: `${HOSTNAME}${this.localePath({ name: 'blog' })}`
         }
       ],
       __dangerouslyDisableSanitizers: ['script'],
@@ -132,7 +132,7 @@ export default Vue.extend({
               mainEntityOfPage: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug-amp',
                 params: { slug: blog.slug }
-              })}/`,
+              })}`,
               headline: blog.title,
               description: blog.description,
               datePublished: blog.postedDate,
@@ -142,7 +142,7 @@ export default Vue.extend({
               url: `${HOSTNAME}${this.localePath({
                 name: 'blog-slug-amp',
                 params: { slug: blog.slug }
-              })}/`,
+              })}`,
               image: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
@@ -177,7 +177,7 @@ export default Vue.extend({
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`,
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`,
                   name: 'Blog'
                 }
               }

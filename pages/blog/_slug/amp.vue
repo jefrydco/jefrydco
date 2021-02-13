@@ -22,7 +22,7 @@ export default {
               // @ts-expect-error
               params: { slug: this.blog.slug }
             })
-          }/`
+          }`
         }
       ],
       meta: [
@@ -44,7 +44,7 @@ export default {
               // @ts-expect-error
               params: { slug: this.blog.slug }
             })
-          }/`
+          }`
         },
         {
           hid: 'og:image',
@@ -99,7 +99,7 @@ export default {
                 // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
-            }/`,
+            }`,
             // @ts-expect-error
             headline: this.blog && this.blog.title,
             // @ts-expect-error
@@ -121,7 +121,7 @@ export default {
                 // @ts-expect-error
                 params: { slug: this.blog.slug }
               })
-            }/`,
+            }`,
             // @ts-expect-error
             articleBody: this.blog && this.blog.content,
             image: {
@@ -161,7 +161,7 @@ export default {
                 position: 1,
                 item: {
                   // @ts-expect-error
-                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`,
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}`,
                   name: 'Blog'
                 }
               },
@@ -178,7 +178,7 @@ export default {
                       // @ts-expect-error
                       params: { slug: this.blog.slug }
                     })
-                  }/`,
+                  }`,
                   // @ts-expect-error
                   name: this.blog && this.blog.title
                 }
