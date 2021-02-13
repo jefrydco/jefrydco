@@ -8,7 +8,8 @@
     "demo_notices": [
       "Only YouTube video that <strong>has English subtitle</strong> is supported.",
       "<strong>Can't be used</strong> on <strong>copyrighted YouTube video</strong>, such as music video.",
-      "Each YouTube URL <strong>takes a longer time to search at first</strong> because the cache isn't available yet."
+      "Each YouTube URL <strong>takes a longer time to search at first</strong> because the cache isn't available yet.",
+      "To minimize the data usage, the auto demo feature <strong>only runs if this demo section is visible</strong> on your browser viewport."
     ],
     "not_searching": "Not looking for any keyword, try enter some keyword.",
     "searching_keyword_less_than_three": "The keyword should be more than 3 characters, please add more.",
@@ -36,7 +37,8 @@
     "demo_notices": [
       "Hanya video YouTube yang <strong>memiliki <em>subtitle</em> berbahasa Inggris</strong> yang didukung.",
       "<strong>Tidak dapat digunakan</strong> pada <strong>video YouTube berhak cipta</strong>, seperti musik video.",
-      "Setiap pranala YouTube <strong>memerlukan waktu yang lebih lama saat pertama kali dicari</strong> karena temboloknya (<em>cache</em>) belum tersedia."
+      "Setiap pranala YouTube <strong>memerlukan waktu yang lebih lama saat pertama kali dicari</strong> karena temboloknya (<em>cache</em>) belum tersedia.",
+      "Untuk mengurangi penggunaan data, fitur demo otomatis <strong>hanya berjalan jika bagian demo ini terlihat</strong> di layar peramban (<em>browser</em>) teman-teman."
     ],
     "not_searching": "Tidak sedang mencari kata kunci apapun, coba masukkan sebuah kata kunci.",
     "searching_keyword_less_than_three": "Kata kunci yang digunakan harus lebih banyak dari 3 karakter ya.",
@@ -60,106 +62,108 @@
 </i18n>
 
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card">
-      <app-youtube-video
-        ref="youtubeVideo"
-        :is-playing="isPlaying"
-        :youtube-id="youtubeId"
-        :start="currentStart"
-        @play="onYoutubeVideoPlay"
-      ></app-youtube-video>
+  <app-intersect @enter="onDemoEnter" @leave="onDemoLeave">
+    <app-demo :path="DEFAULT_PATH" :name="$options.name">
+      <div class="demo__card">
+        <app-youtube-video
+          ref="youtubeVideo"
+          :is-playing="isPlaying"
+          :youtube-id="youtubeId"
+          :start="currentStart"
+          @play="onYoutubeVideoPlay"
+        ></app-youtube-video>
 
-      <h2 v-if="isMetaAvailable" class="demo__heading">
-        "{{ results.meta.title }}"
-        {{ $t('by') }}
-        <a
-          :href="results.meta.channelUrl"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h2 v-if="isMetaAvailable" class="demo__heading">
+          "{{ results.meta.title }}"
+          {{ $t('by') }}
+          <a
+            :href="results.meta.channelUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ results.meta.channelName }}
+          </a>
+        </h2>
+        <h2 v-else class="demo__heading">
+          "{{ $t('title') }}" {{ $t('by') }}
+          <span v-html="$t('channel_name')"></span>
+        </h2>
+
+        <blockquote>
+          <strong>{{ $t('note') }}</strong>
+          <ul>
+            <li
+              v-for="(notice, i) in $t('demo_notices')"
+              :key="i"
+              v-html="notice"
+            ></li>
+          </ul>
+        </blockquote>
+
+        <app-text-input
+          id="youtube-url"
+          v-model="youtubeUrl"
+          full-width=""
+          :label="$t('input_youtube_url_label')"
+          @focus="resetAll({ isToggling: false, isReRun: false })"
+        ></app-text-input>
+        <app-text-input
+          id="keyword"
+          v-model="keyword"
+          :label="$t('input_keyword_label')"
+          @focus="resetAll({ isToggling: false, isReRun: false })"
+        ></app-text-input>
+
+        <div class="mb-8">
+          <p
+            class="demo__p"
+            :class="{ 'demo__p--error': isSearchingError }"
+            v-html="searchInfo"
+          ></p>
+          <p class="demo__p">{{ $t('timer', { timer }) }}</p>
+        </div>
+        <button class="btn" @click="toggleAutoDemo">
+          {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
+        </button>
+        <button class="btn" @click="resetAll({ isToggling: false })">
+          {{ $t('reset') }}
+        </button>
+
+        <hr />
+
+        <div class="mb-8">
+          <p class="demo__p">
+            {{
+              $t('search_result_info', {
+                page: results.page,
+                total: results.total
+              })
+            }}
+          </p>
+        </div>
+        <button
+          v-for="nav in navButtonStructure"
+          :key="nav"
+          :disabled="!results[nav] || isOnlyPage"
+          class="btn"
+          @click="navigate(results[nav])"
         >
-          {{ results.meta.channelName }}
-        </a>
-      </h2>
-      <h2 v-else class="demo__heading">
-        "{{ $t('title') }}" {{ $t('by') }}
-        <span v-html="$t('channel_name')"></span>
-      </h2>
+          {{ $t(`${nav}_page`) }}
+        </button>
 
-      <blockquote>
-        <strong>{{ $t('note') }}</strong>
+        <hr />
+
         <ul>
-          <li
-            v-for="(notice, i) in $t('demo_notices')"
-            :key="i"
-            v-html="notice"
-          ></li>
+          <li v-for="(item, i) in results.data" :key="i">
+            <p v-html="item.text"></p>
+            <button class="btn" @click="onSelectItemText(item)">
+              {{ $t('play_video_at', { time: item.start }) }}
+            </button>
+          </li>
         </ul>
-      </blockquote>
-
-      <app-text-input
-        id="youtube-url"
-        v-model="youtubeUrl"
-        full-width=""
-        :label="$t('input_youtube_url_label')"
-        @focus="resetAll({ isToggling: false, isReRun: false })"
-      ></app-text-input>
-      <app-text-input
-        id="keyword"
-        v-model="keyword"
-        :label="$t('input_keyword_label')"
-        @focus="resetAll({ isToggling: false, isReRun: false })"
-      ></app-text-input>
-
-      <div class="mb-8">
-        <p
-          class="demo__p"
-          :class="{ 'demo__p--error': isSearchingError }"
-          v-html="searchInfo"
-        ></p>
-        <p class="demo__p">{{ $t('timer', { timer }) }}</p>
       </div>
-      <button class="btn" @click="toggleAutoDemo">
-        {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
-      </button>
-      <button class="btn" @click="resetAll({ isToggling: false })">
-        {{ $t('reset') }}
-      </button>
-
-      <hr />
-
-      <div class="mb-8">
-        <p class="demo__p">
-          {{
-            $t('search_result_info', {
-              page: results.page,
-              total: results.total
-            })
-          }}
-        </p>
-      </div>
-      <button
-        v-for="nav in navButtonStructure"
-        :key="nav"
-        :disabled="!results[nav] || isOnlyPage"
-        class="btn"
-        @click="navigate(results[nav])"
-      >
-        {{ $t(`${nav}_page`) }}
-      </button>
-
-      <hr />
-
-      <ul>
-        <li v-for="(item, i) in results.data" :key="i">
-          <p v-html="item.text"></p>
-          <button class="btn" @click="onSelectItemText(item)">
-            {{ $t('play_video_at', { time: item.start }) }}
-          </button>
-        </li>
-      </ul>
-    </div>
-  </app-demo>
+    </app-demo>
+  </app-intersect>
 </template>
 
 <script lang="ts">
@@ -171,6 +175,7 @@ import rfdc from 'rfdc'
 import defu from 'defu'
 
 import ExtendableSearchText from './ExtendableSearchText'
+import AppIntersect from '~/components/global/AppIntersect'
 import AppYoutubeVideo from '~/components/global/AppYoutubeVideo.vue'
 
 import { isExists, isNotEmptyString } from '~/utils'
@@ -198,6 +203,7 @@ const clone = rfdc()
 export default ExtendableSearchText.extend({
   name: 'AppSearchYoutubeClosedCaptionsDemo',
   components: {
+    AppIntersect,
     AppYoutubeVideo
   },
   data() {
@@ -482,6 +488,16 @@ export default ExtendableSearchText.extend({
     onYoutubeVideoPlay() {
       this.isPlaying = true
       this.resetAll({ isToggling: false, isReRun: false })
+    },
+    onDemoEnter() {
+      if (!this.isAutoDemoRun) {
+        this.resetAll({ isToggling: false })
+      }
+    },
+    onDemoLeave() {
+      if (this.isAutoDemoRun) {
+        this.resetAll({ isToggling: false, isReRun: false })
+      }
     }
   }
 })
