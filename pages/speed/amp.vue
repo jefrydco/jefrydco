@@ -186,7 +186,7 @@ export default Vue.extend({
         {
           hid: 'i18n-can',
           rel: 'canonical',
-          href: `${HOSTNAME}${this.localePath({ name: 'speed' })}`
+          href: `${HOSTNAME}${this.localePath({ name: 'speed' })}/`
         }
       ]
     }

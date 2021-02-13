@@ -16,7 +16,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'amphtml',
-          href: `${HOSTNAME}${this.localePath({ name: 'amp' })}`
+          href: `${HOSTNAME}${this.localePath({ name: 'amp' })}/`
         }
       ]
     }

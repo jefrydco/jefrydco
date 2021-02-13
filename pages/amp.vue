@@ -10,7 +10,7 @@ export default {
         {
           hid: 'i18n-can',
           rel: 'canonical',
-          href: `${HOSTNAME}${this.localePath({ name: 'index' })}`
+          href: `${HOSTNAME}${this.localePath({ name: 'index' })}/`
         }
       ]
     }
