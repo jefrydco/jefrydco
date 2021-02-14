@@ -100,8 +100,12 @@ export default Vue.extend({
   &__navigation {
     @apply text-center mt-3 flex flex-wrap justify-center;
 
-    a:not(:last-child) {
-      @apply mr-3;
+    a {
+      @apply mb-3;
+
+      &:not(:last-child) {
+        @apply mr-3;
+      }
     }
   }
 }
