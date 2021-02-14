@@ -35,9 +35,9 @@ On the 30th of June until 2nd of July 2020, Chrome Developer Advocate team held 
 
 I was watching the event until one of Chrome Developer Advocate, [Sam Dutton](https://twitter.com/sw12) shared a link in the chatbox. I navigated to that link and it turned out was a web app for search, navigate closed captions from web.dev Live event video.
 
-The web app is called [Search web.dev Live](https://samdutton.github.io/wdl/). At first, I was impressed that we can search something from a video. Despite that was just from the closed captions. I looked over at the [GitHub link](https://github.com/samdutton/wdl) on the footer to see what's the underlying technology.
+The web app is called [Search web.dev Live](https://samdutton.github.io/wdl/). I was impressed that we can search something from a video. Despite that was just from the closed captions. I looked over at the [GitHub link](https://github.com/samdutton/wdl) on the footer to see what's the underlying technology.
 
-No bleeding-edge technology is used. No machine learning or complex algorithm is involved. Only a simple JavaScript, several NPM packages and closed captions files. It's intriguing to know that.
+No bleeding-edge technology is used. No machine learning nor complex algorithm is involved. Only a simple JavaScript, several NPM packages and closed captions files. It's intriguing to know that.
 
 I guessed the problem with Search web.dev Live is **it only search on the web.dev Live event video**. Anyway, the web.dev Live event video was hosted on YouTube. And the closed captions files for the web app are stored on the repository itself.
 
