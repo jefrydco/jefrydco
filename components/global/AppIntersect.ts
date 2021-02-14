@@ -64,6 +64,9 @@ export default Vue.extend({
           '[AppIntersect] You must have one child inside a <app-intersect> component.'
         )
         return
+      } else if (!(this.$slots.default[0].elm instanceof Element)) {
+        warn("[AppIntersect] Can't find the right element to observe")
+        return
       }
 
       // @ts-expect-error
