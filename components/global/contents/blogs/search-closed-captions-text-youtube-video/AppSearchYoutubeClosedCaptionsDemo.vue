@@ -110,6 +110,7 @@
         <app-text-input
           id="keyword"
           v-model="keyword"
+          full-width=""
           :label="$t('input_keyword_label')"
           @focus="resetAll({ isToggling: false, isReRun: false })"
         ></app-text-input>
