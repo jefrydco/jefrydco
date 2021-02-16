@@ -176,8 +176,8 @@ import rfdc from 'rfdc'
 import defu from 'defu'
 
 import ExtendableSearchText from './ExtendableSearchText'
-import AppIntersect from '~/components/global/AppIntersect'
-import AppYoutubeVideo from '~/components/global/AppYoutubeVideo.vue'
+import AppIntersect from '~/components/AppIntersect'
+import AppYoutubeVideo from '~/components/AppYoutubeVideo.vue'
 
 import { isExists, isNotEmptyString } from '~/utils'
 

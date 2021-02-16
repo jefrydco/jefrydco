@@ -170,7 +170,7 @@ export default {
   },
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-components
-  components: true,
+  components: require('./constants/components.json'),
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-plugins
   plugins: ['~/plugins/vue-lazyload.client'],

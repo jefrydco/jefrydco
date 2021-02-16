@@ -29,6 +29,7 @@ import { BlogListDataType } from '~/types/blog'
 import { HOSTNAME } from '~/constants'
 
 export default Vue.extend({
+  // @ts-expect-error
   async asyncData({ app }) {
     const { locale } = app.i18n
 
