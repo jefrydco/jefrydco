@@ -1,5 +1,5 @@
-<script>
-import Page from './index'
+<script lang="ts">
+import Page from './index.vue'
 import { HOSTNAME } from '~/constants'
 
 export default {
