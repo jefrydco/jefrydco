@@ -16,7 +16,10 @@
         :slug="blog.slug"
       />
     </section>
-    <app-rss-link :link="rssLink" />
+    <app-pagination-link
+      :next-link="localePath('/blog/page/2')"
+      :rss-link="rssLink"
+    ></app-pagination-link>
     <app-to-top />
     <app-scroll-indicator />
   </main>
@@ -24,9 +27,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { BlogListDataType } from '~/types/blog'
+import { HOSTNAME, MAXIMAL_BLOG_ITEM } from '~/constants'
 
-import { HOSTNAME } from '~/constants'
+import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
   // @ts-expect-error
@@ -36,6 +39,7 @@ export default Vue.extend({
     // @ts-expect-error
     const blogList = await app
       .$content(`/${locale}/blog`, { deep: true })
+      .limit(MAXIMAL_BLOG_ITEM)
       .only([
         'img',
         'title',

@@ -17,9 +17,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style>
-.rss {
-  @apply my-12 text-center;
-}
-</style>

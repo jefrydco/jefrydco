@@ -17,7 +17,8 @@
       />
     </section>
     <app-pagination-link
-      :next-link="localePath('/blog/page/2')"
+      :prev-link="prevLink"
+      :next-link="nextLink"
       :rss-link="rssLink"
     ></app-pagination-link>
     <app-to-top />
@@ -27,34 +28,49 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { HOSTNAME, MAXIMAL_BLOG_ITEM } from '~/constants'
+import { pagination } from '~/mixins'
+import { paginator, getLastPage, getPrevNextPage } from '~/utils'
+import { HOSTNAME } from '~/constants'
 
 import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
+  mixins: [pagination],
   // @ts-expect-error
-  async asyncData({ app }) {
+  async asyncData({ app, route, redirect }) {
     const { locale } = app.i18n
+    try {
+      const pageNumber = parseInt(route?.params?.number)
+      if (pageNumber > 1) {
+        // @ts-expect-error
+        const blogList = await app
+          .$content(`/${locale}/blog`, { deep: true })
+          .only([
+            'img',
+            'title',
+            'description',
+            'summary',
+            'postedDate',
+            'updatedDate',
+            'slug',
+            'readingTime'
+          ])
+          .sortBy('postedDate', 'desc')
+          .fetch<BlogListDataType>()
 
-    // @ts-expect-error
-    const blogList = await app
-      .$content(`/${locale}/blog`, { deep: true })
-      .limit(MAXIMAL_BLOG_ITEM)
-      .only([
-        'img',
-        'title',
-        'description',
-        'summary',
-        'postedDate',
-        'updatedDate',
-        'slug',
-        'readingTime'
-      ])
-      .sortBy('postedDate', 'desc')
-      .fetch<BlogListDataType>()
+        const paginatedBlogList = paginator(blogList, pageNumber)
 
-    return {
-      blogList
+        const lastPage = getLastPage(blogList.length)
+
+        return {
+          blogList: paginatedBlogList,
+          ...getPrevNextPage(pageNumber, lastPage)
+        }
+      } else {
+        redirect(app.localePath('/blog'))
+      }
+    } catch (error) {
+      redirect(app.localePath('/blog'))
     }
   },
   data() {
@@ -84,15 +100,14 @@ export default Vue.extend({
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`
+          content: `${HOSTNAME}${this.localePath({ name: 'blog' })}/`
         }
       ],
       link: [
         ...link,
         {
-          hid: 'i18n-can',
-          rel: 'canonical',
-          href: `${HOSTNAME}${this.localePath({ name: 'blog' })}/`
+          rel: 'amphtml',
+          href: `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`
         }
       ],
       __dangerouslyDisableSanitizers: ['script'],
@@ -135,7 +150,7 @@ export default Vue.extend({
             blogPosts: this.blogList.map((blog) => ({
               '@type': 'blogPosting',
               mainEntityOfPage: `${HOSTNAME}${this.localePath({
-                name: 'blog-slug-amp',
+                name: 'blog-slug',
                 params: { slug: blog.slug }
               })}/`,
               headline: blog.title,
@@ -145,7 +160,7 @@ export default Vue.extend({
               dateModified: blog.updatedDate,
               wordcount: blog.readingTime.words,
               url: `${HOSTNAME}${this.localePath({
-                name: 'blog-slug-amp',
+                name: 'blog-slug',
                 params: { slug: blog.slug }
               })}/`,
               image: {
@@ -182,7 +197,7 @@ export default Vue.extend({
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog-amp' })}/`,
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'blog' })}/`,
                   name: 'Blog'
                 }
               }
