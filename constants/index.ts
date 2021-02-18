@@ -28,3 +28,5 @@ export const runtimeCachingList = [
   'https://i3.ytimg.com',
   'https://cari-teks-video-api.vercel.app'
 ]
+
+export const MAXIMAL_BLOG_ITEM = 5

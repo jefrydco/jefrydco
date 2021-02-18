@@ -20,6 +20,7 @@ import ampify from './libs/ampify'
 
 import type { ReadingTimeType } from './types'
 import type { BlogListDataType } from './types/blog'
+import { getLastPage, getPageList } from './utils'
 
 DotEnv.config()
 
@@ -469,33 +470,61 @@ export default {
         .sortBy('postedDate', 'desc')
         .fetch<BlogListDataType>()
 
-      function generateSitemap(
+      const lastPage = getLastPage(contents.length)
+      const pageList = getPageList(lastPage)
+
+      function generateBlogContentSitemap(
         { isAmp }: { isAmp?: boolean } = { isAmp: false }
       ) {
-        return locales
-          .map((locale) =>
-            locale.code === 'id'
-              ? (contents.map((content) => ({
-                  url: isAmp
-                    ? `/blog/${content.slug}/amp/`
-                    : `/blog/${content.slug}/`,
-                  changefreq: EnumChangefreq.DAILY,
-                  priority: 1,
-                  lastmod: new Date(content.updatedDate).toISOString()
-                })) as Partial<SitemapItemOptions>[])
-              : (contents.map((content) => ({
-                  url: isAmp
-                    ? `/${locale.code}/blog/${content.slug}/amp/`
-                    : `/${locale.code}/blog/${content.slug}/`,
-                  changefreq: EnumChangefreq.DAILY,
-                  priority: 1,
-                  lastmod: new Date(content.updatedDate).toISOString()
-                })) as Partial<SitemapItemOptions>[])
-          )
-          .flat()
+        return locales.flatMap((locale) =>
+          locale.code === 'id'
+            ? (contents.map((content) => ({
+                url: isAmp
+                  ? `/blog/${content.slug}/amp/`
+                  : `/blog/${content.slug}/`,
+                changefreq: EnumChangefreq.DAILY,
+                priority: 1,
+                lastmod: new Date(content.updatedDate).toISOString()
+              })) as Partial<SitemapItemOptions>[])
+            : (contents.map((content) => ({
+                url: isAmp
+                  ? `/${locale.code}/blog/${content.slug}/amp/`
+                  : `/${locale.code}/blog/${content.slug}/`,
+                changefreq: EnumChangefreq.DAILY,
+                priority: 1,
+                lastmod: new Date(content.updatedDate).toISOString()
+              })) as Partial<SitemapItemOptions>[])
+        )
       }
 
-      return [...generateSitemap(), ...generateSitemap({ isAmp: true })]
+      function generateBlogPageSitemap(
+        { isAmp }: { isAmp?: boolean } = { isAmp: false }
+      ) {
+        return locales.flatMap((locale) =>
+          locale.code === 'id'
+            ? (pageList.map((page) => ({
+                url: isAmp ? `/blog/page/${page}/amp/` : `/blog/page/${page}/`,
+                changefreq: EnumChangefreq.DAILY,
+                priority: 1,
+                lastmod: new Date().toISOString()
+              })) as Partial<SitemapItemOptions>[])
+            : (pageList.map((page) => ({
+                url: isAmp
+                  ? `/${locale.code}/blog/page/${page}/amp/`
+                  : `/${locale.code}/blog/page/${page}/`,
+                changefreq: EnumChangefreq.DAILY,
+                priority: 1,
+                lastmod: new Date().toISOString()
+              })) as Partial<SitemapItemOptions>[])
+        )
+      }
+
+      return [
+        ...generateBlogContentSitemap(),
+        ...generateBlogContentSitemap({ isAmp: true }),
+        ...generateBlogPageSitemap(),
+        ...generateBlogPageSitemap({ isAmp: true })
+      ]
     }
   },
 
@@ -511,15 +540,28 @@ export default {
         .sortBy('postedDate', 'desc')
         .fetch<BlogListDataType>()
 
-      return locales
-        .map((locale) =>
+      const lastPage = getLastPage(contents.length)
+      const pageList = getPageList(lastPage)
+
+      function generateBlogContent() {
+        return locales.flatMap((locale) =>
           locale.code === 'id'
             ? contents.map((content) => `/blog/${content.slug}/amp/`)
             : contents.map(
                 (content) => `/${locale.code}/blog/${content.slug}/amp/`
               )
         )
-        .flat()
+      }
+
+      function generateBlogPage() {
+        return locales.flatMap((locale) =>
+          locale.code === 'id'
+            ? pageList.map((page) => `/blog/page/${page}/amp/`)
+            : pageList.map((page) => `/${locale.code}/blog/page/${page}/amp/`)
+        )
+      }
+
+      return [...generateBlogContent(), ...generateBlogPage()]
     }
   },
 
