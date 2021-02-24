@@ -81,6 +81,8 @@ export default Vue.extend({
   @apply my-12 mx-4 flex flex-wrap justify-between content-center;
 
   &__link {
+    @apply mb-3;
+
     &--disabled {
       @apply cursor-not-allowed opacity-50 pointer-events-none;
     }
