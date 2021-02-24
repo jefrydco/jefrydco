@@ -100,6 +100,7 @@
     "joi": "^17.4.0",
     "lint-staged": "^10.5.4",
     "multi-integer-range": "^4.0.8",
+    "nuxt-build-optimisations": "^1.0.1",
     "postcss-nested": "^4.2.3",
     "prettier": "^2.2.1",
     "puppeteer-core": "~5.5.0",

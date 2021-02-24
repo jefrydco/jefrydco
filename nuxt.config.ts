@@ -211,6 +211,9 @@ export default {
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-modules#buildmodules
   buildModules: [
+    // https://github.com/loonpwn/nuxt-build-optimisations
+    'nuxt-build-optimisations',
+
     // https://typescript.nuxtjs.org/guide/setup.html#installation
     '@nuxt/typescript-build',
 
@@ -377,6 +380,11 @@ export default {
         files: './**/*.{ts,vue}'
       }
     }
+  },
+
+  // https://github.com/loonpwn/nuxt-build-optimisations
+  buildOptimisations: {
+    profile: 'safe'
   },
 
   // https://github.com/nuxt-community/color-mode-module
