@@ -3,9 +3,7 @@ module.exports = {
   extends: [
     'plugin:vue/strongly-recommended',
     '@nuxtjs/eslint-config-typescript',
-    'prettier',
-    'prettier/vue',
-    'prettier/@typescript-eslint'
+    'plugin:prettier/recommended'
   ],
   rules: {
     'no-console': 'off',
