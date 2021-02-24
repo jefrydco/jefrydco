@@ -17,7 +17,7 @@ Skip to [main article](#table-of-contents).
 
 ## TLDR
 
-Last year got an idea to create a web app that can search keyword from people speech in a YouTube video. That idea came up when I was watching web.dev Live event. Not using any sophisticated and bleeding-edge technology, only via closed captions text.
+Last year, I got an idea to create a web app that can search keyword from people speech in a YouTube video. That idea came up when I was watching web.dev Live event. Not using any sophisticated and bleeding-edge technology, only via closed captions text.
 
 When we activate closed captions on YouTube, the page requests to an API. It responses a JSON object that we can customize into WebVTT format. Unfortunately, the YouTube closed captions API is equipped with some parameters. They have a unique identifier and expiration date.
 
