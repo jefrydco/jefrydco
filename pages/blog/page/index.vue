@@ -2,7 +2,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  // @ts-expect-error
   asyncData({ app, redirect }) {
     return redirect(app.localePath('/blog'))
   },

@@ -36,7 +36,6 @@ import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
   mixins: [pagination],
-  // @ts-expect-error
   async asyncData({ app, route, redirect }) {
     const { locale } = app.i18n
     try {
