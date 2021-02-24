@@ -27,8 +27,8 @@
     "test:e2e:open": "cypress open",
     "test:unit": "jest ./tests/unit",
     "coverage": "codecov",
-    "generate:components": "ts-node ./cli/generate-components-data.ts",
-    "log:psi": "ts-node ./cli/log-psi.ts"
+    "generate:components": "jiti ./cli/generate-components-data.ts",
+    "log:psi": "jiti ./cli/log-psi.ts"
   },
   "dependencies": {
     "@nuxt/content": "^1.13.1",
