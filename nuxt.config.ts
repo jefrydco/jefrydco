@@ -226,6 +226,9 @@ export default {
     // https://tailwindcss.nuxtjs.org/
     '@nuxtjs/tailwindcss',
 
+    // https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+
     '~/buildModules/nuxt-responsive-loader'
   ],
 
@@ -384,6 +387,11 @@ export default {
   // https://github.com/nuxt-community/analytics-module
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS
+  },
+
+  // https://github.com/nuxt-community/eslint-module
+  eslint: {
+    fix: true
   },
 
   // https://github.com/nuxt-community/stylelint-module
@@ -594,24 +602,12 @@ export default {
         'postcss-nested': {}
       }
     },
-    extend(_config, { isDev, isClient }) {
+    extend(_config) {
       _config.module?.rules.push({
         test: /\.(txt)$/,
         loader: 'file-loader',
         exclude: /node_modules/
       })
-
-      if (isDev && isClient) {
-        _config.module?.rules.push({
-          enforce: 'pre',
-          test: /\.(ts|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-          options: {
-            fix: true
-          }
-        })
-      }
     }
   }
 } as Partial<NuxtOptions>
