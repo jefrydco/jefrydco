@@ -367,7 +367,7 @@ Kita menggunakan fungsi `fetch` untuk mendapatkan datanya. Jika responnya sukses
 
 Biasanya, data _caption_ berisi kode HTML. Jadi kita harus menghilangkannya dengan memanggil fungsi `stripHtml`. Fungsi tersebut mengembalikan nilai dalam bentuk string juga. Untuk memudahkan kita berinteraksi dengan data tersebut, kita harus mengubahnya menjadi bentuk yang umum di JavaScript.
 
-Kita mengubahnya menjadi objek JSON dengan cara memanggil fungsi `vttToJson`. Di balik layar, fungsi tersebut menggunakan fungsi `parseSync` dari paket NPM [subtitle]https://github.com/gsantiago/subtitle.js). Hasil nilai kembaliannya berupa _array of object_.
+Kita mengubahnya menjadi objek JSON dengan cara memanggil fungsi `vttToJson`. Di balik layar, fungsi tersebut menggunakan fungsi `parseSync` dari paket NPM [subtitle](https://github.com/gsantiago/subtitle.js). Hasil nilai kembaliannya berupa _array of object_.
 
 Terkadang item dari array tersebut tercampur antara header dan cue. Item yang kita butuhkan hanyalah cue, jadi kita harus memfilternya. Setelah itu, kita memetakan array tersebut menjadi bentuk objek yang kita butuhkan, waktu mulai, waktu berakhir dan teks _caption_.
 
