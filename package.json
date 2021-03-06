@@ -42,7 +42,7 @@
     "@sentry/tracing": "^6.2.1",
     "@tailwindcss/typography": "^0.4.0",
     "@types/vkbeautify": "^0.99.2",
-    "debounce-fn": "^5.0.0",
+    "debounce-fn": "^4.0.0",
     "defu": "^3.2.2",
     "dotenv": "^8.2.0",
     "nuxt": "^2.15.2",
