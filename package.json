@@ -39,7 +39,7 @@
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sentry": "^5.0.2",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@sentry/tracing": "^6.2.1",
+    "@sentry/tracing": "^6.2.2",
     "@tailwindcss/typography": "^0.4.0",
     "@types/vkbeautify": "^0.99.2",
     "core-js": "^3.9.1",
