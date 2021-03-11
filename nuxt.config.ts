@@ -211,9 +211,6 @@ export default {
 
   // https://nuxtjs.org/guides/configuration-glossary/configuration-modules#buildmodules
   buildModules: [
-    // https://github.com/loonpwn/nuxt-build-optimisations
-    'nuxt-build-optimisations',
-
     // https://typescript.nuxtjs.org/guide/setup.html#installation
     '@nuxt/typescript-build',
 
