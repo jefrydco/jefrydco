@@ -32,6 +32,7 @@ import { HOSTNAME, MAXIMAL_BLOG_ITEM } from '~/constants'
 import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
+  // @ts-ignore
   async asyncData({ app }) {
     const { locale } = app.i18n
 

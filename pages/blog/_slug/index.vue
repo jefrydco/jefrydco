@@ -123,7 +123,9 @@ export default formatDate.extend({
       blog: null
     }
   },
+  // @ts-ignore
   async asyncData({ app, route }) {
+    // @ts-ignore
     const { locale, locales } = app.i18n
     const { slug } = route.params
 
