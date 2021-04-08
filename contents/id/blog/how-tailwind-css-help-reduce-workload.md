@@ -232,7 +232,7 @@ kita dapat membuat nama _class_ baru dan menggunakan `@apply` untuk menerapkan u
     @apply font-bold py-2 px-4 rounded;
   }
   .btn--orange {
-    @apply bg-orange-500 text-white;
+    @apply bg-yellow-400 text-white;
   }
   .btn--orange:hover {
     @apply bg-orange-600;

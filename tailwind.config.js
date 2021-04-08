@@ -23,10 +23,12 @@ module.exports = {
               color: 'var(--text-normal)'
             },
             'ol > li::before': {
-              color: 'var(--text-normal)'
+              color: 'var(--text-normal)',
+              display: 'none'
             },
             'ul > li::before': {
-              color: 'var(--text-normal)'
+              color: 'var(--text-normal)',
+              display: 'none'
             },
             hr: {
               borderColor: 'var(--inline-code-bg)',

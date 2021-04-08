@@ -228,7 +228,7 @@ we can create a new class and use `@apply` to apply predefined class utilities f
     @apply font-bold py-2 px-4 rounded;
   }
   .btn--orange {
-    @apply bg-orange-500 text-white;
+    @apply bg-yellow-400 text-white;
   }
   .btn--orange:hover {
     @apply bg-orange-600;

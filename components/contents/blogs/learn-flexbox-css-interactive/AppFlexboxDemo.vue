@@ -78,7 +78,7 @@ export default Vue.extend({
   }
   .flex-container {
     .box {
-      @apply w-16 h-16 rounded m-1 p-4 text-center text-xl cursor-pointer z-20 bg-orange-500;
+      @apply w-16 h-16 rounded m-1 p-4 text-center text-xl cursor-pointer z-20 bg-yellow-500;
       color: var(--text-normal);
 
       &:hover {
@@ -86,7 +86,7 @@ export default Vue.extend({
       }
 
       &:active {
-        @apply bg-orange-700;
+        @apply bg-yellow-600;
       }
 
       &--different-height {
