@@ -372,9 +372,13 @@ export default formatDate.extend({
 
 <style>
 /* purgecss start ignore */
-.prose {
+.prose-lg {
   hr {
     @apply my-5;
+  }
+
+  code {
+    @apply rounded;
   }
 
   h1,
@@ -453,7 +457,7 @@ export default formatDate.extend({
     @apply ml-8;
 
     li {
-      @apply mb-3;
+      @apply mb-3 pl-3;
 
       p {
         @apply mb-0;
@@ -472,7 +476,7 @@ export default formatDate.extend({
     border-color: var(--inline-code-border);
 
     p:only-child {
-      @apply mb-0;
+      @apply mt-0 mb-0;
     }
   }
 
@@ -480,6 +484,10 @@ export default formatDate.extend({
     @apply rounded-lg;
     background-color: #1a202c;
     color: #e2e8f0;
+
+    &__pre {
+      @apply my-0 p-0;
+    }
 
     &__pre,
     &__code {
@@ -538,15 +546,16 @@ export default formatDate.extend({
       &::before {
         @apply absolute h-full z-0 top-0 bottom-0;
         content: '';
-        left: -1.05rem;
-        right: -1.05rem;
+        left: -1.55rem;
+        right: -1.5rem;
       }
     }
 
     &__code {
+      border-top-width: 1px;
       background-color: #1a202c;
       border-color: #2d3748;
-      padding: 0.5rem 1rem;
+      padding: 1rem 1.5rem;
     }
 
     &:hover {
@@ -772,5 +781,11 @@ export default formatDate.extend({
     }
   }
 }
+/* 'ol > li, ul > li': {
+  'padding-left': '0'
+},
+'blockquote p:only-child, quote p:only-child': {
+  marginTop: theme('spacing.0')
+} */
 /* purgecss end ignore */
 </style>

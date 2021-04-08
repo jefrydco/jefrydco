@@ -85,11 +85,9 @@ export default Vue.extend({
       rel: 'alternate',
       type: 'application/rss+xml',
       href:
-        // @ts-expect-error
         locale.code === 'id'
           ? `${HOSTNAME}/blog.xml`
-          : // @ts-expect-error
-            `${HOSTNAME}/${locale.code}/blog.xml`,
+          : `${HOSTNAME}/${locale.code}/blog.xml`,
       title: `Blog - Jefrydco`
     }))
 
