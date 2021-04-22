@@ -387,7 +387,12 @@ export default formatDate.extend({
   h4,
   h5,
   h6 {
-    @apply mt-12 mb-5;
+    @apply mt-12 mb-5 py-2 px-3 rounded-l-lg;
+    background-image: linear-gradient(
+      to right,
+      rgba(245, 158, 11, 0.2) 50%,
+      rgba(245, 101, 101, 0)
+    );
   }
 
   h2,
@@ -398,7 +403,7 @@ export default formatDate.extend({
       }
 
       &::before {
-        @apply absolute -ml-5 pr-2 opacity-0;
+        @apply absolute -ml-8 pr-2 opacity-0;
         content: '#';
         color: var(--text-link);
       }
@@ -468,6 +473,13 @@ export default formatDate.extend({
         @apply my-3 ml-4;
       }
     }
+  }
+
+  > ul > li > *:last-child,
+  > ol > li > *:last-child,
+  > ul > li > *:first-child,
+  > ol > li > *:first-child {
+    @apply my-0;
   }
 
   blockquote,
@@ -767,7 +779,7 @@ export default formatDate.extend({
         @apply ml-5;
 
         &::before {
-          @apply opacity-100;
+          @apply opacity-100 -ml-5;
         }
       }
     }
