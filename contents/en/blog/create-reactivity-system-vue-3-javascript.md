@@ -551,7 +551,7 @@ const person = {
 }
 ```
 
-We can say that `person` object is a state because it represents a person in real life. It can represent anything not only something in real life. For instance, if we ever play a game, I believe the game itself holds many states. How much progress, money or xp do we have or which level are we in. We can store that thing in a state.
+We can say that `person` object is a state because it represents a person in real life. It can represent anything not only something in real life. For instance, if we ever play a game, I believe the game itself holds many states. How much progress, money or xp do we have or which level are we in. We can store all those things in a state.
 
 ### Reactive State
 
@@ -607,21 +607,177 @@ We declare 2 functions, `printInfoForName` and `printInfoForAge`. We can say tha
 
 ### Tracker
 
+**Tracker is a function to store the dependencies**. It's not funny to write all the dependency functions manually. Usually dependency functions are written as anonymous function. Anonymous function is a function without name.
 
+```typescript{}[] twoslash
+function namedFunction () {
+  // Named Function Content
+}
+const anonymousFunction = () => {
+  // Anonymous Function Content
+}
+```
+
+Why we have to use tracker instead of calling the dependency function directly? Because the invocation process can be delayed later. We **track the dependency when the property is accessed or referenced**. Then we execute all those dependency functions when the value change.
+
+We can use `Object`, `Array`, `WeakMap`, `Map`, `Set` to store all those dependency functions. But there should be one which fit for our needs. Hold on to your any devices you use to read this article, we will get into it later.
 
 ### Trigger
 
+**Trigger is a function to execute all the stored dependencies**. To get better understanding of how Tracker and Trigger works, let jump into the code:
+
+```typescript{11,15}[]
+function tracker(target, key) {
+  // Store all dependencies
+}
+
+function trigger(target, key) {
+  // Execute all dependencies
+}
+
+const reactivePerson = new Proxy(person, {
+  get(target, key) {
+    tracker(target, key)
+    return target[key]
+  },
+  set(target, key, value) {
+    trigger(target, key)
+    return value
+  }
+})
+```
+
+`tracker` is placed inside `get` handler, as we mentioned in previous explanation that we **track the dependency when the property is accessed or referenced**. And the `get` handler itself is also executed when the property is accessed or referenced.
+
+`trigger` is placed inside `set` handler, so **whenever the property value change, we will trigger or execute the dependecy functions** we already stored previously.
+
 ### Effect
+
+There are 2 kind of thing we should understand when we talk about function, they are pure function and impure function.
+
+#### Pure Function
+
+Pure function is a **function that accept input and return output without modifying data outside its scoped**.
+
+```typescript{}[]
+function sum(number1, number2) {
+  return number1 + number2
+}
+
+sum(4, 5)
+// 9
+```
+
+The `sum` function is the example of pure function because it accepts 2 arguments and returns a value. It also don't access nor modify data outside its scoped. We can draw a conclusion, a pure function has 2 characteristics:
+
+- Same input always return same output
+- Doesn't modify data outside its scoped
+
+#### Impure Function
+
+Impure function is a **function that modify data outside its scoped**.
+
+```typescript{}[]
+const person = {
+  name: 'jefrydco',
+  age: 23
+}
+
+function changeName(name) {
+  person.name = name
+}
+
+changeName('jefry')
+```
+
+The `changeName` function is the example of impure function because it changes `name` property which is outside of its scoped.
+
+---
+
+We already understand about pure and impure function, now what is effect then? **Effect is a function that do side effect, side effect is modifying data outside its scoped**. So technically, **effect is impure function**.
 
 ### Watch
 
+**Watch is a function that "touch" the property and execute the effect**. Touch means intentionally accessed to store the dependencies.
+
+```typescript{2}[]
+function watch(target, key, effect) {
+  const value = target[key]
+  effect(value)
+}
+```
+
+On that example above, we "touch" the property by reference it to a variable called `value`.
+
 ## Reactivity System
+
+All right!!! Now we have a quite understanding both for technological and term perspective. Let's dive in to the reactivity system itself. So what's reactivity system? To answer that question, take a look at the animation below:
+
+<app-video src="/videos/content/2021/04/create-reactivity-sistem-vue-3-javascript/reactivity-spreadsheet.webm"></app-video>
+
+First we enter 1 and 2, the result is calculated automaticaly. If we change to 2 and 2, the result is also calculated automatically. That's called reactivity system. We can say that **reactivity system is a system that react to change automatically**.
+
+I wont explain too much detail about reactivity system in Vue. But if you're curious, please read over here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1/#vuejs-reactivity-system). So let's just get started to write our simplified reactivity system.
 
 ### Create Reactive Function
 
+Let's start from the basic, take a look the following code:
+
+```typescript{}[]
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, key, receiver) {
+      track(target, key)
+      return Reflect.get(target, key, receiver)
+    },
+    set(target, key, value, receiver) {
+      trigger(target, key, value)
+      return Reflect.set(target, key, value, receiver)
+    }
+  })
+}
+```
+
+We create a function called `reactive`. The function returns a `Proxy` instance which has `get` and `set` handler. Inside the getter, we put undeclared function yet called `track` and inside the setter, we put undeclared function yet called `trigger`. It's easy peasy right? Same as what we already talked about on the prerequesties
+
 ### Dependencies Management
 
+We need some kind of structure data to glue everything together. The corresponding parts are:
+
+<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
+
+- Target, is the state that we want to convert into reactive state
+- Key, the property of the state
+- Dependencies, function that have to be run if the key's value change
+
+<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+
+We can use all the JavaScript API we already learn before. Since the target is in form of `Object`, we can use `WeakMap`. And the value is regular `Map`.
+
+The key of this `Map` is the target's property we want to track then the value is a `Set` that will contains the effect function.
+
 ### Create Track Function
+
+If you feel overwhelmed with those diagram before and prefer to learn easily through the code. Let's code over it. So all of the dependencies management thing will be written inside `track` function.
+
+```typescript{}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  const dep = new Set()
+  dep.add(activeEffect)
+
+  const depsMap = new Map()
+  depsMap.set(key, dep)
+
+  targetMap.set(target, depsMap)
+}
+```
+
+First, we declare a variable called `targetMap` and assign it to `WeakMap` constructor. We also declare another variable called `activeEffect`, we asssign it to `undefined`.
+
+The `targetMap` will be the root data structure of our all dependencies management. The `activeEffect` will be used as temporary variable to store current active effect.
 
 ### Create Track Array Function
 
