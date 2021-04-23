@@ -25,30 +25,26 @@ import onetime from 'onetime'
 export default Vue.extend({
   data() {
     return {
-      observer: null as IntersectionObserver
+      observer: (null as unknown) as IntersectionObserver
     }
   },
   mounted() {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          this.initTwitterEmbed()
-          this.$nextTick(() => {
-            this.observer.disconnect()
-          })
-        }
-      },
-      {
-        rootMargin: '0 0 100px 0'
+    this.observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        this.initTwitterEmbed()
+        this.$nextTick(() => {
+          this.observer.disconnect()
+        })
       }
-    )
-    this.observer.observe(this.$refs.observed)
+    })
+    this.observer.observe(this.$refs.observed as Element)
   },
   destroyed() {
     this.observer.disconnect()
   },
   methods: {
     initTwitterEmbed: onetime(function () {
+      // @ts-expect-error inside named function
       const garbageCollectorScript = this.$refs.garbageCollectorScript
 
       const newScript = document.createElement('script')
