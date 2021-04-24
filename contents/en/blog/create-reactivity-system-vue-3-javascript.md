@@ -987,12 +987,20 @@ person.shift()
 // 'jefrydco'
 person
 // ['jefry']
+
+person.push('jefrydco')
+person.push('dewangga')
+person
+// ['jefry', 'jefrydco', 'dewangga']
+person.splice(1, 1)
+// ['jefry', 'dewangga']
 ```
 
 - `push`, insert item to the end of array
 - `unshift`, insert item to the start of array
 - `pop`, remove item from the end of array
 - `shift`, remove item from the start of array
+- `splice`, remove n item at certain index
 
 There are still a lot more of `Array` function, but we will focus on those 4 functions.
 
@@ -1025,7 +1033,7 @@ function trackArray(target, key) {
       const arrayMethod = arrayTarget[arrayKey]
 
       if (typeof arrayMethod === 'function') {
-        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+        if (['push', 'unshift', 'pop', 'shift', 'splice'].includes(arrayKey)) {
           // Do something if arrayMethod is those item
         }
         return arrayMethod.bind(arrayTarget)
@@ -1049,7 +1057,7 @@ function trackArray(target, key) {
       const arrayMethod = arrayTarget[arrayKey]
 
       if (typeof arrayMethod === 'function') {
-        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+        if (['push', 'unshift', 'pop', 'shift', 'splice'].includes(arrayKey)) {
           return function () {
             const result = Array.prototype[arrayKey].apply(
               arrayTarget,
@@ -1108,7 +1116,7 @@ function trackArray(target, key) {
       const arrayMethod = arrayTarget[arrayKey]
 
       if (typeof arrayMethod === 'function') {
-        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+        if (['push', 'unshift', 'pop', 'shift', 'splice'].includes(arrayKey)) {
           return function () {
             const result = Array.prototype[arrayKey].apply(
               arrayTarget,
@@ -1244,7 +1252,7 @@ function trackArray(target, key) {
       const arrayMethod = arrayTarget[arrayKey]
 
       if (typeof arrayMethod === 'function') {
-        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+        if (['push', 'unshift', 'pop', 'shift', 'splice'].includes(arrayKey)) {
           return function () {
             const result = Array.prototype[arrayKey].apply(
               arrayTarget,
