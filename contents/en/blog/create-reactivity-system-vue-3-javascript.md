@@ -11,6 +11,8 @@ slug: create-reactivity-system-vue-3-javascript
 
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vue-3-javascript' } }" label="Create a Simplified Version of Vue 3 Reactivity System"></app-amp-notice>
 
+> Code snippet on this article is written in TypeScript but it's a perfectly valid JavaScript. So if you want to copy, paste and run it on browser console, it should be fine.
+
 ## Table of Contents
 
 ## Underlying Technology
@@ -66,7 +68,7 @@ const proxiedPerson = new Proxy(person, {
       console.log(`Hello ${value}, nice to meet you!`)
     } else if (key === 'age') {
       const year = new Date().getFullYear() - value
-      console.log(year)
+      console.log(`The person was born in ${year}`)
     }
     return value
   }
@@ -717,7 +719,7 @@ All right!!! Now we have a quite understanding both for technological and term p
 
 First we enter 1 and 2, the result is calculated automaticaly. If we change to 2 and 2, the result is also calculated automatically. That's called reactivity system. We can say that **reactivity system is a system that react to change automatically**.
 
-I wont explain too much detail about reactivity system in Vue. But if you're curious, please read over here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1/#vuejs-reactivity-system). So let's just get started to write our simplified reactivity system.
+I wont explain too much detail about reactivity system in Vue. But if you're curious, please read over here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1/#vuejs-reactivity-system) or even in [Vue.js 3: Reactivity in Depth](https://v3.vuejs.org/guide/reactivity.html). So let's just get started to write our simplified reactivity system.
 
 ### Create Reactive Function
 
@@ -738,7 +740,28 @@ function reactive(target) {
 }
 ```
 
-We create a function called `reactive`. The function returns a `Proxy` instance which has `get` and `set` handler. Inside the getter, we put undeclared function yet called `track` and inside the setter, we put undeclared function yet called `trigger`. It's easy peasy right? Same as what we already talked about on the prerequesties
+We create a function called `reactive`. The function returns a `Proxy` instance which has `get` and `set` handler. Inside the getter, we put undeclared function yet called `track` and inside the setter, we put undeclared function yet called `trigger`. It's easy peasy right? Same as what we already talked about on the prerequesties section.
+
+Our current reactive function above is only work for linear `Object` structure. It won't work if it nested `Object` nor for `Array`.
+
+```typescript{}[]
+// Working
+const person = {
+  name: 'jefrydco',
+  age: 23
+}
+
+// Not working
+const person = {
+  name: {
+    firstName: 'jefry',
+    lastName: 'dewangga'
+  },
+  skills: ['web', 'vue']
+}
+```
+
+Just hold on to whatever device you currently use to read this article, we will make it work for nested `Object` and `Array` later.
 
 ### Dependencies Management
 
@@ -758,9 +781,9 @@ The key of this `Map` is the target's property we want to track then the value i
 
 ### Create Track Function
 
-If you feel overwhelmed with those diagram before and prefer to learn easily through the code. Let's code over it. So all of the dependencies management thing will be written inside `track` function.
+If you feel overwhelmed with those diagram before and prefer to learn easily through the code. Let's code over it. All of the dependencies management thing will be written inside `track` function.
 
-```typescript{}[]
+```typescript{5, 8}[]
 const targetMap = new WeakMap()
 let activeEffect = undefined
 
@@ -779,11 +802,527 @@ First, we declare a variable called `targetMap` and assign it to `WeakMap` const
 
 The `targetMap` will be the root data structure of our all dependencies management. The `activeEffect` will be used as temporary variable to store current active effect.
 
-### Create Track Array Function
+That code will run well if the `target` and the `key` are always new. The `dep` and `depsMap` variable will always reference to new object. It won't work if the `target` and the `key` are using the one that already used. It will always overwrite the existing object. So we won't be able to store as much as we want. Let's refactor it:
+
+```typescript{5-9}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  let depsMap = targetMap.get(target)
+  if (!depsMap) {
+    depsMap = new Map()
+    targetMap.set(target, depsMap)
+  }
+
+  // Next code
+}
+```
+
+To overcome it, we have to add condition. We check inside `targetMap` whether already have existing `depsMap` or not. If not then we can initialize it using new `Map` and add that into `targetMap`.
+
+```typescript{7-11}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  // Previous code 
+
+  let dep = depsMap.get(key)
+  if (!dep) {
+    dep = new Set()
+    depsMap.set(key, dep)
+  }
+
+  // Next Code
+}
+```
+
+We do the same thing to `depsMap`, we check inside `depsMap` whether already have existing `dep` or not. If not then we can initialize it using new `Set` and add that into `depsMap`.
+
+```typescript{7-9}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  // Previous code 
+
+  if (!dep.has(activeEffect) && typeof activeEffect !== 'undefined') {
+    dep.add(activeEffect)
+  }
+
+  // Next Code
+}
+```
+
+After that we have to check whether `dep` has current `activeEffect` or not. If not then we add that effect. We also need to check whether the current `activeEffect` is `undefined` or not, because intially we assign that variable into `undefined`, so there must be a possibility the value will be `undefined`.
+
+```typescript{7}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  // Previous code 
+
+  targetMap.set(target, depsMap)
+}
+```
+
+The last thing we should do is insert the `depsMap` to `targetMap` using `target` as a key. The final track function would be:
+
+```typescript{}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function track(target, key) {
+  let depsMap = targetMap.get(target)
+  if (!depsMap) {
+    depsMap = new Map()
+    targetMap.set(target, depsMap)
+  }
+
+  let dep = depsMap.get(key)
+  if (!dep) {
+    dep = new Set()
+    depsMap.set(key, dep)
+  }
+
+  if (!dep.has(activeEffect) && typeof activeEffect !== 'undefined') {
+    dep.add(activeEffect)
+  }
+
+  targetMap.set(target, depsMap)
+}
+```
 
 ### Create Watch Function
 
-### Final Touch
+Watch function will "touch" the property and execute the effect right away. So it should be pretty simple right? Yes, of course.
+
+```typescript{}[]
+function watch(target, key, effect) {
+  activeEffect = effect
+  const value = target[key]
+  effect(value)
+  activeEffect = undefined
+}
+```
+
+Watch function will receive 3 parameters, `target`, `key` and `effect`. The `effect` argument is in form of callback function that will be executed if `key`'s value change.
+
+We can't pass `target[key]` directly to `effect` function because it has to be "touch" first before we execute the `effect`.
+
+We also need to set current `activeEffect` temporaly and set to `undefined` afterwards after the "touch" and `effect` invocation process is completed.
+
+### Nested Reactive
+
+To make nested `Object` reactive, we will use recursive method. In essence, **recursive is a function that call itself over and over again until reach its termination point**. Termination point is when the function stop call itself. Let's take a look at the simplest form of recursive function:
+
+```typescript{}[]
+function printToZero(number) {
+  if (number >= 0) {
+    console.log(number)
+    printToZero(number - 1)
+  }
+}
+printToZero(3)
+// 3
+// 2
+// 1
+// 0
+```
+
+So how we apply recursive function to our `reactive` function? Well, the only thing we need to do is check if the value is object, then we simply return the `reactive` function itself.
+
+```typescript{12-14}[]
+function isObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]'
+}
+
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, key, receiver) {
+      const value = target[key]
+
+      track(target, key)
+
+      if (isObject(value)) {
+        return reactive(value)
+      }
+
+      return Reflect.get(target, key, receiver)
+    },
+    set(target, key, value, receiver) {
+      trigger(target, key, value)
+      return Reflect.set(target, key, value, receiver)
+    }
+  })
+}
+```
+
+### Create Track Array Function
+
+Let's make it work with `Array`. Tracking change in `Array` is a little bit different with `Object`, so it's better to create new function to handle it.
+
+But before that, let's take a look on how we usually deal with item changing in `Array`:
+
+```typescript{}[]
+const person = []
+
+person.push('jefry')
+person.push('dewangga')
+person
+// ['jefry', 'dewangga']
+
+person.unshift('jefrydco')
+person
+// ['jefrydco', 'jefry', 'dewangga']
+
+person.pop()
+// 'dewangga'
+person
+// ['jefrydco', 'jefry']
+
+person.shift()
+// 'jefrydco'
+person
+// ['jefry']
+```
+
+- `push`, insert item to the end of array
+- `unshift`, insert item to the start of array
+- `pop`, remove item from the end of array
+- `shift`, remove item from the start of array
+
+There are still a lot more of `Array` function, but we will focus on those 4 functions.
+
+The idea is when those functions are executed, we will invoc `trigger` function. Besides that, we have to make sure that the original functionality of those functions are still persist. So how will we gonna do it?
+
+```typescript{2,6}[]
+function trackArray(target, key) {
+  const value = target[key]
+
+  return new Proxy(value, {
+    get(arrayTarget, arrayKey) {
+      const arrayMethod = arrayTarget[arrayKey]
+
+      // Do something with arrayMethod
+    }
+  })
+}
+```
+
+The `trackArray` function receives 2 arguments, `target` and `key`. We can get the `Array` value by using array notation. After that we use that value as a "target" for the new `Proxy`.
+
+If `Object` requires us to have both `get` and `set` handler, in `Array`, we only need `get` handler. Inside that function, we can get which `Array` function operation currently perform by using array notation as well.
+
+```typescript{9-12}[]
+function trackArray(target, key) {
+  const value = target[key]
+
+  return new Proxy(value, {
+    get(arrayTarget, arrayKey) {
+      const arrayMethod = arrayTarget[arrayKey]
+
+      if (typeof arrayMethod === 'function') {
+        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+          // Do something if arrayMethod is those item
+        }
+        return arrayMethod.bind(arrayTarget)
+      }
+      return arrayMethod
+    }
+  })
+}
+```
+
+We have to make sure that `arrayMethod` is a function. Inside of that checking, we also add another checking. This nested checking is for which `Array` function operation we want to intercept the functionality. For this purpose, we only intercept the most common one `push`, `unshift`, `pop`, and `shift`.
+
+We also need to `bind` the `arrayMethod` that doesn't fit with those array method to `arrayTarget` context.
+
+```typescript{10-15}[]
+function trackArray(target, key) {
+  const value = target[key]
+
+  return new Proxy(value, {
+    get(arrayTarget, arrayKey) {
+      const arrayMethod = arrayTarget[arrayKey]
+
+      if (typeof arrayMethod === 'function') {
+        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+          return function () {
+            const result = Array.prototype[arrayKey].apply(
+              arrayTarget,
+              arguments
+            )
+          }
+        }
+        return arrayMethod.bind(arrayTarget)
+      }
+      return arrayMethod
+    }
+  })
+}
+```
+
+If both of the condition match, we return a named function. Inside of that named function, we execute the original `Array` operation function using `arrayTarget` context. We do that by calling `apply` from `Array.prototype[arrayKey]`. Each of the array function operation return different thing, so we just assign that into variable called `result`.
+
+Before continue, let's have short explanation on how `Array.prototype[arrayKey]` works. Please have a look at the following example:
+
+```typescript{3,7}[]
+const array = []
+
+array.push('jefrydco') // Regular way
+array
+// ['jefrydco']
+
+Array.prototype['push'].apply(array, ['jefry']) // Via Array.prototype
+array
+// ['jefrydco', 'jefry']
+```
+
+Both of them can give the same result, but the later one is usually used when **we don't have access to the argument we want to pass**.
+
+```typescript{}[]
+const array = []
+
+function push() {
+  const result = Array.prototype['push'].apply(array, arguments)
+  console.log(`Array index: ${result}`)
+  return result
+}
+
+push('jefrydco')
+// ['jefrydco']
+// 1
+```
+
+**Another use case is when we enhance the original function**, on the example above we want to print the `Array` index whenever we call `push` function. So we can use the second option to call the original array operation function, and reference the named function `push` argument by using JavaScript special key `arguments`.
+
+```typescript{16}[]
+function trackArray(target, key) {
+  const value = target[key]
+
+  return new Proxy(value, {
+    get(arrayTarget, arrayKey) {
+      const arrayMethod = arrayTarget[arrayKey]
+
+      if (typeof arrayMethod === 'function') {
+        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+          return function () {
+            const result = Array.prototype[arrayKey].apply(
+              arrayTarget,
+              arguments
+            )
+
+            trigger(target, key, value)
+
+            return result
+          }
+        }
+        return arrayMethod.bind(arrayTarget)
+      }
+      return arrayMethod
+    }
+  })
+}
+```
+
+Let's get back to the topic. After we get the array function operation result. We need to call the `trigger` function indicating that there is a change in the array. After that, we return the `result`.
+
+```typescript{12-14}[]
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, key, receiver) {
+      const value = target[key]
+
+      track(target, key)
+
+      if (isObject(value)) {
+        return reactive(value)
+      }
+
+      if (Array.isArray(value)) {
+        return trackArray(target, value)
+      }
+
+      return Reflect.get(target, key, receiver)
+    },
+    set(target, key, value, receiver) {
+      trigger(target, key, value)
+      return Reflect.set(target, key, value, receiver)
+    }
+  })
+}
+```
+
+Then the only last thing we need to do is call that function inside our `reactive` function. But we also need to check whether the target value is `Array` or not by using `Array.isArray()` function.
+
+### Create Trigger Function
+
+Trigger function will be invoked when the property value is changed, so we need to put that inside `set` handler. We also need to place it inside `trackArray` because we have to enhance the original functionality. Let's take a look how trigger function will shape:
+
+```typescript{}[]
+function trigger(target, key, value) {
+  const effects = targetMap.get(target).get(key)
+
+  if (effects) {
+    effects.forEach((effect) => {
+      effect(value)
+    })
+  }
+}
+```
+
+<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+
+Remember that diagram right? Inside `trigger` function, we need to get the `effect` that stored inside `Set` data type. And we can do that by calling `get` function for each `WeakMap` and `Map`.
+
+We need to check whether it exists or not, if yes, we need to iterate that. Fortunately `Set` has provided us a built-in function to do iteration. Inside that iteration block, we just simply call the `effect` function.
+
+### Complete Code
+
+Let's wrap things together, here's our complete code for simplified implementation of Vue 3 reactivity system. We can run the following code through browser console directly.
+
+```typescript{}[]
+const targetMap = new WeakMap()
+let activeEffect = undefined
+
+function isObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]'
+}
+
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, key, receiver) {
+      const value = target[key]
+
+      track(target, key)
+
+      if (isObject(value)) {
+        return reactive(value)
+      }
+      if (Array.isArray(value)) {
+        return trackArray(target, value)
+      }
+
+      return Reflect.get(target, key, receiver)
+    },
+    set(target, key, value, receiver) {
+      trigger(target, key, value)
+
+      return Reflect.set(target, key, value, receiver)
+    }
+  })
+}
+
+function track(target, key) {
+  let depsMap = targetMap.get(target)
+  if (!depsMap) {
+    depsMap = new Map()
+    targetMap.set(target, depsMap)
+  }
+
+  let dep = depsMap.get(key)
+  if (!dep) {
+    dep = new Set()
+    depsMap.set(key, dep)
+  }
+
+  if (!dep.has(activeEffect) && typeof activeEffect !== 'undefined') {
+    dep.add(activeEffect)
+  }
+
+  targetMap.set(target, depsMap)
+}
+
+function trackArray(target, key) {
+  const value = target[key]
+
+  return new Proxy(value, {
+    get(arrayTarget, arrayKey) {
+      const arrayMethod = arrayTarget[arrayKey]
+
+      if (typeof arrayMethod === 'function') {
+        if (['push', 'unshift', 'pop', 'shift'].includes(arrayKey)) {
+          return function () {
+            const result = Array.prototype[arrayKey].apply(
+              arrayTarget,
+              arguments
+            )
+
+            trigger(target, key, value)
+
+            return result
+          }
+        }
+        return arrayMethod.bind(arrayTarget)
+      }
+      return arrayMethod
+    }
+  })
+}
+
+function trigger(target, key, value) {
+  const effects = targetMap.get(target).get(key)
+  
+  if(effects) {
+    effects.forEach((effect) => {
+      effect(value)
+    })
+  }
+}
+
+function watch(target, key, effect) {
+  activeEffect = effect
+  const value = target[key]
+  effect(value)
+  activeEffect = undefined
+}
+```
+
+### Simple Usage
+
+We already have a bunch of code above, so how will we use it? It's simple. The only function we need to pay attention are `reactive` and `watch`. Let's get back to our long live `person` object.
+
+We can use the same example as in [Proxy Get Handler](#proxy-get-handler), we want to print "Hello &lt;value&gt;, nice to meet you!" if we change the `name` property value.
+
+```typescript{}[] twoslash
+declare const person: Record<string, unknown>
+declare function reactive(target: Record<string, unknown>): Record<string, unknown>
+declare function watch(target: Record<string, unknown>, key: string, effect: (value: string) => void): void
+/// ---cut---
+const state = reactive(person)
+watch(state, 'name', (name) => {
+  console.log(`Hello ${name}, nice to meet you!`)
+})
+// 'Hello jefrydco, nice to meet you!'
+
+state.name = 'jefry'
+// 'Hello jefry, nice to meet you!'
+// 'jefry'
+```
+
+And when we change the `age` property value, print the year when the person was born.
+
+```typescript{}[] twoslash
+declare const person: Record<string, unknown>
+declare function reactive(target: Record<string, unknown>): Record<string, unknown>
+declare function watch(target: Record<string, unknown>, key: string, effect: (value: number) => void): void
+/// ---cut---
+const state = reactive(person)
+watch(state, 'age', (age) => {
+  const year = new Date().getFullYear() - age
+  console.log(`The person was born in ${year}`)
+})
+// 'The person was born in 1998'
+
+state.name = 22
+// 'The person was born in 1999'
+// 22
+```
+
+### Complex Usage
 
 ## Reference
 
@@ -791,3 +1330,4 @@ The `targetMap` will be the root data structure of our all dependencies manageme
 - [Mozilla Developer Network: Reflect - Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect#static_methods)
 - [Mozilla Developer Network: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [Mozilla Developer Network: WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- [Vue.js 3: Reactivity in Depth](https://v3.vuejs.org/guide/reactivity.html)
