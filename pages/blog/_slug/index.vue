@@ -604,7 +604,7 @@ export default formatDate.extend({
     }
 
     &__code {
-      @apply mb-4;
+      @apply mt-0 mb-4;
       padding: 0.5rem 1rem;
     }
 
