@@ -1080,11 +1080,11 @@ Before continue, let's have short explanation on how `Array.prototype[arrayKey]`
 ```typescript{3,7}[]
 const array = []
 
-array.push('jefrydco') // Regular way
+array.push('jefrydco')
 array
 // ['jefrydco']
 
-Array.prototype['push'].apply(array, ['jefry']) // Via Array.prototype
+Array.prototype['push'].apply(array, ['jefry'])
 array
 // ['jefrydco', 'jefry']
 ```
@@ -1101,7 +1101,7 @@ function push() {
 }
 
 push('jefrydco')
-// ['jefrydco']
+// Array index: 1
 // 1
 ```
 
@@ -1188,9 +1188,9 @@ Remember that diagram right? Inside `trigger` function, we need to get the `effe
 
 We need to check whether it exists or not, if yes, we need to iterate that. Fortunately `Set` has provided us a built-in function to do iteration. Inside that iteration block, we just simply call the `effect` function.
 
-### Complete Code
+### Complete Reactivity Code
 
-Let's wrap things together, here's our complete code for simplified implementation of Vue 3 reactivity system. We can run the following code through browser console directly.
+Let's glue all the things together, here's our complete code for simplified implementation of Vue 3 reactivity system. We can run the following code through browser console directly. We can also try it directly in [Simplified Vue 3 Reactivity System Demo](https://replit.com/@jefrydco/Simplified-Vue-3-Reactivity-System-Demo).
 
 ```typescript{}[]
 const targetMap = new WeakMap()
@@ -1332,7 +1332,11 @@ state.name = 22
 
 ### Complex Usage
 
+From code on [Complete Reactivity Code](#complete-reactivity-code), we can create a more complex application. For instance, we create a "Hello World" app for common JavaScript framework, which is Todo App.
+
 <app-reactivity-vue-3-complex-demo></app-reactivity-vue-3-complex-demo>
+
+We also be able to create even more complex application, take a look at the following app, [Anime Search One](https://anime-search-one.vercel.app/).
 
 ## Reference
 
