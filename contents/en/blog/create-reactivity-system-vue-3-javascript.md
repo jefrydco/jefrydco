@@ -1143,7 +1143,7 @@ function reactive(target) {
       }
 
       if (Array.isArray(value)) {
-        return trackArray(target, value)
+        return trackArray(target, key)
       }
 
       return Reflect.get(target, key, receiver)
@@ -1203,7 +1203,7 @@ function reactive(target) {
         return reactive(value)
       }
       if (Array.isArray(value)) {
-        return trackArray(target, value)
+        return trackArray(target, key)
       }
 
       return Reflect.get(target, key, receiver)
@@ -1323,6 +1323,8 @@ state.name = 22
 ```
 
 ### Complex Usage
+
+<app-reactivity-vue-3-complex-demo></app-reactivity-vue-3-complex-demo>
 
 ## Reference
 
