@@ -180,7 +180,7 @@ There is still more proxy handler, please read more on [Mozilla Developer Networ
 
 ### Reflect
 
-When I first knew this JavaScript API, I was like, "what the heck is this? I never heard of it". After spending some time reading the [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) docs, **Reflect means the ability to take a look or modify the behaviour of object**.
+When I first knew this JavaScript API, I was like, "what the heck is this? I never heard of it". After spending some time reading the [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) docs, **Reflect means the ability to take a look and modify the behaviour of object**.
 
 From that definition, we can say that it's a perfectly good combo with [Proxy API](#proxy). We need API to intercept the behaviour and to make things easier, we can use Reflect API to do the heavy-lifting task.
 
@@ -648,6 +648,7 @@ const reactivePerson = new Proxy(person, {
   },
   set(target, key, value) {
     trigger(target, key)
+    target[key] = value
     return value
   }
 })
