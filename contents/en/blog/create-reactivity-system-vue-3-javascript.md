@@ -27,7 +27,7 @@ Firstly, let's talk about the underlying technology. The reactivity system in Vu
 
 If you have an IT background, you might often hear the term Proxy. In general, **proxy acts as an interceptor of 2 things when they are communicating**. It can **alter or just pass the original behaviour**.
 
-Let's there are 2 friends, their home are just within walking distance. Even though they can communicate orally or just shout out to each other, but it will be inconvenient for their neighbour. That's why they have some kind of walkie talkie to facilitate their communication.
+Let say, there are 2 friends, their home are just within walking distance. Even though they can communicate orally or just shout out to each other, but it will be inconvenient for their neighbour. That's why they have some kind of walkie talkie to facilitate their communication.
 
 The walkie talkie has some features alongside its main feature which is to communicate. It can increase and decrease the volume of speech. It can even pass the voice as if we talk directly.
 
@@ -92,7 +92,7 @@ From that code, we only define the `get` handler. It will be invoked whenever th
 
 Inside that `get` handler, we can get the value of the property being accessed by using the array notation `target[key]`. The `get` handler is executed for any property, to alter specific property behaviour, we have to make a condition there.
 
-Now, whenever we access the property from `proxiedPerson`, the behaviour will be altered as I mentioned before:
+Now, whenever we access the property from `proxiedPerson`, the behaviour will be altered as we described before:
 
 ```typescript{}[] twoslash
 declare const proxiedPerson: {
@@ -112,7 +112,7 @@ That behaviour only occurs when we access the `proxiedPerson`, not the `person` 
 
 #### Proxy Set Handler
 
-The `get` handler can alter behaviour when the property is accessed, what if we want to alter behaviour when the property is set. Let say whenever each property is set to another value, it will print text "&lt;property-name&gt; has been modified". So, let's take a look at the code:
+What if we want to alter behaviour when the property is set. Let say whenever each property is set to another value, it will print text "&lt;property-name&gt; has been modified". So, let's take a look at the code:
 
 ```typescript{4}[]
 const proxiedPerson = new Proxy(person, {
@@ -254,7 +254,7 @@ The `Reflect.set()` function receives 4 parameters:
 
 It returns `true` if the setting process is successful and `false` otherwise.
 
-If we take a look at glance the parameters of `Reflect.get()` and `Reflect.set()` is same to `get` and `set` function in `Proxy` handler property. Because they really are. **Most of the properties in the `Proxy` handler are the same API/function as in `Reflect`.** That's why we can say that `Proxy` and `Reflect` is the perfect combo.
+If we take a look at glance the parameters of `Reflect.get()` and `Reflect.set()` is same to `get` and `set` function in `Proxy` handler property. Because they really are. **Most of the properties in the `Proxy` handler are the same API/function as in `Reflect`**. That's why we can say that `Proxy` and `Reflect` is the perfect combo.
 
 There is still more static function in `Reflect`, please read more on [Mozilla Developer Network: Reflect - Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect#static_methods).
 

@@ -11,31 +11,32 @@ slug: create-reactivity-system-vue-3-javascript
 
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vue-3-javascript' } }" label="Create a Simplified Version of Vue 3 Reactivity System"></app-amp-notice>
 
-Vue 3 is already released at the end of last year. It brings tremendous improvements and awesome features. In this article, we will look into deeper the reactivity system used in Vue 3 and create a simplified version of it using the same technology.
 
-Before this article, I also wrote about <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }">Create a Simplified Version of Vue.js Reactivity System - Part 1</app-locale-path-link> and <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Create a Simplified Version of Vue.js Reactivity System - Part 2</app-locale-path-link>. So please make sure you already read them as well to get better understanding about the basic.
+Vue 3 telah dirilis akhir tahun kemarin dengan membawa banyak perbaikan dan fitur yang keren. Pada artikel kali ini, kita akan mempelajari lebih dalam sistem reaktifitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
 
-Code snippets on this article are written in TypeScript but they are perfectly valid JavaScript. So if you want to copy, paste and run them on the browser console, it should be fine. The reason they are written in TypeScript is because at some of the code snippet, we can hover on the type declaration as well.
+Sebelum artikel kali ini, saya juga menulis tentang <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }">Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1</app-locale-path-link> and <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 2</app-locale-path-link>. Jadi, pastikan teman-teman telah membaca artikel tersebut juga untuk mendapatkan pemahaman dasar yang lebih baik.
 
-## Table of Contents
+Cuplikan kode pada artikel ini juga ditulis menggunakan bahasa pemrograman TypeScript yang juga valid JavaScript. Jadi jika teman-teman ingin meng-_copy_, _past_ dan menjalankan kode tersebut di konsol peramban, harusnya kode tersebut dapat berjalan. Mengapa saya menulisnya pada bahasa pemrograman TypeScript? Alasannya adalah pada beberapa bagian cuplikan kode, kita dapat mengarahkan kursor di atas deklarasi tipe datanya juga.
 
-## Underlying Technology
+## Daftar Isi
 
-Firstly, let's talk about the underlying technology. The reactivity system in Vue 3 relies on several modern JavaScript API, they are [Proxy](#proxy), [Reflect](#reflect), [WeakMap](#weakmap), [Map](#map) and [Set](#set).
+## Teknologi yang Digunakan
+
+Untuk mengawali artikel ini, mari kita membicarakan teknologi yang digunakan. Sistem reaktivitas pada Vue 3 menggunakan beberapa API JavaScript modern, beberapa di antaranya adalah [Proxy](#proxy), [Reflect](#reflect), [WeakMap](#weakmap), [Map](#map) dan [Set](#set).
 
 ### Proxy
 
-If you have an IT background, you might often hear the term Proxy. In general, **proxy acts as an interceptor of 2 things when they are communicating**. It can **alter or just pass the original behaviour**.
+Jika teman-teman berasalah dari latar belakang IT, mungkin teman-teman sering mendengar istilah Proxy. Secara sederhana, **proxy berperan sebagai penghubung 2 hal ketika mereka berkomunikasi**. Proxy **dapat mengubah atau hanya melewatkan sifat aslinya**.
 
-Let's there are 2 friends, their home are just within walking distance. Even though they can communicate orally or just shout out to each other, but it will be inconvenient for their neighbour. That's why they have some kind of walkie talkie to facilitate their communication.
+Katakanlah, ada 2 orang teman, rumah mereka berdekatan. Walaupun mereka dapat berkomunikasi secara lisan atau berteriak satu sama lain, hal tersebut sangat tidak nyaman bagi tetangga mereka. Oleh karena itu mereka memiliki sebuah walkie talkie untuk memfasilitasi komunikasinya.
 
-The walkie talkie has some features alongside its main feature which is to communicate. It can increase and decrease the volume of speech. It can even pass the voice as if we talk directly.
+Walkie talkie tersebut memiliki beberapa fitur selain fitur utamanya untuk berkomunikasi. Beberapa di antaranya adalah menaikkan dan menurunkan volume. Bahkan walkie talkie tersebut dapat melewatkan suara selayaknya kita berbicara secara langsung.
 
-From that scenario, we can say that walkie talkie is a proxy. Walkie talkie can alter the original behaviour which is to increase, decrease the volume and clear the original voice.
+Dari kasus tersebut, kita dapat mengatakan bahwa walkie talkie adalah proxy. Walkie talkie dapat mengubah sifat asli suara dengan meningkatkan, menurunkan dan memperjernih suara aslinya.
 
 ---
 
-So, we already know the idea of proxy. Now let's talk about Proxy in term of JavaScript. It might easier to digest if we learn by example, take a look at the following code:
+Kita telah memahami konsep dari proxy secara sederhana. Sekarang mari kita membicarakan Proxy dalam konteks JavaScript. Mungkin akan lebih mudah jika kita mempelajarinya dari contoh, coba lihat contoh kode berikut:
 
 ```typescript{}[] twoslash
 const person = {
@@ -44,7 +45,7 @@ const person = {
 }
 ```
 
-We have an object called `person` which has 2 properties, `name` and `age` which has their own value.
+Kita memiliki sebuah objek bernama `person` yang memiliki 2 properti, `name` dan `age` yang memiliki nilainya masing-masing.
 
 ```typescript{}[] twoslash
 declare const person: {
@@ -58,11 +59,11 @@ person.age
 // 23
 ```
 
-Then we print each of the property to the console. Both of them print the original value.
+Kemudian kita mencetak setiap properti pada konsol. Keduanya akan mencetak nilai yang dimilikinya.
 
 #### Proxy Get Handler
 
-What if when we print the `name` property, we also want to print another text, let say "Hello &lt;value&gt;, nice to meet you!". And when we print the `age` property, we print the year when the person was born. How can we do that? Easy peasy, we can use Proxy! So let's write another code.
+Bagaimana jika ketika kita mencetak properti `name`, kita juga mencetak teks lain, katakanlah "Hello &lt;value&gt;, nice to meet you!". Dan ketika kita mencetak properti `age`, kita mencetak tahun kapan orang tersebut lahir. Bagaimana kita dapat melakukannya? Gampang, kita dapat menggunakan Proxy! Mari kita menulis kode lain.
 
 ```typescript{}[]
 const proxiedPerson = new Proxy(person, {
@@ -79,20 +80,20 @@ const proxiedPerson = new Proxy(person, {
 })
 ```
 
-We have declared the `proxiedPerson` object using the `Proxy` constructor. It receives 2 parameters:
+Kita telah mendeklarasikan object bernama `proxiedPerson` menggunakan konstruktor `Proxy`. Objek tersebut menerima 2 parameter:
 
-- `target`: original object we want to intercept
-- `handler`: an object defines how will the interception operation.
+- `target`: objek asli yang ingin kita ubah sifatnya
+- `handler`: objek yang mendefinisikan bagaimana operasi perubahan sifatnya
 
-From that code, we only define the `get` handler. It will be invoked whenever the property is accessed. The `get` handler receives 3 parameters:
+Dari kode tersebut, kita hanya mendefinisikan _handler_ `get`. _Handler_ tersebut akan dipanggil kapanpun propertinya diakses. _Handler_ `get` menerima 3 parameter:
 
-- `target`: original object we want to intercept
-- `key`: property name being accessed
-- `receiver`: current proxied object (optional)
+- `target`: objek asli yang ingin kita ubah sifatnya
+- `key`: nama properti yang sedang diakses
+- `receiver`: objek yang diproxy (opsional)
 
-Inside that `get` handler, we can get the value of the property being accessed by using the array notation `target[key]`. The `get` handler is executed for any property, to alter specific property behaviour, we have to make a condition there.
+Di dalam _handler_ `get`, kita bisa mendapatkan nilai dari properti yang diakses menggunakan notasi array `target[key]`. _Handler_ `get` akan dieksekusi untuk semua properti, sehingga untuk mengubah sifat spesifik properti, kita harus menambahkan kondisi.
 
-Now, whenever we access the property from `proxiedPerson`, the behaviour will be altered as I mentioned before:
+Sekarang, kapanpun kita mengakses properti dari `proxiedPerson`, sifatnya akan diubah sesuai yang kita bahas sebelumnya:
 
 ```typescript{}[] twoslash
 declare const proxiedPerson: {
@@ -108,11 +109,11 @@ proxiedPerson.age
 // 23
 ```
 
-That behaviour only occurs when we access the `proxiedPerson`, not the `person` object itself. So the original object stays the same.
+Sifat tersebut hanya muncul ketika kita mengakses `proxiedPerosn`, bukan objek `person`-nya sendiri. Jadi objek aslinya masih sama.
 
 #### Proxy Set Handler
 
-The `get` handler can alter behaviour when the property is accessed, what if we want to alter behaviour when the property is set. Let say whenever each property is set to another value, it will print text "&lt;property-name&gt; has been modified". So, let's take a look at the code:
+Bagaimana jika kita ingin mengubah sifat jika properti diubah nilainya. Katakanlah kapanpun setiap properti diubah nilainya, ia akan mencetak teks "&lt;property-name&gt; has been modified". Mari kita lihat implementasi kodenya:
 
 ```typescript{4}[]
 const proxiedPerson = new Proxy(person, {
@@ -124,16 +125,16 @@ const proxiedPerson = new Proxy(person, {
 })
 ```
 
-To alter behaviour when we set the property value, we can use the `set` handler. It receives 4 parameters:
+Untuk mengubah sifat ketika kita mengubah nilai suatu properti, kita dapat menggunakan _handler_ `set`. _Handler_ tersebut menerima 4 parameter:
 
-- `target`: original object we want to intercept
-- `key`: property name being set
-- `value`: the new value being set
-- `receiver`: current proxied object (optional)
+- `target`: objek asli yang ingin kita ubah sifatnya
+- `key`: nama properti yang sedang diakses
+- `value`: nilai baru yang akan diubah
+- `receiver`: objek yang diproxy (opsional)
 
-Please pay attention to the highlighted line. To use the `set` handler, never forget to set the original property to a new value. If not, the old value won't change to a new value.
+Teman-teman perhatikan bagian yang dicetak tebal. Untuk menggunakan _handler_ `set`, jangan pernah lupa untuk mengubah properti ke nilai baru. Jika tidak, nilai sebelumnya tidak akan berubah.
 
-Now, whenever we change each property value, it will print a text as well:
+Sekarang, kapanpun kita mengubah nilai setiap properti, kode nya akan mencetak teks juga:
 
 ```typescript{}[] twoslash
 declare const proxiedPerson: {
@@ -149,7 +150,7 @@ proxiedPerson.age = 22
 // 22
 ```
 
-We have an endless possibility for a `set` handler. One of them is we can use it as a type validator. Let say `name` property can only be set to `string` and `age` property to `number`.
+Kita bisa melakukan banyak hal menggunakan _handler_ `set`. Salah satunya adalah kita dapat menggunakannya untuk validasi tipe data. Katakanlah properti `name` hanya dapat diatur menggunakan tipe data `string` dan properti `age` menggunakan tipe data `number`.
 
 ```typescript{3-7}[]
 const proxiedPerson = new Proxy(person, {
@@ -165,7 +166,7 @@ const proxiedPerson = new Proxy(person, {
 })
 ```
 
-Now whenever we set the property to a different value than the validator we provided, it will throw an error.
+Sekarang kapanpun kita mengatur properti tersebut ke nilai yang berbeda dengan yang validator atur, kode tersebut akan melemparkan galat.
 
 ```typescript{}[] twoslash
 declare const proxiedPerson: Record<string, string | number>
@@ -176,17 +177,17 @@ proxiedPerson.age = 'jefrydco'
 // Uncaught Error: age must be a number
 ```
 
-There is still more proxy handler, please read more on [Mozilla Developer Network: Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
+Ada masih banyak _handler_ proxy, silahkan teman-teman baca lebih lanjut di [Mozilla Developer Network: Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
 
 ### Reflect
 
-When I first knew this JavaScript API, I was like, "what the heck is this? I never heard of it". After spending some time reading the [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) docs, **Reflect means the ability to take a look and modify the behaviour of object**.
+Ketika saya mengetahui API JavaScript ini pertama kali, saya berpikir, "apa neh? Saya tidak pernah mendengarnya". Setelah menghabiskan beberapa waktu membaca dokumentasi [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect), **Reflect berarti kemampuan untuk melihat dan mengubah sifat dari sebuah objek**.
 
-From that definition, we can say that it's a perfectly good combo with [Proxy API](#proxy). We need API to intercept the behaviour and to make things easier, we can use Reflect API to do the heavy-lifting task.
+Dari definisi tersebut, kita dapat mengatakan bahwa Reflect kombinasi yang cocok dengan [API Proxy](#proxy). Kita membutuhkan API untuk mengubah sifat dan untuk membuatnya lebih mudah, kita dapat menggunakan API Reflect.
 
-Reflect is not a constructor so it can't be instantiated using the `new` keyword. It only provides several useful static functions to do 'reflecting' thing.
+Reflect bukanlah konstruktor sehingga ia tidak dapat diinisiasi menggunakan kata kunci `new`. Ia hanya menyediakan beberapa fungsi statis untuk melakukan hal-hal '_reflecting_'.
 
-Let's deep dive into the ability of Reflect and get back to our previous example object:
+Mari kita mempelajari lebih dalam kemampuan Reflect dengan kembali ke contoh objek kita sebelumnya:
 
 ```typescript{}[] twoslash
 const person = {
@@ -195,7 +196,7 @@ const person = {
 }
 ```
 
-How do we access the value of `name` and `age` property? Some of us might think about dot notation and array notation:
+Bagaimana kita mengakses nilai dari properti `name` dan `age`? Kita bisa menggunakan notasi titik dan notasi array seperti berikut:
 
 ```typescript{}[] twoslash
 declare const person: {
@@ -211,7 +212,7 @@ person['name']
 
 #### `Reflect.get()`
 
-Both of them work pretty well. We can also do that using `Reflect.get()`:
+Keduanya bekerja dengan baik. Kita juga dapat melakukannya menggunakan `Reflect.get()`:
 
 ```typescript{}[] twoslash
 declare const person: {
@@ -223,17 +224,17 @@ Reflect.get(person, 'name')
 // 'jefrydco'
 ```
 
-The `Reflect.get()` function receives 3 parameters:
+Fungsi `Reflect.get()` menerima 3 parameter:
 
-- `target`: original object we want to reflect
-- `key`: property name we want to access
-- `receiver`: an object act as a context in the getter of the original object (optional)
+- `target`: objek asli yang ingin kita ubah sifatnya
+- `key`: nama properti yang ingin kita ubah
+- `receiver`: objek yang diproxy (opsional)
 
-It returns the value of being accessed.
+Fungsi tersebut mengembalikan nilai yang diakses.
 
 ##### `Reflect.set()`
 
-Besides that, we can also change property value using `Reflect.set()`:
+Selain itu, kita juga dapat mengubah nilai properti menggunakan `Reflect.set()`:
 
 ```typescript{}[] twoslash
 declare const person: {
@@ -245,18 +246,18 @@ Reflect.set(person, 'name', 'jefry')
 // true
 ```
 
-The `Reflect.set()` function receives 4 parameters:
+Fungsi `Reflect.set()` menerima 4 parameter:
 
-- `target`: original object we want to reflect
-- `key`: property name we want to change
-- `value`: the new value being set
-- `receiver`: an object act as a context in the setter of the original object (optional)
+- `target`: objek asli yang ingin kita ubah sifatnya
+- `key`: nama properti yang ingin kita ubah
+- `value`: nilai baru yang akan diubah
+- `receiver`: objek yang diproxy (opsional)
 
-It returns `true` if the setting process is successful and `false` otherwise.
+Fungsi tersebut mengembalikan `true` jika proses pengubahan nilai berhasil dan `false` jika gagal.
 
-If we take a look at glance the parameters of `Reflect.get()` and `Reflect.set()` is same to `get` and `set` function in `Proxy` handler property. Because they really are. **Most of the properties in the `Proxy` handler are the same API/function as in `Reflect`.** That's why we can say that `Proxy` and `Reflect` is the perfect combo.
+Jika kita melihat secara sekilas, parameter `Reflect.get()` dan `Reflect.set()` sama seperti fungsi `get` dan `set` pada properti _handler_ `Proxy`. Karena memang demikian. **Sebagian besar properti pada _handler_ `Proxy` memiliki API/fungsi yang sama seperti pada di `Reflect`**. Oleh karena itu kita dapat mengatakan `Proxy` dan `Reflect` adalah kombinasi yang tepat.
 
-There is still more static function in `Reflect`, please read more on [Mozilla Developer Network: Reflect - Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect#static_methods).
+Ada masih banyak fungsi statis pada `Reflect`, silahkan teman-teman membaca lebih lanjut pada [Mozilla Developer Network: Reflect - Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect#static_methods).
 
 ### Map
 
