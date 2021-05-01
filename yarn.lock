@@ -2084,13 +2084,13 @@
     "@sentry/utils" "6.2.5"
     tslib "^1.9.3"
 
-"@sentry/hub@6.3.4":
-  version "6.3.4"
-  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.3.4.tgz#2af02b3d8d394f8dafae27cdcef43e0865d5ef97"
-  integrity sha512-G9JVP851ovzkOnNzzm9s+g6Fkl+2ulfgsdjE8afd6/y0xUliCScdUCyU408AxnSyKTmBb8Cx7J+FDiqM+HQeaA==
+"@sentry/hub@6.3.5":
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.3.5.tgz#c5bc6760f7e4e53e87149703b106804299060389"
+  integrity sha512-ZYFo7VYKwdPVjuV9BDFiYn+MpANn6eZMz5QDBfZ2dugIvIVbuOyOOLx8PSa3ZXJoVTZZ7s2wD2fi/ZxKjNjZOQ==
   dependencies:
-    "@sentry/types" "6.3.4"
-    "@sentry/utils" "6.3.4"
+    "@sentry/types" "6.3.5"
+    "@sentry/utils" "6.3.5"
     tslib "^1.9.3"
 
 "@sentry/integrations@^6.2.2":
@@ -2112,13 +2112,13 @@
     "@sentry/types" "6.2.5"
     tslib "^1.9.3"
 
-"@sentry/minimal@6.3.4":
-  version "6.3.4"
-  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.3.4.tgz#de027d8b97065c75f4668a4fd08ed96164173197"
-  integrity sha512-amtQXu6jQmBjBJJTyvzsvMWFmwP3kfdkj2LVfNA40qInr6IJ200jQrZ/KUKngScK0kPfNDW4qFTE/U4J60m22Q==
+"@sentry/minimal@6.3.5":
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.3.5.tgz#ef4894771243d01d81e91819400d2ecdcb34b411"
+  integrity sha512-4RqIGAU0+8iI/1sw0GYPTr4SUA88/i2+JPjFJ+qloh5ANVaNwhFPRChw+Ys9xpre8LV9JZrEsEf8AvQr4fkNbA==
   dependencies:
-    "@sentry/hub" "6.3.4"
-    "@sentry/types" "6.3.4"
+    "@sentry/hub" "6.3.5"
+    "@sentry/types" "6.3.5"
     tslib "^1.9.3"
 
 "@sentry/node@^6.2.2":
@@ -2147,15 +2147,15 @@
     "@sentry/utils" "6.2.5"
     tslib "^1.9.3"
 
-"@sentry/tracing@^6.3.4":
-  version "6.3.4"
-  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.3.4.tgz#aa1569e81f41aeb43639344247fe96a80bca894e"
-  integrity sha512-CpjIfVpi/u/Uraz1mUsteytovn47aGLWltAFrpn7bew/Y0hqnULGx/D/FwtQ4EbcdgULNtOX+nTrxJ5abmwZ3w==
+"@sentry/tracing@^6.3.5":
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.3.5.tgz#f76c362159141f860081ec7df80aa9f85b545860"
+  integrity sha512-TNKAST1ge2g24BlTfVxNp4gP5t3drbi0OVCh8h8ah+J7UjHSfdiqhd9W2h5qv1GO61gGlpWeN/TyioyQmOxu0Q==
   dependencies:
-    "@sentry/hub" "6.3.4"
-    "@sentry/minimal" "6.3.4"
-    "@sentry/types" "6.3.4"
-    "@sentry/utils" "6.3.4"
+    "@sentry/hub" "6.3.5"
+    "@sentry/minimal" "6.3.5"
+    "@sentry/types" "6.3.5"
+    "@sentry/utils" "6.3.5"
     tslib "^1.9.3"
 
 "@sentry/types@6.2.5":
@@ -2163,10 +2163,10 @@
   resolved "https://registry.npmjs.org/@sentry/types/-/types-6.2.5.tgz#34b75285b149e0b9bc5fd54fcc2c445d978c7f2e"
   integrity sha512-1Sux6CLYrV9bETMsGP/HuLFLouwKoX93CWzG8BjMueW+Di0OGxZphYjXrGuDs8xO8bAKEVGCHgVQdcB2jevS0w==
 
-"@sentry/types@6.3.4":
-  version "6.3.4"
-  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.3.4.tgz#fd1296190050fc469f3a38cf0f97af5b288f6396"
-  integrity sha512-z1tCcBE9HDxDJq9ehfaNeyNJn5RXDNfC6eO8xB5JsJmUwbqTMCuInMWL566y2zS2kVpskZOsj4mj5/FRGRHw2g==
+"@sentry/types@6.3.5":
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.3.5.tgz#d5eca7e76c250882ab78c01a8df894a9a9ca537d"
+  integrity sha512-tY/3pkAmGYJ3F0BtwInsdt/uclNvF8aNG7XHsTPQNzk7BkNVWjCXx0sjxi6CILirl5nwNxYxVeTr2ZYAEZ/dSQ==
 
 "@sentry/utils@6.2.5":
   version "6.2.5"
@@ -2176,12 +2176,12 @@
     "@sentry/types" "6.2.5"
     tslib "^1.9.3"
 
-"@sentry/utils@6.3.4":
-  version "6.3.4"
-  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.3.4.tgz#a58c2298300f036001ed0d44c0eb4d070c06fea2"
-  integrity sha512-QlN+PZc3GqfiCGP+kP5c9yyGXTze9+hOkmKprXlSOJqHIOfIfN3Crh7JPdRMhAW+Taj1xKQPO+BQ1cj61aoIoQ==
+"@sentry/utils@6.3.5":
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.3.5.tgz#a4805448cb0314d3d119688162aa695598a10bbb"
+  integrity sha512-kHUcZ37QYlNzz7c9LVdApITXHaNmQK7+sw/If3M/qpff1fd5XoecA8laLfcYuz+Cw5mRhVmdhPcCRM3Xi1IGXg==
   dependencies:
-    "@sentry/types" "6.3.4"
+    "@sentry/types" "6.3.5"
     tslib "^1.9.3"
 
 "@sentry/webpack-plugin@^1.14.2":
@@ -2576,10 +2576,10 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
   integrity sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
 
-"@types/node@^14.14.41":
-  version "14.14.41"
-  resolved "https://registry.npmjs.org/@types/node/-/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
-  integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
+"@types/node@^15.0.1":
+  version "15.0.1"
+  resolved "https://registry.npmjs.org/@types/node/-/node-15.0.1.tgz#ef34dea0881028d11398be5bf4e856743e3dc35a"
+  integrity sha512-TMkXt0Ck1y0KKsGr9gJtWGjttxlZnnvDtphxUOSd0bfaR6Q1jle+sPvrzNR1urqYTWMinoKvjKfXUGsumaO1PA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -3100,10 +3100,10 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/test-utils@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/@vue/test-utils/-/test-utils-1.1.4.tgz#a9acb32ea1fa4535b2e1ce5ca100bceb4fade2db"
-  integrity sha512-9BeL8IqGvJKy553lq/07rhYURQkpS/k+j19rJ/4eDpGJk7z872M0YrBWFhjS14yMKlvYVYOCfWnVIXyrAx0xNw==
+"@vue/test-utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/@vue/test-utils/-/test-utils-1.2.0.tgz#3bc8c17ed549157275f0aec6b95da40887f7297f"
+  integrity sha512-poBTLqeJYNq1TXVhtVfnY8vELUVOFdJY8KZZoUuaAkIqPTWsxonU1M8nMWpZT+xEMrM+49+YcuEqtMHVD9Q9gw==
   dependencies:
     dom-event-types "^1.0.0"
     lodash "^4.17.15"
