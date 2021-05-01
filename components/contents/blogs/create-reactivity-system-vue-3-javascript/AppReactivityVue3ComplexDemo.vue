@@ -1,9 +1,24 @@
+<i18n>
+{
+  "en": {
+    "todo_label": "Enter your todo item here"
+  },
+  "id": {
+    "todo_label": "Masukkan item todo teman-teman di sini"
+  }
+}
+</i18n>
+
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
     <div class="demo__card demo__card-1">
       <pre class="demo__code state"></pre>
 
-      <input type="text" class="demo__form input" />
+      <input
+        type="text"
+        class="demo__form input"
+        :aria-label="$t('todo_label')"
+      />
 
       <ul class="list"></ul>
 
