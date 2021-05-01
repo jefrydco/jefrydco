@@ -12,7 +12,7 @@ slug: create-reactivity-system-vue-3-javascript
 <app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vue-3-javascript' } }" label="Create a Simplified Version of Vue 3 Reactivity System"></app-amp-notice>
 
 
-Vue 3 telah dirilis akhir tahun kemarin dengan membawa banyak perbaikan dan fitur yang keren. Pada artikel kali ini, kita akan mempelajari lebih dalam sistem reaktifitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
+Vue 3 telah dirilis akhir tahun kemarin dengan membawa banyak perbaikan dan fitur yang keren. Pada artikel kali ini, kita akan mempelajari lebih dalam sistem reaktivitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
 
 Sebelum artikel kali ini, saya juga menulis tentang <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-1' } }">Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1</app-locale-path-link> and <app-locale-path-link :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vuejs-javascript-part-2' } }">Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 2</app-locale-path-link>. Jadi, pastikan teman-teman telah membaca artikel tersebut juga untuk mendapatkan pemahaman dasar yang lebih baik.
 
@@ -22,15 +22,15 @@ Cuplikan kode pada artikel ini juga ditulis menggunakan bahasa pemrograman TypeS
 
 ## Teknologi yang Digunakan
 
-Untuk mengawali artikel ini, mari kita membicarakan teknologi yang digunakan. Sistem reaktivitas pada Vue 3 menggunakan beberapa API JavaScript modern, beberapa di antaranya adalah [Proxy](#proxy), [Reflect](#reflect), [WeakMap](#weakmap), [Map](#map) dan [Set](#set).
+Untuk mengawali artikel ini, mari kita membicarakan teknologi yang digunakan. Sistem reaktivitas pada Vue 3 menggunakan beberapa API JavaScript modern, beberapa diantaranya adalah [Proxy](#proxy), [Reflect](#reflect), [WeakMap](#weakmap), [Map](#map) dan [Set](#set).
 
 ### Proxy
 
-Jika teman-teman berasalah dari latar belakang IT, mungkin teman-teman sering mendengar istilah Proxy. Secara sederhana, **proxy berperan sebagai penghubung 2 hal ketika mereka berkomunikasi**. Proxy **dapat mengubah atau hanya melewatkan sifat aslinya**.
+Jika teman-teman berasal dari latar belakang IT, mungkin teman-teman sering mendengar istilah Proxy. Secara sederhana, **proxy berperan sebagai penghubung 2 hal ketika mereka berkomunikasi**. Proxy **dapat mengubah atau hanya melewatkan sifat aslinya**.
 
 Katakanlah, ada 2 orang teman, rumah mereka berdekatan. Walaupun mereka dapat berkomunikasi secara lisan atau berteriak satu sama lain, hal tersebut sangat tidak nyaman bagi tetangga mereka. Oleh karena itu mereka memiliki sebuah walkie talkie untuk memfasilitasi komunikasinya.
 
-Walkie talkie tersebut memiliki beberapa fitur selain fitur utamanya untuk berkomunikasi. Beberapa di antaranya adalah menaikkan dan menurunkan volume. Bahkan walkie talkie tersebut dapat melewatkan suara selayaknya kita berbicara secara langsung.
+Walkie talkie tersebut memiliki beberapa fitur selain fitur utamanya untuk berkomunikasi. Beberapa diantaranya adalah menaikkan dan menurunkan volume. Bahkan walkie talkie tersebut dapat melewatkan suara selayaknya kita berbicara secara langsung.
 
 Dari kasus tersebut, kita dapat mengatakan bahwa walkie talkie adalah proxy. Walkie talkie dapat mengubah sifat asli suara dengan meningkatkan, menurunkan dan memperjernih suara aslinya.
 
@@ -61,7 +61,7 @@ person.age
 
 Kemudian kita mencetak setiap properti pada konsol. Keduanya akan mencetak nilai yang dimilikinya.
 
-#### Proxy Get Handler
+#### _Handler_ Get Proxy
 
 Bagaimana jika ketika kita mencetak properti `name`, kita juga mencetak teks lain, katakanlah "Hello &lt;value&gt;, nice to meet you!". Dan ketika kita mencetak properti `age`, kita mencetak tahun kapan orang tersebut lahir. Bagaimana kita dapat melakukannya? Gampang, kita dapat menggunakan Proxy! Mari kita menulis kode lain.
 
@@ -111,7 +111,7 @@ proxiedPerson.age
 
 Sifat tersebut hanya muncul ketika kita mengakses `proxiedPerosn`, bukan objek `person`-nya sendiri. Jadi objek aslinya masih sama.
 
-#### Proxy Set Handler
+#### _Handler_ Set Proxy
 
 Bagaimana jika kita ingin mengubah sifat jika properti diubah nilainya. Katakanlah kapanpun setiap properti diubah nilainya, ia akan mencetak teks "&lt;property-name&gt; has been modified". Mari kita lihat implementasi kodenya:
 
@@ -134,7 +134,7 @@ Untuk mengubah sifat ketika kita mengubah nilai suatu properti, kita dapat mengg
 
 Teman-teman perhatikan bagian yang dicetak tebal. Untuk menggunakan _handler_ `set`, jangan pernah lupa untuk mengubah properti ke nilai baru. Jika tidak, nilai sebelumnya tidak akan berubah.
 
-Sekarang, kapanpun kita mengubah nilai setiap properti, kode nya akan mencetak teks juga:
+Sekarang, kapanpun kita mengubah nilai setiap properti, kodenya akan mencetak teks juga:
 
 ```typescript{}[] twoslash
 declare const proxiedPerson: {
@@ -263,7 +263,7 @@ Ada masih banyak fungsi statis pada `Reflect`, silahkan teman-teman membaca lebi
 
 Tipe data `Map` menyimpan pasangan data berbentuk _key-value_. Dan jika teman-teman telah bekerja dengan JavaScript dalam beberapa waktu, mungkin teman-teman menyadari bahwa objek JavaScript biasa juga pasangan _key-value_. Lalu mengapa mengenalkan tipe data `Map` daripada menggunakan objek JavaScript biasa?
 
-Tipe data `Map` memiliki beberapa keuntungan daripada objek JavaScript biasa. Mari kita lihat perbedaannya:
+Tipe data `Map` memiliki beberapa keuntungan daripada objek JavaScript biasa. Mari kita lihat beberapa perbedaannya:
 
 #### Properti yang Diwariskan
 
@@ -281,7 +281,7 @@ Reflect.get(person, 'toString')
 // ƒ toString() { [native code] }
 ```
 
-Kita dapat menggunakan fungsi `Reflect.get()` untuk mendapatkan nilainya. Properti-properti tersebut dapat membuat perilaku yang tidak diinginkan pada beberapa kasus. Properti bawaan tersebut dapat tertimpa secara tidak sengaja oelh kita. Fungsi `toString` merupakan salah satunya yang berfungsi untuk mengonversi objek menjadi tipe data string.
+Kita dapat menggunakan fungsi `Reflect.get()` untuk mendapatkan nilainya. Properti-properti tersebut dapat membuat perilaku yang tidak diinginkan pada beberapa kasus. Properti bawaan tersebut dapat tertimpa secara tidak sengaja oleh kita. Fungsi `toString` merupakan salah satunya yang berfungsi untuk mengonversi objek menjadi tipe data string.
 
 ```typescript{}[]
 const person = {
@@ -405,7 +405,7 @@ Kita dapat menggunakan fungsi `Object.keys()`, fungsi tersebut akan mengembalika
 
 ##### Map
 
-Tipe data `Map` menyediakan fungsionalitasi bawaan untuk menentukan berapa banyak data yang ia miliki. Properti tersebut bernama `size`.
+Tipe data `Map` menyediakan fungsionalitas bawaan untuk menentukan berapa banyak data yang ia miliki. Properti tersebut bernama `size`.
 
 ```typescript{}[] twoslash
 const person = new Map()
@@ -419,7 +419,7 @@ person.size
 
 ---
 
-Masih banyak perbedaan lainnya, jika teman-teman ingin mempelajari lebih lanjut, silahkan membacanya di [Mozilla Developer Network: Map - Objects vs. Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#objects_vs._maps).
+Masih banyak perbedaan lainnya selain perbedaan di atas, jika teman-teman ingin mempelajari lebih lanjut, silahkan membacanya di [Mozilla Developer Network: Map - Objects vs. Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#objects_vs._maps).
 
 ### WeakMap
 
@@ -520,9 +520,7 @@ set
 // Set(2) {"First item", 2}
 ```
 
-We can add anything to `Set`, but we have to pay attention if we deal with an object item. The concept of `Set` is to store a unique item, and sometimes two similar objects with the same property can be inserted into the set.
-
-Kita dapat menambahkan apapun ke `Set`, tetapi kita harus memperhatikan jika kita berurusan dengan item objek. Konsep `Set` adalah menyimpan item yang unik, dan terkadang 2 objek dengan properti yang sama dapat dimasukkan ke dalam set.
+Kita dapat menambahkan apapun ke `Set`, tetapi kita harus memperhatikan jika kita berurusan dengan item berupa objek. Konsep `Set` adalah menyimpan item yang unik, dan terkadang 2 objek dengan properti yang sama dapat dimasukkan ke dalam set.
 
 ```typescript{}[] twoslash
 const set = new Set()
@@ -637,7 +635,7 @@ Kita dapat menggunakan `Object`, `Array`, `WeakMap`, `Map`, `Set` untuk menyimpa
 
 ### Trigger
 
-**Trigger is a function to execute all the stored dependencies**. To get a better understanding of how Tracker and Trigger works, let jump into the code:
+**Trigger adalah fungsi yang bertugas untuk mengeksekusi semua _dependencies_ yang tersimpan**. Untuk mendapatkan pemahaman yang lebih baik bagaimana Tracker dan Trigger bekerja, mari kita lihat pada contoh kode berikut:
 
 ```typescript{11,15}[]
 function tracker(target, key) {
@@ -661,17 +659,17 @@ const reactivePerson = new Proxy(person, {
 })
 ```
 
-`tracker` is placed inside the `get` handler, as we mentioned in the previous explanation that we **track the dependency when the property is accessed or referenced**. And the `get` handler itself is also executed when the property is accessed or referenced.
+`tracker` diletakkan di dalam _handler_ `get`, seperti yang kita sebutkan pada penjelasan sebelumnya bahwa kita **track _dependency_ ketika properti diakses atau direferensikan**. Dan _handler_ `get` juga akan dieksekusi ketika properti diakses atau direferensikan.
 
-`trigger` is placed inside the `set` handler, so **whenever the property value change, we will trigger or execute the dependency functions** we already stored previously.
+`trigger` diletakkan di dalam _handler_ `set`, jadi **kapanpun nilai properti berubah, kita akan men-_trigger_ atau mengekesekusi fungsi _dependency_**.
 
 ### Effect
 
-There is 2 kind of thing we should understand when we talk about function, they are pure function and impure function.
+Ada 2 hal yang harus kita pahami ketika kita membicarakan fungsi, fungsi _pure_ dan fungsi _impure_.
 
 #### Pure Function
 
-A pure function is a **function that accepts input and returns output without modifying data outside its scoped**.
+_Pure function_ adalah **fungsi yang menerima masukkan dan mengembalikan keluaran tanpa memodifikasi data diluar ruang lingkupnya**.
 
 ```typescript{}[]
 function sum(number1, number2) {
@@ -682,14 +680,14 @@ sum(4, 5)
 // 9
 ```
 
-The `sum` function is the example of a pure function because it accepts 2 arguments and returns a value. It also doesn't access nor modifies data outside its scope. We can draw a conclusion, a pure function has 2 characteristics:
+Fungsi `sum` pada contoh di atas adalah _pure function_ karena ia menerima 2 argumen dan mengembalikan sebuah nilai. Fungsi tersebut juga tidak mengakses maupun memodifikasi data diluar ruang lingkupnya. Sehingga kita dapat mengambil kesimpulan bahwa _pure function_ memiliki 2 karakteristik:
 
-- Same input always return the same output
-- Doesn't modify data outside its scope
+- Masukkan yang sama selalu mengembalikan nilai keluaran yang sama
+- Tidak memodifikasi data diluar ruang lingkupnya
 
 #### Impure Function
 
-An impure function is a **function that modifies data outside its scoped**.
+_Impure function_ adalah **fungsi yang memodifikasi data diluar ruang lingkupnya**.
 
 ```typescript{}[]
 const person = {
@@ -704,15 +702,15 @@ function changeName(name) {
 changeName('jefry')
 ```
 
-The `changeName` function is an example of an impure function because it changes the `name` property which is outside of its scope.
+Fungsi `changeName` adalah contoh _impure function_ karena ia mengubah properti `name` yang terletak di luar ruang lingkupnya.
 
 ---
 
-We already understand about pure and impure function, now what is effect then? **Effect is a function that does side effect, side effect is modifying data outside its scoped**. So technically, **effect is impure function**.
+Kita telah memahami mengenai _pure_ dan _impure function_, lalu apa effect kalau begitu? **Effect adalah fungsi yang melakukan _side effect_, _side effect_ adalah memodifikasi data di luar ruang lingkupnya**. Jadi secara teknis, **effect adalah _impure function_**.
 
 ### Watch
 
-**Watch is a function that "touch" the property and execute the effect**. Touch means intentionally accessed to store the dependencies.
+**Watch adalah fungsi yang "touch" properti dan mengeksekusi effect**. _Touch_ berarti secara disengaja mengakses properti tersebut untuk menyimpan _dependencies_.
 
 ```typescript{2}[]
 function watch(target, key, effect) {
@@ -721,21 +719,21 @@ function watch(target, key, effect) {
 }
 ```
 
-On that example above, we "touch" the property by reference it to a variable called `value`.
+Pada contoh di atas, kita "touch" properti dengan cara mereferensikannya pada sebuah variabel bernama `value`.
 
-## Reactivity System
+## Sistem Reaktivitas
 
-All right!!! Now we have a quite understanding of both technological and term perspective. Let's dive into the reactivity system itself. So what's a reactivity system? To answer that question, take a look at the animation below:
+Sekarang kita telah memiliki pemahaman yang cukup dari sisi teknologi dan istilah. Mari kita memahami lebih jauh pada sistem reaktivitasnya sendiri. Jadi apa itu sistem reaktivitas? Untuk menjawab hal tersebut, silahkan teman-teman melihat pada animasi di bawah ini:
 
 <app-video src="/videos/content/2021/04/create-reactivity-sistem-vue-3-javascript/reactivity-spreadsheet.webm"></app-video>
 
-First, we enter 1 and 2, the result is calculated automatically. If we change to 2 and 2, the result is also calculated automatically. That's called a reactivity system. We can say that **the reactivity system is a system that reacts to change automatically**.
+Pertama-tama, kita memasukkan angka 1 dan 2, hasilnya terkalkulasi secara otomatis. Jika kita ubah ke angka 2 dan 2, hasilnya juga akan terkalkulasi secara otomatis. Mekanisme itulah yang disebut sistem reaktivitas. Kita dapat mengatakan bahwa **sistem reaktivitas adalah sistem yang bereaksi terhadap perubahan secara otomatis**.
 
-We won't explain too much detail about the reactivity system in Vue. But if you're curious, please read over here, [Create a Simplified Version of Vue.js Reactivity System - Part 1](/en/blog/create-reactivity-system-vuejs-javascript-part-1/#vuejs-reactivity-system) or even in [Vue.js 3: Reactivity in Depth](https://v3.vuejs.org/guide/reactivity.html). So let's just get started to write our simplified reactivity system.
+Kita tidak akan membahas hal tersebut terlalu detail pada Vue. Tetapi jika teman-teman ingin mengetahui lebih lanjut, silahkan teman-teman membaca pada [Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1](/blog/create-reactivity-system-vuejs-javascript-part-1/#sistem-reaktivitas-vuejs) atau bahkan [Vue.js 3: Reactivity in Depth](https://v3.vuejs.org/guide/reactivity.html). Jadi mari kita mulai menulis sistem reaktivitas sederhana kita sendiri.
 
-### Create Reactive Function
+### Membuat Fungsi Reactive
 
-Let's start from the basic, take a look at the following code:
+Mari mulai dari dasar, coba lihat potongan kode berikut:
 
 ```typescript{}[]
 function reactive(target) {
@@ -752,9 +750,9 @@ function reactive(target) {
 }
 ```
 
-We create a function called `reactive`. The function returns a `Proxy` instance that has `get` and `set` handler. Inside the getter, we put undeclared function yet called `track` and inside the setter, we put undeclared function yet called `trigger`. It's easy peasy right? Same as what we already talked about in the [prerequisites section](#proxy).
+Kita membuat sebuah fungsi bernama `reactive`. Fungsi tersebut mengembalikan _instance_ `Proxy` yang memiliki _handler_ `get` dan `set`. Di dalam _getter_, kita memanggil fungsi yang belum dideklarasikan bernama `track` dan di dalam _settter_, ktia juga memanggil fungsi yang belum dideklarasikan bernama `trigger`. Cukup mudah bukan? Kode tersebut sama seperti yang telah kita bahas pada [bagian persyaratan](#proxy).
 
-Our current reactive function above only works for linear `Object` structure. It won't work if it nested `Object` nor for `Array`.
+Fungsi reactive kita di atas hanya bekerja untuk `Object` berstruktur linear. Ia tidak akan bekerja jika memiliki `Object` atau `Array` bersarang.
 
 ```typescript{}[]
 // Working
@@ -773,25 +771,25 @@ const person = {
 }
 ```
 
-Just hold on to whatever device you currently use to read this article, we will make it work for nested `Object` and `Array` later.
+Saya harap teman-teman sabar menunggu, kita akan membuatnya bekerja untuk `Object` dan `Array` bersarang nanti.
 
-### Dependencies Management
+### Manajemen Dependencies
 
-We need some kind of structured data to glue everything together. The corresponding parts are:
+Kita membutuhkan struktur data untuk menyatukan semuanya. Beberapa bagian yang terhubung diantaranya:
 
 <app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
 
-- Target, is the state that we want to convert into a reactive state
-- Key, the property of the state
-- Dependencies, function that have to be run if the key's value change
+- Target, adalah state yang akan kita ubah menjadi reactive state
+- Key, properti dari state
+- Dependencies, fungsi yang akan dijalankan jika nilai dari sebuah key berubah
 
 <app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
-We can use all the JavaScript API we already learned before. Since the target is in form of `Object`, we can use `WeakMap`. And the value is regular `Map`.
+Kita dapat menggunakan API JavaScript yang telah kita pelajari sebelumnya, Karena target merupakan `Object`, kita dapat menggunakan `WeakMap`. Dan sebagai nilainya adalah `Map`.
 
-The key of this `Map` is the target's property we want to track then the value is a `Set` that will contain the effect function.
+Key dari `Map` ini adalah properti target yang ingin kita track kemudian nilainya adalah sebuah `Set` yang berisi fungsi effect.
 
-Take a look at the following code below to get a better idea of how they relate to each other.
+Silahkan teman-teman melihat contoh kode berikut untuk mendapatkan pemahaman yang lebih baik bagaimana setiap bagian berkorelasi.
 
 ```typescript{}[]
 const person = {
@@ -811,15 +809,15 @@ const targetMap = new WeakMap()
 targetMap.set(person, depsMap)
 ```
 
-We create a new `dep` variable using a `Set` data type, then we add an anonymous function that prints some info about the `value`.
+Kita membuat sebuah variabel baru bernama `dep` menggunakan tipe data `Set`, kemudian kita menambahkan fungsi anonymous yang mencetak informasi mengenai `value`.
 
-After that, we create a new `depsMap` variable using a `Map` data type, then we set an item using one of the `person` property which is `name` as a key. The value is the `dep` variable we already declared previously.
+Setelah itu, kita membuat variabel baru bernama `depsMap` menggunakan tipe data `Map`, kemudian kita atur itemnya menggunakan salah satu properti yang terdapat pada objek `person` yakni `name` sebagai key. Nilainya adalah variabel `dep` yang sebelumnya telah kita deklarasi.
 
-The last part is, we create a new `targetMap` variable using a `WeakMap` data type, then we set an item using the `person` object as a key. The value is the `depsMap` variable we already declared previously.
+Bagian terakhir adalah kita membuat variabel baru bernama `targetMap` menggunakan tipe data `WeakMap`, kemudian kita atur itemnya menggunakan objek `person` sebagai key. Nilainya adalah variabel `depsMap` yang telah kita deklarasikan sebelumnya.
 
-### Create Track Function
+### Membuat Fungsi Track
 
-If you feel overwhelmed with that diagram before and prefer to learn easily through the code. Let's code over it. All of the dependencies management things will be written inside the `track` function.
+Jika teman-teman merasa kebingungan dengan diagram sebelumnya dan lebih suka belajar melalui kode. Mari kita menulis kodenya. Semua manajemen dependencies akan kita tulis di dalam fungsi `track`.
 
 ```typescript{5, 8}[]
 const targetMap = new WeakMap()
@@ -836,11 +834,11 @@ function track(target, key) {
 }
 ```
 
-First, we declare a variable called `targetMap` and assign it to the `WeakMap` constructor. We also declare another variable called `activeEffect`, we assign it to `undefined`.
+Pertama-tama, kita mendeklarasikan variabel bernama `targetMap` dan mereferensikan konstruktor `WeakMap`. Kita juga mendeklarasikan variabel lainnya bernama `activeEffect`, kita mereferensikannya ke `undefined`.
 
-The `targetMap` will be the root data structure of our all dependencies management. The `activeEffect` will be used as a temporary variable to store the current active effect.
+Variabel `targetMap` akan menjadi data struktur utama dari semua manajemen dependencies. Variabel `activeEffect` akan digunakan sebagai variabel sementara untuk menyimpan effect yang aktif sekarang.
 
-That code will run well if the `target` and the `key` are always new. The `dep` and `depsMap` variable will always refer to a new object. It won't work if the `target` and the `key` are using the one that already used. It will always overwrite the existing object. So we won't be able to store as much as we want. Let's refactor it:
+Kode tersebut akan berjalan dengan baik jika `target` dan `key` bernilai baru. Variabel `dep` dan `depsMap` akan selalu mereferensikan pada objek baru. Kode tersebut tidak akan bekerja jika `target` dan `key` merupakan nilai yang telah kitagunakan sebelumnya. Kode tersebut akan selalu menimpa objek sebelumnya. Sehingga kita tidak akan bisa menyimpan sebanyak yang kita inginkan. Mari mengubahnya:
 
 ```typescript{5-9}[]
 const targetMap = new WeakMap()
@@ -857,7 +855,7 @@ function track(target, key) {
 }
 ```
 
-To overcome it, we have to add a condition. We check inside `targetMap` whether already have existing `depsMap` or not. If not then we can initialize it using the new `Map` and add that into `targetMap`.
+Untuk menyelesaikan permasalahan tersebut, kita harus menambahkan kondisi. Kita memeriksa di dalam `targetmap` apakah telah tersedia `depsMap` sebelumnya atau belum. Jika belum kemudian kita dapat menginisialisasinya menggunakan `Map` baru dan menambahkannya ke dalam `targetMap`.
 
 ```typescript{7-11}[]
 const targetMap = new WeakMap()
@@ -876,7 +874,7 @@ function track(target, key) {
 }
 ```
 
-We do the same thing to `depsMap`, we check inside `depsMap` whether already have existing `dep` or not. If not then we can initialize it using the new `Set` and add that into `depsMap`.
+Kita melakukan hal yang sama pada `depsMap`, kita memeriksa di dalam `depsMap` apakah telah tersedia `dep` sebelumnya atau belum. Jika belum, maka kita menginisialisasinya menggunakan `Set` baru dan menambahkannya ke dalam `depsMap`.
 
 ```typescript{7-9}[]
 const targetMap = new WeakMap()
@@ -893,7 +891,7 @@ function track(target, key) {
 }
 ```
 
-After that, we have to check whether `dep` has the current `activeEffect` or not. If not then we add that effect. We also need to check whether the current `activeEffect` is `undefined` or not because initially we assign that variable into `undefined`, so there must be a possibility the value will be `undefined`.
+Setelah itu, kita harus memeriksa juga apakah `dep` memiliki `activeEffect` yang sama seperti pada `activeEffect` atau belum. Jika belum maka kita dapat menambahkan effect tersebut. Kita juga perlu memeriksa apakah `activeEffect` sekarang bernilai `undefined` atau tidak karena pada awalnya kita mereferensikan variabel tersebut ke `undefined`, sehingga ada kemungkinan nilainya masih `undefined` ketika kode dijalankan.
 
 ```typescript{7}[]
 const targetMap = new WeakMap()
@@ -906,7 +904,7 @@ function track(target, key) {
 }
 ```
 
-The last thing we should do is insert the `depsMap` to `targetMap` using `target` as a key. The final track function would be:
+Hal terakhir yang harus kita lakukan adalam memasukkan `depsMap` ke `targetMap` menggunakan `target` sebagai key. Fungsi track final akan seperti berikut:
 
 ```typescript{}[]
 const targetMap = new WeakMap()
@@ -933,9 +931,9 @@ function track(target, key) {
 }
 ```
 
-### Create Watch Function
+### Membuat Fungsi Watch
 
-The watch function will "touch" the property and execute the effect right away. So it should be pretty simple, right? Yes, of course.
+Fungsi watch akan "touch" properti dan mengeksekusi fungsi effect secara langsung. Jadi seharusnya cukup mudah bukan? Ya, tentu saja.
 
 ```typescript{}[]
 function watch(target, key, effect) {
@@ -946,15 +944,15 @@ function watch(target, key, effect) {
 }
 ```
 
-Watch function will receive 3 parameters, `target`, `key` and `effect`. The `effect` argument is in form of the callback function that will be executed if `key`'s value change.
+Fungsi watch memiliki 3 parameter, `target`, `key` dan `effect`. Argumen `effect` dalam bentuk fungsi callback yang akan dieksekusi ketika nilai `key` berubah.
 
-We can't pass the `target[key]` directly to the `effect` function because it has to be "touch" first before we execute the `effect`.
+Kita tidak dapat melewatkan `target[key]` secara langsung ke dalam fungsi `effect` karena ia harus "touch" terlebih dahulu sebelum kita mengeksekusi `effect.`
 
-We also need to set the current `activeEffect` temporary and set it to `undefined` afterwards after the "touch" and `effect` invocation process is completed.
+Kita juga perlu mengatur `activeEffect` sementara dan mereferensikan kembali ke `undefined` setelah proses "touch" dan pemanggilan `effect` selesai.
 
-### Nested Reactive
+### Reaktivitas Bersarang
 
-To make nested `Object` reactive, we will use the recursive method. In essence, **recursive is a function that calls itself over and over again until reaching its termination point**. Termination point is when the function stop calls itself. Let's take a look at the simplest form of recursive function:
+Untuk membuat `Object` bersarang reaktiv, kita akan menggunakan metode rekursif. Secara umum, **rekursif adalah fungsi yang memanggil dirinya sendiri teruse menerus hingga sampai titik pemberhentiannya**. Titik pemberhentiannya adalah ketika fungsi tersebut berhenti memanggil dirinya sendiri. Mari kita lihat bentuk paling sederhana dari fungsi rekursif:
 
 ```typescript{2,4}[]
 function printToZero(number) {
@@ -970,9 +968,9 @@ printToZero(3)
 // 0
 ```
 
-The first highlighted line is the termination point and the second highlighted line is we call the function itself using the same variable minus one.
+Baris yang dicetak tebal pertama adalah titik pemberhentiannya dan baris yang dicetak tebal kedua adalah kita memanggil fungsinya menggunakan variabel yang sama dikurangi satu.
 
-So how we apply recursive function to our `reactive` function? Well, the only thing we need to do is check if the value is an object, then we simply return the `reactive` function itself.
+Jadi bagaimana kita menerapkan fungsi rekursif pada fungsi `reactive` kita? Yang perlu kita lakukan hanyalah melakukan pengecekan jika nilainya berupa obje, maka kita mengembalikan fungsi `reactive` nya sendiri.
 
 ```typescript{12-14}[]
 function isObject(value) {
@@ -1000,11 +998,11 @@ function reactive(target) {
 }
 ```
 
-### Create Track Array Function
+### Membuat Fungsi Track Array
 
-Let's make it work with `Array`. Tracking change in `Array` is a little bit different from `Object`, so it's better to create a new function to handle it.
+Mari kita membuat kode kita bekerja untuk `Array`. Melacak perubahan di `Array` cukup berbeda dari `Object`, sehingga akan lebih baik jiak membuat fungsi baru untuk menanganinya.
 
-But before that, let's take a look at how we usually deal with item changing in `Array`:
+Namun sebelum itu, mari kita melihat bagaimana kita biasanya berurusan dengan pengubahan item di `Array`:
 
 ```typescript{}[]
 const person = []
@@ -1036,15 +1034,15 @@ person.splice(1, 1)
 // ['jefry', 'dewangga']
 ```
 
-- `push`, insert an item to the end of the array
-- `unshift`, insert an item to the start of the array
-- `pop`, remove the item from the end of the array
-- `shift`, remove an item from the start of the array
-- `splice`, remove n item at a certain index
+- `push`, memasukkan item di akhir array
+- `unshift`, memasukkan item di awal array
+- `pop`, menghapus item dari akhir array
+- `shift`, menghapus item dari awal array
+- `splice`, menghapus n item dari indeks tertentu
 
-There are still a lot more of the `Array` function, but we will focus on those 4 functions. But if you curious about them, please check it out on [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods).
+Ada masih banyak fungsi `Array`, kita akan fokus pada 4 fungsi tersebut. Tetapi jika teman-teman ingin mengetahuinya, silahkan teman-teman membaca lebih lanjut pada [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods).
 
-The idea is when those functions are executed, we will invocate the [trigger function](#create-trigger-function). Besides that, we have to make sure that the original functionality of those functions are still persisted. So how will we gonna do it?
+Idenya adalah ketika fungsi tersebut dieksekusi, kita akan memanggil [fungsi trigger](#membuat-fungsi-trigger). Selain itu, kita juga harus memasikan fungsionalitas aslinya tetap sama. Jadi bagaimana kita akan melakukannya?
 
 ```typescript{2,6}[]
 function trackArray(target, key) {
@@ -1060,9 +1058,9 @@ function trackArray(target, key) {
 }
 ```
 
-The `trackArray` function receives 2 arguments, `target` and `key`. We can get the `Array` value by using array notation. After that, we use that value as a "target" for the new `Proxy`.
+Fungsi `trackArray` menerima 2 parameter, `target` dan `key`. Kita dapat mendapatkan nilai `Array` menggunakan notasi array. Setelah itu, kita dapat menggunakan nilai tersebut sebagai "target" untuk `Proxy` yang baru.
 
-If `Object` requires us to have both `get` and `set` handler, in `Array`, we only need the `get` handler. Inside that function, we can get which `Array` function operation currently perform by using array notation as well.
+Jika `Object` memerlukan kita untuk memiliki _handler_ `get` dan `set`, pada `Array`, kita hanya memerlukan _handler_ `get`. Di dalam fungsi tersebut, kita dapat mendapatkan fungsi operasi `Array` yang saat ini dilakukan menggunakan notasi array.
 
 ```typescript{9-12}[]
 function trackArray(target, key) {
@@ -1084,9 +1082,9 @@ function trackArray(target, key) {
 }
 ```
 
-We have to make sure that `arrayMethod` is a function. Inside of that checking, we also add another checking. This nested checking is for which `Array` function operation we want to intercept the functionality. For this purpose, we only intercept the most common one `push`, `unshift`, `pop`, and `shift`.
+Kita harus memastikan `arrayMethod` bertipe fungsi. Di dalam pemeriksaan tersebut, kita juga melakukan pemeriksaan lainnya. Pemeriksaan bersarang ini untuk fungsi operasi `Array` yang ingin kita ubah fungsionalitasnya. Dalam hal ini, kita hanya mengubah fungsionalitas untuk fungsi operasi array paling umum yakni `push`, `unshift`, `pop`, `shift` dan `splice`.
 
-We also need to `bind` the `arrayMethod` that doesn't fit with those array method to the `arrayTarget` context.
+Kita juga perlu melakukan `bind` `arrayMethod` yang tidak termasuk pada fungsi operasi array tersebut pada konteks `arrayTarget`.
 
 ```typescript{10-15}[]
 function trackArray(target, key) {
@@ -1113,9 +1111,9 @@ function trackArray(target, key) {
 }
 ```
 
-If both of the condition matches, we return a named function. Inside of that named function, we execute the original `Array` operation function using `arrayTarget` context. We do that by calling `apply` from `Array.prototype[arrayKey]`. Each of the array function operations returns a different thing, so we just assign that into a variable called `result`.
+Jika kedua kondisi bernilai benar, kita mengembalikan _named function_. Di dalam _named function_ tersebut, kita mengeksekusi fungsi operasi asli dari `Array` menggunakan konteks `arrayTarget`. Kita melakukannya dengan cara memanggil `apply` dari `Array.prototype[arrayKey]`. Setiap operasi fungsi array mengembalikan nilai yang berbeda, sehingga kita dapat mereferensikannya pada variabel bernama `result`.
 
-Before continue, let's have short explanation on how `Array.prototype[arrayKey]` works. Please have a look at the following example:
+Sebelum melanjutkan pembahasan, mari kita mempelajari secara singkat bagaimana `Array.prototype[arrayKey]` bekerja. Silahkan teman-teman melihat contoh kode berikut:
 
 ```typescript{3,7}[]
 const array = []
@@ -1129,7 +1127,7 @@ array
 // ['jefrydco', 'jefry']
 ```
 
-Both of them can give the same result, but the latter one is usually used when **we don't have access to the argument we want to pass**.
+Keduanya dapat menghasilkan hasil yang sama, tetapi yang kedua biasanya digunakan ketika **kita tidak memiliki akses terhadap parameter yang ingin dilewatkan**.
 
 ```typescript{}[]
 const array = []
@@ -1145,7 +1143,7 @@ push('jefrydco')
 // 1
 ```
 
-**Another use case is when we enhance the original function**, on the example above we want to print the `Array` index whenever we call the `push` function. So we can use the second option to call the original array operation function, and reference the named function `push` argument by using JavaScript special key `arguments`.
+**Studi kasus lain ketika kita ingin menambah fungsionalitas dari fungsi asli**, pada contoh di atas kita ingin mencetak indeks `Array` kapanpun kita memanggil fungsi `push`. Sehingga kita dapat menggunakan opsi kedua untuk memanggil fungsi operasi array aslinya, dan mereferensikan parameter fungsi bernama `push` melalui key JavaScript spesial bernama `arguments`.
 
 ```typescript{16}[]
 function trackArray(target, key) {
@@ -1176,7 +1174,7 @@ function trackArray(target, key) {
 }
 ```
 
-Let's get back to the topic. After we get the array function operation result. We need to call the `trigger` function indicating that there is a change in the array. After that, we return the `result`.
+Mari kita kembali ke topik. Setelah kita mendapatkan hasil dari operasi fungsi array. Kita perlu memanggil fungsi `trigger` menunjukkan bahwa terdapat perubahan pada array. Setelah itu, kita mengembalikan variabel `result`.
 
 ```typescript{12-14}[]
 function reactive(target) {
@@ -1204,11 +1202,11 @@ function reactive(target) {
 }
 ```
 
-Then the only last thing we need to do is call that function inside our `reactive` function. But we also need to check whether the target value is `Array` or not by using the `Array.isArray()` function.
+Kemudian hal terkahir yang perlu kita lakukan adalah memanggil fungsi di dalam fungsi `reaktive` kita. Tetapi kita juga perlu melakukan pengecekan apakah nilai dari target berupa `Array` atau bukan menggunakan fungsi `Array.isArray()`.
 
-### Create Trigger Function
+### Membuat Fungsi Trigger
 
-The trigger function will be invoked when the property value is changed, so we need to put that inside the `set` handler. We also need to place it inside `trackArray` because we have to enhance the original functionality. Let's take a look at how trigger function will shape:
+Fungsi trigger akan dipanggil ketika nilai properti berubah, jadi kita perlu meletakkanya di dalam _handler_ `set`. Kita juga perlu meletakkanya di dalam `trackArray` karena kita harus menambahkan fungsionalitas khusus untuk fungsi array. Mari kita lihat bagaimana fungsi trigger:
 
 ```typescript{}[]
 function trigger(target, key, value) {
@@ -1224,13 +1222,13 @@ function trigger(target, key, value) {
 
 <app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
-Remember that diagram right? Inside the `trigger` function, we need to get the `effect` that stored inside the `Set` data type. And we can do that by calling the `get` function for each `WeakMap` and `Map`.
+Teman-teman pasti ingat diagram tersebut bukan? Di dalam fungsi `trigger`, kita perlu mendapatkan `effect` yang tersimpan di dalam tipe data `Set`. Dan kita dapat melakukannya dengan cara memanggil fungsi `get` untuk setiap `WeakMap` dan `Map`.
 
-We need to check whether it exists or not, if yes, we need to iterate that. Fortunately `Set` has provided us with a built-in function to do iteration. Inside that iteration block, we just simply call the `effect` function.
+Kita perlu memeriksa apakah nilainya ada atau tidak, jika ada, kita perlu mengiterasinya. Untungnya `Set` telah menyediakan fungsionalitas resmi untuk melakukan iterasi tersebut. Di dalam bagian iterasi tersebut, kita hanya perlu memanggil fungsi `effect`.
 
-### Complete Reactivity Code
+### Kode Reaktivitas Final
 
-Let's glue all the things together, here's our complete code for the simplified implementation of the Vue 3 reactivity system. We can run the following code through the browser console directly. We can also try it directly in [Simplified Vue 3 Reactivity System Demo](https://replit.com/@jefrydco/Simplified-Vue-3-Reactivity-System-Demo).
+Mari kita gabungkan semuanya menjadi satu, berikut merupakan kode final untuk impelementasi sederhana sistem reaktivitas Vue 3. Kita dapat menjalankan kode berikut melalui konsol peramban secara langsung. Kita juga dapat mencobanya di [Simplified Vue 3 Reactivity System Demo](https://replit.com/@jefrydco/Simplified-Vue-3-Reactivity-System-Demo).
 
 ```typescript{}[]
 const targetMap = new WeakMap()
@@ -1329,11 +1327,11 @@ function watch(target, key, effect) {
 }
 ```
 
-### Simple Usage
+### Penggunaan Sederhana
 
-We already have a bunch of code above, so how will we use it? It's simple. The only function we need to pay attention to is `reactive` and `watch`. Let's get back to our long live `person` object.
+Kita telah menulis cukup banyak kode di atas, jadi bagaimana kita akan menggunakannya? Sederhana! Fungsi yang perlu kita perhatikan adalah `reactive` dan `watch`. Mari kita kembali ke contoh objek `person`.
 
-We can use the same example as in [Proxy Get Handler](#proxy-get-handler), we want to print "Hello &lt;value&gt;, nice to meet you!" if we change the `name` property value.
+Kita dapat menggunakan contoh yang sama seperti pada [Proxy Get Handler](#proxy-get-handler), kita ingin mencetak pesan "Hello &lt;value&gt;, nice to meet you!" ketika kita mengubah nilai properti `name`.
 
 ```typescript{}[] twoslash
 declare const person: Record<string, unknown>
@@ -1351,7 +1349,7 @@ state.name = 'jefry'
 // 'jefry'
 ```
 
-And when we change the `age` property value, print the year when the person was born.
+Dan ketika kita mengubah nilai properti `age`, kita akan mencetak tahun dimana orang tersebut lahir.
 
 ```typescript{}[] twoslash
 declare const person: Record<string, unknown>
@@ -1370,23 +1368,23 @@ state.name = 22
 // 22
 ```
 
-### Complex Usage
+### Penggunaan Kompleks
 
-From code on [Complete Reactivity Code](#complete-reactivity-code), we can create a more complex application. For instance, we create a "Hello World" app for a common JavaScript framework, which is Todo App.
+Dari kode pada [Kode Reaktivitas Final](#kode-reaktivitas-final), kita dapat membuat aplikasi yang lebih kompleks. Sebagai contohnya, kita akan membuat aplikasi "Hello World" yang umum untuk kerangka kerja JavaScript pada umumnya, yakni aplikasi Todo.
 
 <app-reactivity-vue-3-complex-demo></app-reactivity-vue-3-complex-demo>
 
-We also can create even more complex application, take a look at the following app, [Anime Search One](https://anime-search-one.vercel.app/). The [reactivity.js](https://github.com/jefrydco/anime-search-one/blob/e84c743af9751c4746ca01b36ed943fd41a53b71/scripts/reactivity.js) source code is based on [Complete Reactivity Code](#complete-reactivity-code) above with some improvements.
+Kita juga dapat membuat aplikasi yang lebih kompleks lagi, silahkan teman-teman melihat aplikasi berikut, [Anime Search One](https://anime-search-one.vercel.app/). Berkas [reactivity.js](https://github.com/jefrydco/anime-search-one/blob/e84c743af9751c4746ca01b36ed943fd41a53b71/scripts/reactivity.js), kode sumbernya berasal dari [Kode Reaktivitas Final](#kode-reaktivitas-final) di atas dengan beberapa perbaikan.
 
-### Further More
+### Lebih Lanjut
 
-Last but not least, if you want to deep dive into even more about the reactivity system implementation in Vue 3. The source code is located on Vue 3 repository on the following directory path [/packages/reactivity/src](https://github.com/vuejs/vue-next/tree/master/packages/reactivity#readme).
+Terakhir, jika teman-teman ingin memahami lebih dalam lagi mengenai implementasi sistem reaktivitas pada Vue 3. Kode sumbernya terletak di repositori Vue 3 pada lokasi direktori berikut [/packages/reactivity/src](https://github.com/vuejs/vue-next/tree/master/packages/reactivity#readme).
 
 ---
 
-Thank you, hope you enjoy reading it and learn something new! If you have any question, don't hesitate to drop me a tweet in [@jefrydco](https://twitter.com/jefrydco).
+Terima kasih, saya harap teman-teman menikmati artikel ini dan mempelajari sesuatu yang baru! Jika teman-teman memiliki pertanyaan, jangan sungkan-sungkan untuk mengirim pesan di [@jefrydco](https://twitter.com/jefrydco).
 
-## Reference
+## Referensi
 
 - [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
 - [Mozilla Developer Network: Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)

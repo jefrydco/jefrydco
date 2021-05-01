@@ -945,7 +945,7 @@ We can't pass the `target[key]` directly to the `effect` function because it has
 
 We also need to set the current `activeEffect` temporary and set it to `undefined` afterwards after the "touch" and `effect` invocation process is completed.
 
-### Nested Reactive
+### Nested Reactivity
 
 To make nested `Object` reactive, we will use the recursive method. In essence, **recursive is a function that calls itself over and over again until reaching its termination point**. Termination point is when the function stop calls itself. Let's take a look at the simplest form of recursive function:
 
@@ -1035,7 +1035,7 @@ person.splice(1, 1)
 - `shift`, remove an item from the start of the array
 - `splice`, remove n item at a certain index
 
-There are still a lot more of the `Array` function, but we will focus on those 4 functions. But if you curious about them, please check it out on [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods).
+There are still a lot more of the `Array` function, we will focus on those 5 functions. But if you curious about them, please check it out on [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods).
 
 The idea is when those functions are executed, we will invocate the [trigger function](#create-trigger-function). Besides that, we have to make sure that the original functionality of those functions are still persisted. So how will we gonna do it?
 
@@ -1077,7 +1077,7 @@ function trackArray(target, key) {
 }
 ```
 
-We have to make sure that `arrayMethod` is a function. Inside of that checking, we also add another checking. This nested checking is for which `Array` function operation we want to intercept the functionality. For this purpose, we only intercept the most common one `push`, `unshift`, `pop`, and `shift`.
+We have to make sure that `arrayMethod` is a function. Inside of that checking, we also add another checking. This nested checking is for which `Array` function operation we want to intercept the functionality. For this purpose, we only intercept the most common one `push`, `unshift`, `pop`, `shift` and `splice`.
 
 We also need to `bind` the `arrayMethod` that doesn't fit with those array method to the `arrayTarget` context.
 
