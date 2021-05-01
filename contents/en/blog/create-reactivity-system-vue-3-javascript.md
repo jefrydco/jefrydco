@@ -377,7 +377,7 @@ person.get(map)
 // Map(0) {}
 ```
 
-We can fill the value with anything as well. In that example, we use `Function`, `Object`, `Array` and `Map` for the key. And for the value, we use `string`, `number` empty `Object` and a `Map`.
+We can fill the value with anything as well. In that example, we use `Function`, `Object`, `Array` and `Map` for the key. And for the value, we use `string`, `number`, empty `Object` and a `Map`.
 
 #### Size
 
@@ -450,7 +450,7 @@ You might wonder, why the key has to be a complex data type? Hold on to your sma
 
 ##### Items are Not Iterable
 
-The items are not iterable which means we can't loop through them. **To iterate over the values of an iterable object**. Several iterable objects in JavaScript are `Map`, `Set`, `Array`, and `string`.
+The items are not iterable which means we can't loop through them. **Iterable is to iterate over the values of an iterable object**. Several iterable data type in JavaScript are `Map`, `Set`, `Array`, and `string`.
 
 ```typescript{}[]
 const person = new WeakMap()
@@ -493,7 +493,7 @@ We have an object as a key for a string. When we get that string using the `pers
 
 <app-garbage-collector-twitter-embed></app-garbage-collector-twitter-embed>
 
-Garbage Collector in JavaScript has a task to remove the object that not use anywhere to free up memory. The process is run automatically, usually when the CPU is idled.
+Garbage Collector in JavaScript has a task to remove the object that not use anywhere to free up memory. The process is run automatically, usually when the CPU is idle.
 
 <app-video src="/videos/content/2021/04/create-reactivity-sistem-vue-3-javascript/weakmap-garbage-collection.webm"></app-video>
 
@@ -561,7 +561,7 @@ We can say that the `person` object is a state because it represents a person in
 
 ### Reactive State
 
-**Reactive state is just another state that does something if their property's value changed**. Let's get back to our previous example and make it a reactive state using `Proxy`:
+**Reactive state is just another state that does something if their property's value changed**. Let's get back to our previous example and make it to reactive state using `Proxy`:
 
 ```typescript{3}[]
 const reactivePerson = new Proxy(person, {
@@ -576,7 +576,7 @@ reactivePerson.name = 'jefry'
 // 'jefry'
 ```
 
-We can say that `reactivePerson` is a reactive state because when we change, let say name property, it will print something to the console. We can do anything as we want actually, not only print something. We can call another function, change another state, render something to the screen, and so many more. The possibility is endless.
+We can say that `reactivePerson` is a reactive state because when we change, let say `name` property, it will print something to the console. We can do anything as we want actually, not only print something. We can call another function, change another state, render something to the screen, and so many more. The possibility is endless.
 
 ### Dependencies
 

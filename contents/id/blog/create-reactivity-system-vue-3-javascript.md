@@ -181,7 +181,7 @@ Ada masih banyak _handler_ proxy, silahkan teman-teman baca lebih lanjut di [Moz
 
 ### Reflect
 
-Ketika saya mengetahui API JavaScript ini pertama kali, saya berpikir, "apa neh? Saya tidak pernah mendengarnya". Setelah menghabiskan beberapa waktu membaca dokumentasi [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect), **Reflect berarti kemampuan untuk melihat dan mengubah sifat dari sebuah objek**.
+Ketika saya mengetahui API JavaScript ini pertama kali, saya berpikir, "apa nih? Saya tidak pernah mendengarnya". Setelah menghabiskan beberapa waktu membaca dokumentasi [Mozilla Developer Network about Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect), **Reflect berarti kemampuan untuk melihat dan mengubah sifat dari sebuah objek**.
 
 Dari definisi tersebut, kita dapat mengatakan bahwa Reflect kombinasi yang cocok dengan [API Proxy](#proxy). Kita membutuhkan API untuk mengubah sifat dan untuk membuatnya lebih mudah, kita dapat menggunakan API Reflect.
 
@@ -261,15 +261,15 @@ Ada masih banyak fungsi statis pada `Reflect`, silahkan teman-teman membaca lebi
 
 ### Map
 
-The `Map` hold key-value pair of data. And if you have been working with JavaScript for a while, you might be noticed that a plain JavaScript object is also a key-value pair. Then why introduce a new `Map` instead of using a plain JavaScript object?
+Tipe data `Map` menyimpan pasangan data berbentuk _key-value_. Dan jika teman-teman telah bekerja dengan JavaScript dalam beberapa waktu, mungkin teman-teman menyadari bahwa objek JavaScript biasa juga pasangan _key-value_. Lalu mengapa mengenalkan tipe data `Map` daripada menggunakan objek JavaScript biasa?
 
-`Map` has several advantages over plain JavaScript object. Let's take a look at the differences:
+Tipe data `Map` memiliki beberapa keuntungan daripada objek JavaScript biasa. Mari kita lihat perbedaannya:
 
-#### Inherited Properties
+#### Properti yang Diwariskan
 
-##### Plain JavaScript Object
+##### Objek JavaScript Biasa
 
-Whenever we create a plain JavaScript object, it also inherited default properties from the `Object` constructor.
+Kapanpun kita membuat objek JavaScript biasa, objek tersebut juga mewariskan properti bawaan dari konstruktor `Objek`.
 
 ```typescript{}[] twoslash
 declare const person: {
@@ -281,7 +281,7 @@ Reflect.get(person, 'toString')
 // ƒ toString() { [native code] }
 ```
 
-We can use `Reflect.get()` function to get the value. Those properties can lead to undesired behaviour in some cases. Those inherited default properties can accidentally be overwritten by ourselves. `toString` is one of those that perform stringify conversion for our object.
+Kita dapat menggunakan fungsi `Reflect.get()` untuk mendapatkan nilainya. Properti-properti tersebut dapat membuat perilaku yang tidak diinginkan pada beberapa kasus. Properti bawaan tersebut dapat tertimpa secara tidak sengaja oelh kita. Fungsi `toString` merupakan salah satunya yang berfungsi untuk mengonversi objek menjadi tipe data string.
 
 ```typescript{}[]
 const person = {
@@ -292,9 +292,9 @@ person.toString()
 // Uncaught TypeError: person.toString is not a function
 ```
 
-If somehow we declare the same property using the `toString` name, we overwrite that default one. Then if we call that function, it will throw an error.
+Jika secara tidak sengaja kita mendeklarasikan properti yang bernama sama seperti `toString`, kita akan menimpa properti bawaannya. Sehingga ketika kita memanggil fungsi tersebut, kode kita akan melemparkan galat.
 
-We also can remove that inherited default properties using the following way:
+Kita juga dapat menghapus properti bawaan menggunakan cara berikut:
 
 ```typescript{1}[] twoslash
 const persons = Object.create(null)
@@ -306,11 +306,11 @@ Reflect.get(persons, 'toString')
 // undefined
 ```
 
-By using the `Object.create()` function and pass `null` as a parameter, we can remove those inherited properties. When we access it, it returns `undefined`.
+Dengan menggunakan fungsi `Object.create()` dan melewatkan `null` sebagai parameter, kita dapat menghilangkan properti bawaan tersebut. Ketika kita mengaksesnya, ia akan mengembalikan nilai `undefined`.
 
 ##### Map
 
-The object stored in the map only contains what is explicitly put into it. It also provides a convenient method to access and store property using `get` and `set`.
+Objek yang disimpan di dalam tipe data map hanya berisi apa yang secara jelas diletakkan di dalamnya. Tipe data map juga menyediakan fungsi yang mudah untuk mengakses dan menyimpan properti menggunakan fungsi `get` dan `set`.
 
 ```typescript{}[] twoslash
 const person = new Map()
@@ -324,11 +324,11 @@ person.get('age')
 // 23
 ```
 
-#### Key Types
+#### Jenis-jenis _Key_
 
-##### Plain JavaScript Object
+##### Objek JavaScript Biasa
 
-The keys for plain JavaScript Object are limited to a `string` or a `Symbol`.
+_Key_ untuk objek JavaScript biasa terbatas berupa tipe data `string` atau `Symbol`.
 
 ```typescript{}[] twoslash
 const symbolForAge = Symbol.for('age')
@@ -342,7 +342,7 @@ Reflect.get(person, symbolForAge)
 // 23
 ```
 
-The [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) is a new JavaScript primitive data type. In short, it's common to **use `Symbol` for preventing collision since its value is always unique**.
+Tipe data [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) merupakan tipe data primitif JavaScript yang baru. Secara singkat, tipe data ini pada umumnya **digunakan untuk mencegah tabrakan antar _key_ karena nilainya selalu unik**.
 
 ```typescript{}[] twoslash
 Symbol() === Symbol()
@@ -353,7 +353,7 @@ Symbol.for('age') === Symbol.for('age')
 
 ##### Map
 
-We can use any data type in JavaScript as a key. Like `Function`, `Object`, `Array`, another `Map`, etc. Or we can just simply use the primitive ones like, `string`, `number`, `float`, etc.
+Kita dapat menggunakan tipe data apapun yang tersedia di JavaScript sebagai kunci. Seperti `Function`, `Object`, `Array`, tipe data `Map` yang lain, dan lain-lain. Atau kita juga dapat menggunakan tipe data primitif seperti `string`, `number`, `float`, dan lain-lain.
 
 ```typescript{}[]
 function main() {}
@@ -378,15 +378,15 @@ person.get(map)
 // Map(0) {}
 ```
 
-We can fill the value with anything as well. In that example, we use `Function`, `Object`, `Array` and `Map` for the key. And for the value, we use `string`, `number` empty `Object` and a `Map`.
+Kita dapat mengisi nilainya dengan tipe data apun juga. Pada contoh tersebut, kita menggunakan `Function`, `Object`, `Array` dan `Map` sebagai _key_. Dan sebagai nilainya, kita menggunakan `string`, `number`, `Object` kosong dan `Map`.
 
-#### Size
+#### Ukuran
 
-Size means the number of items in an object or map.
+Ukuran berarti banyaknya item yang disimpan di dalam objek atau map.
 
-##### Plain JavaScript Object
+##### Objek JavaScript Biasa
 
-In a plain JavaScript object, we have to determine manually how much data it contains. Fortunately, modern JavaScript already provided a very good function for it.
+Pada objek JavaScript biasa, kita harus menentukan secara manual berapa banyak data yang disimpan. Untungnya, JavaScript modern telah menyediakan fungsi yang cukup baik untuknya.
 
 ```typescript{}[] twoslash
 const person = {
@@ -401,11 +401,11 @@ keys.length
 // 2
 ```
 
-We can use the `Object.keys()` function, it will return an `array` containing all the key in the object except the inherited one. Since it is an `array`, we can easily access the `length` property to determine how many items the object contain.
+Kita dapat menggunakan fungsi `Object.keys()`, fungsi tersebut akan mengembalikan sebuah `array` yang berisi semua _key_ yang dimiliki oleh objek kecuali yang diwariskan. Karena berupa `array`, kita dapat dengan mudah mengakses properti `length` untuk menentukan berapa banyak item yang dimiliki oleh objek tersebut.
 
 ##### Map
 
-The `Map` provides built-in functionality to determine how much data it contains. The property is `size`.
+Tipe data `Map` menyediakan fungsionalitasi bawaan untuk menentukan berapa banyak data yang ia miliki. Properti tersebut bernama `size`.
 
 ```typescript{}[] twoslash
 const person = new Map()
@@ -419,15 +419,15 @@ person.size
 
 ---
 
-There are still quite more differences, if you want to take a look more, please heads over to [Mozilla Developer Network: Map - Objects vs. Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#objects_vs._maps).
+Masih banyak perbedaan lainnya, jika teman-teman ingin mempelajari lebih lanjut, silahkan membacanya di [Mozilla Developer Network: Map - Objects vs. Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#objects_vs._maps).
 
 ### WeakMap
 
-The `WeakMap` is a similar data type to `Map`. Its function is to store key-value pair of data. But it has some differences:
+Tipe data `WeakMap` mirip dengan tipe data `Map`. Fungsinya untuk menyimpan data berupa pasangan _key-value_. Tetapi ia memiliki beberapa perbedaan:
 
-#### Key Can't be A Primitive Data Type
+#### _Key_ tidak Bisa Berupa Tipe Data Primitif
 
-The key can't be a primitive data type (`string`, `number`, `float`, `boolean`, etc.), it has to be a complex one (`Function`, `Object`, `Array`, another `WeakMap` etc.).
+_Key_ tidak bisa berupa tipe data primitif (`string`, `number`, `float`, `boolean`, dan lain-lain), _Key_ harus berupa tipe data yang kompleks (`Function`, `Object`, `Array`, `WeakMap` lainnya, dan lain-lain).
 
 ```typescript{}[] twoslash
 const object = {}
@@ -439,7 +439,7 @@ person.get(object)
 // 'An empty object'
 ```
 
-If we try to use primitive data type as a key, it will throw an error:
+Jika kita mencoba menggunakan tipe data primitif sebagai _key_, kode kita akan melemparkan galat:
 
 ```typescript{}[]
 const person = new WeakMap()
@@ -447,11 +447,11 @@ person.set('', 'An empty string key')
 // Uncaught TypeError: Invalid value used as weak map key
 ```
 
-You might wonder, why the key has to be a complex data type? Hold on to your smartphone or laptop or anything you use to read this article, we will get into it soon.
+Teman-teman mungkin bertanya-tanya, mengapa _key_ haruslah berupa tipe data yang kompleks? Tunggu sebentar, kita akan membahasnya sesaat lagi.
 
-##### Items are Not Iterable
+##### Tidak dapat Melakukan Perulangan pada Item
 
-The items are not iterable which means we can't loop through them. **To iterate over the values of an iterable object**. Several iterable objects in JavaScript are `Map`, `Set`, `Array`, and `string`.
+Kita tidak dapat melakukan perulangan pada item, **Dapat diiterasi berarti mengiterasi nilai sebuah objek yang memang dapat diiterasi**. Beberapa tipe data yang dapat diiterasi pada JavaScript diantaranya `Map`, `Set`, `Array` dan `string`.
 
 ```typescript{}[]
 const person = new WeakMap()
@@ -463,17 +463,21 @@ for (let property of person) {
 // Uncaught TypeError: person is not iterable
 ```
 
-For this reason, you might also wonder, why `WeakMap` can't be iterate? Well, still hold on to whatever thing you use to read this article, we will get into it soon.
+Karena alasan ini, teman-teman mungkin bertanya-tanya juga, mengapa `WeakMap` tidak dapat diiterasi? Tunggu sebentar juga, kita akan membahasnya sesaat lagi.
 
 ---
 
-So, why `WeakMap`'s key can't be a primitive data type and the items are not iterable?
+Jadi, mengapa `WeakMap` _key_ tidak bisa berupa tipe data primitif dan datanya tidak dapat diiterasi?
 
-Let's take a look at the definition of `WeakMap` from [Mozilla Developer Network: WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap).
+Mari kita lihat definisi `WeakMap` dari [Mozilla Developer Network: WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap).
 
 > The `WeakMap` object is a collection of key/value pairs in which **the keys are weakly referenced**.
 
-What does it mean that the keys are weakly referenced? To answer that question, let's get over to the example:
+atau jika diterjemahkan dalam bahasa Indonesia kurang lebih:
+
+> Objek `WeakMap` merupakan koleksi data berupa pasangan _key_/nilai yang mana **_key_-nya tereferensi secara lemah**.
+
+Jadi apa artinya _key_-nya tereferensi secara lemah? Untuk menjawab pertanyaan tersebut, mari kita lihat contoh berikut:
 
 ```typescript{6}[]
 let object = {}
@@ -490,21 +494,21 @@ person
 // WeakMap {}
 ```
 
-We have an object as a key for a string. When we get that string using the `person.get()` function, it returns the corresponding string. But when we reassign the object to `undefined`, at some point Garbage Collector will remove that object.
+Kita memiliki sebuah objek sebagai kunci untuk sebuah string. Ketika kita mendapatkan string tersebut menggunakan fungsi `person.get()`, ia akan mengembalikan string yang dimaksud. Tetapi ketika kita mereferensikan objek menjadi `undefined`, sewaktu-waktu Garbage Collector akan menghapus objek tersebut.
 
 <app-garbage-collector-twitter-embed></app-garbage-collector-twitter-embed>
 
-Garbage Collector in JavaScript has a task to remove the object that not use anywhere to free up memory. The process is run automatically, usually when the CPU is idled.
+Garbage Collector pada JavaScript memiliki tugas untuk menghapus objek yang tidak digunakan dimanapun untuk membebaskan memori. Proses tersebut dijalankan secara otomatis, biasanya ketika CPU diam.
 
 <app-video src="/videos/content/2021/04/create-reactivity-sistem-vue-3-javascript/weakmap-garbage-collection.webm"></app-video>
 
-When we set the object to `undefined`, JavaScript's Garbage Collector will remove that unreferenced object. Fortunately, Chrome has a nice feature to trigger that Garbage Collection process. We have to open the Devtools, then move into the Performance Tab. There will be a button with a trash icon on it, if we hover into it, it shows a label "Collect Garbage".
+Ketika kita mengatur nilai objek menjadi `undefined`, Garbage Collector JavaScript akan menghapus objek yang tidak tereferensi tersebut. Untungnya, Chrome memiliki fitur untuk menjalankan proses Garbage Collector. Kita harus membuka Devtools, kemudian buka tab Performance. Akan ada tombol dengan ikon sampah, jika kita mengarahkan kursor padanya, ia akan menampilkan label "Collect Garbage".
 
-After we clicked that button, print the `person` object, it will show an empty `WeakMap`. That's why **`WeakMap` is called weakly referenced because when the object is removed, the value is also removed**. Another side effect of weakly referenced is **we can't iterate over the keys nor values**, because we really don't exactly know when will the keys freed up from memory.
+Setelah kita mengklik tombol tersebut, cetak objek `person`, hasilnya akan menampilkan `WeakMap` kosong. Oleh karena itu **`WeakMap` disebut tereferensi secara lemah karena ketika objek dihapus, nilainya juga dihapus**. Dampak dari tereferensi secara lemah tersebut adalah **kita tidak dapat mengiterasi _key_ maupun nilainya**, karena kita benar-benar tidak mengetahui kapan objek tersebut dihapus dari memori.
 
 ### Set
 
-`Set` is **similar to `Array`, but the stored item must be unique**. Let's take a look at how to interact with `Set`:
+Tipe data `Set` **mirip dengan tipe data `Array`, tetapi item yang tersimpan haruslah unik**. Mari kita lihat bagaimana kita berinteraksi dengan `Set`:
 
 ```typescript{}[] twoslash
 const set = new Set()
@@ -518,6 +522,8 @@ set
 
 We can add anything to `Set`, but we have to pay attention if we deal with an object item. The concept of `Set` is to store a unique item, and sometimes two similar objects with the same property can be inserted into the set.
 
+Kita dapat menambahkan apapun ke `Set`, tetapi kita harus memperhatikan jika kita berurusan dengan item objek. Konsep `Set` adalah menyimpan item yang unik, dan terkadang 2 objek dengan properti yang sama dapat dimasukkan ke dalam set.
+
 ```typescript{}[] twoslash
 const set = new Set()
 
@@ -528,7 +534,7 @@ set
 // Set(2) {{…}, {…}}
 ```
 
-Even though `{ name: 'jefrydco' }` object looks similar, **they are point to a different address in memory**. That's why `Set` still can insert that data. So how to make sure that our object inserted into the set is unique? We have to assign it to a variable.
+Walaupun objek `{ name: 'jefrydco' }` nampak serupa, **keduanya mengarah ke alamat yang berbeda di memori**. Itulah mengapa `Set` dapat memasukkan data tersebut. Jadi bagaimana untuk meyakinkan objek yang kita masukkan ke dalam set unik? Kita harus mereferensikannya pada variabel.
 
 ```typescript{}[] twoslash
 const set = new Set()
@@ -541,15 +547,15 @@ set
 // Set(1) {{…}}
 ```
 
-We call the `add()` function twice with the same argument and it only inserts the object once. Because the first `person` variable and the second one are referenced to the same object.
+Kita memanggil fungsi `add()` dua kali dengan argumen yang sama dan kode tersebut hanya memasukkan objek sekali. Karena variabel `person` yang pertama dan kedua mereferensi pada objek yang sama.
 
-## Terms
+## Istilah-istilah
 
-Awesome!!! Now we know some JavaScript API that power the Vue 3 reactivity system. Before jump into the reactivity system, we have to know several terms we will commonly use in explaining the reactivity system. So let's get to know it.
+Keren!!! Sekarang kita telah mengenal beberapa API JavaScript yang mendukung sistem reaktivitas Vue 3. Sebelum membahas sistem reaktivitasnya, kita harus mengenal beberapa istilah yang pada umumnya kita gunakan untuk menjelaskan sistem reaktivitas. Mari kita mengenalnya.
 
 ### State
 
-**State is a regular object that represents something**. Let's get back to our previous example:
+**State adalah objek umum yang merepresentasikan sesuatu**. Mari kita kembali ke contoh sebelumnya:
 
 ```typescript{}[] twoslash
 const person = {
@@ -558,11 +564,11 @@ const person = {
 }
 ```
 
-We can say that the `person` object is a state because it represents a person in real life. It can represent anything not only something in real life. For instance, if we ever play a game, I believe the game itself holds many states. How much progress, money or XP do we have or which level are we in. We can store all those things in a state.
+Kita dapat mengatakan bahwa objek `person` adalah state karena ia merepresentasikan manusia di kehidupan nyata. State dapat merepresentasikan apapun tidak hanya sesuatu di dunia nyata. Sebagai contoh, jika kita pernah bermain gim, pasti gim tersebut memiliki banyak state. Seberapa banyak proses, uang atau XP yang kita miliki atau di level mana sekarang kita berada. Kita dapat menyimpan hal tersebut di dalam state.
 
 ### Reactive State
 
-**Reactive state is just another state that does something if their property's value changed**. Let's get back to our previous example and make it a reactive state using `Proxy`:
+**Reactive state adalah state lainnya yang melakukan sesuatu jika nilai propertinya berubah**. Mari kita lihat contoh sebelumnya dan membuatnya menjadi reactive state menggunakan `Proxy`:
 
 ```typescript{3}[]
 const reactivePerson = new Proxy(person, {
@@ -577,11 +583,11 @@ reactivePerson.name = 'jefry'
 // 'jefry'
 ```
 
-We can say that `reactivePerson` is a reactive state because when we change, let say name property, it will print something to the console. We can do anything as we want actually, not only print something. We can call another function, change another state, render something to the screen, and so many more. The possibility is endless.
+Kita dapat mengatakan bahwa `reactivePerson` adalah sebuah reactive state karena ketika kita menguba, katakanlah properti `name`, ia akan mencetak sesuatu pada konsol. Kita dapat melakukan apapun sesuai keinginan kita, tidak harus mencetak sesuatu. Kita dapat memanggil fungsi lainnya, mengubah state lain, me-_render_ sesuatu di layar, dan masih banyak lagi. Kemungkinannya tak terbatas.
 
-### Dependencies
+### _Dependencies_
 
-Remember what kind of things we can do inside the `set` handler function above, anything right? **Dependencies is a function that has to be called when the property's value changed**. Let's take a look at the previous example:
+Apa yang dapat kita lakukan di dalam fungsi _handler_ `set` di atas, apapun bukan? **_Dependencies_ adalah sebuah fungsi yang harus dipanggil ketika perubahan nilai berubah**. Mari kita lihat pada ocntoh sebelumnya:
 
 ```typescript{10-14}[]
 function printInfoForName() {
@@ -610,11 +616,11 @@ reactivePerson.age = 22
 // 22
 ```
 
-We declare 2 functions, `printInfoForName` and `printInfoForAge`. We can say that `printInfoForName` is dependency for `name` property. And `printInfoForAge` is dependency for `age`.
+Kita mendeklarasikan 2 fungsi, `printInfoForName` dan `printInfoForAge`. Kita dapat mengatakan `printInfoForName` adalah dependensi untuk properti `name`. Dan `printInfoForAge` adalah dependensi untuk `age`.
 
 ### Tracker
 
-**Tracker is a function to store the dependencies**. It's not fun to write all the dependency functions manually. Usually, **dependency functions are written as an anonymous function**. An anonymous function is a function without a name.
+**_Tracker_ adalah sebuah fungsi untuk menyimpan _dependencies_**. Akan sangat melelahkan jika semua fungsi _dependency_ ditulis manual. Biasanya, **fungsi _dependency_ ditulis sebagai fungsi anonymous**. Fungsi _anonymous_ adalah fungsi tanpa nama.
 
 ```typescript{}[] twoslash
 function namedFunction () {
@@ -625,9 +631,9 @@ const anonymousFunction = () => {
 }
 ```
 
-Why we have to use a tracker instead of calling the dependency function directly? Because the invocation process can be delayed later. We **track the dependency when the property is accessed or referenced**. Then we execute all those dependency functions when the value changes.
+Mengapa kita harus menggunakan sebuah _tracker_ sebagai gantinya fungsi _dependency_ secara langsung? Karena proses pemanggilannya dapat ditunda nantinya. Kita **_track_ _dependency_ ketika properti diakses atau direferensi**. Kemudian kita eksekusi semua fungsi _dependency_-nya ketika terjadi perubahan nilai.
 
-We can use `Object`, `Array`, `WeakMap`, `Map`, `Set` to store all those dependency functions. But there should be one which fit our needs. Hold on to any devices you use to read this article, we will get into it later.
+Kita dapat menggunakan `Object`, `Array`, `WeakMap`, `Map`, `Set` untuk menyimpan semua fungsi _dependency_. Seharusnya ada satu solusi yang cocok dengan kebutuhan kita. Tunggu sebentar, kita akan membahasnya nanti.
 
 ### Trigger
 
