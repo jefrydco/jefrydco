@@ -424,7 +424,7 @@ There are still quite more differences, if you want to take a look more, please 
 
 The `WeakMap` is a similar data type to `Map`. Its function is to store key-value pair of data. But it has some differences:
 
-#### Key Can't be A Primitive Data Type
+#### Key Can't be A Primitive Type
 
 The key can't be a primitive data type (`string`, `number`, `float`, `boolean`, etc.), it has to be a complex one (`Function`, `Object`, `Array`, another `WeakMap` etc.).
 

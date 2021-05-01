@@ -424,7 +424,7 @@ Masih banyak perbedaan lainnya selain perbedaan di atas, jika teman-teman ingin 
 
 Tipe data `WeakMap` mirip dengan tipe data `Map`. Fungsinya untuk menyimpan data berupa pasangan _key-value_. Tetapi ia memiliki beberapa perbedaan:
 
-#### _Key_ tidak Bisa Berupa Tipe Data Primitif
+#### _Key_ tidak Bisa Bertipe Primitif
 
 _Key_ tidak bisa berupa tipe data primitif (`string`, `number`, `float`, `boolean`, dan lain-lain), _Key_ harus berupa tipe data yang kompleks (`Function`, `Object`, `Array`, `WeakMap` lainnya, dan lain-lain).
 
