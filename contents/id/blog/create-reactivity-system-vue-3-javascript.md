@@ -1,7 +1,7 @@
 ---
-title: Create a Simplified Version of Vue 3 Reactivity System
+title: Membuat Sistem Reaktivitas Vue 3 Versi Sederhana
 description: Reveals the secret of the reactivity system of Vue 3 by recreating a simplified version.
-summary: Vue 3 is already released at the end of last year. In this article, we will look into deeper the reactivity system used in Vue 3 and create a simplified version of it using the same technology.
+summary: Vue 3 telah dirilis akhir tahun kemarin. Artikel ini akan membahas lebih dalam mengenai sistem reaktivitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
 img: /cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
 imgCreator: theandrewteoh
 postedDate: 2021-04-24T01:00:00.000Z
@@ -9,8 +9,7 @@ updatedDate: 2021-04-24T01:00:00.000Z
 slug: create-reactivity-system-vue-3-javascript
 ---
 
-<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vue-3-javascript' } }" label="Create a Simplified Version of Vue 3 Reactivity System"></app-amp-notice>
-
+<app-amp-notice :to="{ name: 'blog-slug', params: { slug: 'create-reactivity-system-vue-3-javascript' } }" label="Membuat Sistem Reaktivitas Vue 3 Versi Sederhana"></app-amp-notice>
 
 Vue 3 telah dirilis akhir tahun kemarin dengan membawa banyak perbaikan dan fitur yang keren. Pada artikel kali ini, kita akan mempelajari lebih dalam sistem reaktivitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
 
@@ -1331,7 +1330,7 @@ function watch(target, key, effect) {
 
 Kita telah menulis cukup banyak kode di atas, jadi bagaimana kita akan menggunakannya? Sederhana! Fungsi yang perlu kita perhatikan adalah `reactive` dan `watch`. Mari kita kembali ke contoh objek `person`.
 
-Kita dapat menggunakan contoh yang sama seperti pada [Proxy Get Handler](#proxy-get-handler), kita ingin mencetak pesan "Hello &lt;value&gt;, nice to meet you!" ketika kita mengubah nilai properti `name`.
+Kita dapat menggunakan contoh yang sama seperti pada [Proxy Get Handler](#handler-get-proxy), kita ingin mencetak pesan "Hello &lt;value&gt;, nice to meet you!" ketika kita mengubah nilai properti `name`.
 
 ```typescript{}[] twoslash
 declare const person: Record<string, unknown>
