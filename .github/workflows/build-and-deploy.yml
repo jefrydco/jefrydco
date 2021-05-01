@@ -14,10 +14,36 @@ on:
       - 'psi-reports/**'
 
 jobs:
+  run_psi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: psi-gh-action
+        uses: mazipan/psi-gh-action@1.5.1
+        with:
+          api_key: ${{ secrets.PSI_API_KEY }}
+          urls: |
+            https://jefrydco.id/
+            https://jefrydco.id/blog/
+          devices: |
+            mobile
+            desktop
+          runs: 1
+          override: false
+          max: 10
+          branch: main
+          push_back: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   deploy:
     name: Build and Deploy
     # needs: [run-psi]
     runs-on: ubuntu-latest
+    needs: [run_psi]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
