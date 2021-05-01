@@ -26,7 +26,8 @@ export const runtimeCachingList = [
   'https://www.google.com',
   'https://www.gstatic.com',
   'https://i3.ytimg.com',
-  'https://cari-teks-video-api.vercel.app'
+  'https://cari-teks-video-api.vercel.app',
+  'https://platform.twitter.com'
 ]
 
 export const MAXIMAL_BLOG_ITEM = 5

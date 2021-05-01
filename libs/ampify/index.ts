@@ -46,7 +46,7 @@ export default (html: string) => {
 
   // RegEx taken from: https://stackoverflow.com/a/2694121
   styleConcat.replace(/(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}/gi, (m) => {
-    if (m.includes('tooltip')) {
+    if (m.includes('tooltip') || m.includes('!important')) {
       styleConcat = styleConcat.replace(m, '')
     }
     return ''
