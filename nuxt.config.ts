@@ -407,7 +407,7 @@ export default {
   // https://tailwindcss.nuxtjs.org/
   tailwindcss: {
     viewer: false,
-    jit: true
+    mode: 'jit'
   },
 
   responsiveLoader: {
