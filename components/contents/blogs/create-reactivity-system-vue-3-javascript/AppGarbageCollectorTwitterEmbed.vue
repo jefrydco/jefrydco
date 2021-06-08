@@ -25,7 +25,7 @@ import onetime from 'onetime'
 export default Vue.extend({
   data() {
     return {
-      observer: (null as unknown) as IntersectionObserver
+      observer: null as unknown as IntersectionObserver
     }
   },
   mounted() {

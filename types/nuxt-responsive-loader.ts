@@ -1,7 +1,5 @@
 // Taken from: https://github.com/dazuaz/responsive-loader#writing-your-own-adapter
-export type ResponsiveLoaderAdapter = (
-  imagePath: string
-) => {
+export type ResponsiveLoaderAdapter = (imagePath: string) => {
   metadata: () => Promise<{ width: number; height: number }>
   resize: (config: {
     width: number

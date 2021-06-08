@@ -45,7 +45,8 @@ export default ExtendableReactivityVue3.extend({
   methods: {
     init: onetime(function (reactivityVue3Script1: Element) {
       const newScript = document.createElement('script')
-      const inlineScript = document.createTextNode(`if (!window.complexDemoVue3State) {
+      const inlineScript =
+        document.createTextNode(`if (!window.complexDemoVue3State) {
   window.complexDemoVue3State = (() => {
     function reactivity() {
       const targetMap = new WeakMap()

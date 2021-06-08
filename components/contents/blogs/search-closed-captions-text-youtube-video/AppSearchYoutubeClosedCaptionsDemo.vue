@@ -341,9 +341,10 @@ export default ExtendableSearchText.extend({
     ),
     setYoutubeId() {
       // RegEx taken from: https://stackoverflow.com/a/6904504
-      const result = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/gi.exec(
-        this.youtubeUrl || ''
-      ) as RegExpExecArray
+      const result =
+        /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/gi.exec(
+          this.youtubeUrl || ''
+        ) as RegExpExecArray
       if (result) {
         this.youtubeId = result[1]
       } else {
