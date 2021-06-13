@@ -89,7 +89,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "7.11.0",
     "eslint-webpack-plugin": "^2.5.4",
-    "flexsearch": "^0.7.0",
+    "flexsearch": "^0.6.32",
     "globby": "^11.0.3",
     "husky": "^6.0.0",
     "jest": "^27.0.4",
