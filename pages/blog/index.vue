@@ -38,7 +38,7 @@ export default Vue.extend({
 
     // @ts-expect-error
     const blogList = await app
-      .$content(`/${locale}/blog`, { deep: true })
+      .$content(`/blog/${locale}`, { deep: true })
       .limit(MAXIMAL_BLOG_ITEM)
       .only([
         'img',
@@ -195,7 +195,7 @@ export default Vue.extend({
       if (locale === 'id') {
         return `${HOSTNAME}/blog.xml`
       }
-      return `${HOSTNAME}/${locale}/blog.xml`
+      return `${HOSTNAME}/blog/${locale}.xml`
     }
   }
 })

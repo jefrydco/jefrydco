@@ -44,7 +44,7 @@ export default Vue.extend({
       if (pageNumber > 1) {
         // @ts-expect-error
         const blogList = await app
-          .$content(`/${locale}/blog`, { deep: true })
+          .$content(`/blog/${locale}`, { deep: true })
           .only([
             'img',
             'title',
@@ -212,7 +212,7 @@ export default Vue.extend({
       if (locale === 'id') {
         return `${HOSTNAME}/blog.xml`
       }
-      return `${HOSTNAME}/${locale}/blog.xml`
+      return `${HOSTNAME}/blog/${locale}.xml`
     }
   }
 })

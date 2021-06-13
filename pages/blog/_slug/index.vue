@@ -133,7 +133,7 @@ export default formatDate.extend({
     const availableLocales = locales.filter((i) => i.code !== locale)
     // @ts-expect-error
     const blog = await app
-      .$content(`/${locale}/blog/${slug}`, {
+      .$content(`/blog/${locale}/${slug}`, {
         deep: true
       })
       .fetch<BlogDataType>()
@@ -146,7 +146,7 @@ export default formatDate.extend({
         discussLink: `https://twitter.com/intent/tweet?text=Hi%20@jefrydco,%20%0A%0A${encodeURIComponent(
           fullPath
         )}`,
-        editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/${locale}/blog/${slug}.md`
+        editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/blog/${locale}/${slug}.md`
       }
     }
   },
