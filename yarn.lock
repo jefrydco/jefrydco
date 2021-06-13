@@ -1979,10 +1979,10 @@
     data2xml "^1.3.4"
     lodash "^4.17.19"
 
-"@nuxtjs/color-mode@^2.0.9":
-  version "2.0.9"
-  resolved "https://registry.npmjs.org/@nuxtjs/color-mode/-/color-mode-2.0.9.tgz#c61cd54805dea47f61ca130707c00b826ec69dc3"
-  integrity sha512-Oh+aXZeHgzdMBGioJ4qGssoKBxoWyXPVrZs7/FOY53eieNdW/+cY157PYYBNvEJBJCG4mnbdmdTdNM0P+aA+Fw==
+"@nuxtjs/color-mode@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.npmjs.org/@nuxtjs/color-mode/-/color-mode-2.0.10.tgz#0496d6d72be7ada3a106768fc4fa17bafea63bb3"
+  integrity sha512-eG2BHQaN7RApzbkaQ/IRzbrMRl1U5JvGK0gNYYek56P4eMkUqKnJqRLv9M56tsENtoZEa+4hg8Hd5iB+lZWFwg==
   dependencies:
     defu "^5.0.0"
     lodash.template "^4.5.0"
@@ -2171,6 +2171,15 @@
     "@sentry/utils" "6.5.1"
     tslib "^1.9.3"
 
+"@sentry/hub@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.6.0.tgz#1b9fa22ee104b7d6afd2dc4c40a1459fda259366"
+  integrity sha512-1Yw0kbxcvO7njZUDGvCKB6DxU5jQio7Be3Kx5qxwcx8ojpT9lo9p+IYZajgl6zQqkjjbVm/4SoYqU24ozu5vxw==
+  dependencies:
+    "@sentry/types" "6.6.0"
+    "@sentry/utils" "6.6.0"
+    tslib "^1.9.3"
+
 "@sentry/integrations@^6.2.5":
   version "6.5.1"
   resolved "https://registry.npmjs.org/@sentry/integrations/-/integrations-6.5.1.tgz#e7016f3023a98e2ef893daba18ba74bd8d62654b"
@@ -2190,6 +2199,15 @@
     "@sentry/types" "6.5.1"
     tslib "^1.9.3"
 
+"@sentry/minimal@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.6.0.tgz#48684734e3c380e5e63a9357d05f0c18bae84419"
+  integrity sha512-xVBlZIDxSvHvNdvD5KmjTf8Xgi78vLpT4xqJaDUkW7B+DqWMVJZe5aUdQmcp7X/zWxctBwyMKsdHO7oiHkpS+Q==
+  dependencies:
+    "@sentry/hub" "6.6.0"
+    "@sentry/types" "6.6.0"
+    tslib "^1.9.3"
+
 "@sentry/node@^6.2.5":
   version "6.5.1"
   resolved "https://registry.npmjs.org/@sentry/node/-/node-6.5.1.tgz#a572b380858de5aeaf98eade6d8d3afcba13d364"
@@ -2205,7 +2223,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/tracing@6.5.1", "@sentry/tracing@^6.5.1":
+"@sentry/tracing@6.5.1":
   version "6.5.1"
   resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.5.1.tgz#a5f3e497d4f1f319f36475df050e135cf65af750"
   integrity sha512-y1W/xFC2hAuKqSuuaovkElHY4pbli3XoXrreesg8PtO7ilX6ZbatOQbHsEsHQyoUv0F6aVA+MABOxWH2jt7tfw==
@@ -2216,10 +2234,26 @@
     "@sentry/utils" "6.5.1"
     tslib "^1.9.3"
 
+"@sentry/tracing@^6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.6.0.tgz#ce62fcb951faa6447cf47889f91efe3617b9eed2"
+  integrity sha512-tjXrmAOFfVBfx+ZmgE5bkpDPs/euNj0xrUg8MowCWGfCRn01W679tTb+dyNeP6faxQTo2RcaD68xD8oLroJwwA==
+  dependencies:
+    "@sentry/hub" "6.6.0"
+    "@sentry/minimal" "6.6.0"
+    "@sentry/types" "6.6.0"
+    "@sentry/utils" "6.6.0"
+    tslib "^1.9.3"
+
 "@sentry/types@6.5.1":
   version "6.5.1"
   resolved "https://registry.npmjs.org/@sentry/types/-/types-6.5.1.tgz#0a34ecfd1ae9275a416a105640eb4bed45a46a1d"
   integrity sha512-b/7a6CMoytaeFPx4IBjfxPw3nPvsQh7ui1C8Vw0LxNNDgBwVhPLzUOWeLWbo5YZCVbGEMIWwtCUQYWxneceZSA==
+
+"@sentry/types@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.6.0.tgz#55cbca23859bad87411f0f32135a968e6e40a639"
+  integrity sha512-lZ1uFN0lSNftAohi0lciEoSL58Gk/Ib1lLKaj0FSOvB1PAUmvo5dPtLdd0qjtNdtoaM8zqhrAbwCTQ8XZCDRsg==
 
 "@sentry/utils@6.5.1":
   version "6.5.1"
@@ -2227,6 +2261,14 @@
   integrity sha512-Wv86JYGQH+ZJ5XGFQX7h6ijl32667ikenoL9EyXMn8UoOYX/MLwZoQZin1P60wmKkYR9ifTNVmpaI9OoTaH+UQ==
   dependencies:
     "@sentry/types" "6.5.1"
+    tslib "^1.9.3"
+
+"@sentry/utils@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.6.0.tgz#b34d342d05eefc25b7ddd3f27f41c050f1e7e1ef"
+  integrity sha512-FK9yqz2x+ef50B54tueeJ6mfb7Pf3lN75omx/YQBDL5cicyOV4j4kJDqn8/VKYhcSuX+ZaCZ/8bvOf0lxe0aHg==
+  dependencies:
+    "@sentry/types" "6.6.0"
     tslib "^1.9.3"
 
 "@sentry/webpack-plugin@^1.15.0":
@@ -6353,7 +6395,17 @@ eslint-plugin-unicorn@^28.0.2:
     safe-regex "^2.1.1"
     semver "^7.3.4"
 
-eslint-plugin-vue@7.10.0, eslint-plugin-vue@^7.9.0:
+eslint-plugin-vue@7.11.0:
+  version "7.11.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-7.11.0.tgz#c19b098899b7e3cd692beffbbe73611064ef1ea6"
+  integrity sha512-Qwo8wilqnOXnG9B5auEiTstyaHefyhHd5lEhhxemwXoWsAxIW2yppzuVudowC5n+qn1nMLNV9TANkTthBK7Waw==
+  dependencies:
+    eslint-utils "^2.1.0"
+    natural-compare "^1.4.0"
+    semver "^7.3.2"
+    vue-eslint-parser "^7.6.0"
+
+eslint-plugin-vue@^7.9.0:
   version "7.10.0"
   resolved "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-7.10.0.tgz#251749aa99e089e085275f011042c6e74189f89a"
   integrity sha512-xdr6e4t/L2moRAeEQ9HKgge/hFq+w9v5Dj+BA54nTAzSFdUyKLiSOdZaRQjCHMY0Pk2WaQBFH9QiWG60xiC+6A==
@@ -6951,10 +7003,10 @@ flatten@^1.0.2:
   resolved "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz#c1283ac9f27b368abc1e36d1ff7b04501a30356b"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
 
-flexsearch@^0.6.32:
-  version "0.6.32"
-  resolved "https://registry.npmjs.org/flexsearch/-/flexsearch-0.6.32.tgz#1e20684d317af65baa445cdd9864a5f5b320f510"
-  integrity sha512-EF1BWkhwoeLtbIlDbY/vDSLBen/E5l/f1Vg7iX5CDymQCamcx1vhlc3tIZxIDplPjgi0jhG37c67idFbjg+v+Q==
+flexsearch@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.npmjs.org/flexsearch/-/flexsearch-0.7.0.tgz#6d98317b86259a99c71285d0bc84b9942e6b639e"
+  integrity sha512-Ejr7vz2f66F9TQwmj2Tv6wZcFWoDvJZK9hbkrWjo1lmMYh2RYoCimBi6p39wkQyuuOS7PI5vnNepTtI5+WTtKw==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
