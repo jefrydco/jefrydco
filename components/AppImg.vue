@@ -72,7 +72,7 @@ export default Vue.extend({
   },
   computed: {
     imageRequired() {
-      return require(`~/assets/images${this.src}`)
+      return require(`~/assets/images/blog${this.src}`)
     },
     captionKey() {
       return Object.keys(this?.caption?.id ?? {})[0] || null

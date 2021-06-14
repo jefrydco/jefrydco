@@ -60,7 +60,7 @@ export default Vue.extend({
       if (this.youtubeId) {
         return `https://i3.ytimg.com/vi/${this.youtubeId}/maxresdefault.jpg`
       }
-      return require('~/assets/images/default/video.jpg')
+      return require('~/assets/images/blog/default/video.jpg')
     },
     embedUrl() {
       if (this.youtubeId) {

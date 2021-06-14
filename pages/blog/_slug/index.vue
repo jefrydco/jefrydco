@@ -193,7 +193,7 @@ export default formatDate.extend({
           property: 'og:image',
           content: `${HOSTNAME}${
             // @ts-expect-error
-            this.blog && require(`~/assets/images${this.blog.img}`)
+            this.blog && require(`~/assets/images/blog${this.blog.img}`)
           }`
         },
         {
@@ -268,7 +268,7 @@ export default formatDate.extend({
               '@type': 'imageObject',
               url: `${HOSTNAME}${
                 // @ts-expect-error
-                this.blog && require(`~/assets/images${this.blog.img}`)
+                this.blog && require(`~/assets/images/blog${this.blog.img}`)
               }`,
               height: '1920',
               width: '1080'

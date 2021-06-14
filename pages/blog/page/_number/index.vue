@@ -163,7 +163,7 @@ export default Vue.extend({
               })}/`,
               image: {
                 '@type': 'imageObject',
-                url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
+                url: `${HOSTNAME}${require(`~/assets/images/blog${blog.img}`)}`,
                 height: '1920',
                 width: '614'
               },

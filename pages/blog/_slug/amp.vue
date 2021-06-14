@@ -51,7 +51,7 @@ export default {
           property: 'og:image',
           content: `${HOSTNAME}${
             // @ts-expect-error
-            this.blog && require(`~/assets/images${this.blog.img}`)
+            this.blog && require(`~/assets/images/blog${this.blog.img}`)
           }`
         },
         {
@@ -128,7 +128,7 @@ export default {
               '@type': 'imageObject',
               url: `${HOSTNAME}${
                 // @ts-expect-error
-                this.blog && require(`~/assets/images${this.blog.img}`)
+                this.blog && require(`~/assets/images/blog${this.blog.img}`)
               }`,
               height: '1920',
               width: '1080'
