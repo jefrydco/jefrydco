@@ -2,7 +2,7 @@
 title: Good HTML5 Structure - Part 1
 description: A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.
 summary: This time I started discussing one by one the website optimization series, starting from a good HTML5 structure. Why do we need to pay attention to the HTML5 structure? What's with the HTML5 structure that we usually use? What is the impact of using that good HTML5 structure for our website?
-img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+img: /blog/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z
 updatedDate: 2017-08-27T11:00:00.000Z
@@ -146,7 +146,7 @@ Meta twitter tags are used to enrich the information on our website pages when a
 
 The meta [theme-color](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android) tag is used to beautify the appearance of the Chrome browser mobile so that the toolbar will color according to the value of the `content` attribute when accessing our websiteweb page. Examples like the following picture,
 
-<app-img src="/content/2017/08/theme-color-image-by-jefrydco.jpg" alt="Theme color"></app-img>
+<app-img src="/blog/content/2017/08/theme-color-image-by-jefrydco.jpg" alt="Theme color"></app-img>
 
 ```html
     <link rel="icon" sizes="192x192" href="Website icon URL">

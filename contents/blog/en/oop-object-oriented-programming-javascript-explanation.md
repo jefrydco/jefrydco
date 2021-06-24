@@ -2,7 +2,7 @@
 title: Object-Oriented Programming Concepts in JavaScript - The Hard Way
 description: The concept of object-oriented programming in JavaScript, explained in detail
 summary: The concept of object-oriented programming in JavaScript starts from the discussion of object, this, class and prototype.
-img: /cover/2020/01/javascript-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/javascript-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-10T01:00:00.000Z
 updatedDate: 2020-01-10T01:00:00.000Z
@@ -70,7 +70,7 @@ window
 
 that code will displayed,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/window-javascript-by-jefrydco.png" alt="window JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/window-javascript-by-jefrydco.png" alt="window JavaScript"></app-img>
 
 The global object contains following things:
 
@@ -127,7 +127,7 @@ this
 
 it will result,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-javascript-by-jefrydco.png" alt="this JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-javascript-by-jefrydco.png" alt="this JavaScript"></app-img>
 
 We can also check whether `this` in the global object is really referring to the global object `window` or not using this way:
 
@@ -172,7 +172,7 @@ var student = {
 student.greet()
 ```
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"></app-img>
 
 Because of that, if we use `this`, the bug will be prevented.
 
@@ -224,7 +224,7 @@ var student = {
 
 It will returns,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"></app-img>
 
 To get better understanding why this happen, we have to know how a function is executed.
 
@@ -272,7 +272,7 @@ In the body of `greet` function, we wanna know the value of `name` property. The
 
 It will returns,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"></app-img>
 
 Even though in the body of `greet` in `student` object we use console log to find out the value of `name` property when it attached to another variable, that function never knows the value of `name`. It is because the `ReferenceType` becomes:
 
@@ -300,7 +300,7 @@ func()
 
 will return,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"></app-img>
 
 We can also check whether `this` inside a function really refer to global object `window` or not using this way:
 
@@ -321,7 +321,7 @@ For instance, strict equality operator `===`, greater than or equal operator `>=
 
 Class is **blueprint of the object**. You can take a look at the image below. The left section is the technical specification of aircraft and the right one is the aircraft implementation on real life.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/avia-b-534-by-mlwatts-and-airliners-net.jpg" :caption="{ en: { aviaB: 'Avia B-534 Airline' }, id: { aviaB: 'Pesawat terbang Avia B-534' } }" source="Wikipedia: Avia B-534" source-link="https://en.wikipedia.org/wiki/Avia_B-534" alt="Avia B 534 by MLWatts and Airliners.net"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/avia-b-534-by-mlwatts-and-airliners-net.jpg" :caption="{ en: { aviaB: 'Avia B-534 Airline' }, id: { aviaB: 'Pesawat terbang Avia B-534' } }" source="Wikipedia: Avia B-534" source-link="https://en.wikipedia.org/wiki/Avia_B-534" alt="Avia B 534 by MLWatts and Airliners.net"></app-img>
 
 We can imagine the class is like the technical specification. It will tell each of the aircraft components as a detail. From that technical specification, we have a clear rule on how will the aircraft is shaped later.
 
@@ -609,7 +609,7 @@ Besides of it, the `prototype` also has another hidden object called `__proto__`
 
 It points to another object. It is the `prototype` property of `Object` class.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/prototype-javascript-by-jefrydco.png" alt="prototype JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/prototype-javascript-by-jefrydco.png" alt="prototype JavaScript"></app-img>
 
 We can also check whether the value of `__proto__` is really the `prototype` property of `Object` class or not using this way:
 
@@ -664,7 +664,7 @@ cat
 
 But if we take a look more closely, the `cat` object has a hidden object called `__proto__`. It contains 3 other objects, the first one is `eat` method, the second one is `constructor` and the last one is `__proto__` points to `Object` class prototype.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"></app-img>
 
 Although `eat` method is located inside `__proto__`, we can access it directly.
 
@@ -769,11 +769,11 @@ bird.eat()
 
 When we check the `full` property to `cat` and `bird` object, they don't have it. It is located inside `__proto__` object.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"></app-img>
 
 But when we call the `eat` method. Both of them will have `full` property automatically. Like we have discussed in <a href="#this-in-object-context">this in object context</a>, this will refer to the object itself.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"></app-img>
 
 As we discussed in prototype chaining, both of them has a similar ability to eat. They get it from `__proto__` property referring to `animal` object. JavaScript will search sequencely whether `cat` and `bird` object has `eat` method or not.
 
@@ -938,7 +938,7 @@ cat
 // Cat {full: false}
 ```
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/en/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"></app-img>
 
 In accordance with the third rule, `cat` object is a `Cat` that has `full` property. The `full` property is coming from its parent class, which is `Animal`.
 
@@ -987,7 +987,7 @@ From that case, we can draw a conclusion that **all of thing in JavaScript is an
 
 To get a better understanding about encapsulation, imagine we consume a capsule medicine like the following image:
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/capsule-by-secretdisc-from-wikipedia.jpg" :caption="{ en: { medicineCapsule: 'Medicine capsule' }, id: { medicineCapsule: 'Kapsul obat' } }" source="Wikipedia: Capsule (pharmacy)" source-link="https://en.wikipedia.org/wiki/Capsule_(pharmacy)" alt="Capsule"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/capsule-by-secretdisc-from-wikipedia.jpg" :caption="{ en: { medicineCapsule: 'Medicine capsule' }, id: { medicineCapsule: 'Kapsul obat' } }" source="Wikipedia: Capsule (pharmacy)" source-link="https://en.wikipedia.org/wiki/Capsule_(pharmacy)" alt="Capsule"></app-img>
 
 It makes us consuming medicine easier. By using a capsule, we can only need to consume one item instead of many medicines. That's how encapsulation it is.
 

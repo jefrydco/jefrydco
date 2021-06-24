@@ -2,7 +2,7 @@
 title: Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 1
 description: Rebuilding my blog with Nuxt.js and Tailwind CSS makes the development process faster.
 summary: I've been blogging since I was junior high school, but until now there is no single blog I made survive. The main reason is I get bored. The writing experience also is not so good. I just write a couple of articles and start to confuse what kind of article I should write next.
-img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
+img: /blog/cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 imgCreator: markusspiske
 postedDate: 2019-04-17T07:15:21.689Z
 updatedDate: 2019-04-24T11:12:51.265Z

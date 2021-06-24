@@ -2,7 +2,7 @@
 title: Jalur Rendering Penting dan Link Preload
 description: Jalur rendering penting dan link preload membuat pengguna melihat konten situs web jauh lebih cepat.
 summary: Kali ini saya bakalan bahas mengenai jalur rendering penting. Mungkin teman-teman bertanya-tanya, istilah apaan sih itu, kok kedengarannya asing. Sabar teman-teman, pertanyaan itu akan terjawab pada penjelasan selanjutnya. Selain membahas mengenai jalur rendering penting, saya juga bahas mengenai link preload, yang sebenarnya kedua hal tersebut saling berhubungan satu sama lain.
-img: /cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
+img: /blog/cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
 imgCreator: mkwlsn
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
@@ -49,7 +49,7 @@ Di dalam tag `<head></head>` terdapat banyak sekali sumber daya eksternal, belum
 ## Tampilan Awal
 Tampilan awal yang dimaksud di sini adalah tampilan yang dilihat pengguna tanpa harus menggulung layar terlebih dahulu. Tampilan awal ini lebih dikenal dengan istilah di atas lipatan atau _[above the fold](https://www.optimizely.com/optimization-glossary/above-the-fold/)_. Sedangkan tampilan di bawahnya disebut di bawah lipatan atau _below the fold_. Untuk lebih memahami istilah di atas lipatan, teman-teman dapat melihat gambar di bawah ini,
 
-<app-img src="/content/2017/09/above-the-fold-blog-amp-image-by-jefrydco.jpg" alt="Above the fold"></app-img>
+<app-img src="/blog/content/2017/09/above-the-fold-blog-amp-image-by-jefrydco.jpg" alt="Above the fold"></app-img>
 
 Ketika membuka situs web, pengguna seharusnya sudah dapat melihat tampilan awal secara langsung. Tampilan awal tersebut sesuai dengan _viewport_. Misal pengguna membuka situs web tersebut menggunakan desktop dengan resolusi 1920x1200, maka tampilan awal yang harus dilihat pengguna secara langsung adalah sebesar 1920x1200.
 
@@ -57,9 +57,9 @@ Sedangkan jika pengguna membuka situs web menggunakan ponsel beresolusi 768x1024
 
 Jika teman-teman mengecek halaman yang belum teroptimasi dengan baik menggunakan ]Google PageSpeed Insight](https://developers.google.com/speed/pagespeed/insights/?hl=en), maka teman-teman akan mendapat hasil seperti pada gambar berikut,
 
-<app-img src="/content/2017/09/unoptimized-google-pagespeed-insight-result-image-by-jefrydco.jpg" alt="Unoptimized Google Page Speed Insight result"></app-img>
+<app-img src="/blog/content/2017/09/unoptimized-google-pagespeed-insight-result-image-by-jefrydco.jpg" alt="Unoptimized Google Page Speed Insight result"></app-img>
 
-<app-img src="/content/2017/09/render-blocking-content-image-by-jefrydco.jpg" alt="Render blocking content"></app-img>
+<app-img src="/blog/content/2017/09/render-blocking-content-image-by-jefrydco.jpg" alt="Render blocking content"></app-img>
 
 Salah satu peringatan yang dapat dioptimasi adalah menghilangkan pemuatan JavaScript dan CSS yang dapat menghalangi pe-_render_-an konten. Sesuai dengan permasalahan yang saya uraikan di atas, pos kali ini juga bakalan menghilangkan peringatan tersebut dan membuat skor Google PageSpeed situs web teman-teman menjadi lebih baik.
 
@@ -159,7 +159,7 @@ Untuk menggunakan fitur ini, silahkan teman teman mengubah atribut `rel="stylesh
 
 Namun sayangnya fitur atribut `rel="preload"` belum sepenuhnya didukung. Kalaupun didukung, hanya beberapa peramban saja dan itupun versi yang paling mutakhir.
 
-<app-img src="/content/2017/09/can-i-use-rel-preload-image-by-jefrydco.jpg" alt="Can I use rel preload"></app-img>
+<app-img src="/blog/content/2017/09/can-i-use-rel-preload-image-by-jefrydco.jpg" alt="Can I use rel preload"></app-img>
 
 Untuk mengatasinya, kita perlu menggunakan plugin JavaScript bernama [loadCSS](https://github.com/filamentgroup/loadCSS) yang dibuat oleh [Fillament Group](https://filamentgroup.com/). Plugin ini berfungsi untuk memuat CSS eksternal secara asinkron. Maksud dari asinkron di sini, CSS eksternal akan dimuat tidak secara bersamaan dengan pemuatan sumber daya eksternal lainnya.
 

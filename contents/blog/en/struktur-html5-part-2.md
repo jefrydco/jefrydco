@@ -2,7 +2,7 @@
 title: Good HTML5 Structure - Part 2
 description: A good HTML5 structure can make HTML documents easier to understand both by humans and by search engines.
 summary: This time I continued yesterday's discussion of a good HTML5 structure. After reviewing the structure of HTML5 yesterday from the HTML type declaration section to the closing tag </head>, now the discussion starts from the opening tag <body> to the closing HTML </html> tag.
-img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+img: /blog/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
@@ -124,13 +124,13 @@ Well for script tags that have a slightly different function. If the script tag 
 
 From this information, Google can display search results that are more interesting. Examples like the following picture,
 
-<app-img src="/content/2017/08/sitelink-image-by-jefrydco.jpg" alt="Sitelink"></app-img>
+<app-img src="/blog/content/2017/08/sitelink-image-by-jefrydco.jpg" alt="Sitelink"></app-img>
 
 The picture above is the result of my old blog search. Google displays a number of links that allow users to search for our website faster faster below the main search results. The appearance of such search results is usually called [sitelinks](https://support.google.com/webmasters/answer/47334?hl=en).
 
 In the picture above, friends can compare the way Google displays URL information. The URL of one of these blog posts is displayed in accordance with the navigation information I specified in the script type application/ld+json. The code example that I put in the tag is as follows,
 
-<app-img src="/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg" alt="Breadcrumb indexed"></app-img>
+<app-img src="/blog/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg" alt="Breadcrumb indexed"></app-img>
 
 ```json
 {
@@ -167,7 +167,7 @@ In the picture above, friends can compare the way Google displays URL informatio
 
 In addition, if friends are considered as influential people in the world, Google will display complete personal information about friends from curriculum vitae from Wikipedia to social media links when other people use friends' names as keywords. Examples like the following picture,
 
-<app-img src="/content/2017/08/elon-musk-search-result-image-by-jefrydco.jpg" alt="Elon musk search result"></app-img>
+<app-img src="/blog/content/2017/08/elon-musk-search-result-image-by-jefrydco.jpg" alt="Elon musk search result"></app-img>
 
 More information about what information we can include in this tag will be discussed in another post.
 

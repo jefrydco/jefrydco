@@ -2,7 +2,7 @@
 title: Mengapa Kamu Harus Membuat Blog dengan Nuxt.js, Tailwind CSS, Markdown dan Netlify?
 description: Membuat blog menggunakan Nuxt.js dan Tailwind CSS dapat mengasah kreatifitas kita
 summary: Bagian ini membahas latar belakang mengapa kita harus menulis konten blog menggunakan Markdown, menggunakan Nuxt.js sebagai platform blog, mendesain halaman blog menggunakan Tailwind CSS, dan menghosting blog kita menggunakan Netlify.
-img: /cover/2019/12/create-blog-nuxtjs-tailwind-css-markdown-netlify-by-jefrydco.jpg
+img: /blog/cover/2019/12/create-blog-nuxtjs-tailwind-css-markdown-netlify-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-17T02:48:54.928Z
 updatedDate: 2019-12-17T02:48:54.928Z
@@ -35,7 +35,7 @@ Mungkin teman-teman bertanya-tanya mengapa Markdown banyak dimanfaatkan sebagai 
 
 Analoginya, kenapa masih banyak orang yang masih menggunakan aplikasi _sticky note_ atau notepad yang sederhana daripada alat yang canggih seperti Google Docs atau Microsoft Word. Ya karena mereka sederhana, bukan? Terkadang hal-hal yang sederhana lebih berguna daripada yang canggih.
 
-<app-img src="/content/2019/12/what-you-see-is-what-you-get-text-editor-by-jefrydco.jpg" alt="What You See is What You Get Text Editor"></app-img>
+<app-img src="/blog/content/2019/12/what-you-see-is-what-you-get-text-editor-by-jefrydco.jpg" alt="What You See is What You Get Text Editor"></app-img>
 
 Jawaban panjangnya karena kita dapat menulis Markdown menggunakan media atau aplikasi apapun, entah itu teks editor yang sederhana seperti Vi, Vim, dan Emacs ataupun kode editor atau IDE (_Integrated Development Environment_) yang canggih seperti Visual Studio Code, Android Studio dan XCode.
 
@@ -70,7 +70,7 @@ Walaupun SPA sangat bermanfaat untuk meningkatkan pengalaman pengguna, namun ia 
 
 Untuk mempermudah memahami sisi negatif SPA, coba teman-teman membuka halaman [Telegram Web](https://web.telegram.org). Halaman tersebut bersifat SPA. Jika teman-teman dalam keadaan belum login, akan disuguhkan halaman login Telegram Web. Perhatikan baik-baik tampilan tersebut.
 
-<app-img src="/content/2019/12/telegram-web-by-jefrydco.jpg" alt="Telegram Web"></app-img>
+<app-img src="/blog/content/2019/12/telegram-web-by-jefrydco.jpg" alt="Telegram Web"></app-img>
 
 Sekarang coba lihat kode sumber halaman tersebut dengan cara mengklik kanan pada sembarang tempat di halaman tersebut. Kemudian pilih **lihat kode sumber** jika peramban yang teman-teman gunakan berbahasa Indonesia atau **view source code** jika berbahasa Inggris.
 
@@ -90,7 +90,7 @@ Apa yang salah dengan konten yang ditampilkan menggunakan JavaScript, bukannya h
 
 Yap, benar sekali. Halaman akan lebih interaktif dan lebih cepat dari prespektif pengguna. Namun dari prespektif mesin pencari tidak demikian. Walaupun saat ini Googlebot sudah memiliki kemampuan [menerjemahkan JavaScript ketika ia melakukan perayapan](https://developers.google.com/search/docs/guides/javascript-seo-basics). Sayangnya proses menerjemahkan JavaScript tersebut menambah waktu proses pengindeksan halaman web kita.
 
-<app-img src="/content/2019/12/googlebot-crawl-render-index-by-google.jpg" alt="Googlebot Crawl Render Index"></app-img>
+<app-img src="/blog/content/2019/12/googlebot-crawl-render-index-by-google.jpg" alt="Googlebot Crawl Render Index"></app-img>
 
 Secara sederhana tujuan Googlebot melakukan perayapan adalah ingin mengetahui konten yang ada di halaman web kita. Yang dilakukan [Googlebot](https://support.google.com/webmasters/answer/182072) ketika melakukan perayapan adalah mengakses URL web kita, kemudian memasukkannya ke dalam antrian untuk proses _crawling_. Proses _crawling_ ini akan mengunduh kode dari web kita. Jika web kita bersifat SPA, maka Googlebot harus memasukkannya lagi ke dalam antrian untuk proses _rendering_. Proses _rendering_ ini akan menerjemahkan berkas JavaScript untuk menampilkan konten web kita. Setelah proses _rendering selesai_ akan dilakukan proses pengindeksan.
 

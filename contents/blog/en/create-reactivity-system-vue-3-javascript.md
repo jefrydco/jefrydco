@@ -2,7 +2,7 @@
 title: Create a Simplified Version of Vue 3 Reactivity System
 description: Reveals the secret of the reactivity system of Vue 3 by recreating a simplified version.
 summary: Vue 3 is already released at the end of last year. In this article, we will look into deeper the reactivity system used in Vue 3 and create a simplified version of it using the same technology.
-img: /cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
+img: /blog/cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
 imgCreator: theandrewteoh
 postedDate: 2021-04-24T01:00:00.000Z
 updatedDate: 2021-04-24T01:00:00.000Z
@@ -772,13 +772,13 @@ Just hold on to whatever device you currently use to read this article, we will 
 
 We need some kind of structured data to glue everything together. The corresponding parts are:
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
 
 - Target, is the state that we want to convert into a reactive state
 - Key, the property of the state
 - Dependencies, function that have to be run if the key's value change
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
 We can use all the JavaScript API we already learned before. Since the target is in form of `Object`, we can use `WeakMap`. And the value is regular `Map`.
 
@@ -1215,7 +1215,7 @@ function trigger(target, key, value) {
 }
 ```
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
 Remember that diagram right? Inside the `trigger` function, we need to get the `effect` that stored inside the `Set` data type. And we can do that by calling the `get` function for each `WeakMap` and `Map`.
 

@@ -2,7 +2,7 @@
 title: Create a Simplified Version of Vue.js Reactivity System - Part 2
 description: Reveals the secrets of the reactivity system of Vue.js by recreating a simplified version of it second part
 summary: In the previous part, we have created our own reactivity system. But it still lacks a feature, it can only do one task at a time. Now come to the second part to solve that problem.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-02-01T01:00:00.000Z
 updatedDate: 2020-02-01T01:00:00.000Z
@@ -265,7 +265,7 @@ But the second problem still not solved. Where can we put the function to update
 
 Because of our inspiration for making the reactivity system is Vue.js, let's take a look again the Vue.js reactivity diagram on the following:
 
-<app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
+<app-img src="/blog/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
 
 Let's think what we have now and what we don't so that our reactivity system is similar to Vue.js has.
 

@@ -2,7 +2,7 @@
 title: Hello World
 description: Hopefully with this blog, I will be more consistent in sharing my knowledge and friends more comfortable lingering on this blog.
 summary: This is my first post on this blog. Actually I have made a lot of blogs and in the end they don't take care, the reason is classic, because the daily busyness is getting more crowded so I am lazy to write.
-img: /cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
+img: /blog/cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
 imgCreator: marceloquinan
 postedDate: 2017-08-23T11:00:00.000Z
 updatedDate: 2017-08-23T11:00:00.000Z
@@ -26,7 +26,7 @@ The next reason is I want to implement 2 new technologies that are very useful t
 
 To do the PWA trial, please open this page through the mobile version of Google Chrome. Then in the menu select add to home screen then select add. Then check the application list on the home screen, if successful there will be a new application with this blog logo icon. As for conducting AMP trials, please click on the following link, Hello World.
 
-<app-img src="/content/2017/08/add-to-home-screen-image-by-jefrydco.jpg" alt="Add to home screen"></app-img>
+<app-img src="/blog/content/2017/08/add-to-home-screen-image-by-jefrydco.jpg" alt="Add to home screen"></app-img>
 
 ## Rich in Features
 The 4th reason is I don't want to depend on jQuery and Bootstrap. In my opinion, the two frameworks are too rich in features if used only to create a blog. So I decided to use Bulma instead. Bulma itself is a pure CSS framework without the slightest JavaScript support. One of the advantages of Bulma is that it was built using the concept of flexible boxes or flexbox.
@@ -40,6 +40,6 @@ It seems like the paid version both has features similar to the free version Cra
 
 And what I like most about Craft is the custom field feature. With this custom field, I can more freely build this blog content. In addition there is also a live preview feature, so that I can post and see the results firsthand.
 
-<app-img src="/content/2017/08/live-preview-image-by-jefrydco.jpg" alt="Live preview"></app-img>
+<app-img src="/blog/content/2017/08/live-preview-image-by-jefrydco.jpg" alt="Live preview"></app-img>
 
 Some posts later I will discuss in more detail about the technology that I use on this blog. Hopefully with this blog, I will be more consistent in sharing my knowledge and friends more comfortable lingering on this blog.

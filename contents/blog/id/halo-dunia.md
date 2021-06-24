@@ -2,7 +2,7 @@
 title: Halo Dunia
 description: Semoga dengan adanya blog ini, saya semakin konsisten lagi dalam berbagi ilmu dan teman-teman lebih betah berlama-lama di blog ini.
 summary: Ini adalah pos pertama saya di blog ini. Sebenarnya saya udah berkali-kali bikin blog dan ujung-ujungnya jadi ga keurus, alasannya klasik, karena kesibukan sehari-hari yang semakin padat sehingga saya jadi malas untuk menulis.
-img: /cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
+img: /blog/cover/2017/08/halo-dunia-image-by-marcelo-quinan.jpg
 imgCreator: marceloquinan
 postedDate: 2017-08-23T11:00:00.000Z
 updatedDate: 2017-08-23T11:00:00.000Z
@@ -26,7 +26,7 @@ Alasan selanjutnya adalah saya pengen menerapkan 2 teknologi baru yang berguna b
 
 Untuk melakukan uji coba PWA, silahkan teman-teman membuka halaman ini melalui Google Chrome versi mobile. Selanjutnya di bagian menu pilih add to home screen lalu pilih add. Kemudian cek pada daftar aplikasi di home screen, jika sukses akan terdapat aplikasi baru dengan ikon logo blog ini. Sedangkan untuk melakukan uji coba AMP, silahkan teman-teman mengklik link berikut, Halo Dunia.
 
-<app-img src="/content/2017/08/add-to-home-screen-image-by-jefrydco.jpg" alt="Add to home screen"></app-img>
+<app-img src="/blog/content/2017/08/add-to-home-screen-image-by-jefrydco.jpg" alt="Add to home screen"></app-img>
 
 ## Kaya Akan Fitur
 Alasan ke-4 adalah saya ga pengen ketergantungan dengan jQuery dan Bootstrap. Menurut saya, kedua framework tersebut terlalu kaya akan fitur jika digunakan hanya untuk membuat blog. Sehinga saya memutuskan untuk menggunakan Bulma sebagai penggantinya. Bulma sendiri merupakan framework CSS murni tanpa dukungan JavaScript sedikitpun. Salah satu kelebihan Bulma adalah dia dibangun menggunakan konsep flexible box atau flexbox.
@@ -40,6 +40,6 @@ Sepertinya versi berbayar keduanya mempunyai fitur yang hampir sama versi gratis
 
 Dan yang paling saya suka dari Craft adalah fitur custom field-nya. Dengan custom field tersebut saya bisa lebih leluasa dalam membangun konten blog ini. Selain itu terdapat juga fitur live preview, dengan begitu saya bisa bikin postingan dan melihat secara langsung hasilnya.
 
-<app-img src="/content/2017/08/live-preview-image-by-jefrydco.jpg" alt="Live preview"></app-img>
+<app-img src="/blog/content/2017/08/live-preview-image-by-jefrydco.jpg" alt="Live preview"></app-img>
 
 Beberapa pos selanjutnya saya akan bahas lebih detail mengenai teknologi yang saya gunakan di blog ini. Semoga dengan adanya blog ini, saya semakin konsisten lagi dalam berbagi ilmu dan teman-teman lebih betah berlama-lama di blog ini.

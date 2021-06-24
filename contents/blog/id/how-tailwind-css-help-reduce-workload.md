@@ -2,7 +2,7 @@
 title: Bagaimana Tailwind CSS Dapat Membantu Meringankan Beban Pekerjaan Kita?
 description: Tailwind CSS sangat membantu meringankan beban pekerjaan kita
 summary: Hampir semua permasalahan mengenai cara mempercepat pengembangan suatu fitur dapat diselesaikan menggunakan Tailwind CSS.
-img: /cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
+img: /blog/cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-25T05:05:00.000Z
 updatedDate: 2019-12-25T05:05:00.000Z
@@ -106,7 +106,7 @@ Bahkan jika kita menggunakan Visual Studio Code, sudah ada _extension_ yang bern
 
 Oh ya, tahukah teman-teman bahwa _mikirin_ nama adalah salah satu dari [3 hal tersulit dalam ilmu komputer](https://twitter.com/codinghorror/status/506010907021828096)? Hah _mikirin_ nama, nama apaan? Iya nama, nama apapun yang akan kita gunakan di ilmu komputer.
 
-<app-img src="/content/2019/12/jeff-atwood-two-hard-things-computer-science-by-jefrydco.jpg" alt="Jeff Atwood Two Hard Things in Computer Science"></app-img>
+<app-img src="/blog/content/2019/12/jeff-atwood-two-hard-things-computer-science-by-jefrydco.jpg" alt="Jeff Atwood Two Hard Things in Computer Science"></app-img>
 
 Omong-omong, sepertinya Om [Jeff Atwood](https://twitter.com/codinghorror) _typo_ tuh, seharusnya Ia menulis _three hard things_ tetapi malah menulis _two hard things_. 😅 
 

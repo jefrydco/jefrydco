@@ -2,7 +2,7 @@
 title: Struktur HTML5 yang Baik - Bagian 2
 description: Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.
 summary: Kali ini saya lanjutin pembahasan kemarin mengenai struktur HTML5 yang baik. Setelah kemarin mengulas mengenai struktur HTML5 mulai bagian deklarasi tipe HTML hingga tag penutup </head>, sekarang pembahasannya dimulai dari tag pembuka <body> hingga tag penutup HTML </html>.
-img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+img: /blog/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
@@ -124,13 +124,13 @@ Nah untuk tag script yang ini memiliki fungsi yang sedikit berbeda. Jika tag scr
 
 Dari informasi tersebut, Google dapat menampilkan hasil pencarian yang lebih menarik perhatian. Contohnya seperti gambar berikut,
 
-<app-img src="/content/2017/08/sitelink-image-by-jefrydco.jpg" alt="Sitelink"></app-img>
+<app-img src="/blog/content/2017/08/sitelink-image-by-jefrydco.jpg" alt="Sitelink"></app-img>
 
 Gambar di atas merupakan hasil pencarian blog lama saya. Google menampilkan beberapa tautan yang memungkinkan pengguna menelusuri _website_ kita lebih cepat tepat di bawah hasil pencarian utama. Tampilan hasil pencarian seperti itu biasa disebut dengan _[sitelinks](https://support.google.com/webmasters/answer/47334?hl=en)_.
 
 Pada gambar di atas teman-teman bisa membandingkan cara Google dalam menampilkan informasi URL. URL salah satu pos blog ini ditampilkan sesuai dengan informasi navigasi yang saya cantumkan di dalam script type application/ld+json. Contoh kode yang saya letakkan di dalam tag tersebut seperti berikut,
 
-<app-img src="/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg" alt="Breadcrumb indexed"></app-img>
+<app-img src="/blog/content/2017/08/breadcrumb-indexed-image-by-jefrydco.jpg" alt="Breadcrumb indexed"></app-img>
 
 ```json
 {
@@ -167,7 +167,7 @@ Pada gambar di atas teman-teman bisa membandingkan cara Google dalam menampilkan
 
 Selain itu, jika teman-teman telah dianggap sebagai orang yang berpengaruh bagi dunia, Google akan menampilkan informasi data diri teman-teman secara lengkap mulai dari kutipan riwayat hidup dari wikipedia hingga tautan sosial media ketika orang lain menggunakan nama teman-teman sebagai kata kunci. Contohnya seperti gambar berikut,
 
-<app-img src="/content/2017/08/elon-musk-search-result-image-by-jefrydco.jpg" alt="Elon musk search result"></app-img>
+<app-img src="/blog/content/2017/08/elon-musk-search-result-image-by-jefrydco.jpg" alt="Elon musk search result"></app-img>
 
 Lebih lanjut mengenai informasi apa ajah yang dapat kita cantumkan di dalam tag ini akan dibahas pada pos lain. 
 

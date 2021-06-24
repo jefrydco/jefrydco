@@ -2,7 +2,7 @@
 title: Seri Optimasi Website
 description: Seri optimasi website membahas secara rinci cara meningkatkan pengalaman pengguna.
 summary: Kali ini saya ingin membuat seri optimasi website. Melalui seri ini saya akan membahas secara detail bagaiamana caranya agar website yang kita punya dapat teroptimasi dengan baik.
-img: /cover/2017/08/seri-optimasi-website-image-by-spacex.jpg
+img: /blog/cover/2017/08/seri-optimasi-website-image-by-spacex.jpg
 imgCreator: spacex
 postedDate: 2017-08-25T04:14:03.000Z
 updatedDate: 2017-08-25T04:14:03.000Z

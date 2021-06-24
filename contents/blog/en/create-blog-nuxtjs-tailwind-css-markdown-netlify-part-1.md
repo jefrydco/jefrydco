@@ -2,7 +2,7 @@
 title: Why Do You Have to Create Blog using Nuxt.js, Tailwind CSS, Markdown and Netlify?
 description: Creating blog using Nuxt.js and Tailwind CSS can sharpen our creativity
 summary: This section discuss the background why we have to write blog content using Markdown, use Nuxt.js as a blog platform, design blog page using Tailwind CSS, and host our blog using Netlify.
-img: /cover/2019/12/create-blog-nuxtjs-tailwind-css-markdown-netlify-by-jefrydco.jpg
+img: /blog/cover/2019/12/create-blog-nuxtjs-tailwind-css-markdown-netlify-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-17T02:48:54.928Z
 updatedDate: 2019-12-17T02:48:54.928Z
@@ -35,7 +35,7 @@ Perhaps You wonder why Markdown is used by many software developers as a tool fo
 
 The analogy is why many people still use simple sticky notes app or notepad rather than a sophisticated tool like Google Docs or Microsoft Word. Its because it is simple, right? Sometimes simple is work better than the sophisticated one.
 
-<app-img src="/content/2019/12/what-you-see-is-what-you-get-text-editor-by-jefrydco.jpg" alt="What You See is What You Get Text Editor"></app-img>
+<app-img src="/blog/content/2019/12/what-you-see-is-what-you-get-text-editor-by-jefrydco.jpg" alt="What You See is What You Get Text Editor"></app-img>
 
 The long answer is we can write Markdown using anything, whether simple text editor likes Vim, Vim, and Emacs or sophisticated code editors like Visual Studio Code, Android Studio and XCode.
 
@@ -70,7 +70,7 @@ Even though SPA is really helpful to increase user experience, it still has cons
 
 To get more grasp, You can try to open [Telegram Web](https://web.telegram.org). It is a SPA. If You're unauthenticated, the page will display the login page. Pay attention to that.
 
-<app-img src="/content/2019/12/telegram-web-by-jefrydco.jpg" alt="Telegram Web"></app-img>
+<app-img src="/blog/content/2019/12/telegram-web-by-jefrydco.jpg" alt="Telegram Web"></app-img>
 
 Now look on the source code by right clicking on any place on that page. Then choose _**lihat kode sumber**_ if your browser language is Indonesian or **view source code** if its English.
 
@@ -90,7 +90,7 @@ What's wrong with content which is displayed using JavaScript, it's better becau
 
 Exactly. The page is more interactive and faster from the user perspective. But from search engine perspective is not like that. Even though Googlebot has the ability to interpret JavaScript. Unfortunately, it takes more time to index our web.
 
-<app-img src="/content/2019/12/googlebot-crawl-render-index-by-google.jpg" alt="Googlebot Crawl Render Index"></app-img>
+<app-img src="/blog/content/2019/12/googlebot-crawl-render-index-by-google.jpg" alt="Googlebot Crawl Render Index"></app-img>
 
 In a simple term, Googlebot does crawling is because it wanna know the content on our web page. What [Googlebot](https://support.google.com/webmasters/answer/182072) does when do crawling is accessing our web URL, then add it to the crawling queue. The crawling process will download the code of our web page. If the page is SPA, Googlebot has to add it to another queue called the rendering process. This rendering process will translate the JavaScript to display our web page content. Indexing will be conducted after all the process is finished.
 

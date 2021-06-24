@@ -2,7 +2,7 @@
 title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 2
 description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue.js dengan membuat ulang versi sederhananya bagian kedua
 summary: Pada bagian sebelumnya kita telah berhasil membuat sistem reaktivitas sendiri. Namun sistem tersebut masih memiliki kekurangan yakni hanya dapat melakukan satu pekerjaan dalam satu waktu. Sekarang di bagian ini kita akan menyelesaikannya.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-02-01T01:00:00.000Z
 updatedDate: 2020-02-01T01:00:00.000Z
@@ -265,7 +265,7 @@ Namun permasalahan kedua masih belum terselesaikan. Dimanakah kita meletakkan fu
 
 Karena sumber inspirasi pembuatan sistem reaktivitas kita adalah Vue.js, mari kita perhatikan kembali diagram sistem reaktivitas Vue.js berikut:
 
-<app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
+<app-img src="/blog/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
 
 Mari kita pikirkan apa yang telah kita punya sekarang dan apa yang belum kita punya agar sistem reaktivitas buatan kita sama seperti sistem reaktivitas Vue.js.
 

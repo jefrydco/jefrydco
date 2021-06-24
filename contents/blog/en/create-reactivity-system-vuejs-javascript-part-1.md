@@ -2,7 +2,7 @@
 title: Create a Simplified Version of Vue.js Reactivity System - Part 1
 description: Reveals the secrets of the reactivity system of Vue.js by recreating a simplified version of it first part
 summary: Have you ever wondered how Vue.js create some variables become reactive? Writing in an input form and see the result instantly. What is the secret of that reactivity system? Let's deep dive into it together.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
@@ -35,7 +35,7 @@ If the data change, the average result will be recalculated automatically.
 
 According to the Vue.js official documentation about [Reactivity in Depth](https://vuejs.org/v2/guide/reactivity.html). On the section of [How Changes are Tracked](https://vuejs.org/v2/guide/reactivity.html#How-Changes-Are-Tracked), there is a diagram like the following:
 
-<app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
+<app-img src="/blog/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
 
 To get a better understanding of it, let's take a look at the simplest form of Vue.js application.
 

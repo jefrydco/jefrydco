@@ -2,7 +2,7 @@
 title: How to Safely Access Vue Refs without Getting Undefined?
 description: We have to use $refs at the right time and the right place. Even if we already did, sometimes the value is still undefined.
 summary: $refs is one of the tricky features to use in Vue.js. To use it, we have to do it at the right time and the right place. Even if we already did, sometimes the value is still undefined.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2021-01-25T00:00:00.000Z
 updatedDate: 2021-01-25T00:00:00.000Z

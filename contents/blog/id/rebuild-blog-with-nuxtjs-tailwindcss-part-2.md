@@ -2,7 +2,7 @@
 title: Pembuatan Ulang Blog Saya dengan Nuxt.js dan Tailwind CSS - Bagian 2
 description: Pembuatan ulang blog saya dengan Nuxt.js dan Tailwind CSS membuat proses pengembangan lebih cepat.
 summary: Saya telah mendapat jawaban tentang kerangka JavaScript mana yang menjadi alat utama, kerangka kerja CSS yang saya gunakan dan memiliki pemikiran tentang gaya JavaScript. Selanjutnya saya akan menjawab 5 pertanyaan berikutnya.
-img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
+img: /blog/cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 imgCreator: markusspiske
 postedDate: 2019-04-25T15:49:14.624Z
 updatedDate: 2019-04-25T15:49:14.624Z

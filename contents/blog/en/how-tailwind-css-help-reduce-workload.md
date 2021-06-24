@@ -2,7 +2,7 @@
 title: How Tailwind CSS Helps Reduce Our Workload?
 description: Tailwind CSS really helps reduce our workload
 summary: Almost of our problem regarding how to speed up a new feature development can be solved by using Tailwind CSS.
-img: /cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
+img: /blog/cover/2019/12/how-tailwind-css-help-reduce-workload-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2019-12-25T05:05:00.000Z
 updatedDate: 2019-12-25T05:05:00.000Z
@@ -106,7 +106,7 @@ Even if we use Visual Studio Code, there is an extension called [Tailwind CSS In
 
 Do you know that thinking of name is one of [3 hardest things in computer science](https://twitter.com/codinghorror/status/506010907021828096)? Hah, thinking of a name, what kind of name? Yup, a name, any name which we use in computer science.
 
-<app-img src="/content/2019/12/jeff-atwood-two-hard-things-computer-science-by-jefrydco.jpg" alt="Jeff Atwood Two Hard Things in Computer Science"></app-img>
+<app-img src="/blog/content/2019/12/jeff-atwood-two-hard-things-computer-science-by-jefrydco.jpg" alt="Jeff Atwood Two Hard Things in Computer Science"></app-img>
 
 Anyway, it's likely that [Jeff Atwood](https://twitter.com/codinghorror) wrote the wrong number, it should be "three hard thins" but he wrote "two hard things". 😅 
 

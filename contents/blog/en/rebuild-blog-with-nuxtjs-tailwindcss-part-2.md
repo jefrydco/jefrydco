@@ -2,7 +2,7 @@
 title: Rebuild My Blog with Nuxt.js and Tailwind CSS - Part 2
 description: Rebuilding my blog with Nuxt.js and Tailwind CSS makes the development process faster.
 summary: I have got the answer about which JavaScript framework as the main tool, CSS framework I use and have a thought about the style. Then I'll answer the next 5 questions.
-img: /cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
+img: /blog/cover/2019/04/rebuild-blog-with-nuxtjs-tailwindcss-image-by-markus-spiske.jpg
 imgCreator: markusspiske
 postedDate: 2019-04-25T15:49:14.624Z
 updatedDate: 2019-04-25T15:49:14.624Z

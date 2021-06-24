@@ -2,7 +2,7 @@
 title: Critical Rendering Path and Preload Link
 description: The critical rendering path is important and the preload link makes users see website content much faster.
 summary: This time I will discuss the important rendering path. Maybe my friends are wondering, what is the term, how come it sounds foreign. Patient friends, the question will be answered in the next explanation. In addition to discussing important rendering paths, I also discussed preload links, which are actually related to each other.
-img: /cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
+img: /blog/cover/2017/09/jalur-rendering-penting-link-preload-image-by-mike-wilson.jpg
 imgCreator: mkwlsn
 postedDate: 2017-08-30T11:00:00.000Z
 updatedDate: 2017-08-30T11:00:00.000Z
@@ -48,7 +48,7 @@ In the `<head></head>` tag there are lots of external resources, not to mention 
 ## Initial View
 The initial appearance referred to here is the view that the user sees without having to scroll the screen first. This initial display is better known as the term above fold or [above the fold](https://www.optimizely.com/optimization-glossary/above-the-fold/) . Whereas the display below is called under the fold or below the fold. To better understand the term above the fold, friends can see the picture below,
 
-<app-img src="/content/2017/09/above-the-fold-blog-amp-image-by-jefrydco.jpg" alt="Above the fold"></app-img>
+<app-img src="/blog/content/2017/09/above-the-fold-blog-amp-image-by-jefrydco.jpg" alt="Above the fold"></app-img>
 
 When opening a website, users should be able to see the initial display directly. The initial display is in accordance with viewport. For example, when a user opens the website using a desktop with a resolution of 1920x1200, the initial display that the user must see directly is 1920x1200.
 
@@ -56,9 +56,9 @@ Whereas if the user opens a website using a 768x1024 resolution cellphone, the i
 
 If friends check the pages that have not been optimally optimized using [Google PageSpeed ​​Insight](https://developers.google.com/speed/pagespeed/insights/?hl=en), then the friends will get the results as shown following,
 
-<app-img src="/content/2017/09/unoptimized-google-pagespeed-insight-result-image-by-jefrydco.jpg" alt="Unoptimized Google Page Speed Insight result"></app-img>
+<app-img src="/blog/content/2017/09/unoptimized-google-pagespeed-insight-result-image-by-jefrydco.jpg" alt="Unoptimized Google Page Speed Insight result"></app-img>
 
-<app-img src="/content/2017/09/render-blocking-content-image-by-jefrydco.jpg" alt="Render blocking content"></app-img>
+<app-img src="/blog/content/2017/09/render-blocking-content-image-by-jefrydco.jpg" alt="Render blocking content"></app-img>
 
 One warning that can be optimized is to eliminate the loading of JavaScript and CSS which can hinder the rendering of content. In accordance with the problems that I described above, this post will also eliminate these warnings and make Google PageSpeed's scores on friends' websites better.
 
@@ -158,7 +158,7 @@ To use this feature, please change the attribute `rel="stylesheet"` in the link 
 
 But unfortunately the `rel =" preload "attribute feature is not fully supported. Even if supported, only a few browsers and even then the most recent version.
 
-<app-img src="/content/2017/09/can-i-use-rel-preload-image-by-jefrydco.jpg" alt="Can I use rel preload"></app-img>
+<app-img src="/blog/content/2017/09/can-i-use-rel-preload-image-by-jefrydco.jpg" alt="Can I use rel preload"></app-img>
 
 To fix this, we need to use a JavaScript plugin named [loadCSS](https://github.com/filamentgroup/loadCSS) created by [Fillament Group](https://filamentgroup.com/). This plugin serves to load external CSS asynchronously. The purpose of asynchronous here is that external CSS will be loaded not simultaneously with the loading of other external resources.
 

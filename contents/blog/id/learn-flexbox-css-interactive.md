@@ -2,7 +2,7 @@
 title: Belajar CSS Flexbox Secara Interaktif
 description: Belajar CSS Flexbox tak pernah se-interaktif ini
 summary: Belajar CSS Flexbox tak pernah se-interaktif ini, setiap detail properti Flexbox dapat dimainkan dengan fleksibilitas penuh. Pelajari sendiri contohnya dan temukan sendiri jawabannya.
-img: /cover/2020/04/flexbox-by-jefrydco.jpg
+img: /blog/cover/2020/04/flexbox-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-04-01T01:00:00.000Z
 updatedDate: 2020-04-01T01:00:00.000Z

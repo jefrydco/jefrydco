@@ -2,7 +2,7 @@
 title: What If We Could Search Any Keyword from Any YouTube Video through Its Closed Captions Text?
 description: Search any keywords from any YouTube video through their closed captions text.
 summary: Imagine when we remember a moment from a YouTube video but forgot at what time it occurs. What if we could search any keywords from any YouTube video through its closed captions text?
-img: /cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
+img: /blog/cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
 imgCreator: talescrow
 postedDate: 2021-02-12T00:00:00.000Z
 updatedDate: 2021-02-12T00:00:00.000Z
@@ -51,11 +51,11 @@ Just as effortless as like that. And it took me for a couple of searches to find
 
 First, we must open a YouTube video then enable the closed captions to get that specific link.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-activate-by-jefrydco.jpg" alt="YouTube Closed Captions Activate"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-activate-by-jefrydco.jpg" alt="YouTube Closed Captions Activate"></app-img>
 
 After enabling the closed captions feature, YouTube will make a new request from some kind of API. The response is the closed captions of the video.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-json3-by-jefrydco.jpg" alt="Devtools Opening YouTube Closed Captions Response"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-json3-by-jefrydco.jpg" alt="Devtools Opening YouTube Closed Captions Response"></app-img>
 
 This is the example of the API URL:
 
@@ -98,7 +98,7 @@ We can get some of the understandable key-value pairs here:
 
 We still have a bunch of more, but those are the most important key values we need.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-vtt-by-jefrydco.jpg" alt="Devtools Opening YouTube Closed Captions Response with WebVTT Format"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-vtt-by-jefrydco.jpg" alt="Devtools Opening YouTube Closed Captions Response with WebVTT Format"></app-img>
 
 Viola! I think we use that API URL to build our general YouTube video search through closed captions web app.
 
@@ -166,7 +166,7 @@ For more detail packages please take a look on the package.json file on this rep
 
 We already have all the ingredients. We will create 2 API endpoints, the first one is the `/` and the second one is the `/search`. **Index endpoint is only used to fetch the closed captions data from YouTube**. For **search endpoint is for search**. In this post, we will discuss more for search endpoint.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-api-diagram-by-jefrydco.jpg" alt="YouTube Closed Captions API Diagram"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-api-diagram-by-jefrydco.jpg" alt="YouTube Closed Captions API Diagram"></app-img>
 
 Based on the diagram above, we can split our REST API into 8 smaller modules.
 

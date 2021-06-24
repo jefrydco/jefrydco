@@ -2,7 +2,7 @@
 title: Struktur HTML5 yang Baik - Bagian 1
 description: Struktur HTML5 yang baik dapat membuat dokumen HTML lebih mudah dipahami baik oleh manusia maupun oleh mesin pencari.
 summary: Kali ini saya mulai bahas satu per satu seri optimasi website, dimulai dari struktur HTML5 yang baik. Mengapa sih kita perlu memperhatikan struktur HTML5? Ada apakah dengan struktur HTML5 yang biasa kita gunakan? Apa dampaknya menggunakan struktur HTML5 yang baik itu bagi website kita?
-img: /cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
+img: /blog/cover/2017/08/struktur-html5-image-by-sai-kiran-anagani.jpg
 imgCreator: _imkiran
 postedDate: 2017-08-27T11:00:00.000Z
 updatedDate: 2017-08-27T11:00:00.000Z
@@ -145,7 +145,7 @@ Tag meta twitter digunakan untuk memperkaya informasi halaman website kita ketik
 
 Tag meta [theme-color](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android) digunakan untuk mempercantik tampilan peramban Chrome mobile sehingga toolbar akan memiliki warna sesuai dengan nilai pada atribut `content` ketika sedang mengakses halaman _website_ kita. Contohnya seperti gambar berikut,
 
-<app-img src="/content/2017/08/theme-color-image-by-jefrydco.jpg" alt="Theme color"></app-img>
+<app-img src="/blog/content/2017/08/theme-color-image-by-jefrydco.jpg" alt="Theme color"></app-img>
 
 ```html
     <link rel="icon" sizes="192x192" href="URL ikon website">

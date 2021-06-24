@@ -2,7 +2,7 @@
 title: Membuat Sistem Reaktivitas Seperti Vue.js Versi Sederhana - Bagian 1
 description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue.js dengan membuat ulang versi sederhananya bagian pertama
 summary: Pernahkah teman-teman terpikirkan bagaimana Vue.js membuat suatu variabel menjadi reaktif? Menuliskan sesuatu di teks input dan melihat hasilnya di tempat lain secara instan. Apa rahasia dibalik sistem reaktivitas tersebut? Mari kita kupas bersama-sama rahasianya.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-20T01:00:00.000Z
 updatedDate: 2020-01-20T01:00:00.000Z
@@ -35,7 +35,7 @@ Kemudian jika terdapat perubahan terhadap data, maka nilai rata-ratanya juga aka
 
 Mengacu pada dokumentasi resmi Vue.js mengenai [reaktivitas secara mendalam](https://vuejs.org/v2/guide/reactivity.html). Pada bagian [Bagaimana Perubahan Dilacak](https://vuejs.org/v2/guide/reactivity.html#How-Changes-Are-Tracked), terdapat diagram seperti berikut:
 
-<app-img src="/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
+<app-img src="/blog/content/2020/01/create-reactivity-system-vuejs-javascript-part-1/vuejs-reactivity-system-explained.jpg" :caption="{ en: { aviaB: 'Vue.js Reactivity System Diagram' }, id: { aviaB: 'Diagram Sistem Reaktivitas Vue.js' } }" source="Vue.js: Reactivity in Depth" source-link="https://vuejs.org/v2/guide/reactivity.html" alt="Vue.js Reactivity System Diagram by Evan You"></app-img>
 
 Untuk memahami diagram tersebut, mari kita lihat contoh kode paling sederhana untuk membuat suatu aplikasi Vue.js
 

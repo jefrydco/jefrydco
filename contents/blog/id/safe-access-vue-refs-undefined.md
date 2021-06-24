@@ -2,7 +2,7 @@
 title: Cara Mengakses Vue Refs secara Aman tanpa Mendapatkan Nilai Undefined
 description: Menggunakan $refs pada waktu dan tempat yang tepat. Walaupun demikian, terkadang nilai yang dihasilkan pun masih undefined.
 summary: $refs merupakan salah satu fitur Vue.js yang gampang-gampang susah untuk digunakan. Kita harus menggunakannya pada waktu dan tempat yang tepat. Bahkan jika kita telah melakukannya, terkadang nilai yang dihasilkan masih undefined.
-img: /cover/2020/01/vuejs-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/vuejs-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2021-01-25T00:00:00.000Z
 updatedDate: 2021-01-25T00:00:00.000Z

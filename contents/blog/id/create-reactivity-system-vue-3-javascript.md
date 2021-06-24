@@ -2,7 +2,7 @@
 title: Membuat Sistem Reaktivitas Vue 3 Versi Sederhana
 description: Reveals the secret of the reactivity system of Vue 3 by recreating a simplified version.
 summary: Vue 3 telah dirilis akhir tahun kemarin. Artikel ini akan membahas lebih dalam mengenai sistem reaktivitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
-img: /cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
+img: /blog/cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
 imgCreator: theandrewteoh
 postedDate: 2021-04-24T01:00:00.000Z
 updatedDate: 2021-04-24T01:00:00.000Z
@@ -776,13 +776,13 @@ Saya harap teman-teman sabar menunggu, kita akan membuatnya bekerja untuk `Objec
 
 Kita membutuhkan struktur data untuk menyatukan semuanya. Beberapa bagian yang terhubung diantaranya:
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/target-key-dependencies.jpg" alt="Target Key Dependencies Diagram"></app-img>
 
 - Target, adalah state yang akan kita ubah menjadi reactive state
 - Key, properti dari state
 - Dependencies, fungsi yang akan dijalankan jika nilai dari sebuah key berubah
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
 Kita dapat menggunakan API JavaScript yang telah kita pelajari sebelumnya, Karena target merupakan `Object`, kita dapat menggunakan `WeakMap`. Dan sebagai nilainya adalah `Map`.
 
@@ -1219,7 +1219,7 @@ function trigger(target, key, value) {
 }
 ```
 
-<app-img src="/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
+<app-img src="/blog/content/2021/04/create-reactivity-system-vue-3-javascript/weakmap-map-set.jpg" alt="WeakMap Map Set Diagram"></app-img>
 
 Teman-teman pasti ingat diagram tersebut bukan? Di dalam fungsi `trigger`, kita perlu mendapatkan `effect` yang tersimpan di dalam tipe data `Set`. Dan kita dapat melakukannya dengan cara memanggil fungsi `get` untuk setiap `WeakMap` dan `Map`.
 

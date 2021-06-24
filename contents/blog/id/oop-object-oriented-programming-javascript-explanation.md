@@ -2,7 +2,7 @@
 title: Versi Paling Ribet Penjelasan Konsep Pemrograman Berorientasi Objek pada JavaScript
 description: Konsep pemrograman berorientasi objek pada JavaScript dijelaskan secara mendetail
 summary: Konsep pemrograman berorientasi objek pada JavaScript dimulai dari pembahasan objek, this, kelas dan prototipe.
-img: /cover/2020/01/javascript-logo-by-jefrydco.jpg
+img: /blog/cover/2020/01/javascript-logo-by-jefrydco.jpg
 imgCreator: jefrydco
 postedDate: 2020-01-10T01:00:00.000Z
 updatedDate: 2020-01-10T01:00:00.000Z
@@ -70,7 +70,7 @@ window
 
 kode tersebut akan menghasilkan,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/window-javascript-by-jefrydco.png" alt="window JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/window-javascript-by-jefrydco.png" alt="window JavaScript"></app-img>
 
 Objek global tersebut berisi beberapa hal berikut:
 
@@ -127,7 +127,7 @@ this
 
 akan menghasilkan,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-javascript-by-jefrydco.png" alt="this JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/this-javascript-by-jefrydco.png" alt="this JavaScript"></app-img>
 
 Kita juga dapat mengecek apakah `this` pada konteks global apakah memang benar mengarah ke objek global `window` atau tidak menggunakan kode berikut:
 
@@ -190,7 +190,7 @@ murid = null
 guru.ucapkanSalam()
 ```
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-object-null-raise-error-javascript-by-jefrydco.png" alt="this Object Null Raise Error JavaScript"></app-img>
 
 Karena itu, jika kita menggunakan `this`, maka bug tersebut dapat dihindari.
 
@@ -242,7 +242,7 @@ var murid = {
 
 Kode di atas jika dieksekusi akan menghasilkan seperti gambar berikut,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-iife-javascript-by-jefrydco.png" alt="this Missing Immediately Invoked Function Expression JavaScript"></app-img>
 
 Untuk memahami kenapa ini terjadi, kita harus paham bagaimana sebuah fungsi dijalankan.
 
@@ -290,7 +290,7 @@ Di dalam fungsi tersebut kita ingin mengetahui nilai dari properti `nama`. Kemud
 
 Kode tersebut jika dieksekusi akan menghasilkan seperti gambar berikut,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-missing-reassignment-javascript-by-jefrydco.png" alt="this Missing Re-assignment JavaScript"></app-img>
 
 Walaupun di dalam fungsi `ucapkanSalam` pada objek `murid` kita menggunakan fungsi log konsol untuk mengetahui nilai properti `nama`, ketika ia di lekatkan dengan variabel lain, fungsi tersebut tidak akan mengetahui nilai dari properti `nama`. Karena nilai dari `ReferenceType` nya menjadi:
 
@@ -320,7 +320,7 @@ fungsi()
 
 akan menghasilkan,
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-function-javascript-by-jefrydco.png" alt="this Function JavaScript"></app-img>
 
 Kita juga dapat mengecek apakah nilai `this` pada fungsi tersebut memang mengarah ke global objek `window` atau tidak menggunakan kode berikut,
 
@@ -343,7 +343,7 @@ Contohnya seperti operator `===` (perbandingan ketat), operator `>=` (lebih besa
 
 Kelas adalah **cetak biru dari sebuah objek**. Teman-teman dapat memperhatikan gambar di bawah ini. Sebelah kiri adalah gambar spesifikasi teknis sebuah pesawat terbang dan yang disebelah kanan adalah pesawat terbang hasil implementasi sepesifikasi tersebut.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/avia-b-534-by-mlwatts-and-airliners-net.jpg" :caption="{ en: { aviaB: 'Avia B-534 Airline' }, id: { aviaB: 'Pesawat terbang Avia B-534' } }" source="Wikipedia: Avia B-534" source-link="https://en.wikipedia.org/wiki/Avia_B-534" alt="Avia B 534 by MLWatts and Airliners.net"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/avia-b-534-by-mlwatts-and-airliners-net.jpg" :caption="{ en: { aviaB: 'Avia B-534 Airline' }, id: { aviaB: 'Pesawat terbang Avia B-534' } }" source="Wikipedia: Avia B-534" source-link="https://en.wikipedia.org/wiki/Avia_B-534" alt="Avia B 534 by MLWatts and Airliners.net"></app-img>
 
 Kita dapat mengibaratkan kelas seperti spesifikasi teknis tersebut. Ia mendeskripsikan secara detail setiap komponen yang dimiliki oleh pesawat terbang. Dari spesifikasi teknis tersebut, kita mempunyai aturan yang jelas bagaimana bentuk dan hasil pesawat terbang yang akan terimplementasi nantinya.
 
@@ -631,7 +631,7 @@ Selain 1 kunci bernama `constructor`, properti `prototype` juga memiliki kunci l
 
 Kunci tersebut memiliki nilai berupa objek lain. Objek lain tersebut adalah properti `prototype` dari kelas `Object` yang dimiliki JavaScript.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-javascript-by-jefrydco.png" alt="prototype JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-javascript-by-jefrydco.png" alt="prototype JavaScript"></app-img>
 
 Kita juga bisa mengecek apakah nilai `__proto__` ini merupakan properti `prototype` dari kelas `Object` atau tidak menggunakan kode berikut:
 
@@ -686,7 +686,7 @@ kucing
 
 Tetapi jika kita melihatnya lebih detail, ternyata objek `kucing` tersebut memiliki objek lain bernama `__proto__`. Dan di dalam proto tersebut terdapat 3 objek lain, yang pertama adalah _method_ `makan`, yang kedua adalah properti `constructor` dan yang ketiga adalah objek `__proto__` yang mengarah ke kelas `Object`.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/proto-javascript-by-jefrydco.png" alt="__proto__ JavaScript"></app-img>
 
 Walaupun _method_ `makan` tersebut terletak di dalam objek `__proto__`, kita dapat mengaksesnya secara langsung dengan cara `kucing.makan()`.
 
@@ -791,11 +791,11 @@ burung.makan()
 
 Ketika kita mengeceknya pada objek `kucing` dan `burung`, keduanya tidak memiliki properti `kenyang`. Properti tersebut terletak di dalam objek `__proto__`.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/property-inheritance-javascript-by-jefrydco.png" alt="Property Inheritance JavaScript"></app-img>
 
 Namun ketika kita memanggil _method_ `makan`. Kedua objek tersebut akan secara otomatis memiliki properti `kenyang`. Seperti yang telah dibahas pada bagian <a href="#this-pada-konteks-objek">_this_ pada konteks objek</a>, _this_ akan mengarah ke objek itu sendiri.
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/this-in-property-inheritance-javascript-by-jefrydco.png" alt="this in Property Inheritance JavaScript"></app-img>
 
 Sesuai dengan konsep rantai prototipe, baik burung dan kucing memiliki kemampuan makan yang mereka dapatkan melalui properti `__proto__` yang mengarah ke objek `binatang`. JavaScript akan mencari secara berurutan apakah objek `kucing` dan `burung` memiliki _method_ `makan` atau tidak.
 
@@ -962,7 +962,7 @@ kucing
 // Kucing {kenyang: false}
 ```
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/id/prototype-inheritance-javascript-by-jefrydco.png" alt="Prototype Inheritance JavaScript"></app-img>
 
 Sesuai dengan aturan ketiga, objek `kucing` tersebut memiliki tipe kelas `Kucing` dengan properti `kenyang` bernilai `false`. Properti `kenyang` tersebut berasal dari kelas induknya, kelas `Binatang`.
 
@@ -1011,7 +1011,7 @@ Dari kasus tersebut, kita bisa menganggap **semua hal di dalam JavaScript adalah
 
 Untuk lebih memudahkan kita memahami apa itu enkapsulasi, bayangkan kita mengonsumsi obat berbentuk kapsul seperti pada gambar berikut:
 
-<app-img src="/content/2020/01/oop-object-oriented-programming-javascript-explanation/capsule-by-secretdisc-from-wikipedia.jpg" :caption="{ en: { medicineCapsule: 'Medicine capsule' }, id: { medicineCapsule: 'Kapsul obat' } }" source="Wikipedia: Capsule (pharmacy)" source-link="https://en.wikipedia.org/wiki/Capsule_(pharmacy)" alt="Capsule"></app-img>
+<app-img src="/blog/content/2020/01/oop-object-oriented-programming-javascript-explanation/capsule-by-secretdisc-from-wikipedia.jpg" :caption="{ en: { medicineCapsule: 'Medicine capsule' }, id: { medicineCapsule: 'Kapsul obat' } }" source="Wikipedia: Capsule (pharmacy)" source-link="https://en.wikipedia.org/wiki/Capsule_(pharmacy)" alt="Capsule"></app-img>
 
 Kapsul tersebut sangat memudahkan kita untuk mengonsumsi obat. Kita yang seharusnya mengonsumsi banyak obat, dengan adanya kapsul, kita hanya perlu mengonsumsi satu buah item, yakni kapsul tersebut saja. Begitulah kiranya perumpamaan konsep enkapsulasi.
 

@@ -2,7 +2,7 @@
 title: Bagaimana Jika Kita Dapat Mencari Kata Kunci Apapun dari Video YouTube Manapun Melalui Captionnya?
 description: Cari kata kunci apa pun dari video YouTube mana pun melalui captionnya.
 summary: Bayangkan ketika kita ingat suatu momen dari sebuah video YouTube tetapi lupa pada jam, menit atau detik keberapa momen tersebut berlangsung. Bagaimana jika kita dapat mencari kata kunci apapun dari video YouTube manapun menggunakan captionnya?
-img: /cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
+img: /blog/cover/2021/02/woman-in-black-off-shouldress-dress-by-ari-he.jpg
 imgCreator: talescrow
 postedDate: 2021-02-12T00:00:00.000Z
 updatedDate: 2021-02-12T00:00:00.000Z
@@ -51,11 +51,11 @@ Sebenarnya mudah bukan? Dan ternyata tidak membutuhkan waktu lama hingga saya me
 
 Pertama-tama, kita harus membuka sebuah video YouTube kemudian mengaktifkan fitur _caption_-nya.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-activate-by-jefrydco.jpg" alt="Aktivasi Xaption YouTube"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-activate-by-jefrydco.jpg" alt="Aktivasi Xaption YouTube"></app-img>
 
 Setelah itu, YouTube akan mengakses sebuah API. Respon dari API tersebut adalah _caption_ dari video yang kita tonton.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-json3-by-jefrydco.jpg" alt="Alat Pengembang Peramban Menampilkan Respon Caption YouTube"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-json3-by-jefrydco.jpg" alt="Alat Pengembang Peramban Menampilkan Respon Caption YouTube"></app-img>
 
 Berikut contoh pranala API-nya:
 
@@ -98,7 +98,7 @@ Kita dapat memahami beberapa pasang _key-value_:
 
 Sebenarnya masih terdapat beberapa paasng _key-value_ lainnya, tetapi yang saya sebutkan di atas merupakan yang paling penting.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-vtt-by-jefrydco.jpg" alt="Alat Pengembang Menampilkan Respon Caption YouTube dalam Format WebVTT"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-devtools-vtt-by-jefrydco.jpg" alt="Alat Pengembang Menampilkan Respon Caption YouTube dalam Format WebVTT"></app-img>
 
 Yeaye! Saya rasa kita dapat menggunakan pranala API tersebut untuk membangun aplikasi web pencari kata kunci dari sebuah video YouTube.
 
@@ -166,7 +166,7 @@ Untuk melihat lebih banyak paket NPM yang digunakan, teman-teman dapat melihatny
 
 Kita telah mempunyai semua bahan bakunya. Sekarang kita akan membuat API dengan 2 _endpoint_, yang pertama adalah `/` dan yang kedua adalah `/search`. **_Endpoint_ indeks hanya kita gunakan untuk mendapatkan data _caption_ dari YouTube**. Sedangkan **_endpoint_ search untuk pencarian**. Pada artikel kali ini, kita akan lebih banyak membahas mengenai _endpoint_ pencarian.
 
-<app-img src="/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-api-diagram-by-jefrydco.jpg" alt="Diagram API Caption YouTube"></app-img>
+<app-img src="/blog/content/2021/02/search-closed-captions-text-youtube-video/youtube-cc-api-diagram-by-jefrydco.jpg" alt="Diagram API Caption YouTube"></app-img>
 
 Berdasarkan diagram di atas, kita dapat membagi REST API yang akan kita buat menjadi 8 modul yang lebih kecil.
 
