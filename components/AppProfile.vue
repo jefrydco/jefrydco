@@ -32,6 +32,9 @@
       <nuxt-link :to="localePath('blog')" :title="$t('blog')">
         {{ $t('blog') }}
       </nuxt-link>
+      <nuxt-link :to="localePath('talks')" :title="$t('talks')">
+        {{ $t('talks') }}
+      </nuxt-link>
       <nuxt-link :to="localePath('speed')" :title="$t('speed')">
         {{ $t('speed') }}
       </nuxt-link>
