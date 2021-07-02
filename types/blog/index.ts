@@ -1,10 +1,5 @@
-import type { ReadingTimeType } from './reading-time'
-
-export type TocType = {
-  depth: number
-  id: string
-  text: string
-}
+import type { ReadingTimeType } from '../reading-time'
+import type { TocType } from '../toc'
 
 export type BlogDataType = {
   body: Record<string, unknown>
