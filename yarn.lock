@@ -2751,10 +2751,10 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
   integrity sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
 
-"@types/node@^15.12.5":
-  version "15.12.5"
-  resolved "https://registry.npmjs.org/@types/node/-/node-15.12.5.tgz#9a78318a45d75c9523d2396131bd3cca54b2d185"
-  integrity sha512-se3yX7UHv5Bscf8f1ERKvQOD6sTyycH3hdaoozvaLxgUiY5lIGEeH37AD0G0Qi9kPqihPn0HOfd2yaIEN9VwEg==
+"@types/node@^15.14.0":
+  version "15.14.0"
+  resolved "https://registry.npmjs.org/@types/node/-/node-15.14.0.tgz#74dbf254fb375551a9d2a71faf6b9dbc2178dc53"
+  integrity sha512-um/+/ip3QZmwLfIkWZSNtQIJNVAqrJ92OkLMeuZrjZMTAJniI7fh8N8OICyDhAJ2mzgk/fmYFo72jRr5HyZ1EQ==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -3192,10 +3192,10 @@
     "@typescript-eslint/types" "4.26.1"
     eslint-visitor-keys "^2.0.0"
 
-"@typescript/twoslash@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@typescript/twoslash/-/twoslash-2.0.1.tgz#bf6dbd571e832e8f2114810d562eec00632ce107"
-  integrity sha512-+TgjZp0d331A2A9nBBjX/EFax3LnR9MtziICqgo2l23hXV9JY4EiNPdcBSEDBRzaWQIMvSa5YvBENnE6uZ33EA==
+"@typescript/twoslash@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@typescript/twoslash/-/twoslash-2.0.2.tgz#01e5a9b7cc2ef597be7517c7741b1ac63792ccb4"
+  integrity sha512-H+wwbWWm3efHYj5/ZZq7hc3Yw+gcuYsPzx/9/LqHsE3t5Xo6JA0PanFVOjVn/HbIg7lFQpwLlnNRKB8P5fTH2A==
   dependencies:
     "@typescript/vfs" "1.3.4"
     debug "^4.1.1"
@@ -8079,10 +8079,10 @@ human-signals@^2.1.0:
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/husky/-/husky-6.0.0.tgz#810f11869adf51604c32ea577edbc377d7f9319e"
-  integrity sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==
+husky@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/husky/-/husky-7.0.0.tgz#3dbd5d28e76234689ee29bb41e048f28e3e46616"
+  integrity sha512-xK7lO0EtSzfFPiw+oQncQVy/XqV7UVVjxBByc+Iv5iK3yhW9boDoWgvZy3OGo48QKg/hUtZkzz0hi2HXa0kn7w==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
