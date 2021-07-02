@@ -1,6 +1,6 @@
 ---
 title: Membuat Sistem Reaktivitas Vue 3 Versi Sederhana
-description: Reveals the secret of the reactivity system of Vue 3 by recreating a simplified version.
+description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue 3 dengan membuat ulang versi sederhananya.
 summary: Vue 3 telah dirilis akhir tahun kemarin. Artikel ini akan membahas lebih dalam mengenai sistem reaktivitas yang digunakan di Vue 3 dan membuat versi sederhananya menggunakan teknologi yang sama.
 img: /blog/cover/2021/04/people-walking-on-pedestrian-by-andrew-teoh.jpg
 imgCreator: theandrewteoh
