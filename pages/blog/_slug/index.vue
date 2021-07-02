@@ -6,7 +6,7 @@
         <app-img
           :src="blog.img"
           :alt="blog.title"
-          :rounded="false"
+          round="none"
           class="blog-detail__img"
         ></app-img>
       </div>
@@ -17,19 +17,15 @@
               {{ blog.title }}
             </h1>
             <div class="blog-detail__date">
-              <span>
-                <time :datetime="blog.postedDate">
-                  {{ $t('postedOn') }}
-                  {{ formatDate(blog.postedDate) }}
-                </time>
-              </span>
+              <time :datetime="blog.postedDate">
+                {{ $t('postedOn') }}
+                {{ formatDate(blog.postedDate) }}
+              </time>
               •
-              <span>
-                <time :datetime="blog.updatedDate">
-                  {{ $t('updatedOn') }}
-                  {{ formatDate(blog.updatedDate) }}
-                </time>
-              </span>
+              <time :datetime="blog.updatedDate">
+                {{ $t('updatedOn') }}
+                {{ formatDate(blog.updatedDate) }}
+              </time>
               •
               <span>
                 {{ Math.ceil(blog.readingTime.minutes.toFixed(2)) }}
@@ -111,7 +107,6 @@
 <script lang="ts">
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Vue from 'vue'
 import { formatDate } from '~/extendables'
 import { HOSTNAME } from '~/constants'
 import type { BlogDataType } from '~/types/blog'
@@ -193,7 +188,7 @@ export default formatDate.extend({
           property: 'og:image',
           content: `${HOSTNAME}${
             // @ts-expect-error
-            this.blog && require(`~/assets/images/blog${this.blog.img}`)
+            this.blog && require(`~/assets/images${this.blog.img}`)
           }`
         },
         {
@@ -268,7 +263,7 @@ export default formatDate.extend({
               '@type': 'imageObject',
               url: `${HOSTNAME}${
                 // @ts-expect-error
-                this.blog && require(`~/assets/images/blog${this.blog.img}`)
+                this.blog && require(`~/assets/images${this.blog.img}`)
               }`,
               height: '1920',
               width: '1080'

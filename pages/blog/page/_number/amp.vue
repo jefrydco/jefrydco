@@ -1,21 +1,17 @@
 <template>
   <main id="blog-index" class="max-w-3xl mx-auto">
-    <div class="my-12">
-      <app-profile />
-    </div>
-    <section>
-      <app-blog
-        v-for="blog in blogList"
-        :key="blog.slug"
-        :img="blog.img"
-        :title="blog.title"
-        :summary="blog.summary"
-        :posted-date="blog.postedDate"
-        :updated-date="blog.updatedDate"
-        :reading-time="blog.readingTime"
-        :slug="blog.slug"
-      />
-    </section>
+    <app-profile class="my-12" />
+    <app-blog
+      v-for="blog in blogList"
+      :key="blog.slug"
+      :img="blog.img"
+      :title="blog.title"
+      :summary="blog.summary"
+      :posted-date="blog.postedDate"
+      :updated-date="blog.updatedDate"
+      :reading-time="blog.readingTime"
+      :slug="blog.slug"
+    />
     <app-pagination-link
       :prev-link="prevLink"
       :next-link="nextLink"
@@ -164,7 +160,7 @@ export default Vue.extend({
               })}/`,
               image: {
                 '@type': 'imageObject',
-                url: `${HOSTNAME}${require(`~/assets/images/blog${blog.img}`)}`,
+                url: `${HOSTNAME}${require(`~/assets/images${blog.img}`)}`,
                 height: '1920',
                 width: '614'
               },
