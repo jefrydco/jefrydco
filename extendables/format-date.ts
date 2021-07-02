@@ -14,6 +14,19 @@ export default Vue.extend({
           year: 'numeric'
         })
       }
+    },
+    formatTime() {
+      return (date: string) => {
+        if (!date) {
+          return ''
+        }
+        const locale = this.$i18n.locale || 'id-ID'
+        return new Date(date).toLocaleTimeString(locale, {
+          hour12: true,
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      }
     }
   }
 })
