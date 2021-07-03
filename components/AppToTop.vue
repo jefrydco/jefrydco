@@ -12,14 +12,10 @@
   right: 1.5rem;
 
   &__link {
-    @apply block w-12 h-12 rounded-full shadow no-underline text-center text-2xl;
+    @apply block w-12 h-12 rounded-full shadow no-underline text-center text-2xl hover:shadow-lg;
     line-height: 1.8;
     background-color: var(--card-bg);
     color: var(--text-normal);
-
-    &:hover {
-      @apply shadow-lg;
-    }
   }
 }
 
