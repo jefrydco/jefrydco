@@ -1,6 +1,6 @@
 <template>
-  <details class="app-talks-section">
-    <summary class="app-talks-section__summary">
+  <details class="app-talk-section">
+    <summary class="app-talk-section__summary">
       {{ title }}
     </summary>
     <slot />
@@ -22,7 +22,7 @@ export default Vue.extend({
 
 <style lang="postcss">
 /* purgecss start ignore */
-.app-talks-section {
+.app-talk-section {
   @apply max-w-4xl mx-auto;
 
   &__summary {

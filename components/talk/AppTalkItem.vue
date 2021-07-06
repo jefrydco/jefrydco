@@ -1,20 +1,20 @@
 <template>
   <app-card
-    class="app-talks-item"
+    class="app-talk-item"
     :title="title"
-    :to="localePath({ name: 'talks-slug', params: { slug } })"
+    :to="localePath({ name: 'talk-slug', params: { slug } })"
   >
     <template #image="">
-      <div class="app-talks-item__img">
+      <div class="app-talk-item__img">
         <app-img :src="img" :alt="title" round="top" />
       </div>
     </template>
     <template #default="">
-      <header class="app-talks-item__header">
-        <h2 class="app-talks-item__title">
+      <header class="app-talk-item__header">
+        <h2 class="app-talk-item__title">
           {{ title }}
         </h2>
-        <div class="app-talks-item__meta">
+        <div class="app-talk-item__meta">
           <time :datetime="startDate">
             {{ formatDate(startDate) }}
           </time>
@@ -63,7 +63,7 @@ export default formatDate.extend({
 
 <style lang="postcss">
 /* purgecss start ignore */
-.app-talks-item {
+.app-talk-item {
   background-color: var(--card-bg);
 
   &__header {
