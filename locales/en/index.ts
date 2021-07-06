@@ -13,7 +13,7 @@ export default {
   newTab: 'tab baru',
   about: 'About',
   blog: 'Blog',
-  talks: 'Talks',
+  talk: 'Talk',
   speed: 'Speed',
   postedOn: 'Posted on',
   updatedOn: 'Updated on'

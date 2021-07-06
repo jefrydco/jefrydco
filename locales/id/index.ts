@@ -13,7 +13,7 @@ export default {
   newTab: 'tab baru',
   about: 'Tentang',
   blog: 'Blog',
-  talks: 'Talks',
+  talk: 'Talk',
   speed: 'Kecepatan',
   postedOn: 'Diterbitkan pada',
   updatedOn: 'Diperbarui pada'
