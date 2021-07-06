@@ -1,7 +1,7 @@
 ---
 title: TutorTeknik - Uncover Vue 3 Reactivity
 description: Menguak rahasia sistem reaktivitas yang dimiliki oleh Vue 3 dengan membuat ulang versi sederhananya.
-poster: /talks/2021/tutorteknik---uncover-vue-3-reactivity.jpg
+poster: /talk/2021/tutorteknik---uncover-vue-3-reactivity.jpg
 slide: https://bit.ly/slide-vue-3-reactivity
 playback: 
 sourceCode: https://github.com/jefrydco/anime-search-one

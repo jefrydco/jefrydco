@@ -1,7 +1,7 @@
 ---
 title: Chrome Dev Summit Extended 2021 Day 2 - Simple SEO Recipe for Newbie
 description: Search Engine Optimization (SEO) adalah salah satu kunci faktor yang dapat meningkatkan merek atau paparan produk di hasil pencarian mesin pencarian.
-poster: /talks/2021/chrome-dev-summit-extended-2021-day-2---simple-seo-recipe-for-newbie.jpg
+poster: /talk/2021/chrome-dev-summit-extended-2021-day-2---simple-seo-recipe-for-newbie.jpg
 slide: https://bit.ly/seo-pemula
 playback: https://www.youtube.com/watch?v=TDHM8dpLRCg
 sourceCode: https://github.com/jefrydco/vue-adaptive-

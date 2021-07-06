@@ -1,7 +1,7 @@
 ---
 title: HIMIT PENS - Vue.js Intermediate
 description: Vue is a progressive framework for building user interfaces.
-poster: /talks/2020/himit-pens---vuejs-intermediate.jpg
+poster: /talk/2020/himit-pens---vuejs-intermediate.jpg
 slide: https://bit.ly/vuejs-vuex
 playback: http://bit.ly/playback-vuejs-vuex
 writeUp: 

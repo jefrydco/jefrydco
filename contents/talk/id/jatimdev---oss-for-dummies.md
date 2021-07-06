@@ -1,7 +1,7 @@
 ---
 title: JatimDev - OSS for Dummies
 description: Open source adalah perangkat lunak komputer yang bebas untuk digunakan, dipelajari, diubah dan didistribusikan untuk siapapun untuk tujuan apapun.
-poster: /talks/2020/jatimdev---oss-for-dummies.jpg
+poster: /talk/2020/jatimdev---oss-for-dummies.jpg
 slide: https://bit.ly/oss-for-dummies
 playback: 
 sourceCode: 

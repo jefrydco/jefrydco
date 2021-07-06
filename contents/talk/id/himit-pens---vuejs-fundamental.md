@@ -1,7 +1,7 @@
 ---
 title: HIMIT PENS - Vue.js Fundamental
 description: Vue adalah kerangka kerja nan progresif untuk membantung antarmuka pengguna.
-poster: /talks/2020/himit-pens---vuejs-fundamental.jpg
+poster: /talk/2020/himit-pens---vuejs-fundamental.jpg
 slide: https://bit.ly/slide-vuejs
 playback: https://bit.ly/playback-vuejs
 sourceCode: https://github.com/jefrydco/vuejs-fundamental

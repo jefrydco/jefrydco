@@ -1,7 +1,7 @@
 ---
 title: JatimDev - OSS for Dummies
 description: Open source is computer software that is free to use, study, change and distribute to anyone for any purpose.
-poster: /talks/2020/jatimdev---oss-for-dummies.jpg
+poster: /talk/2020/jatimdev---oss-for-dummies.jpg
 slide: https://bit.ly/oss-for-dummies
 playback: 
 sourceCode: 

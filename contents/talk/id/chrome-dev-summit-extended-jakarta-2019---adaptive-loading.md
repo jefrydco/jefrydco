@@ -1,7 +1,7 @@
 ---
 title: Chrome Dev Summit Extended Jakarta 2019 - Adaptive Loading
 description: Adaptive loading adalah sebuah metode untuk memperbaiki kinerja web pada perangkat yang lambat.
-poster: /talks/2019/chrome-dev-summit-extended-jakarta-2019---adaptive-loading.jpg
+poster: /talk/2019/chrome-dev-summit-extended-jakarta-2019---adaptive-loading.jpg
 slide: https://bit.ly/dek-slide-adaptive-loading
 playback: 
 sourceCode: 
