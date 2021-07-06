@@ -2,11 +2,7 @@
   <article :id="slug" class="app-card">
     <slot name="image" />
     <slot />
-    <nuxt-link
-      :aria-label="title"
-      :to="localePath({ name: 'blog-slug', params: { slug } })"
-      class="app-card__link"
-    >
+    <nuxt-link :aria-label="title" :to="to" class="app-card__link">
       {{ title }}
     </nuxt-link>
   </article>
@@ -21,7 +17,7 @@ export default formatDate.extend({
       type: String,
       required: true
     },
-    slug: {
+    to: {
       type: String,
       required: true
     }

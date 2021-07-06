@@ -1,5 +1,9 @@
 <template>
-  <app-card class="app-blog" :title="title" :slug="slug">
+  <app-card
+    class="app-blog"
+    :title="title"
+    :to="localePath({ name: 'blog-slug', params: { slug } })"
+  >
     <template #image="">
       <div class="app-blog__img">
         <app-img :src="img" :alt="title" round="top" />
