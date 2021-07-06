@@ -1,6 +1,6 @@
 import type { ReadingTimeType } from './reading-time'
 
-export type TalksDataType = {
+export type TalkDataType = {
   title: string
   description: string
   poster: string
@@ -15,7 +15,7 @@ export type TalksDataType = {
   readingTime: ReadingTimeType
 }
 
-export type TalksYearItemType = {
+export type TalkYearItemType = {
   year: string
-  list: TalksDataType[]
+  list: TalkDataType[]
 }
