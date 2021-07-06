@@ -1,14 +1,14 @@
 <template>
-  <main id="talks-index">
+  <main id="talk-index">
     <app-profile class="my-12" />
-    <app-talks-section
+    <app-talk-section
       v-for="(yearItem, i) in talkListByYear"
       :key="i"
       :open="i === 0"
       :title="yearItem.year"
     >
       <section class="talks__item">
-        <app-talks-item
+        <app-talk-item
           v-for="talk in yearItem.list"
           :key="talk.slug"
           :img="talk.poster"
@@ -16,9 +16,9 @@
           :slug="talk.slug"
           :start-date="talk.startDate"
           :end-date="talk.endDate"
-        ></app-talks-item>
+        ></app-talk-item>
       </section>
-    </app-talks-section>
+    </app-talk-section>
     <app-to-top />
     <app-scroll-indicator />
   </main>
@@ -30,21 +30,20 @@ import { groupBy } from '~/utils'
 
 import { HOSTNAME } from '~/constants'
 
-import type { TalksYearItemType, TalksDataType } from '~/types/talks'
+import type { TalkYearItemType, TalkDataType } from '~/types/talk'
 
 export default Vue.extend({
   // @ts-ignore
   async asyncData({ app }) {
     const { locale } = app.i18n
 
-    // @ts-expect-error
-    const talkList = await app
-      .$content(`/talks/${locale}`, { deep: true })
+    const talkList: TalkDataType[] = await app
+      .$content(`/talk/${locale}`, { deep: true })
       .sortBy('startDate', 'desc')
-      .fetch<TalksDataType[]>()
+      .fetch()
 
     const talkListByYear = Object.entries(
-      groupBy<TalksDataType, number>(talkList, (item) =>
+      groupBy<TalkDataType, number>(talkList, (item) =>
         new Date(item.startDate).getFullYear()
       )
     )
@@ -53,7 +52,7 @@ export default Vue.extend({
           ({
             year: key,
             list: value
-          } as TalksYearItemType)
+          } as TalkYearItemType)
       )
       .sort((a, z) => parseInt(z.year) - parseInt(a.year))
 
@@ -63,24 +62,24 @@ export default Vue.extend({
   },
   data() {
     return {
-      talkListByYear: [] as TalksYearItemType[]
+      talkListByYear: [] as TalkYearItemType[]
     }
   },
   head() {
     return {
-      title: 'Talks',
+      title: 'Talk',
       meta: [
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `${HOSTNAME}${this.localePath({ name: 'talks' })}/`
+          content: `${HOSTNAME}${this.localePath({ name: 'talk' })}/`
         }
       ],
       link: [
         {
           rel: 'amphtml',
-          href: `${HOSTNAME}${this.localePath({ name: 'talks-amp' })}/`
+          href: `${HOSTNAME}${this.localePath({ name: 'talk-amp' })}/`
         }
       ]
     }
@@ -90,7 +89,7 @@ export default Vue.extend({
 
 <style lang="postcss">
 /* purgecss start ignore */
-.talks-index {
+.talk-index {
   @apply mb-12 mx-4 max-w-3xl rounded overflow-hidden shadow relative;
 }
 
