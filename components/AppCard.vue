@@ -21,6 +21,11 @@ export default formatDate.extend({
       type: String,
       required: true
     }
+  },
+  computed: {
+    slug() {
+      return (this.to as string).split('/').pop()
+    }
   }
 })
 </script>
