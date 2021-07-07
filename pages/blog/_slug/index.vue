@@ -1,6 +1,6 @@
 <template>
   <main id="blog-detail">
-    <app-header-link :to="localePath('blog')" label="Blog" />
+    <app-header-link :to="localePath('blog')" :label="$t('blog')" />
     <template v-if="blog">
       <div class="blog-detail__img-wrapper">
         <app-img
@@ -126,12 +126,11 @@ export default formatDate.extend({
 
     // @ts-expect-error
     const availableLocales = locales.filter((i) => i.code !== locale)
-    // @ts-expect-error
-    const blog = await app
+    const blog: BlogDataType = await app
       .$content(`/blog/${locale}/${slug}`, {
         deep: true
       })
-      .fetch<BlogDataType>()
+      .fetch()
     const fullPath = `${HOSTNAME}/blog/${blog?.slug}`
 
     return {
