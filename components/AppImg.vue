@@ -109,6 +109,7 @@ html:not([⚡]) {
   .image {
     &__placeholder {
       @apply overflow-hidden;
+      background-color: var(--inline-code-bg);
     }
 
     &__image {

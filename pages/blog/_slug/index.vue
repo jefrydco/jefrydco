@@ -675,7 +675,6 @@ export default formatDate.extend({
 .blog-detail {
   &__img-wrapper {
     @apply h-128;
-    background-color: var(--inline-code-bg);
   }
 
   &__img {
