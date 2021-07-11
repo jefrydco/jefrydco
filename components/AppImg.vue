@@ -129,11 +129,6 @@ html:not([⚡]) {
       }
     }
 
-    &__image[lazy='loading'] {
-      @apply opacity-100;
-      filter: blur(0.9375rem);
-    }
-
     &__image[lazy='loaded'] {
       @apply opacity-100;
     }
