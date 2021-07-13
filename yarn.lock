@@ -2288,13 +2288,13 @@
     "@sentry/utils" "6.5.1"
     tslib "^1.9.3"
 
-"@sentry/hub@6.8.0":
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.8.0.tgz#cb0f8509093919ed3c1ef98ef8cf63dc102a6524"
-  integrity sha512-hFrI2Ss1fTov7CH64FJpigqRxH7YvSnGeqxT9Jc1BL7nzW/vgCK+Oh2mOZbosTcrzoDv+lE8ViOnSN3w/fo+rg==
+"@sentry/hub@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@sentry/hub/-/hub-6.9.0.tgz#21068e12769cc745825e8d122c7e81858f609708"
+  integrity sha512-5mors7ojbo7G85ZmoVPQBgFBMONAJwyZfV0LNLy14GenoaVNuxTPyvAQiJb1FYq+x6YZ3CvqGX6r74KRKQU87w==
   dependencies:
-    "@sentry/types" "6.8.0"
-    "@sentry/utils" "6.8.0"
+    "@sentry/types" "6.9.0"
+    "@sentry/utils" "6.9.0"
     tslib "^1.9.3"
 
 "@sentry/integrations@^6.2.5":
@@ -2316,13 +2316,13 @@
     "@sentry/types" "6.5.1"
     tslib "^1.9.3"
 
-"@sentry/minimal@6.8.0":
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.8.0.tgz#d6c3e4c96f231367aeb2b8a87a83b53d28e7c6db"
-  integrity sha512-MRxUKXiiYwKjp8mOQMpTpEuIby1Jh3zRTU0cmGZtfsZ38BC1JOle8xlwC4FdtOH+VvjSYnPBMya5lgNHNPUJDQ==
+"@sentry/minimal@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@sentry/minimal/-/minimal-6.9.0.tgz#e6201eb237753994be83ec33866e3fdae9a79bf3"
+  integrity sha512-GBZ6wG2Rc1wInYEl2BZTZc/t57O1Da876ifLsSPpEQAEnGWbqZWb8RLjZskH09ZIL/K4XCIDDi5ySzN8kFUWJw==
   dependencies:
-    "@sentry/hub" "6.8.0"
-    "@sentry/types" "6.8.0"
+    "@sentry/hub" "6.9.0"
+    "@sentry/types" "6.9.0"
     tslib "^1.9.3"
 
 "@sentry/node@^6.2.5":
@@ -2351,15 +2351,15 @@
     "@sentry/utils" "6.5.1"
     tslib "^1.9.3"
 
-"@sentry/tracing@^6.8.0":
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.8.0.tgz#5baa4f2e66cd2e6851c213213017850f67e65f4b"
-  integrity sha512-3gDkQnmOuOjHz5rY7BOatLEUksANU3efR8wuBa2ujsPQvoLSLFuyZpRjPPsxuUHQOqAYIbSNAoDloXECvQeHjw==
+"@sentry/tracing@^6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-6.9.0.tgz#5dff993af253ee31e62c5f84ab21b008df7d0841"
+  integrity sha512-gogVTypolhPazXr3Lue8HgzBg5Sy1cQpEp5Iq9LtECs+TlOlxJ+S+P+EIjEZ0f1AHVu706jr5cY2G2Shluli9g==
   dependencies:
-    "@sentry/hub" "6.8.0"
-    "@sentry/minimal" "6.8.0"
-    "@sentry/types" "6.8.0"
-    "@sentry/utils" "6.8.0"
+    "@sentry/hub" "6.9.0"
+    "@sentry/minimal" "6.9.0"
+    "@sentry/types" "6.9.0"
+    "@sentry/utils" "6.9.0"
     tslib "^1.9.3"
 
 "@sentry/types@6.5.1":
@@ -2367,10 +2367,10 @@
   resolved "https://registry.npmjs.org/@sentry/types/-/types-6.5.1.tgz#0a34ecfd1ae9275a416a105640eb4bed45a46a1d"
   integrity sha512-b/7a6CMoytaeFPx4IBjfxPw3nPvsQh7ui1C8Vw0LxNNDgBwVhPLzUOWeLWbo5YZCVbGEMIWwtCUQYWxneceZSA==
 
-"@sentry/types@6.8.0":
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.8.0.tgz#97fd531a0ed1e75e65b4a24b26509fb7c15eb7b8"
-  integrity sha512-PbSxqlh6Fd5thNU5f8EVYBVvX+G7XdPA+ThNb2QvSK8yv3rIf0McHTyF6sIebgJ38OYN7ZFK7vvhC/RgSAfYTA==
+"@sentry/types@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@sentry/types/-/types-6.9.0.tgz#ef1a541c4240df6a7c6f5f31d7cdddd7d92c15f1"
+  integrity sha512-v52HJqLoLapEnqS2NdVtUXPvT+aezQgNXQkp8hiQ3RUdTm5cffwBVG7wlbpE6OsOOIZxd6p1zKylFkwCypiIIA==
 
 "@sentry/utils@6.5.1":
   version "6.5.1"
@@ -2380,12 +2380,12 @@
     "@sentry/types" "6.5.1"
     tslib "^1.9.3"
 
-"@sentry/utils@6.8.0":
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.8.0.tgz#0ffafa5b69fe0cdeabad5c4a6cc68a426eaa6b37"
-  integrity sha512-OYlI2JNrcWKMdvYbWNdQwR4QBVv2V0y5wK0U6f53nArv6RsyO5TzwRu5rMVSIZofUUqjoE5hl27jqnR+vpUrsA==
+"@sentry/utils@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-6.9.0.tgz#6bf0bf290a6d37a27078b7c1331a06d8a7e313c5"
+  integrity sha512-PimDr6KAi4cCp5hQZ8Az2/pDcdfhTu7WAU30Dd9MZwknpHSTmD4G6QvkdrB5er6kMMnNQOC7rMo6w/Do3m6X3w==
   dependencies:
-    "@sentry/types" "6.8.0"
+    "@sentry/types" "6.9.0"
     tslib "^1.9.3"
 
 "@sentry/webpack-plugin@^1.15.0":
@@ -3206,10 +3206,10 @@
     "@typescript-eslint/types" "4.26.1"
     eslint-visitor-keys "^2.0.0"
 
-"@typescript/twoslash@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/@typescript/twoslash/-/twoslash-2.0.2.tgz#01e5a9b7cc2ef597be7517c7741b1ac63792ccb4"
-  integrity sha512-H+wwbWWm3efHYj5/ZZq7hc3Yw+gcuYsPzx/9/LqHsE3t5Xo6JA0PanFVOjVn/HbIg7lFQpwLlnNRKB8P5fTH2A==
+"@typescript/twoslash@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@typescript/twoslash/-/twoslash-2.1.0.tgz#0128312e002670367393bb9b48378ac818aceccd"
+  integrity sha512-J72HH+zAMPA9udOuOgAxTXnzeRyz0t33Ww1jQ6CgNfjP3HtrOS4lNgG+m3u1H497U366zbcUOjNkIgNGqefd/A==
   dependencies:
     "@typescript/vfs" "1.3.4"
     debug "^4.1.1"
@@ -9275,10 +9275,10 @@ jiti@^1.9.2:
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.9.2.tgz#2ee44830883dbb1b2e222adc053c3052d0bf3b61"
   integrity sha512-wymUBR/YGGVNVRAxX52yvFoZdUAYKEGjk0sYrz6gXLCvMblnRvJAmDUnMvQiH4tUHDBtbKHnZ4GT3R+m3Hc39A==
 
-joi@^17.4.0:
-  version "17.4.0"
-  resolved "https://registry.npmjs.org/joi/-/joi-17.4.0.tgz#b5c2277c8519e016316e49ababd41a1908d9ef20"
-  integrity sha512-F4WiW2xaV6wc1jxete70Rw4V/VuMd6IN+a5ilZsxG4uYtUXWu2kq9W5P2dz30e7Gmw8RCbY/u/uk+dMPma9tAg==
+joi@^17.4.1:
+  version "17.4.1"
+  resolved "https://registry.npmjs.org/joi/-/joi-17.4.1.tgz#15d2f23c8cbe4d1baded2dd190c58f8dbe11cca0"
+  integrity sha512-gDPOwQ5sr+BUxXuPDGrC1pSNcVR/yGGcTI0aCnjYxZEa3za60K/iCQ+OFIkEHWZGVCUcUlXlFKvMmrlmxrG6UQ==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
@@ -9652,10 +9652,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.npmjs.org/lint-staged/-/lint-staged-11.0.0.tgz#24d0a95aa316ba28e257f5c4613369a75a10c712"
-  integrity sha512-3rsRIoyaE8IphSUtO1RVTFl1e0SLBtxxUOPBtHxQgBHS5/i6nqvjcUfNioMa4BU9yGnPzbO+xkfLtXtxBpCzjw==
+lint-staged@^11.0.1:
+  version "11.0.1"
+  resolved "https://registry.npmjs.org/lint-staged/-/lint-staged-11.0.1.tgz#1b8ae8ed5a52ed87252db95fe008c2618c85f55a"
+  integrity sha512-RkTA1ulE6jAGFskxpGAwxfVRXjHp7D9gFg/+KMARUWMPiVFP0t28Em2u0gL8sA0w3/ck3TC57F2v2RNeQ5XPnw==
   dependencies:
     chalk "^4.1.1"
     cli-truncate "^2.1.0"
