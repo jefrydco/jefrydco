@@ -1,6 +1,6 @@
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="app-demo__card demo__card-2">
+    <div class="app-demo__card app-demo__card-2">
       <pre class="app-demo__code keadaan"></pre>
 
       <input type="number" class="app-demo__form input1" min="0" />

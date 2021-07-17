@@ -1,7 +1,7 @@
 <template>
   <div
-    class="app-demo__card demo__card--custom"
-    :class="{ 'demo__card--custom--floating': isFloating }"
+    class="app-demo__card app-demo__card--custom"
+    :class="{ 'app-demo__card--custom--floating': isFloating }"
   >
     <div class="flex-container" :style="flexContainer">
       <button
