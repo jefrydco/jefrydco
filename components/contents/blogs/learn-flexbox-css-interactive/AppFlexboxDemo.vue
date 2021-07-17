@@ -1,6 +1,6 @@
 <template>
   <div
-    class="demo__card demo__card--custom"
+    class="app-demo__card demo__card--custom"
     :class="{ 'demo__card--custom--floating': isFloating }"
   >
     <div class="flex-container" :style="flexContainer">

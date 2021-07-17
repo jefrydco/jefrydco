@@ -21,8 +21,12 @@
 
 <template>
   <client-only>
-    <app-demo :path="DEFAULT_PATH" :name="$options.name" class="demo--combined">
-      <div class="demo__interactive">
+    <app-demo
+      :path="DEFAULT_PATH"
+      :name="$options.name"
+      class="app-demo--combined"
+    >
+      <div class="app-demo__interactive">
         <div class="interact">
           <h3 class="interact__heading">{{ $t('container') }}</h3>
           <div class="flex-property">
@@ -307,7 +311,7 @@
           is-floating=""
         />
       </transition>
-      <pre class="demo__code">{{ html }}</pre>
+      <pre class="app-demo__code">{{ html }}</pre>
     </app-demo>
   </client-only>
 </template>

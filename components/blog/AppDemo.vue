@@ -10,7 +10,7 @@
 </i18n>
 
 <template>
-  <figure :id="name" class="demo">
+  <figure :id="name" class="app-demo">
     <slot />
     <figcaption class="text-sm text-center mt-4">
       <p v-html="$t('demo_notice')"></p>

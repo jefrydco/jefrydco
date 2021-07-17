@@ -64,7 +64,7 @@
 <template>
   <app-intersect @enter="onDemoEnter" @leave="onDemoLeave">
     <app-demo :path="DEFAULT_PATH" :name="$options.name">
-      <div class="demo__card">
+      <div class="app-demo__card">
         <app-youtube-video
           ref="youtubeVideo"
           :is-playing="isPlaying"
@@ -73,7 +73,7 @@
           @play="onYoutubeVideoPlay"
         ></app-youtube-video>
 
-        <h2 v-if="isMetaAvailable" class="demo__heading">
+        <h2 v-if="isMetaAvailable" class="app-demo__heading">
           "{{ results.meta.title }}"
           {{ $t('by') }}
           <a
@@ -84,7 +84,7 @@
             {{ results.meta.channelName }}
           </a>
         </h2>
-        <h2 v-else class="demo__heading">
+        <h2 v-else class="app-demo__heading">
           "{{ $t('title') }}" {{ $t('by') }}
           <span v-html="$t('channel_name')"></span>
         </h2>
@@ -117,11 +117,11 @@
 
         <div class="mb-8">
           <p
-            class="demo__p"
+            class="app-demo__p"
             :class="{ 'demo__p--error': isSearchingError }"
             v-html="searchInfo"
           ></p>
-          <p class="demo__p">{{ $t('timer', { timer }) }}</p>
+          <p class="app-demo__p">{{ $t('timer', { timer }) }}</p>
         </div>
         <button class="btn" @click="toggleAutoDemo">
           {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
@@ -133,7 +133,7 @@
         <hr />
 
         <div class="mb-8">
-          <p class="demo__p">
+          <p class="app-demo__p">
             {{
               $t('search_result_info', {
                 page: results.page,

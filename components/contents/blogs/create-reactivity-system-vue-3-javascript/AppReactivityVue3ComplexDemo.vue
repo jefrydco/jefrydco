@@ -11,12 +11,12 @@
 
 <template>
   <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-1">
-      <pre class="demo__code state"></pre>
+    <div class="app-demo__card demo__card-1">
+      <pre class="app-demo__code state"></pre>
 
       <input
         type="text"
-        class="demo__form input"
+        class="app-demo__form input"
         :aria-label="$t('todo_label')"
       />
 
@@ -201,7 +201,7 @@ export default ExtendableReactivityVue3.extend({
         el.innerHTML = value
           .map((item, i) =>
             '<li>'
-              .concat(item, ' <button class="demo__form demo__form--custom item-')
+              .concat(item, ' <button class="app-demo__form demo__form--custom item-')
               .concat(i, '" data-index="')
               .concat(i, '">x</button></li>')
           )
