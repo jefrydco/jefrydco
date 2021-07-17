@@ -59,20 +59,20 @@ export default ExtendableCreateReactivity1.extend({
               // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
               // Hal tersebut mencegah scrip dieksekusi untuk semua demo
               const tampilanKeadaan = document.querySelector(
-                '.demo__card-4 .keadaan'
+                '.app-demo__card-4 .keadaan'
               )
               tampilanKeadaan.innerText = JSON.stringify(keadaan, null, 2)
 
               const tampilanHasil = document.querySelector(
-                '.demo__card-4 .hasil'
+                '.app-demo__card-4 .hasil'
               )
               tampilanHasil.innerText = keadaan.hasil.toString()
 
               const tampilanInput1 = document.querySelector(
-                '.demo__card-4 .input1'
+                '.app-demo__card-4 .input1'
               )
               const tampilanInput2 = document.querySelector(
-                '.demo__card-4 .input2'
+                '.app-demo__card-4 .input2'
               )
 
               tampilanInput1.value = keadaan.input1.toString()

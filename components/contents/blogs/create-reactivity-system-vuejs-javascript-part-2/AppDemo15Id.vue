@@ -75,22 +75,22 @@ export default ExtendableCreateReactivity2.extend({
               // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
               // Hal tersebut mencegah scrip dieksekusi untuk semua demo
               const tampilanKeadaan = document.querySelector(
-                '.demo__card-15 .keadaan'
+                '.app-demo__card-15 .keadaan'
               )
 
               const tampilanHasil = document.querySelector(
-                '.demo__card-15 .hasil'
+                '.app-demo__card-15 .hasil'
               )
 
               const tampilanInput1 = document.querySelector(
-                '.demo__card-15 .input1'
+                '.app-demo__card-15 .input1'
               )
               const tampilanInput2 = document.querySelector(
-                '.demo__card-15 .input2'
+                '.app-demo__card-15 .input2'
               )
 
               const tampilanOperator = document.querySelector(
-                '.demo__card-15 .operator'
+                '.app-demo__card-15 .operator'
               )
 
               function mutakhirkanTampilan() {
@@ -140,19 +140,19 @@ export default ExtendableCreateReactivity2.extend({
               /* KODE UNTUK PENGHITUNG WAKTU */
 
               const tampilanKeadaan2 = document.querySelector(
-                '.demo__card-15 .keadaan-2'
+                '.app-demo__card-15 .keadaan-2'
               )
               const tampilanTombolMulai = document.querySelector(
-                '.demo__card-15 .mulai'
+                '.app-demo__card-15 .mulai'
               )
               const tampilanTombolBerhenti = document.querySelector(
-                '.demo__card-15 .berhenti'
+                '.app-demo__card-15 .berhenti'
               )
               const tampilanTombolReset = document.querySelector(
-                '.demo__card-15 .reset'
+                '.app-demo__card-15 .reset'
               )
               const tampilanDetik = document.querySelector(
-                '.demo__card-15 .detik'
+                '.app-demo__card-15 .detik'
               )
 
               function mutakhirkanPenghitungDetik() {

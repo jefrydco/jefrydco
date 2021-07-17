@@ -248,7 +248,7 @@ export default ExtendableReactivityVue3.extend({
 
 <style>
 .prose-lg {
-  .demo__form.demo__form--custom {
+  .app-demo__form.app-demo__form--custom {
     @apply ml-2 px-4;
   }
 }

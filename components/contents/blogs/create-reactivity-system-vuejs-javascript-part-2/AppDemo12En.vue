@@ -75,22 +75,22 @@ export default ExtendableCreateReactivity2.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const stateDisplay = document.querySelector(
-                '.demo__card-12 .state'
+                '.app-demo__card-12 .state'
               )
 
               const resultDisplay = document.querySelector(
-                '.demo__card-12 .result'
+                '.app-demo__card-12 .result'
               )
 
               const input1Display = document.querySelector(
-                '.demo__card-12 .input1'
+                '.app-demo__card-12 .input1'
               )
               const input2Display = document.querySelector(
-                '.demo__card-12 .input2'
+                '.app-demo__card-12 .input2'
               )
 
               const operatorDisplay = document.querySelector(
-                '.demo__card-12 .operator'
+                '.app-demo__card-12 .operator'
               )
 
               function updateDisplay() {
@@ -164,19 +164,19 @@ export default ExtendableCreateReactivity2.extend({
               /* CODE FOR STOPWATCH */
 
               const state2Display = document.querySelector(
-                '.demo__card-12 .state-2'
+                '.app-demo__card-12 .state-2'
               )
               const startButtonDisplay = document.querySelector(
-                '.demo__card-12 .start'
+                '.app-demo__card-12 .start'
               )
               const stopButtonDisplay = document.querySelector(
-                '.demo__card-12 .stop'
+                '.app-demo__card-12 .stop'
               )
               const resetButtonDisplay = document.querySelector(
-                '.demo__card-12 .reset'
+                '.app-demo__card-12 .reset'
               )
               const secondDisplay = document.querySelector(
-                '.demo__card-12 .second'
+                '.app-demo__card-12 .second'
               )
 
               function updateStopwatch() {

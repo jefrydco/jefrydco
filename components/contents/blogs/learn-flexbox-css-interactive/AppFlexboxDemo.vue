@@ -63,7 +63,7 @@ export default Vue.extend({
 <style>
 /* purgecss start ignore */
 .prose {
-  .demo__card--custom {
+  .app-demo__card--custom {
     height: 24rem;
 
     &--floating {
@@ -101,7 +101,7 @@ export default Vue.extend({
     }
   }
   @media (max-width: 992px) {
-    .demo__card--custom {
+    .app-demo__card--custom {
       &--floating {
         top: 5rem;
         transform-origin: 100% 0;

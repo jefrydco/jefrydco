@@ -59,22 +59,22 @@ export default ExtendableCreateReactivity1.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const stateDisplay = document.querySelector(
-                '.demo__card-9 .state'
+                '.app-demo__card-9 .state'
               )
 
               const resultDisplay = document.querySelector(
-                '.demo__card-9 .result'
+                '.app-demo__card-9 .result'
               )
 
               const input1Display = document.querySelector(
-                '.demo__card-9 .input1'
+                '.app-demo__card-9 .input1'
               )
               const input2Display = document.querySelector(
-                '.demo__card-9 .input2'
+                '.app-demo__card-9 .input2'
               )
 
               const operatorDisplay = document.querySelector(
-                '.demo__card-9 .operator'
+                '.app-demo__card-9 .operator'
               )
 
               function updateDisplay() {

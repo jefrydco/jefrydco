@@ -506,14 +506,14 @@ export default ExtendableSearchText.extend({
 </script>
 
 <style lang="postcss">
-p.demo__p {
+p.app-demo__p {
   @apply mb-0;
 
   &--error {
     color: var(--error);
   }
 }
-h2.demo__heading {
+h2.app-demo__heading {
   @apply mt-0 mb-8;
 
   > a {
@@ -528,7 +528,7 @@ h2.demo__heading {
   }
 }
 @media (max-width: 992px) {
-  h2.demo__heading {
+  h2.app-demo__heading {
     > a {
       &::before {
         @apply ml-0;

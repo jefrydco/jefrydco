@@ -59,12 +59,12 @@ export default ExtendableCreateReactivity1.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const stateDisplay = document.querySelector(
-                '.demo__card-3 .state'
+                '.app-demo__card-3 .state'
               )
               stateDisplay.innerText = JSON.stringify(state, null, 2)
 
               const resultDisplay = document.querySelector(
-                '.demo__card-3 .result'
+                '.app-demo__card-3 .result'
               )
               resultDisplay.innerText = state.result.toString()
             }
