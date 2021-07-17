@@ -1,33 +1,35 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="app-demo__card app-demo__card-15">
-      <pre class="app-demo__code keadaan"></pre>
+  <app-demo
+    :path="DEFAULT_PATH"
+    :name="$options.name"
+    class="app-demo__card-15"
+  >
+    <pre class="app-demo__code keadaan"></pre>
 
-      <input type="number" class="app-demo__form input1" min="0" />
-      <select class="app-demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="app-demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="hasil"></div>
+    <div class="hasil"></div>
 
-      <hr />
+    <hr />
 
-      <pre class="app-demo__code keadaan-2"></pre>
+    <pre class="app-demo__code keadaan-2"></pre>
 
-      <div>
-        <button class="btn mulai">Mulai</button>
-        <button class="btn berhenti">Berhenti</button>
-        <button class="btn reset">Reset</button>
-      </div>
-
-      <div class="detik"></div>
-
-      <div ref="script15" class="script"></div>
+    <div>
+      <button class="btn mulai">Mulai</button>
+      <button class="btn berhenti">Berhenti</button>
+      <button class="btn reset">Reset</button>
     </div>
+
+    <div class="detik"></div>
+
+    <div ref="script15" class="script"></div>
   </app-demo>
 </template>
 

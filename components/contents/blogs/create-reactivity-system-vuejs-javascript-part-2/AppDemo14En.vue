@@ -1,33 +1,35 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="app-demo__card app-demo__card-14">
-      <pre class="app-demo__code state"></pre>
+  <app-demo
+    :path="DEFAULT_PATH"
+    :name="$options.name"
+    class="app-demo__card-14"
+  >
+    <pre class="app-demo__code state"></pre>
 
-      <input type="number" class="app-demo__form input1" min="0" />
-      <select class="app-demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="app-demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="hasil"></div>
+    <div class="hasil"></div>
 
-      <hr />
+    <hr />
 
-      <pre class="app-demo__code state-2"></pre>
+    <pre class="app-demo__code state-2"></pre>
 
-      <div>
-        <button class="btn start">Start</button>
-        <button class="btn stop">Stop</button>
-        <button class="btn reset">Reset</button>
-      </div>
-
-      <div class="second"></div>
-
-      <div ref="script14" class="script"></div>
+    <div>
+      <button class="btn start">Start</button>
+      <button class="btn stop">Stop</button>
+      <button class="btn reset">Reset</button>
     </div>
+
+    <div class="second"></div>
+
+    <div ref="script14" class="script"></div>
   </app-demo>
 </template>
 

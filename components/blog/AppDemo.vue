@@ -11,7 +11,9 @@
 
 <template>
   <figure :id="name" class="app-demo">
-    <slot />
+    <div class="app-demo__card">
+      <slot />
+    </div>
     <figcaption class="text-sm text-center mt-4">
       <p v-html="$t('demo_notice')"></p>
       <p>
@@ -50,3 +52,8 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="postcss">
+.app-demo {
+}
+</style>

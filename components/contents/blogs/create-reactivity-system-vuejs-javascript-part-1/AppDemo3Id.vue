@@ -1,21 +1,19 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="app-demo__card app-demo__card-3">
-      <pre class="app-demo__code keadaan"></pre>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name" class="app-demo__card-3">
+    <pre class="app-demo__code keadaan"></pre>
 
-      <input type="number" class="app-demo__form input1" min="0" />
-      <select class="app-demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="app-demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="hasil"></div>
+    <div class="hasil"></div>
 
-      <div ref="script3" class="script"></div>
-    </div>
+    <div ref="script3" class="script"></div>
   </app-demo>
 </template>
 

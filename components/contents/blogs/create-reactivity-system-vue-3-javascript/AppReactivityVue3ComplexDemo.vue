@@ -10,20 +10,18 @@
 </i18n>
 
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="app-demo__card demo__card-1">
-      <pre class="app-demo__code state"></pre>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name" class="app-demo__card-1">
+    <pre class="app-demo__code state"></pre>
 
-      <input
-        type="text"
-        class="app-demo__form input"
-        :aria-label="$t('todo_label')"
-      />
+    <input
+      type="text"
+      class="app-demo__form input"
+      :aria-label="$t('todo_label')"
+    />
 
-      <ul class="list"></ul>
+    <ul class="list"></ul>
 
-      <div ref="reactivityVue3Script1" class="script"></div>
-    </div>
+    <div ref="reactivityVue3Script1" class="script"></div>
   </app-demo>
 </template>
 
