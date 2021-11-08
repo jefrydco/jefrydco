@@ -33,7 +33,7 @@ import type { BlogListDataType } from '~/types/blog'
 export default Vue.extend({
   mixins: [pagination],
   // @ts-ignore
-  async asyncData({ app, route, redirect }) {
+  async asyncData({ app, route, redirect, localePath }) {
     const { locale } = app.i18n
     try {
       const pageNumber = parseInt(route?.params?.number)
@@ -63,10 +63,10 @@ export default Vue.extend({
           ...getPrevNextPage(pageNumber, lastPage)
         }
       } else {
-        redirect(app.localePath('/blog'))
+        redirect(localePath('/blog'))
       }
     } catch (error) {
-      redirect(app.localePath('/blog'))
+      redirect(localePath('/blog'))
     }
   },
   data() {

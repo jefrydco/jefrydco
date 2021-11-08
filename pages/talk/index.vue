@@ -54,7 +54,7 @@ export default Vue.extend({
             list: value
           } as TalkYearItemType)
       )
-      .sort((a, z) => parseInt(z.year) - parseInt(a.year))
+      .sort((a, z) => parseInt(z.year, 10) - parseInt(a.year, 10))
 
     return {
       talkListByYear
@@ -62,6 +62,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      // eslint-disable-next-line
       talkListByYear: [] as TalkYearItemType[]
     }
   },

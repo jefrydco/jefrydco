@@ -1,5 +1,5 @@
 <template>
-  <figure v-lazy-container="{ selector: 'img' }" class="image__placeholder">
+  <figure v-lazy-container="{ selector: 'img' }" class="app-img">
     <img
       :data-src="imageRequired.src"
       :data-srcset="imageRequired.srcSet"
@@ -9,9 +9,9 @@
       :class="`${computedClasses} ${classes}`.trim()"
       :alt="alt"
       :src="imageRequired.placeholder"
-      class="image__image"
+      class="app-img__img"
     />
-    <figcaption v-if="caption && source && sourceLink" class="image__caption">
+    <figcaption v-if="caption && source && sourceLink" class="app-img__caption">
       {{ $t(captionKey) }}. {{ $t('imageFrom') }}:
       <a :href="sourceLink" rel="noopener noreferrer">{{ source }}</a>
     </figcaption>
@@ -76,12 +76,12 @@ export default Vue.extend({
       return Object.keys(this?.caption?.id ?? {})[0] || null
     },
     computedClasses() {
-      let computedClass = 'image__image--rounded'
+      let computedClass = 'app-img__img--rounded'
       if (this.round === 'none') {
-        computedClass = `${computedClass} image__image--rounded-none`
+        computedClass = `${computedClass} app-img__img--rounded-none`
       }
       if (this.round === 'top') {
-        computedClass = `${computedClass} image__image--rounded-top`
+        computedClass = `${computedClass} app-img__img--rounded-top`
       }
       return computedClass
     }
@@ -106,13 +106,13 @@ export default Vue.extend({
 <style lang="postcss">
 /* purgecss start ignore */
 html:not([⚡]) {
-  .image {
+  .app-img {
     &__placeholder {
       @apply overflow-hidden;
       background-color: var(--inline-code-bg);
     }
 
-    &__image {
+    &__img {
       @apply opacity-0 object-cover;
       transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
 
@@ -129,7 +129,7 @@ html:not([⚡]) {
       }
     }
 
-    &__image[lazy='loaded'] {
+    &__img[lazy='loaded'] {
       @apply opacity-100;
     }
 

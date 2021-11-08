@@ -394,6 +394,7 @@ export default ExtendableLearnFlexbox.extend({
         .join('')
     },
     style() {
+      // eslint-disable-next-line
       return vkbeautify.css(
         // @ts-expect-error
         `${this.flexContainerStyle}.${this.itemClass} {background-color: #ed8936;color: #fff;width: 4rem;height: 4rem;border-radius: 0.25rem;margin: 0.25rem;padding: 1rem;text-align: center;font-size: 1.25rem;cursor: pointer;}${this.flexItemStyle}`,
@@ -401,6 +402,7 @@ export default ExtendableLearnFlexbox.extend({
       )
     },
     html() {
+      // eslint-disable-next-line
       return vkbeautify.xml(
         // @ts-expect-error
         `<div class="${this.containerClass}">

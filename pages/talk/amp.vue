@@ -14,6 +14,8 @@
           :img="talk.poster"
           :title="talk.title"
           :slug="talk.slug"
+          :start-date="talk.startDate"
+          :end-date="talk.endDate"
         ></app-talk-item>
       </section>
     </app-talk-section>
@@ -35,11 +37,10 @@ export default Vue.extend({
   async asyncData({ app }) {
     const { locale } = app.i18n
 
-    // @ts-expect-error
-    const talkList = await app
+    const talkList: TalkDataType[] = await app
       .$content(`/talk/${locale}`, { deep: true })
       .sortBy('startDate', 'desc')
-      .fetch<TalkDataType[]>()
+      .fetch()
 
     const talkListByYear = Object.entries(
       groupBy<TalkDataType, number>(talkList, (item) =>
@@ -53,7 +54,7 @@ export default Vue.extend({
             list: value
           } as TalkYearItemType)
       )
-      .sort((a, z) => parseInt(z.year) - parseInt(a.year))
+      .sort((a, z) => parseInt(z.year, 10) - parseInt(a.year, 10))
 
     return {
       talkListByYear
@@ -61,12 +62,13 @@ export default Vue.extend({
   },
   data() {
     return {
+      // eslint-disable-next-line
       talkListByYear: [] as TalkYearItemType[]
     }
   },
   head() {
     return {
-      title: 'Talks',
+      title: 'Talk',
       meta: [
         {
           hid: 'og:url',
@@ -78,7 +80,7 @@ export default Vue.extend({
       link: [
         {
           hid: 'i18n-can',
-          rel: 'canonical',
+          rel: 'amphtml',
           href: `${HOSTNAME}${this.localePath({ name: 'talk' })}/`
         }
       ]
@@ -94,7 +96,7 @@ export default Vue.extend({
 }
 
 .talks__item {
-  @apply mx-4 grid grid-cols-1 sm:grid-cols-2 gap-3;
+  @apply mx-4 grid grid-cols-1 md:grid-cols-2 gap-3;
 }
 /* purgecss end ignore */
 </style>

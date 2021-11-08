@@ -29,28 +29,32 @@ import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
   // @ts-ignore
-  async asyncData({ app }) {
-    const { locale } = app.i18n
+  async asyncData({ app, redirect, localePath }) {
+    try {
+      const { locale } = app.i18n
 
-    // @ts-expect-error
-    const blogList = await app
-      .$content(`/blog/${locale}`, { deep: true })
-      .limit(MAXIMAL_BLOG_ITEM)
-      .only([
-        'img',
-        'title',
-        'description',
-        'summary',
-        'postedDate',
-        'updatedDate',
-        'slug',
-        'readingTime'
-      ])
-      .sortBy('postedDate', 'desc')
-      .fetch<BlogListDataType>()
+      // @ts-expect-error
+      const blogList = await app
+        .$content(`/blog/${locale}`, { deep: true })
+        .limit(MAXIMAL_BLOG_ITEM)
+        .only([
+          'img',
+          'title',
+          'description',
+          'summary',
+          'postedDate',
+          'updatedDate',
+          'slug',
+          'readingTime'
+        ])
+        .sortBy('postedDate', 'desc')
+        .fetch<BlogListDataType>()
 
-    return {
-      blogList
+      return {
+        blogList
+      }
+    } catch {
+      redirect(localePath('/'))
     }
   },
   data() {

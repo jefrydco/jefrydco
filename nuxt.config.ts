@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import DotEnv from 'dotenv'
+import { config as dotEnvConfig } from 'dotenv'
 import { $content } from '@nuxt/content'
 import { AstUtility, ThematicBlock } from '@nuxt/content/types/highlighter'
 import { EnumChangefreq } from 'sitemap'
@@ -22,7 +22,7 @@ import type { ReadingTimeType } from './types'
 import type { BlogListDataType } from './types/blog'
 import { getLastPage, getPageList } from './utils'
 
-DotEnv.config()
+dotEnvConfig()
 
 const isProductionBuild = process.env.NODE_ENV === 'production'
 
@@ -444,7 +444,7 @@ export default {
           })
 
           // @ts-expect-error
-          const contents: BlogListDataType = await $content(`/id/blog`, {
+          const contents: BlogListDataType = await $content(`/blog/id`, {
             deep: true
           })
             .only(['title', 'slug', 'img', 'postedDate', 'summary'])
@@ -477,7 +477,7 @@ export default {
     gzip: true,
     async routes(): Promise<Partial<SitemapItemOptions>[]> {
       // @ts-expect-error
-      const contents: BlogListDataType = await $content(`/id/blog`, {
+      const contents: BlogListDataType = await $content(`/blog/id`, {
         deep: true
       })
         .only(['slug', 'updatedDate'])
@@ -547,7 +547,7 @@ export default {
     fallback: true,
     async routes() {
       // @ts-expect-error
-      const contents: BlogListDataType = await $content(`/id/blog`, {
+      const contents: BlogListDataType = await $content(`/blog/id`, {
         deep: true
       })
         .only(['slug'])

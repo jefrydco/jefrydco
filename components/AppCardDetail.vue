@@ -322,101 +322,10 @@ export default formatDate.extend({
   }
 
   .embed,
-  .demo,
   .nuxt-content-highlight,
-  .image__placeholder {
+  .app-demo,
+  .app-img {
     @apply mb-8;
-  }
-
-  .demo {
-    blockquote,
-    quote {
-      border-color: var(--inline-code-text);
-    }
-
-    .btn,
-    .textarea,
-    .input {
-      background-color: var(--card-bg);
-    }
-
-    &__card {
-      @apply rounded p-4;
-      background-color: var(--bg);
-    }
-
-    &__code {
-      @apply mt-0 mb-4;
-      padding: 0.5rem 1rem;
-    }
-
-    &__interactive {
-      @apply p-4;
-      border-color: var(--inline-code-bg);
-    }
-
-    &--combined {
-      .demo {
-        &__interactive {
-          @apply border-t-2 border-l-2 border-r-2 rounded-t-lg;
-        }
-
-        &__card:not(.demo-card--custom--floating) {
-          @apply rounded-none;
-        }
-
-        &__code {
-          @apply rounded-b-lg rounded-t-none;
-        }
-      }
-    }
-  }
-
-  .btn,
-  .textarea,
-  .input,
-  .demo__form {
-    @apply mb-4 py-1 px-2 rounded;
-
-    &:not(:last-child) {
-      @apply mr-2;
-    }
-
-    &:disabled {
-      background-color: var(--bg-disabled);
-      color: var(--text-disabled);
-    }
-  }
-
-  .radio,
-  .checkbox {
-    &__label,
-    &__input {
-      @apply cursor-pointer;
-    }
-
-    &__label {
-      @apply inline-flex items-center;
-    }
-
-    &__input {
-      color: var(--inline-code-bg);
-
-      &:focus {
-        @apply shadow-none border-none;
-        outline: 0.125rem solid var(--text-normal);
-      }
-    }
-  }
-
-  .btn,
-  .textarea,
-  .input {
-    background-color: var(--bg);
-  }
-
-  .demo__form {
-    background-color: var(--card-bg);
   }
 }
 

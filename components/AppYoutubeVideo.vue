@@ -4,10 +4,10 @@
     class="youtube embed embed__16/9"
     tabindex="0"
     @click="play"
-    @keydown.space.enter="play"
+    @keydown.space.enter.prevent="play"
   >
     <transition name="fade">
-      <div v-if="!isPlayed" class="youtube__image">
+      <div v-if="!isPlayed" class="youtube__img">
         <img :src="thumbnailUrl" :alt="label" width="816" height="459" />
       </div>
       <div v-else class="youtube__embed">
@@ -114,15 +114,15 @@ export default Vue.extend({
   @apply cursor-pointer;
   padding-top: 56.25%;
 
-  &__image,
+  &__img,
   &__embed iframe {
     @apply absolute top-0 left-0 bottom-0 h-full w-full;
     border: 0;
   }
 
-  &__image {
+  &__img {
     img {
-      @apply h-full;
+      @apply w-full h-auto;
     }
 
     &::before,

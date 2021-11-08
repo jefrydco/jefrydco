@@ -54,6 +54,32 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
-.app-demo {
+/* purgecss start ignore */
+.prose-lg {
+  .app-demo {
+    &__card {
+      @apply rounded p-4;
+      background: var(--bg);
+    }
+
+    &__code {
+      @apply mt-0 mb-4;
+    }
+
+    &__form {
+      @apply mb-4 py-1 px-2 rounded;
+      background-color: var(--card-bg);
+
+      &:not(:last-child) {
+        @apply mr-2;
+      }
+
+      &:disabled {
+        background-color: var(--bg-disabled);
+        color: var(--text-disabled);
+      }
+    }
+  }
 }
+/* purgecss end ignore */
 </style>

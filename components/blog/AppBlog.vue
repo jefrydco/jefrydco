@@ -97,6 +97,7 @@ export default formatDate.extend({
 
   &__img {
     @apply h-64 rounded-t;
+    background-color: var(--inline-code-bg);
   }
 
   &__meta {

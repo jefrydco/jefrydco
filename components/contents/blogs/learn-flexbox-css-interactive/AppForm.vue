@@ -38,10 +38,10 @@
 </i18n>
 
 <template>
-  <div class="flex-form">
-    <transition name="fade" mode="out-in">
-      <div v-if="!isSubmitted" class="flex-form__content">
-        <client-only>
+  <client-only>
+    <app-demo :path="DEFAULT_PATH" :name="$options.name" class="flex-form">
+      <transition name="fade" mode="out-in">
+        <div v-if="!isSubmitted" class="flex-form__content">
           <app-intersect
             :threshold="[0.5]"
             @enter="onContentRandomEnter"
@@ -60,87 +60,87 @@
               </transition-group>
             </div>
           </app-intersect>
-        </client-only>
-        <div class="content__textarea">
-          <label class="block">
-            <span>{{ $t('answer') }}</span>
-            <textarea
-              v-model="answers"
-              class="block w-full textarea"
-              rows="3"
-              readonly=""
-              :placeholder="$t('flexbox_is')"
-            ></textarea>
-          </label>
+          <div class="content__textarea">
+            <label class="block">
+              <span>{{ $t('answer') }}</span>
+              <textarea
+                v-model="answers"
+                class="block w-full textarea"
+                rows="3"
+                readonly=""
+                :placeholder="$t('flexbox_is')"
+              ></textarea>
+            </label>
+          </div>
+          <div class="content__textarea">
+            <label class="block">
+              <span>{{ $t('add_more_comment') }}</span>
+              <textarea
+                v-model="comment"
+                class="block w-full textarea"
+                rows="3"
+                :placeholder="$t('in_my_opinion')"
+              ></textarea>
+              <template v-if="comment.length >= 5">
+                <transition name="fade" mode="out-in">
+                  <small v-if="comment.length < COMMENT_MIN_LENGTH">
+                    {{
+                      $t('comment_info.more', {
+                        num: COMMENT_MIN_LENGTH - comment.length
+                      })
+                    }}
+                  </small>
+                  <small v-else>
+                    {{ $t('comment_info.cool') }}
+                  </small>
+                </transition>
+              </template>
+            </label>
+          </div>
+          <div class="content__action">
+            <button class="btn" :disabled="isLoading" @click="onReset">
+              {{ $t('reset') }}
+            </button>
+            <button
+              class="btn"
+              :disabled="isLoading || answers.length < ANSWERS_MIN_LENGTH"
+              @click="onSubmit"
+            >
+              {{ isLoading ? $t('sending') : $t('send') }}
+            </button>
+          </div>
         </div>
-        <div class="content__textarea">
-          <label class="block">
-            <span>{{ $t('add_more_comment') }}</span>
-            <textarea
-              v-model="comment"
-              class="block w-full textarea"
-              rows="3"
-              :placeholder="$t('in_my_opinion')"
-            ></textarea>
-            <template v-if="comment.length >= 5">
-              <transition name="fade" mode="out-in">
-                <small v-if="comment.length < COMMENT_MIN_LENGTH">
-                  {{
-                    $t('comment_info.more', {
-                      num: COMMENT_MIN_LENGTH - comment.length
-                    })
-                  }}
-                </small>
-                <small v-else>
-                  {{ $t('comment_info.cool') }}
-                </small>
-              </transition>
-            </template>
-          </label>
+        <div v-else class="flex-form__success">
+          <p>{{ $t('comments_is_saved') }}</p>
+          <p>{{ $t('your_opinion') }}</p>
+          <div class="mb-8">
+            <button v-for="hint in hints" :key="hint" class="btn">
+              {{ hint }}
+            </button>
+          </div>
+          <template v-if="comment">
+            <p>{{ $t('your_comments') }}</p>
+            <blockquote>
+              <p>{{ comment }}</p>
+            </blockquote>
+          </template>
+          <div class="content__action">
+            <button class="btn" :disabled="isLoading" @click="onReset">
+              {{ $t('reset') }}
+            </button>
+          </div>
         </div>
-        <div class="content__action">
-          <button class="btn" :disabled="isLoading" @click="onReset">
-            {{ $t('reset') }}
-          </button>
-          <button
-            class="btn"
-            :disabled="isLoading || answers.length < ANSWERS_MIN_LENGTH"
-            @click="onSubmit"
-          >
-            {{ isLoading ? $t('sending') : $t('send') }}
-          </button>
-        </div>
-      </div>
-      <div v-else class="flex-form__success">
-        <p>{{ $t('comments_is_saved') }}</p>
-        <p>{{ $t('your_opinion') }}</p>
-        <div class="mb-8">
-          <button v-for="hint in hints" :key="hint" class="btn">
-            {{ hint }}
-          </button>
-        </div>
-        <template v-if="comment">
-          <p>{{ $t('your_comments') }}</p>
-          <blockquote>
-            <p>{{ comment }}</p>
-          </blockquote>
-        </template>
-        <div class="content__action">
-          <button class="btn" :disabled="isLoading" @click="onReset">
-            {{ $t('reset') }}
-          </button>
-        </div>
-      </div>
-    </transition>
-  </div>
+      </transition>
+    </app-demo>
+  </client-only>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import ExtendableLearnFlexbox from './ExtendableLearnFlexbox'
 import { ANSWERS_MIN_LENGTH, COMMENT_MIN_LENGTH, STORAGE_KEY } from './constant'
 import { isExists } from '~/utils'
 
-export default Vue.extend({
+export default ExtendableLearnFlexbox.extend({
   data() {
     return {
       answers: '',
@@ -246,7 +246,7 @@ export default Vue.extend({
 </script>
 
 <style>
-.prose {
+.prose-lg {
   .content {
     &__random,
     &__action {
