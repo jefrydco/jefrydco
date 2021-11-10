@@ -1,35 +1,35 @@
 {
-  "timestamp": "2021-10-31T02:11:14.998Z",
+  "timestamp": "2021-11-10T02:08:53.549Z",
   "reports": [
     {
       "url": "https://jefrydco.id/",
       "device": "mobile",
-      "perf": 0.98,
+      "perf": 0.91,
       "fid": 0,
-      "lcp": 808,
+      "lcp": 825.5,
       "cls": 0.00098,
-      "fcp": 798,
+      "fcp": 810,
       "fci": 0,
-      "tbt": 152,
-      "tti": 3476,
-      "si": 1402.52,
+      "tbt": 356,
+      "tti": 3482,
+      "si": 1546.38,
       "req": 22,
-      "size": 320232
+      "size": 320504
     },
     {
       "url": "https://jefrydco.id/",
       "device": "desktop",
       "perf": 1,
-      "fid": 4,
-      "lcp": 350,
+      "fid": 0,
+      "lcp": 270,
       "cls": 0.00116,
-      "fcp": 350,
+      "fcp": 270,
       "fci": 0,
       "tbt": 0,
-      "tti": 350,
-      "si": 389.78,
+      "tti": 270,
+      "si": 387.9,
       "req": 22,
-      "size": 320257
+      "size": 320531
     },
     {
       "url": "https://jefrydco.id/blog/",
@@ -40,26 +40,26 @@
       "cls": 0.00098,
       "fcp": 1530,
       "fci": 0,
-      "tbt": 450,
-      "tti": 5048,
-      "si": 2476.37,
+      "tbt": 462,
+      "tti": 5026,
+      "si": 2033.07,
       "req": 25,
-      "size": 708892
+      "size": 709209
     },
     {
       "url": "https://jefrydco.id/blog/",
       "device": "desktop",
       "perf": 0.97,
-      "fid": 4,
-      "lcp": 1280.5,
+      "fid": 0,
+      "lcp": 1242.5,
       "cls": 0.0005,
-      "fcp": 470,
+      "fcp": 430,
       "fci": 0,
-      "tbt": 6,
-      "tti": 679,
-      "si": 571.6,
+      "tbt": 24,
+      "tti": 698,
+      "si": 555.57,
       "req": 27,
-      "size": 846443
+      "size": 846699
     }
   ]
 }
