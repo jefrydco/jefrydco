@@ -1,33 +1,35 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-15">
-      <pre class="demo__code state"></pre>
+  <app-demo
+    :path="DEFAULT_PATH"
+    :name="$options.name"
+    class="app-demo__card-15"
+  >
+    <pre class="app-demo__code state"></pre>
 
-      <input type="number" class="demo__form input1" min="0" />
-      <select class="demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="result"></div>
+    <div class="result"></div>
 
-      <hr />
+    <hr />
 
-      <pre class="demo__code state-2"></pre>
+    <pre class="app-demo__code state-2"></pre>
 
-      <div>
-        <button class="btn start">Start</button>
-        <button class="btn stop">Stop</button>
-        <button class="btn reset">Reset</button>
-      </div>
-
-      <div class="second"></div>
-
-      <div ref="script15" class="script"></div>
+    <div>
+      <button class="btn start">Start</button>
+      <button class="btn stop">Stop</button>
+      <button class="btn reset">Reset</button>
     </div>
+
+    <div class="second"></div>
+
+    <div ref="script15" class="script"></div>
   </app-demo>
 </template>
 
@@ -75,22 +77,22 @@ export default ExtendableCreateReactivity2.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const stateDisplay = document.querySelector(
-                '.demo__card-15 .state'
+                '.app-demo__card-15 .state'
               )
 
               const resultDisplay = document.querySelector(
-                '.demo__card-15 .result'
+                '.app-demo__card-15 .result'
               )
 
               const input1Display = document.querySelector(
-                '.demo__card-15 .input1'
+                '.app-demo__card-15 .input1'
               )
               const input2Display = document.querySelector(
-                '.demo__card-15 .input2'
+                '.app-demo__card-15 .input2'
               )
 
               const operatorDisplay = document.querySelector(
-                '.demo__card-15 .operator'
+                '.app-demo__card-15 .operator'
               )
 
               function updateDisplay() {
@@ -140,19 +142,19 @@ export default ExtendableCreateReactivity2.extend({
               /* CODE FOR STOPWATCH */
 
               const state2Display = document.querySelector(
-                '.demo__card-15 .state-2'
+                '.app-demo__card-15 .state-2'
               )
               const startButtonDisplay = document.querySelector(
-                '.demo__card-15 .start'
+                '.app-demo__card-15 .start'
               )
               const stopButtonDisplay = document.querySelector(
-                '.demo__card-15 .stop'
+                '.app-demo__card-15 .stop'
               )
               const resetButtonDisplay = document.querySelector(
-                '.demo__card-15 .reset'
+                '.app-demo__card-15 .reset'
               )
               const secondDisplay = document.querySelector(
-                '.demo__card-15 .second'
+                '.app-demo__card-15 .second'
               )
 
               function updateStopwatch() {

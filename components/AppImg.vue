@@ -1,22 +1,17 @@
 <template>
-  <figure v-lazy-container="{ selector: 'img' }" class="image__placeholder">
+  <figure v-lazy-container="{ selector: 'img' }" class="app-img">
     <img
       :data-src="imageRequired.src"
       :data-srcset="imageRequired.srcSet"
       :data-loading="imageRequired.placeholder"
       :width="width"
       :height="height"
-      :class="
-        `${!rounded ? 'image__image--rounded-none' : ''} ${classes}`.trim()
-      "
+      :class="`${computedClasses} ${classes}`.trim()"
       :alt="alt"
       :src="imageRequired.placeholder"
-      class="image__image"
+      class="app-img__img"
     />
-    <figcaption
-      v-if="caption && source && sourceLink"
-      class="text-sm text-center mt-4"
-    >
+    <figcaption v-if="caption && source && sourceLink" class="app-img__caption">
       {{ $t(captionKey) }}. {{ $t('imageFrom') }}:
       <a :href="sourceLink" rel="noopener noreferrer">{{ source }}</a>
     </figcaption>
@@ -65,9 +60,12 @@ export default Vue.extend({
       type: String,
       default: ''
     },
-    rounded: {
-      type: Boolean,
-      default: true
+    round: {
+      type: String,
+      default: 'all',
+      validator(value) {
+        return ['all', 'none', 'top'].includes(value)
+      }
     }
   },
   computed: {
@@ -76,6 +74,16 @@ export default Vue.extend({
     },
     captionKey() {
       return Object.keys(this?.caption?.id ?? {})[0] || null
+    },
+    computedClasses() {
+      let computedClass = 'app-img__img--rounded'
+      if (this.round === 'none') {
+        computedClass = `${computedClass} app-img__img--rounded-none`
+      }
+      if (this.round === 'top') {
+        computedClass = `${computedClass} app-img__img--rounded-top`
+      }
+      return computedClass
     }
   },
   created() {
@@ -98,26 +106,36 @@ export default Vue.extend({
 <style lang="postcss">
 /* purgecss start ignore */
 html:not([⚡]) {
-  .image__placeholder {
-    @apply overflow-hidden;
-  }
-
-  .image__image {
-    @apply opacity-0 object-cover rounded;
-    transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-
-    &--rounded-none {
-      @apply rounded-none;
+  .app-img {
+    &__placeholder {
+      @apply overflow-hidden;
+      background-color: var(--inline-code-bg);
     }
-  }
 
-  .image__image[lazy='loading'] {
-    @apply opacity-100;
-    filter: blur(0.9375rem);
-  }
+    &__img {
+      @apply opacity-0 object-cover;
+      transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
 
-  .image__image[lazy='loaded'] {
-    @apply opacity-100;
+      &--rounded {
+        @apply rounded;
+      }
+
+      &--rounded-top {
+        @apply rounded-b-none;
+      }
+
+      &--rounded-none {
+        @apply rounded-none;
+      }
+    }
+
+    &__img[lazy='loaded'] {
+      @apply opacity-100;
+    }
+
+    &__caption {
+      @apply text-sm text-center mt-4;
+    }
   }
 }
 /* purgecss end ignore */

@@ -65,12 +65,8 @@ export default Vue.extend({})
   right: 1.5rem;
 
   &__btn {
-    @apply w-12 h-12 rounded-full shadow;
+    @apply w-12 h-12 rounded-full shadow hover:shadow-lg;
     background-color: var(--card-bg);
-
-    &:hover {
-      @apply shadow-lg;
-    }
 
     svg {
       @apply block m-auto;

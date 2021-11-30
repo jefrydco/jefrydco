@@ -5,5 +5,7 @@
   "~/components/contents/blogs/how-tailwind-css-help-reduce-workload",
   "~/components/contents/blogs/learn-flexbox-css-interactive",
   "~/components/contents/blogs/search-closed-captions-text-youtube-video",
+  "~/components/blog",
+  "~/components/talk",
   "~/components"
 ]

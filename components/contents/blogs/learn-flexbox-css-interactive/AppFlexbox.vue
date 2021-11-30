@@ -21,8 +21,12 @@
 
 <template>
   <client-only>
-    <app-demo :path="DEFAULT_PATH" :name="$options.name" class="demo--combined">
-      <div class="demo__interactive">
+    <app-demo
+      :path="DEFAULT_PATH"
+      :name="$options.name"
+      class="app-demo--combined"
+    >
+      <div class="app-demo__interactive">
         <div class="interact">
           <h3 class="interact__heading">{{ $t('container') }}</h3>
           <div class="flex-property">
@@ -307,7 +311,7 @@
           is-floating=""
         />
       </transition>
-      <pre class="demo__code">{{ html }}</pre>
+      <pre class="app-demo__code">{{ html }}</pre>
     </app-demo>
   </client-only>
 </template>
@@ -390,6 +394,7 @@ export default ExtendableLearnFlexbox.extend({
         .join('')
     },
     style() {
+      // eslint-disable-next-line
       return vkbeautify.css(
         // @ts-expect-error
         `${this.flexContainerStyle}.${this.itemClass} {background-color: #ed8936;color: #fff;width: 4rem;height: 4rem;border-radius: 0.25rem;margin: 0.25rem;padding: 1rem;text-align: center;font-size: 1.25rem;cursor: pointer;}${this.flexItemStyle}`,
@@ -397,6 +402,7 @@ export default ExtendableLearnFlexbox.extend({
       )
     },
     html() {
+      // eslint-disable-next-line
       return vkbeautify.xml(
         // @ts-expect-error
         `<div class="${this.containerClass}">

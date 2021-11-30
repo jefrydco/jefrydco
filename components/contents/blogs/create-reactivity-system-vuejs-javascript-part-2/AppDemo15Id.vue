@@ -1,33 +1,35 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-15">
-      <pre class="demo__code keadaan"></pre>
+  <app-demo
+    :path="DEFAULT_PATH"
+    :name="$options.name"
+    class="app-demo__card-15"
+  >
+    <pre class="app-demo__code keadaan"></pre>
 
-      <input type="number" class="demo__form input1" min="0" />
-      <select class="demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="hasil"></div>
+    <div class="hasil"></div>
 
-      <hr />
+    <hr />
 
-      <pre class="demo__code keadaan-2"></pre>
+    <pre class="app-demo__code keadaan-2"></pre>
 
-      <div>
-        <button class="btn mulai">Mulai</button>
-        <button class="btn berhenti">Berhenti</button>
-        <button class="btn reset">Reset</button>
-      </div>
-
-      <div class="detik"></div>
-
-      <div ref="script15" class="script"></div>
+    <div>
+      <button class="btn mulai">Mulai</button>
+      <button class="btn berhenti">Berhenti</button>
+      <button class="btn reset">Reset</button>
     </div>
+
+    <div class="detik"></div>
+
+    <div ref="script15" class="script"></div>
   </app-demo>
 </template>
 
@@ -75,22 +77,22 @@ export default ExtendableCreateReactivity2.extend({
               // Kita harus memberi awalan selektor sesuai dengan kelas akar komponen
               // Hal tersebut mencegah scrip dieksekusi untuk semua demo
               const tampilanKeadaan = document.querySelector(
-                '.demo__card-15 .keadaan'
+                '.app-demo__card-15 .keadaan'
               )
 
               const tampilanHasil = document.querySelector(
-                '.demo__card-15 .hasil'
+                '.app-demo__card-15 .hasil'
               )
 
               const tampilanInput1 = document.querySelector(
-                '.demo__card-15 .input1'
+                '.app-demo__card-15 .input1'
               )
               const tampilanInput2 = document.querySelector(
-                '.demo__card-15 .input2'
+                '.app-demo__card-15 .input2'
               )
 
               const tampilanOperator = document.querySelector(
-                '.demo__card-15 .operator'
+                '.app-demo__card-15 .operator'
               )
 
               function mutakhirkanTampilan() {
@@ -140,19 +142,19 @@ export default ExtendableCreateReactivity2.extend({
               /* KODE UNTUK PENGHITUNG WAKTU */
 
               const tampilanKeadaan2 = document.querySelector(
-                '.demo__card-15 .keadaan-2'
+                '.app-demo__card-15 .keadaan-2'
               )
               const tampilanTombolMulai = document.querySelector(
-                '.demo__card-15 .mulai'
+                '.app-demo__card-15 .mulai'
               )
               const tampilanTombolBerhenti = document.querySelector(
-                '.demo__card-15 .berhenti'
+                '.app-demo__card-15 .berhenti'
               )
               const tampilanTombolReset = document.querySelector(
-                '.demo__card-15 .reset'
+                '.app-demo__card-15 .reset'
               )
               const tampilanDetik = document.querySelector(
-                '.demo__card-15 .detik'
+                '.app-demo__card-15 .detik'
               )
 
               function mutakhirkanPenghitungDetik() {
