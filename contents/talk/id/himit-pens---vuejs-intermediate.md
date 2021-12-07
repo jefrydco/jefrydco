@@ -1,6 +1,6 @@
 ---
 title: HIMIT PENS - Vue.js Intermediate
-description: Vue adalah kerangka kerja nan progresif untuk membantung antarmuka pengguna.
+description: Vue adalah kerangka kerja nan progresif untuk membangun antarmuka pengguna.
 poster: /talk/2020/himit-pens---vuejs-intermediate.jpg
 slide: https://bit.ly/vuejs-vuex
 playback: https://www.youtube.com/watch?v=QRl1ulPKbuU
@@ -12,4 +12,4 @@ slug: himit-pens---vuejs-intermediate
 
 HIMIT adalah Himpunan Mahasiswa Informatika PENS.
 
-Vue adalah kerangka kerja nan progresif untuk membantung antarmuka pengguna.
+Vue adalah kerangka kerja nan progresif untuk membangun antarmuka pengguna.

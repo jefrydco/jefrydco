@@ -1,6 +1,6 @@
 ---
 title: HIMIT PENS - Lokakarya Vuejs Clean Architecture
-description: Vue adalah kerangka kerja nan progresif untuk membantung antarmuka pengguna.
+description: Vue adalah kerangka kerja nan progresif untuk membangun antarmuka pengguna.
 poster: /talk/2021/himit-pens---workshop-vuejs-clean-architecture.jpg
 slide: https://bit.ly/vuejs-clean-architecture
 playback: https://www.youtube.com/watch?v=noR4OaOAqJE
@@ -12,4 +12,4 @@ slug: himit-pens---workshop-vuejs-clean-architecture
 
 HIMIT adalah Himpunan Mahasiswa Informatika PENS.
 
-Vue adalah kerangka kerja nan progresif untuk membantung antarmuka pengguna.
+Vue adalah kerangka kerja nan progresif untuk membangun antarmuka pengguna.
