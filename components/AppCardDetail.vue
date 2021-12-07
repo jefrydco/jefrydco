@@ -196,7 +196,7 @@ export default formatDate.extend({
   }
 
   ol {
-    @apply list-decimal list-inside;
+    @apply list-decimal;
   }
 
   ul,

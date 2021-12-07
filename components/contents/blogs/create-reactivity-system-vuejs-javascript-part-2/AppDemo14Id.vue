@@ -22,9 +22,9 @@
     <pre class="app-demo__code keadaan-2"></pre>
 
     <div>
-      <button class="btn mulai">Mulai</button>
-      <button class="btn berhenti">Berhenti</button>
-      <button class="btn reset">Reset</button>
+      <button class="app-demo__form mulai">Mulai</button>
+      <button class="app-demo__form berhenti">Berhenti</button>
+      <button class="app-demo__form reset">Reset</button>
     </div>
 
     <div class="detik"></div>

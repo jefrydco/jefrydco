@@ -144,7 +144,7 @@
                 <span>{{ $t('itemCount') }}</span>
                 <input
                   v-model.number="itemCount"
-                  class="input mt-1 block w-full"
+                  class="app-demo__form mt-1 block w-full"
                   type="number"
                   min="3"
                   max="27"
@@ -189,7 +189,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.order"
-                        class="input mt-1 block w-full"
+                        class="app-demo__form mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -204,7 +204,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.flexGrow"
-                        class="input mt-1 block w-full"
+                        class="app-demo__form mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -219,7 +219,7 @@
                       <span>{{ $t('value') }}</span>
                       <input
                         v-model.number="flexItemItem.style.flexShrink"
-                        class="input mt-1 block w-full"
+                        class="app-demo__form mt-1 block w-full"
                         type="number"
                         min="0"
                         max="12"
@@ -245,7 +245,7 @@
                       <input
                         v-model.number="flexItemItem.flexBasis"
                         :disabled="flexItemItem.isFlexBasisAuto"
-                        class="input mt-1 block w-full"
+                        class="app-demo__form mt-1 block w-full"
                         type="number"
                         min="0"
                         max="100"
@@ -280,7 +280,7 @@
           </div>
           <div class="flex-property">
             <div class="flex-property__item">
-              <button class="btn" @click="onReset">
+              <button class="app-demo__form" @click="onReset">
                 {{ $t('reset') }}
               </button>
             </div>
@@ -574,7 +574,7 @@ body {
 .prose {
   .interact {
     &__heading {
-      @apply my-0;
+      @apply mt-0 mb-3;
     }
   }
   .flex-property {
@@ -585,7 +585,7 @@ body {
     }
 
     &__heading {
-      @apply my-0;
+      @apply mt-0 mb-3;
     }
 
     &__scrollable {

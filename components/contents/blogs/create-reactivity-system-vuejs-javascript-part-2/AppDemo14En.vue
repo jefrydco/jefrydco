@@ -22,9 +22,9 @@
     <pre class="app-demo__code state-2"></pre>
 
     <div>
-      <button class="btn start">Start</button>
-      <button class="btn stop">Stop</button>
-      <button class="btn reset">Reset</button>
+      <button class="app-demo__form start">Start</button>
+      <button class="app-demo__form stop">Stop</button>
+      <button class="app-demo__form reset">Reset</button>
     </div>
 
     <div class="second"></div>

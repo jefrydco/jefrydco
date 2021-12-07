@@ -64,6 +64,7 @@ export default Vue.extend({
 /* purgecss start ignore */
 .prose {
   .app-demo__card--custom {
+    border: 0.125rem solid var(--text-normal);
     height: 24rem;
 
     &--floating {

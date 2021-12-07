@@ -52,7 +52,7 @@
                 <button
                   v-for="(hint, i) in hints"
                   :key="hint"
-                  class="btn"
+                  class="app-demo__form"
                   @click="onChoose(hint, i)"
                 >
                   {{ hint }}
@@ -65,7 +65,7 @@
               <span>{{ $t('answer') }}</span>
               <textarea
                 v-model="answers"
-                class="block w-full textarea"
+                class="block w-full app-demo__form"
                 rows="3"
                 readonly=""
                 :placeholder="$t('flexbox_is')"
@@ -77,7 +77,7 @@
               <span>{{ $t('add_more_comment') }}</span>
               <textarea
                 v-model="comment"
-                class="block w-full textarea"
+                class="block w-full app-demo__form"
                 rows="3"
                 :placeholder="$t('in_my_opinion')"
               ></textarea>
@@ -98,11 +98,15 @@
             </label>
           </div>
           <div class="content__action">
-            <button class="btn" :disabled="isLoading" @click="onReset">
+            <button
+              class="app-demo__form"
+              :disabled="isLoading"
+              @click="onReset"
+            >
               {{ $t('reset') }}
             </button>
             <button
-              class="btn"
+              class="app-demo__form"
               :disabled="isLoading || answers.length < ANSWERS_MIN_LENGTH"
               @click="onSubmit"
             >
@@ -114,7 +118,7 @@
           <p>{{ $t('comments_is_saved') }}</p>
           <p>{{ $t('your_opinion') }}</p>
           <div class="mb-8">
-            <button v-for="hint in hints" :key="hint" class="btn">
+            <button v-for="hint in hints" :key="hint" class="app-demo__form">
               {{ hint }}
             </button>
           </div>
@@ -125,7 +129,11 @@
             </blockquote>
           </template>
           <div class="content__action">
-            <button class="btn" :disabled="isLoading" @click="onReset">
+            <button
+              class="app-demo__form"
+              :disabled="isLoading"
+              @click="onReset"
+            >
               {{ $t('reset') }}
             </button>
           </div>

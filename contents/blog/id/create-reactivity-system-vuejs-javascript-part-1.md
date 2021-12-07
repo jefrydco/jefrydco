@@ -677,8 +677,8 @@ Terima kasih dan semoga bermanfaat!
 
 ## Referensi
 
-1. [Medium JS Dojo: Memahami Reaktivitas Vue Selangkah demi Selangkah](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
-2. [Vue.js: Reaktivitas Secara Mendalam](https://vuejs.org/v2/guide/reactivity.html)
+- [Medium JS Dojo: Memahami Reaktivitas Vue Selangkah demi Selangkah](https://medium.com/js-dojo/understand-vue-reactivity-implementation-step-by-step-599c3d51cd6c)
+- [Vue.js: Reaktivitas Secara Mendalam](https://vuejs.org/v2/guide/reactivity.html)
 
 <script>
 if (!window.english) {
