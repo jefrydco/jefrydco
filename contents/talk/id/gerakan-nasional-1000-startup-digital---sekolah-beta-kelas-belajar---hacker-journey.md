@@ -2,7 +2,7 @@
 title: 1000 Startup Digital - Sekolah Beta Kelas Belajar - Hacker Journey
 description: Berbagi pengalaman saya, kelebihan, kekurangan dan sumber daya untuk menjadi seorang software engineer di sebuah perusahaan rintisan.
 poster: /talk/2021/gerakan-nasional-1000-startup-digital---sekolah-beta-kelas-belajar---hacker-journey.jpg
-slide: 
+slide: https://bit.ly/hacking-journey
 playback: https://www.youtube.com/watch?v=-NysOSegx1s
 sourceCode: 
 writeUp: 
