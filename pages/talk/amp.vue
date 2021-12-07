@@ -4,8 +4,8 @@
     <app-talk-section
       v-for="(yearItem, i) in talkListByYear"
       :key="i"
-      :open="i === 0"
       :title="yearItem.year"
+      open
     >
       <section class="talks__item">
         <app-talk-item
@@ -80,7 +80,7 @@ export default Vue.extend({
       link: [
         {
           hid: 'i18n-can',
-          rel: 'amphtml',
+          rel: 'canonical',
           href: `${HOSTNAME}${this.localePath({ name: 'talk' })}/`
         }
       ]

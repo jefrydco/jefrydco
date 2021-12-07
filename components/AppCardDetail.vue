@@ -337,7 +337,7 @@ export default formatDate.extend({
     background-color: var(--card-bg);
 
     &--inset {
-      @apply -mt-64 sm:py-10;
+      @apply -mt-64 sm:py-14;
     }
   }
 

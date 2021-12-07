@@ -20,6 +20,7 @@ import ampify from './libs/ampify'
 
 import type { ReadingTimeType } from './types'
 import type { BlogListDataType } from './types/blog'
+import type { TalkDataType } from './types/talk'
 import { getLastPage, getPageList } from './utils'
 
 dotEnvConfig()
@@ -257,7 +258,9 @@ export default {
           if (lineHighlights) {
             lineHighlightList.push(...multirange(lineHighlights).toArray())
           }
+          // @ts-expect-error
           if (node.meta) {
+            // @ts-expect-error
             if ((node.meta as string).includes('twoslash')) {
               const twoslashResults = runTwoSlash(rawCode, lang)
               return renderCodeToHTML(
@@ -270,6 +273,7 @@ export default {
                 twoslashResults
               )
             }
+            // @ts-expect-error
             if ((node.meta as string).includes('tsconfig')) {
               return renderCodeToHTML(
                 rawCode,
@@ -420,55 +424,109 @@ export default {
 
   // https://github.com/nuxt-community/feed-module
   feed() {
-    return locales.map((locale) => {
-      const path =
-        locale.code === 'id' ? '/blog.xml' : `/${locale.code}/blog.xml`
+    function generateBlogFeed() {
+      return locales.map((locale) => {
+        const path =
+          locale.code === 'id' ? '/blog.xml' : `/${locale.code}/blog.xml`
 
-      return {
-        path,
-        type: 'rss2',
-        async create(feed: Feed) {
-          feed.options = {
-            title: 'Blog - Jefrydco',
-            id: `${HOSTNAME}${path}`,
-            link: `${HOSTNAME}${path}`,
-            language: locale.code,
-            description: 'A personal site of Jefry Dewangga.',
-            copyright: new Date().getFullYear().toString()
-          }
+        return {
+          path,
+          type: 'rss2',
+          async create(feed: Feed) {
+            feed.options = {
+              title: 'Blog - Jefrydco',
+              id: `${HOSTNAME}${path}`,
+              link: `${HOSTNAME}${path}`,
+              language: locale.code,
+              description: 'A personal site of Jefry Dewangga.',
+              copyright: new Date().getFullYear().toString()
+            }
 
-          feed.addContributor({
-            name: 'Jefry Dewangga',
-            email: 'jefrydco@gmail.com',
-            link: `${HOSTNAME}`
-          })
-
-          // @ts-expect-error
-          const contents: BlogListDataType = await $content(`/blog/id`, {
-            deep: true
-          })
-            .only(['title', 'slug', 'img', 'postedDate', 'summary'])
-            .sortBy('postedDate', 'desc')
-            .fetch<BlogListDataType>()
-
-          contents.forEach((content) => {
-            feed.addItem({
-              title: content.title,
-              id:
-                locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}/`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
-              link:
-                locale.code === 'id'
-                  ? `${HOSTNAME}/blog/${content.slug}/`
-                  : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
-              date: new Date(content.postedDate),
-              description: content.summary
+            feed.addContributor({
+              name: 'Jefry Dewangga',
+              email: 'jefrydco@gmail.com',
+              link: `${HOSTNAME}`
             })
-          })
+
+            // @ts-expect-error
+            const contents: BlogListDataType = await $content(`/blog/id`, {
+              deep: true
+            })
+              .only(['title', 'slug', 'img', 'postedDate', 'summary'])
+              .sortBy('postedDate', 'desc')
+              .fetch<BlogListDataType>()
+
+            contents.forEach((content) => {
+              feed.addItem({
+                title: content.title,
+                id:
+                  locale.code === 'id'
+                    ? `${HOSTNAME}/blog/${content.slug}/`
+                    : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
+                link:
+                  locale.code === 'id'
+                    ? `${HOSTNAME}/blog/${content.slug}/`
+                    : `${HOSTNAME}/${locale.code}/blog/${content.slug}/`,
+                date: new Date(content.postedDate),
+                description: content.summary
+              })
+            })
+          }
         }
-      }
-    })
+      })
+    }
+    function generateTalkFeed() {
+      return locales.map((locale) => {
+        const path =
+          locale.code === 'id' ? '/talk.xml' : `/${locale.code}/talk.xml`
+
+        return {
+          path,
+          type: 'rss2',
+          async create(feed: Feed) {
+            feed.options = {
+              title: 'Talk - Jefrydco',
+              id: `${HOSTNAME}${path}`,
+              link: `${HOSTNAME}${path}`,
+              language: locale.code,
+              description: 'A personal site of Jefry Dewangga.',
+              copyright: new Date().getFullYear().toString()
+            }
+
+            feed.addContributor({
+              name: 'Jefry Dewangga',
+              email: 'jefrydco@gmail.com',
+              link: `${HOSTNAME}`
+            })
+
+            // @ts-expect-error
+            const contents: TalkDataType[] = await $content(`/talk/id`, {
+              deep: true
+            })
+              .only(['title', 'slug', 'img', 'startDate', 'description'])
+              .sortBy('startDate', 'desc')
+              .fetch<TalkDataType[]>()
+
+            contents.forEach((content) => {
+              feed.addItem({
+                title: content.title,
+                id:
+                  locale.code === 'id'
+                    ? `${HOSTNAME}/talk/${content.slug}/`
+                    : `${HOSTNAME}/${locale.code}/talk/${content.slug}/`,
+                link:
+                  locale.code === 'id'
+                    ? `${HOSTNAME}/talk/${content.slug}/`
+                    : `${HOSTNAME}/${locale.code}/talk/${content.slug}/`,
+                date: new Date(content.startDate),
+                description: content.description
+              })
+            })
+          }
+        }
+      })
+    }
+    return [...generateBlogFeed(), ...generateTalkFeed()]
   },
 
   // https://sitemap.nuxtjs.org/
@@ -476,69 +534,115 @@ export default {
     hostname: HOSTNAME,
     gzip: true,
     async routes(): Promise<Partial<SitemapItemOptions>[]> {
-      // @ts-expect-error
-      const contents: BlogListDataType = await $content(`/blog/id`, {
-        deep: true
-      })
-        .only(['slug', 'updatedDate'])
-        .sortBy('postedDate', 'desc')
-        .fetch<BlogListDataType>()
+      async function generateBlog() {
+        // @ts-expect-error
+        const contents: BlogListDataType = await $content(`/blog/id`, {
+          deep: true
+        })
+          .only(['slug', 'updatedDate'])
+          .sortBy('postedDate', 'desc')
+          .fetch<BlogListDataType>()
 
-      const lastPage = getLastPage(contents.length)
-      const pageList = getPageList(lastPage)
+        const lastPage = getLastPage(contents.length)
+        const pageList = getPageList(lastPage)
 
-      function generateBlogContentSitemap(
-        { isAmp }: { isAmp?: boolean } = { isAmp: false }
-      ) {
-        return locales.flatMap((locale) =>
-          locale.code === 'id'
-            ? (contents.map((content) => ({
-                url: isAmp
-                  ? `/blog/${content.slug}/amp/`
-                  : `/blog/${content.slug}/`,
-                changefreq: EnumChangefreq.DAILY,
-                priority: 1,
-                lastmod: new Date(content.updatedDate).toISOString()
-              })) as Partial<SitemapItemOptions>[])
-            : (contents.map((content) => ({
-                url: isAmp
-                  ? `/${locale.code}/blog/${content.slug}/amp/`
-                  : `/${locale.code}/blog/${content.slug}/`,
-                changefreq: EnumChangefreq.DAILY,
-                priority: 1,
-                lastmod: new Date(content.updatedDate).toISOString()
-              })) as Partial<SitemapItemOptions>[])
-        )
+        function generateContentSitemap(
+          contentType: string,
+          isAmp: boolean = false
+        ) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? (contents.map((content) => ({
+                  url: isAmp
+                    ? `/${contentType}/${content.slug}/amp/`
+                    : `/${contentType}/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.updatedDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+              : (contents.map((content) => ({
+                  url: isAmp
+                    ? `/${locale.code}/${contentType}/${content.slug}/amp/`
+                    : `/${locale.code}/${contentType}/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.updatedDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+          )
+        }
+
+        function generatePageSitemap(
+          contentType: string,
+          isAmp: boolean = false
+        ) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? (pageList.map((page) => ({
+                  url: isAmp
+                    ? `/${contentType}/page/${page}/amp/`
+                    : `/${contentType}/page/${page}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date().toISOString()
+                })) as Partial<SitemapItemOptions>[])
+              : (pageList.map((page) => ({
+                  url: isAmp
+                    ? `/${locale.code}/${contentType}/page/${page}/amp/`
+                    : `/${locale.code}/${contentType}/page/${page}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date().toISOString()
+                })) as Partial<SitemapItemOptions>[])
+          )
+        }
+        return [
+          ...generateContentSitemap('blog'),
+          ...generateContentSitemap('blog', true),
+          ...generatePageSitemap('blog'),
+          ...generatePageSitemap('blog', true)
+        ]
       }
 
-      function generateBlogPageSitemap(
-        { isAmp }: { isAmp?: boolean } = { isAmp: false }
-      ) {
-        return locales.flatMap((locale) =>
-          locale.code === 'id'
-            ? (pageList.map((page) => ({
-                url: isAmp ? `/blog/page/${page}/amp/` : `/blog/page/${page}/`,
-                changefreq: EnumChangefreq.DAILY,
-                priority: 1,
-                lastmod: new Date().toISOString()
-              })) as Partial<SitemapItemOptions>[])
-            : (pageList.map((page) => ({
-                url: isAmp
-                  ? `/${locale.code}/blog/page/${page}/amp/`
-                  : `/${locale.code}/blog/page/${page}/`,
-                changefreq: EnumChangefreq.DAILY,
-                priority: 1,
-                lastmod: new Date().toISOString()
-              })) as Partial<SitemapItemOptions>[])
-        )
+      async function generateTalk() {
+        // @ts-expect-error
+        const contents: TalkDataType[] = await $content(`/talk/id`, {
+          deep: true
+        })
+          .only(['slug', 'startDate'])
+          .sortBy('startDate', 'desc')
+          .fetch<TalkDataType[]>()
+
+        function generateContentSitemap(
+          contentType: string,
+          isAmp: boolean = false
+        ) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? (contents.map((content) => ({
+                  url: isAmp
+                    ? `/${contentType}/${content.slug}/amp/`
+                    : `/${contentType}/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.startDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+              : (contents.map((content) => ({
+                  url: isAmp
+                    ? `/${locale.code}/${contentType}/${content.slug}/amp/`
+                    : `/${locale.code}/${contentType}/${content.slug}/`,
+                  changefreq: EnumChangefreq.DAILY,
+                  priority: 1,
+                  lastmod: new Date(content.startDate).toISOString()
+                })) as Partial<SitemapItemOptions>[])
+          )
+        }
+        return [
+          ...generateContentSitemap('talk'),
+          ...generateContentSitemap('talk', true)
+        ]
       }
 
-      return [
-        ...generateBlogContentSitemap(),
-        ...generateBlogContentSitemap({ isAmp: true }),
-        ...generateBlogPageSitemap(),
-        ...generateBlogPageSitemap({ isAmp: true })
-      ]
+      return [...(await generateBlog()), ...(await generateTalk())]
     }
   },
 
@@ -546,36 +650,70 @@ export default {
   generate: {
     fallback: true,
     async routes() {
-      // @ts-expect-error
-      const contents: BlogListDataType = await $content(`/blog/id`, {
-        deep: true
-      })
-        .only(['slug'])
-        .sortBy('postedDate', 'desc')
-        .fetch<BlogListDataType>()
+      async function generateBlog() {
+        // @ts-expect-error
+        const contents: BlogListDataType = await $content(`/blog/id`, {
+          deep: true
+        })
+          .only(['slug'])
+          .sortBy('postedDate', 'desc')
+          .fetch<BlogListDataType>()
 
-      const lastPage = getLastPage(contents.length)
-      const pageList = getPageList(lastPage)
+        const lastPage = getLastPage(contents.length)
+        const pageList = getPageList(lastPage)
 
-      function generateBlogContent() {
-        return locales.flatMap((locale) =>
-          locale.code === 'id'
-            ? contents.map((content) => `/blog/${content.slug}/amp/`)
-            : contents.map(
-                (content) => `/${locale.code}/blog/${content.slug}/amp/`
-              )
-        )
+        function generateContent(contentType: string) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? contents.map(
+                  (content) => `/${contentType}/${content.slug}/amp/`
+                )
+              : contents.map(
+                  (content) =>
+                    `/${locale.code}/${contentType}/${content.slug}/amp/`
+                )
+          )
+        }
+
+        function generatePage(contentType: string) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? pageList.map((page) => `/${contentType}/page/${page}/amp/`)
+              : pageList.map(
+                  (page) => `/${locale.code}/${contentType}/page/${page}/amp/`
+                )
+          )
+        }
+
+        return [...generateContent('blog'), ...generatePage('blog')]
       }
 
-      function generateBlogPage() {
-        return locales.flatMap((locale) =>
-          locale.code === 'id'
-            ? pageList.map((page) => `/blog/page/${page}/amp/`)
-            : pageList.map((page) => `/${locale.code}/blog/page/${page}/amp/`)
-        )
+      async function generateTalk() {
+        // @ts-expect-error
+        const contents: TalkDataType[] = await $content(`/talk/id`, {
+          deep: true
+        })
+          .only(['slug'])
+          .sortBy('startDate', 'desc')
+          .fetch<TalkDataType[]>()
+
+        function generateContent(contentType: string) {
+          return locales.flatMap((locale) =>
+            locale.code === 'id'
+              ? contents.map(
+                  (content) => `/${contentType}/${content.slug}/amp/`
+                )
+              : contents.map(
+                  (content) =>
+                    `/${locale.code}/${contentType}/${content.slug}/amp/`
+                )
+          )
+        }
+
+        return [...generateContent('talk')]
       }
 
-      return [...generateBlogContent(), ...generateBlogPage()]
+      return [...(await generateBlog()), ...(await generateTalk())]
     }
   },
 

@@ -41,6 +41,9 @@ html {
 }
 
 html[⚡] {
+  .app-img {
+    @apply flex justify-center
+  }
   .prose {
     h2,
     h3 {

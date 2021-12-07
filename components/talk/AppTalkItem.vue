@@ -14,7 +14,7 @@
         <h2 class="app-talk-item__title">
           {{ title }}
         </h2>
-        <div class="app-talk-item__meta">
+        <div class="app-talk-item__timestamp">
           <time :datetime="startDate">
             {{ formatDate(startDate) }}
           </time>
@@ -79,7 +79,7 @@ export default formatDate.extend({
     background-color: var(--inline-code-bg);
   }
 
-  &__meta {
+  &__timestamp {
     @apply leading-normal mb-4 text-sm;
   }
 

@@ -22,11 +22,36 @@
       </transition>
       <div class="max-w-4xl mx-auto">
         <article class="td__card">
-          <header class="td__meta">
+          <header class="td__header">
             <h1 :id="talk.slug" class="td__title">
               {{ talk.title }}
             </h1>
+            <div class="td__timestamp">
+              <time :datetime="talk.startDate">
+                {{ formatDate(talk.startDate) }}
+              </time>
+              •
+              <time :datetime="talk.startDate">
+                {{ formatTime(talk.startDate) }}
+              </time>
+              -
+              <time :datetime="talk.endDate">
+                {{ formatTime(talk.endDate) }}
+              </time>
+            </div>
           </header>
+          <div class="td__translations">
+            {{ $t('readOtherLanguages') }}:
+            <a
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              :aria-label="locale.name"
+              :href="getTranslationsLink(locale.code)"
+              class="td__translations__link"
+            >
+              {{ locale.name }}
+            </a>
+          </div>
           <div
             v-if="talk.playback && talk.poster"
             class="td__switch-illustration"
@@ -44,19 +69,6 @@
               {{ $t('poster') }}
             </button>
           </div>
-          <div class="td__translations">
-            {{ $t('readOtherLanguages') }}:
-            <a
-              v-for="locale in availableLocales"
-              :key="locale.code"
-              :aria-label="locale.name"
-              :href="getTranslationsLink(locale.code)"
-              class="td__translations__link"
-            >
-              {{ locale.name }}
-            </a>
-          </div>
-          <nuxt-content :document="talk" class="prose prose-lg max-w-none" />
           <div class="td__resources">
             <p v-if="talk.slide">
               {{ $t('slide') }}:
@@ -71,6 +83,7 @@
               </a>
             </p>
           </div>
+          <nuxt-content :document="talk" class="prose prose-lg max-w-none" />
         </article>
       </div>
     </template>
@@ -101,7 +114,6 @@ export default formatDate.extend({
       ILLUSTRATION_OPTIONS
     }
   },
-  // @ts-expect-error
   async asyncData({ app, route, redirect, localePath }) {
     try {
       const { locale, locales } = app.i18n
@@ -227,10 +239,8 @@ export default formatDate.extend({
         const localePath = this.switchLocalePath(localeCode) as string
         if (localePath.includes('#')) {
           const newPath = localePath.split('#')[0]
-          // @ts-expect-error
           return this.addTrailingSlash(newPath)
         }
-        // @ts-expect-error
         return this.addTrailingSlash(localePath)
       }
     }
@@ -248,21 +258,24 @@ export default formatDate.extend({
     background-color: var(--inline-code-bg);
   }
   &__video-sizer {
-    @apply w-1/2 mx-auto;
+    @apply w-full mx-auto sm:w-2/3;
   }
   &__card {
-    @apply mb-4 px-6 pb-6 pt-8 mx-4 rounded-b overflow-hidden shadow relative;
+    @apply mb-4 p-6 mx-4 rounded overflow-hidden shadow relative sm:px-16 sm:py-14;
     background-color: var(--card-bg);
   }
-  &__meta {
+  &__header {
     @apply mb-8;
   }
   &__title {
-    @apply font-bold text-2xl mt-0 mb-4;
+    @apply font-bold text-2xl mt-0 mb-2;
+  }
+  &__timestamp {
+    @apply leading-normal mb-4 text-sm;
   }
   &__switch-illustration,
   &__resources {
-    @apply mb-8;
+    @apply mb-4;
   }
   &__resources {
     p:not(:last-child) {

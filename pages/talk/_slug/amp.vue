@@ -4,6 +4,7 @@ import Page from './index.vue'
 import { HOSTNAME } from '~/constants'
 
 export default Page.extend({
+  // @ts-expect-error
   head() {
     return {
       // @ts-expect-error
@@ -13,7 +14,6 @@ export default Page.extend({
           hid: 'i18n-can',
           rel: 'canonical',
           href: `${HOSTNAME}${
-            // @ts-expect-error
             this.talk &&
             this.localePath({
               name: 'talk-slug',
@@ -34,7 +34,6 @@ export default Page.extend({
           hid: 'og:url',
           property: 'og:url',
           content: `${HOSTNAME}${
-            // @ts-expect-error
             this.talk &&
             this.localePath({
               name: 'talk-slug',

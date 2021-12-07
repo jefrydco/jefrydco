@@ -10,6 +10,7 @@ export type TalkDataType = {
   writeUp: string
   startDate: string
   endDate: string
+  slug: string
   dir: string
   body: Record<string, unknown>
   readingTime: ReadingTimeType
