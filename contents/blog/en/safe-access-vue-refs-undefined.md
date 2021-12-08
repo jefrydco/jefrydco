@@ -329,7 +329,7 @@ To solve that problem, we can make use of `setInterval`. We put that in the safe
 
 > Disclaimer: This method is tested according to my needs. I can't ensure that it also works for other use cases. Please do check thoroughly when implementing. Hit me up on Twitter [@jefrydco](https://twitter.com/jefrydco), if you face any obstacle.
 
-## Reference
+## References
 
 - [StackOverflow: Vue.js refs are undefined, even though this.$refs show they're there](https://stackoverflow.com/a/58203295)
 - [Vue.js: Handling Edge Cases](https://vuejs.org/v2/guide/components-edge-cases.html)

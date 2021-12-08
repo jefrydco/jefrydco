@@ -22,6 +22,6 @@ So what do you think is Flexbox? Please answer by **ordering the random words** 
 <app-form></app-form>
 
 ## References
-1. [CSS Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-2. [Mozilla Developer Network: Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-3. [W3Schools: CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp)
+- [CSS Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Mozilla Developer Network: Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
+- [W3Schools: CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp)

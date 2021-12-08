@@ -1031,14 +1031,14 @@ Anyway, if you find this discussion is a little bit overwhelming and confusing, 
 
 Thanks for reading and hope you enjoy! 🙌 
 
-## Reference
+## References
 
-1. [CSS Tricks: Understanding JavaScript Constructors](https://css-tricks.com/understanding-javascript-constructors/)
-2. [ECMAScript® 2020 Language Specification: The Reference Specification Type](https://tc39.es/ecma262/#sec-reference-specification-type)
-3. [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
-4. [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-5. [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
-6. [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
-7. [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
-8. [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
-9. [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
+- [CSS Tricks: Understanding JavaScript Constructors](https://css-tricks.com/understanding-javascript-constructors/)
+- [ECMAScript® 2020 Language Specification: The Reference Specification Type](https://tc39.es/ecma262/#sec-reference-specification-type)
+- [Geeks for Geeks: Prototype in JavaScript](https://www.geeksforgeeks.org/prototype-in-javascript/)
+- [Mozilla Developer Network: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [Mozilla Developer Network: Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+- [Mozilla Developer Network: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
+- [Viktor Kukurba Medium: Object-oriented programming in JavaScript #1. Abstraction](https://medium.com/@viktor.kukurba/object-oriented-programming-in-javascript-1-abstraction-c47307c469d1)
+- [Wikipedia: Object-oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
+- [Wikipedia: Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)

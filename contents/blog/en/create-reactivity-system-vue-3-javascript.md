@@ -1379,7 +1379,7 @@ Last but not least, if you want to deep dive into even more about the reactivity
 
 Thank you, hope you enjoy reading it and learn something new! If you have any question, don't hesitate to drop me a tweet in [@jefrydco](https://twitter.com/jefrydco).
 
-## Reference
+## References
 
 - [Mozilla Developer Network: Array - Instance Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
 - [Mozilla Developer Network: Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)

@@ -141,7 +141,7 @@ Pada akhirnya, semua _tool_ yang saya sebutkan di atas hanyalah sebuah _tool_ un
 _Omong-omong_, terima kasih telah membaca, semoga bermanfaat! 🙌 
 
 ## Referensi
-1. [Markdown](https://www.markdownguide.org/)
-2. [Nuxt.js](https://nuxtjs.org)
-3. [Tailwind CSS](https://tailwindcss.com)
-4. [Netlify](https://netlify.com)
+- [Markdown](https://www.markdownguide.org/)
+- [Nuxt.js](https://nuxtjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Netlify](https://netlify.com)

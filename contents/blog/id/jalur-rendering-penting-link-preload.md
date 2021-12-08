@@ -216,11 +216,11 @@ function e(){var e=Array.prototype.slice.call(document.querySelectorAll("link[re
 Oke cukup sekian pembahasan mengenai jalur _rendering_ penting dan link preload kali ini. Kode di atas masih belum teroptimasi dengan baik karena masih terdapat beberapa JavaScript eksternal. Pada pos selanjutnya saya akan bahas mengenai cara menggabungkan beberapa JavaScript eksternal tersebut dengan lebih aman. Semoga bermanfaat dan tetap semangat untuk terus belajar.
 
 ## Referensi
-1. [Github Fillament Group: loadCSS](https://github.com/filamentgroup/loadCSS)
-2. [Google Developers Web Fundamentals: Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
-3. [Google Developers Web Fundamentals: Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path)
-4. [Google Developers Web: Prioritizing Your Resources with link rel='preload'](https://developers.google.com/web/updates/2016/03/link-rel-preload)
-5. [Medium: Understanding the critical rendering path, rendering pages in 1 second](https://medium.com/@luisvieira_gmr/understanding-the-critical-rendering-path-rendering-pages-in-1-second-735c6e45b47a)
-6. [Mozilla Developers Network: Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
-7. [Optimizely: Above the Fold](https://www.optimizely.com/optimization-glossary/above-the-fold/)
-8. [Varvy: Critical rendering path](https://varvy.com/pagespeed/critical-render-path.html)
+- [Github Fillament Group: loadCSS](https://github.com/filamentgroup/loadCSS)
+- [Google Developers Web Fundamentals: Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+- [Google Developers Web Fundamentals: Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path)
+- [Google Developers Web: Prioritizing Your Resources with link rel='preload'](https://developers.google.com/web/updates/2016/03/link-rel-preload)
+- [Medium: Understanding the critical rendering path, rendering pages in 1 second](https://medium.com/@luisvieira_gmr/understanding-the-critical-rendering-path-rendering-pages-in-1-second-735c6e45b47a)
+- [Mozilla Developers Network: Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
+- [Optimizely: Above the Fold](https://www.optimizely.com/optimization-glossary/above-the-fold/)
+- [Varvy: Critical rendering path](https://varvy.com/pagespeed/critical-render-path.html)

@@ -681,7 +681,7 @@ This article only describes the essential part from the whole source code. If yo
 8. YouTube already have [YouTube Data API for Captions](https://developers.google.com/youtube/v3/docs/captions) to provide the official way of accessing closed captions. Please **use that instead of this if you want to use a similar feature on production**.
 9. If you found any bug, please submit an issue on the GitHub repository, [Cari Teks Video API](https://github.com/jefrydco/cari-teks-video-api#readme).
 
-## Reference
+## References
 
 - [GitHub: Cari Teks Video API Docs](https://github.com/jefrydco/cari-teks-video-api#readme)
 - [GitHub: Search web.dev Live by Sam Dutton](https://github.com/samdutton/wdl)

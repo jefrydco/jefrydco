@@ -221,8 +221,8 @@ Yang perlu diperhatikan adalah struktur di atas tidak secara mutlak harus teman-
 Walaupun terlihat remeh, menggunakan tag HTML5 sesuai dengan fungsinya dan menambahkan informasi ld+json adalah salah satu usaha kita untuk menjadikan WWW lebih bermakna dan mudah dimengerti, baik oleh manusia maupun mesin pencari. Oke cukup sekian pembahasan mengenai struktur HTML5 yang baik kali ini. Semoga bermanfaat dan tetap semangat untuk terus belajar.
 
 ## Referensi
-1. [JSON for Linking Data](https://json-ld.org/)
-2. [Mozilla Developers Network: HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-3. [Schema.org](https://schema.org/)
-4. [Search Console Help: Sitelinks](https://support.google.com/webmasters/answer/47334)
-5. [W3Schools: HTML Element Reference](https://www.w3schools.com/tags/default.asp)
+- [JSON for Linking Data](https://json-ld.org/)
+- [Mozilla Developers Network: HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [Schema.org](https://schema.org/)
+- [Search Console Help: Sitelinks](https://support.google.com/webmasters/answer/47334)
+- [W3Schools: HTML Element Reference](https://www.w3schools.com/tags/default.asp)

@@ -221,8 +221,8 @@ What needs to be considered is that the above structure must not absolutely be f
 Although it looks trivial, using HTML5 tags in accordance with their functions and adding ld + json information is one of our efforts to make WWW more meaningful and easy to understand, both by humans and search engines. Okay just enough discussion about the good HTML5 structure this time. Hopefully useful and keep the spirit to continue learning.
 
 ## References
-1. [JSON for Linking Data](https://json-ld.org/)
-2. [Mozilla Developers Network: HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-3. [Schema.org](https://schema.org/)
-4. [Search Console Help: Sitelinks](https://support.google.com/webmasters/answer/47334)
-5. [W3Schools: HTML Element Reference](https://www.w3schools.com/tags/default.asp)
+- [JSON for Linking Data](https://json-ld.org/)
+- [Mozilla Developers Network: HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [Schema.org](https://schema.org/)
+- [Search Console Help: Sitelinks](https://support.google.com/webmasters/answer/47334)
+- [W3Schools: HTML Element Reference](https://www.w3schools.com/tags/default.asp)
