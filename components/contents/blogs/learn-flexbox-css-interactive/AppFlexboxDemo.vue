@@ -1,7 +1,7 @@
 <template>
   <div
-    class="demo__card demo__card--custom"
-    :class="{ 'demo__card--custom--floating': isFloating }"
+    class="app-demo__card app-demo__card--custom"
+    :class="{ 'app-demo__card--custom--floating': isFloating }"
   >
     <div class="flex-container" :style="flexContainer">
       <button
@@ -63,7 +63,8 @@ export default Vue.extend({
 <style>
 /* purgecss start ignore */
 .prose {
-  .demo__card--custom {
+  .app-demo__card--custom {
+    border: 0.125rem solid var(--text-normal);
     height: 24rem;
 
     &--floating {
@@ -101,7 +102,7 @@ export default Vue.extend({
     }
   }
   @media (max-width: 992px) {
-    .demo__card--custom {
+    .app-demo__card--custom {
       &--floating {
         top: 5rem;
         transform-origin: 100% 0;

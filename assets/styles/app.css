@@ -29,7 +29,7 @@ html {
     --bg: theme('colors.gray.800');
     --bg-disabled: theme('colors.gray.500');
     --text-normal: theme('colors.gray.300');
-    --text-disabled: theme('colors.gray.500');
+    --text-disabled: theme('colors.gray.400');
     --text-title: theme('colors.gray.200');
     --text-link: theme('colors.yellow.400');
     --card-bg: theme('colors.gray.600');
@@ -41,6 +41,9 @@ html {
 }
 
 html[⚡] {
+  .app-img {
+    @apply flex justify-center
+  }
   .prose {
     h2,
     h3 {

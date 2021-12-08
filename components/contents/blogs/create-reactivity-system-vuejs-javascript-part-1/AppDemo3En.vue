@@ -1,21 +1,19 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-3">
-      <pre class="demo__code state"></pre>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name" class="app-demo__card-3">
+    <pre class="app-demo__code state"></pre>
 
-      <input type="number" class="demo__form input1" min="0" />
-      <select class="demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="result"></div>
+    <div class="result"></div>
 
-      <div ref="script3" class="script"></div>
-    </div>
+    <div ref="script3" class="script"></div>
   </app-demo>
 </template>
 
@@ -59,12 +57,12 @@ export default ExtendableCreateReactivity1.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const stateDisplay = document.querySelector(
-                '.demo__card-3 .state'
+                '.app-demo__card-3 .state'
               )
               stateDisplay.innerText = JSON.stringify(state, null, 2)
 
               const resultDisplay = document.querySelector(
-                '.demo__card-3 .result'
+                '.app-demo__card-3 .result'
               )
               resultDisplay.innerText = state.result.toString()
             }

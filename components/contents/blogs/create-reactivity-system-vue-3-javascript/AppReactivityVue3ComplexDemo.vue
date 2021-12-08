@@ -10,20 +10,18 @@
 </i18n>
 
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-1">
-      <pre class="demo__code state"></pre>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name" class="app-demo__card-1">
+    <pre class="app-demo__code state"></pre>
 
-      <input
-        type="text"
-        class="demo__form input"
-        :aria-label="$t('todo_label')"
-      />
+    <input
+      type="text"
+      class="app-demo__form input"
+      :aria-label="$t('todo_label')"
+    />
 
-      <ul class="list"></ul>
+    <ul class="list"></ul>
 
-      <div ref="reactivityVue3Script1" class="script"></div>
-    </div>
+    <div ref="reactivityVue3Script1" class="script"></div>
   </app-demo>
 </template>
 
@@ -201,7 +199,7 @@ export default ExtendableReactivityVue3.extend({
         el.innerHTML = value
           .map((item, i) =>
             '<li>'
-              .concat(item, ' <button class="demo__form demo__form--custom item-')
+              .concat(item, ' <button class="app-demo__form demo__form--custom item-')
               .concat(i, '" data-index="')
               .concat(i, '">x</button></li>')
           )
@@ -248,7 +246,7 @@ export default ExtendableReactivityVue3.extend({
 
 <style>
 .prose-lg {
-  .demo__form.demo__form--custom {
+  .app-demo__form.app-demo__form--custom {
     @apply ml-2 px-4;
   }
 }

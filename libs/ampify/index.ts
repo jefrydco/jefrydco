@@ -1,28 +1,33 @@
 import DotEnv from 'dotenv'
+import { getYoutubeIdFromThumbnail } from '~/utils'
 
 DotEnv.config()
 
 const ampScript = `<script async src="https://cdn.ampproject.org/v0.js"></script>`
 const ampAnalyticsScript = `<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>`
 const ampVideoScript = `<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>`
+const ampYoutubeScript = `<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>`
 const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>`
 const ampAnalytics = `<amp-analytics type="gtag" data-credentials="include"><script type="application/json">{"vars":{"gtag_id":"${process.env.GOOGLE_ANALYTICS}","config":{"${process.env.GOOGLE_ANALYTICS}":{"groups":"default"}}}}</script></amp-analytics>`
 const colorMap = {
-  "--bg": "#2d3748",
-  "--bg-disabled": "#718096",
-  "--text-normal": "#e2e8f0",
-  "--text-disabled": "#a0aec0",
-  "--text-title": "#edf2f7",
-  "--text-link": "#f6ad55",
-  "--card-bg": "#4a5568",
-  "--inline-code-bg": "#1a202c",
-  "--inline-code-border": "#2d3748",
-  "--inline-code-text": "#e2e8f0",
-  "--error": "#fc8181"
+  '--bg': '#2d3748',
+  '--bg-disabled': '#718096',
+  '--text-normal': '#e2e8f0',
+  '--text-disabled': '#a0aec0',
+  '--text-title': '#edf2f7',
+  '--text-link': '#f6ad55',
+  '--card-bg': '#4a5568',
+  '--inline-code-bg': '#1a202c',
+  '--inline-code-border': '#2d3748',
+  '--inline-code-text': '#e2e8f0',
+  '--error': '#fc8181'
 } as Record<string, string>
 
 export default (html: string) => {
   const isHasVideo = html.match(/<video([^>]*)>/gi)
+  const isHasYoutube = html.match(
+    /<figure aria-label="YouTube Video"[\s\S]*?>([\s\S]*?)<\/figure>/gi
+  )
 
   // Add ⚡ to html tag
   html = html.replace(/<html/gi, '<html ⚡')
@@ -41,16 +46,22 @@ export default (html: string) => {
   styleConcat = styleConcat.replace(/@media[^{]+\{([\s\S]+?\})\s*\}/gi, '')
 
   Object.keys(colorMap).forEach((colorKey) => {
-    styleConcat = styleConcat.replace(new RegExp(`var\\(${colorKey}\\)`, 'gi'), colorMap[colorKey])
+    styleConcat = styleConcat.replace(
+      new RegExp(`var\\(${colorKey}\\)`, 'gi'),
+      colorMap[colorKey]
+    )
   })
 
   // RegEx taken from: https://stackoverflow.com/a/2694121
-  styleConcat.replace(/(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}/gi, (m) => {
-    if (m.includes('tooltip') || m.includes('!important')) {
-      styleConcat = styleConcat.replace(m, '')
+  styleConcat.replace(
+    /(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}/gi,
+    (m) => {
+      if (m.includes('tooltip') || m.includes('!important')) {
+        styleConcat = styleConcat.replace(m, '')
+      }
+      return ''
     }
-    return ''
-  })
+  )
 
   html = html.replace(
     '</head>',
@@ -58,7 +69,10 @@ export default (html: string) => {
   )
 
   // Remove preload and prefetch tags
-  html = html.replace(/<link[^>]*rel="(?:preload|prefetch|modulepreload)?"[^>]*>/gi, '')
+  html = html.replace(
+    /<link[^>]*rel="(?:preload|prefetch|modulepreload)?"[^>]*>/gi,
+    ''
+  )
 
   // Remove amphtml tag
   html = html.replace(/<link[^>]*rel="(?:amphtml)?"[^>]*>/gi, '')
@@ -70,7 +84,6 @@ export default (html: string) => {
       return /application\/ld\+json/gi.test(match) ? match : ''
     }
   )
-
 
   // Replace img tags with amp-img
   html = html.replace(/<img([^>]*)>/gi, (_match, sub: string) => {
@@ -110,10 +123,29 @@ export default (html: string) => {
   // Remove data attributes from tags
   html = html.replace(/\s*data-(?:[^=>]*="[^"]*"|[^=>\s]*)/gi, '')
 
+  // Replace youtube with amp-youtube
+  if (isHasYoutube) {
+    html = html.replace(
+      /<div class="td__video-sizer"[\s\S]*?>([\s\S]*?)(<\/figure>)<\/div>/gi,
+      (_match, sub) => {
+        const youtubeUrl = /src="([^"]*)"/gi.exec(sub)?.[1] || ''
+        // RegEx taken from: https://stackoverflow.com/a/7882155/7711812
+        const youtubeId = /\/vi\/(.*)\//gi.exec(youtubeUrl)?.[1] || ''
+        console.log(youtubeId)
+        return `<amp-youtube data-videoid="${youtubeId}" layout=responsive width=736 height=446><amp-img src="${youtubeUrl}" layout=fill placeholder/></amp-youtube>`
+      }
+    )
+  }
+
+  // Remove switch illustration
+  html = html.replace(/<div class="td__switch-illustration">([\s\S]*?)<\/div>/gi, '')
+
   // Add AMP script before </head>
   html = html.replace(
     '<head>',
-    `<head>${ampScript}${ampAnalyticsScript}${isHasVideo ? ampVideoScript : ''}`
+    `<head>${ampScript}${ampAnalyticsScript}${
+      isHasVideo ? ampVideoScript : ''
+    }${isHasYoutube ? ampYoutubeScript : ''}`
   )
   html = html.replace('</head>', `${ampBoilerplate}</head>`)
   html = html.replace('</body>', `${ampAnalytics}</body>`)

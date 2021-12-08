@@ -1,21 +1,17 @@
 <template>
   <main id="blog-index" class="max-w-3xl mx-auto">
-    <div class="my-12">
-      <app-profile />
-    </div>
-    <section>
-      <app-blog
-        v-for="blog in blogList"
-        :key="blog.slug"
-        :img="blog.img"
-        :title="blog.title"
-        :summary="blog.summary"
-        :posted-date="blog.postedDate"
-        :updated-date="blog.updatedDate"
-        :reading-time="blog.readingTime"
-        :slug="blog.slug"
-      />
-    </section>
+    <app-profile class="my-12" />
+    <app-blog
+      v-for="blog in blogList"
+      :key="blog.slug"
+      :img="blog.img"
+      :title="blog.title"
+      :summary="blog.summary"
+      :posted-date="blog.postedDate"
+      :updated-date="blog.updatedDate"
+      :reading-time="blog.readingTime"
+      :slug="blog.slug"
+    />
     <app-pagination-link
       :next-link="localePath('/blog/page/2')"
       :rss-link="rssLink"
@@ -33,28 +29,32 @@ import type { BlogListDataType } from '~/types/blog'
 
 export default Vue.extend({
   // @ts-ignore
-  async asyncData({ app }) {
-    const { locale } = app.i18n
+  async asyncData({ app, redirect, localePath }) {
+    try {
+      const { locale } = app.i18n
 
-    // @ts-expect-error
-    const blogList = await app
-      .$content(`/${locale}/blog`, { deep: true })
-      .limit(MAXIMAL_BLOG_ITEM)
-      .only([
-        'img',
-        'title',
-        'description',
-        'summary',
-        'postedDate',
-        'updatedDate',
-        'slug',
-        'readingTime'
-      ])
-      .sortBy('postedDate', 'desc')
-      .fetch<BlogListDataType>()
+      // @ts-expect-error
+      const blogList = await app
+        .$content(`/blog/${locale}`, { deep: true })
+        .limit(MAXIMAL_BLOG_ITEM)
+        .only([
+          'img',
+          'title',
+          'description',
+          'summary',
+          'postedDate',
+          'updatedDate',
+          'slug',
+          'readingTime'
+        ])
+        .sortBy('postedDate', 'desc')
+        .fetch<BlogListDataType>()
 
-    return {
-      blogList
+      return {
+        blogList
+      }
+    } catch {
+      redirect(localePath('/'))
     }
   },
   data() {
@@ -196,7 +196,7 @@ export default Vue.extend({
       if (locale === 'id') {
         return `${HOSTNAME}/blog.xml`
       }
-      return `${HOSTNAME}/${locale}/blog.xml`
+      return `${HOSTNAME}/blog/${locale}.xml`
     }
   }
 })

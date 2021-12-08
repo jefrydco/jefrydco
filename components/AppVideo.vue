@@ -1,5 +1,5 @@
 <template>
-  <figure class="video">
+  <figure class="app-video">
     <div :class="`embed embed__${size}`">
       <video :src="src" autoplay="" loop="" muted="" playsinline="" />
     </div>

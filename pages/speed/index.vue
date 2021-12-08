@@ -171,6 +171,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      // eslint-disable-next-line
       reportData: {
         timestamp: new Date().toISOString(),
         reports: []

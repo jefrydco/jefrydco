@@ -29,14 +29,19 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        this.initTwitterEmbed()
-        this.$nextTick(() => {
-          this.observer.disconnect()
-        })
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          this.initTwitterEmbed()
+          this.$nextTick(() => {
+            this.observer.disconnect()
+          })
+        }
+      },
+      {
+        rootMargin: '0px 0px 100px 0px'
       }
-    })
+    )
     this.observer.observe(this.$refs.observed as Element)
   },
   destroyed() {

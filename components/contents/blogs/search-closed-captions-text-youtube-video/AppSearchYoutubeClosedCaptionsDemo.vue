@@ -64,105 +64,103 @@
 <template>
   <app-intersect @enter="onDemoEnter" @leave="onDemoLeave">
     <app-demo :path="DEFAULT_PATH" :name="$options.name">
-      <div class="demo__card">
-        <app-youtube-video
-          ref="youtubeVideo"
-          :is-playing="isPlaying"
-          :youtube-id="youtubeId"
-          :start="currentStart"
-          @play="onYoutubeVideoPlay"
-        ></app-youtube-video>
+      <app-youtube-video
+        ref="youtubeVideo"
+        :is-playing="isPlaying"
+        :youtube-id="youtubeId"
+        :start="currentStart"
+        @play="onYoutubeVideoPlay"
+      ></app-youtube-video>
 
-        <h2 v-if="isMetaAvailable" class="demo__heading">
-          "{{ results.meta.title }}"
-          {{ $t('by') }}
-          <a
-            :href="results.meta.channelUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ results.meta.channelName }}
-          </a>
-        </h2>
-        <h2 v-else class="demo__heading">
-          "{{ $t('title') }}" {{ $t('by') }}
-          <span v-html="$t('channel_name')"></span>
-        </h2>
-
-        <blockquote>
-          <strong>{{ $t('note') }}</strong>
-          <ul>
-            <li
-              v-for="(notice, i) in $t('demo_notices')"
-              :key="i"
-              v-html="notice"
-            ></li>
-          </ul>
-        </blockquote>
-
-        <app-text-input
-          id="youtube-url"
-          v-model="youtubeUrl"
-          full-width=""
-          :label="$t('input_youtube_url_label')"
-          @focus="resetAll({ isToggling: false, isReRun: false })"
-        ></app-text-input>
-        <app-text-input
-          id="keyword"
-          v-model="keyword"
-          full-width=""
-          :label="$t('input_keyword_label')"
-          @focus="resetAll({ isToggling: false, isReRun: false })"
-        ></app-text-input>
-
-        <div class="mb-8">
-          <p
-            class="demo__p"
-            :class="{ 'demo__p--error': isSearchingError }"
-            v-html="searchInfo"
-          ></p>
-          <p class="demo__p">{{ $t('timer', { timer }) }}</p>
-        </div>
-        <button class="btn" @click="toggleAutoDemo">
-          {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
-        </button>
-        <button class="btn" @click="resetAll({ isToggling: false })">
-          {{ $t('reset') }}
-        </button>
-
-        <hr />
-
-        <div class="mb-8">
-          <p class="demo__p">
-            {{
-              $t('search_result_info', {
-                page: results.page,
-                total: results.total
-              })
-            }}
-          </p>
-        </div>
-        <button
-          v-for="nav in navButtonStructure"
-          :key="nav"
-          :disabled="!results[nav] || isOnlyPage"
-          class="btn"
-          @click="navigate(results[nav])"
+      <h2 v-if="isMetaAvailable" class="app-demo__heading">
+        "{{ results.meta.title }}"
+        {{ $t('by') }}
+        <a
+          :href="results.meta.channelUrl"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          {{ $t(`${nav}_page`) }}
-        </button>
+          {{ results.meta.channelName }}
+        </a>
+      </h2>
+      <h2 v-else class="app-demo__heading">
+        "{{ $t('title') }}" {{ $t('by') }}
+        <span v-html="$t('channel_name')"></span>
+      </h2>
 
-        <hr />
-
+      <blockquote>
+        <strong>{{ $t('note') }}</strong>
         <ul>
-          <li v-for="(item, i) in results.data" :key="i">
-            <p v-html="item.text"></p>
-            <button class="btn" @click="onSelectItemText(item)">
-              {{ $t('play_video_at', { time: item.start }) }}
-            </button>
-          </li>
+          <li
+            v-for="(notice, i) in $t('demo_notices')"
+            :key="i"
+            v-html="notice"
+          ></li>
         </ul>
+      </blockquote>
+
+      <app-text-input
+        id="youtube-url"
+        v-model="youtubeUrl"
+        full-width=""
+        :label="$t('input_youtube_url_label')"
+        @focus="resetAll({ isToggling: false, isReRun: false })"
+      ></app-text-input>
+      <app-text-input
+        id="keyword"
+        v-model="keyword"
+        full-width=""
+        :label="$t('input_keyword_label')"
+        @focus="resetAll({ isToggling: false, isReRun: false })"
+      ></app-text-input>
+
+      <div class="mb-8">
+        <p
+          class="app-demo__p"
+          :class="{ 'demo__p--error': isSearchingError }"
+          v-html="searchInfo"
+        ></p>
+        <p class="app-demo__p">{{ $t('timer', { timer }) }}</p>
       </div>
+      <button class="btn" @click="toggleAutoDemo">
+        {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
+      </button>
+      <button class="btn" @click="resetAll({ isToggling: false })">
+        {{ $t('reset') }}
+      </button>
+
+      <hr />
+
+      <div class="mb-8">
+        <p class="app-demo__p">
+          {{
+            $t('search_result_info', {
+              page: results.page,
+              total: results.total
+            })
+          }}
+        </p>
+      </div>
+      <button
+        v-for="nav in navButtonStructure"
+        :key="nav"
+        :disabled="!results[nav] || isOnlyPage"
+        class="btn"
+        @click="navigate(results[nav])"
+      >
+        {{ $t(`${nav}_page`) }}
+      </button>
+
+      <hr />
+
+      <ul>
+        <li v-for="(item, i) in results.data" :key="i">
+          <p v-html="item.text"></p>
+          <button class="btn" @click="onSelectItemText(item)">
+            {{ $t('play_video_at', { time: item.start }) }}
+          </button>
+        </li>
+      </ul>
     </app-demo>
   </app-intersect>
 </template>
@@ -506,14 +504,14 @@ export default ExtendableSearchText.extend({
 </script>
 
 <style lang="postcss">
-p.demo__p {
+p.app-demo__p {
   @apply mb-0;
 
   &--error {
     color: var(--error);
   }
 }
-h2.demo__heading {
+h2.app-demo__heading {
   @apply mt-0 mb-8;
 
   > a {
@@ -528,7 +526,7 @@ h2.demo__heading {
   }
 }
 @media (max-width: 992px) {
-  h2.demo__heading {
+  h2.app-demo__heading {
     > a {
       &::before {
         @apply ml-0;

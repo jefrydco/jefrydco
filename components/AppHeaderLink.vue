@@ -30,13 +30,9 @@ export default Vue.extend({
   left: 1.5rem;
 
   &__anchor {
-    @apply cursor-pointer py-2 px-4 w-24 rounded shadow no-underline;
+    @apply cursor-pointer py-2 px-4 w-24 rounded shadow no-underline hover:shadow-lg;
     background-color: var(--card-bg);
     color: var(--text-normal);
-
-    &:hover {
-      @apply shadow-lg;
-    }
   }
 }
 </style>

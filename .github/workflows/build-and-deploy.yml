@@ -58,7 +58,7 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-        run: yarn generate
+        run: NODE_OPTIONS=--max-old-space-size=12285 yarn generate
 
       - name: Deploy
         uses: nwtgck/actions-netlify@v1.1.13

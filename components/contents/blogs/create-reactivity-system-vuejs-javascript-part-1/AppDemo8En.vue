@@ -1,21 +1,19 @@
 <template>
-  <app-demo :path="DEFAULT_PATH" :name="$options.name">
-    <div class="demo__card demo__card-8">
-      <pre class="demo__code state"></pre>
+  <app-demo :path="DEFAULT_PATH" :name="$options.name" class="app-demo__card-8">
+    <pre class="app-demo__code state"></pre>
 
-      <input type="number" class="demo__form input1" min="0" />
-      <select class="demo__form operator">
-        <option value="+">&plus;</option>
-        <option value="-">&minus;</option>
-        <option value="*">&times;</option>
-        <option value="/">&divide;</option>
-      </select>
-      <input type="number" class="demo__form input2" min="0" />
+    <input type="number" class="app-demo__form input1" min="0" />
+    <select class="app-demo__form operator">
+      <option value="+">&plus;</option>
+      <option value="-">&minus;</option>
+      <option value="*">&times;</option>
+      <option value="/">&divide;</option>
+    </select>
+    <input type="number" class="app-demo__form input2" min="0" />
 
-      <div class="result"></div>
+    <div class="result"></div>
 
-      <script ref="script8" class="script"></script>
-    </div>
+    <script ref="script8" class="script"></script>
   </app-demo>
 </template>
 
@@ -59,22 +57,22 @@ export default ExtendableCreateReactivity1.extend({
               // We have to prefixed the selector in accordance with the root component class
               // It avoids the script to be applied to all demo
               const tampilanKeadaan = document.querySelector(
-                '.demo__card-8 .state'
+                '.app-demo__card-8 .state'
               )
 
               const tampilanHasil = document.querySelector(
-                '.demo__card-8 .result'
+                '.app-demo__card-8 .result'
               )
 
               const tampilanInput1 = document.querySelector(
-                '.demo__card-8 .input1'
+                '.app-demo__card-8 .input1'
               )
               const tampilanInput2 = document.querySelector(
-                '.demo__card-8 .input2'
+                '.app-demo__card-8 .input2'
               )
 
               const tampilanOperator = document.querySelector(
-                '.demo__card-8 .operator'
+                '.app-demo__card-8 .operator'
               )
 
               function updateDisplay() {

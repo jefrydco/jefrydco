@@ -1,21 +1,17 @@
 <template>
   <main id="blog-index" class="max-w-3xl mx-auto">
-    <div class="my-12">
-      <app-profile />
-    </div>
-    <section>
-      <app-blog
-        v-for="blog in blogList"
-        :key="blog.slug"
-        :img="blog.img"
-        :title="blog.title"
-        :summary="blog.summary"
-        :posted-date="blog.postedDate"
-        :updated-date="blog.updatedDate"
-        :reading-time="blog.readingTime"
-        :slug="blog.slug"
-      />
-    </section>
+    <app-profile class="my-12" />
+    <app-blog
+      v-for="blog in blogList"
+      :key="blog.slug"
+      :img="blog.img"
+      :title="blog.title"
+      :summary="blog.summary"
+      :posted-date="blog.postedDate"
+      :updated-date="blog.updatedDate"
+      :reading-time="blog.readingTime"
+      :slug="blog.slug"
+    />
     <app-pagination-link
       :prev-link="prevLink"
       :next-link="nextLink"
@@ -37,14 +33,14 @@ import type { BlogListDataType } from '~/types/blog'
 export default Vue.extend({
   mixins: [pagination],
   // @ts-ignore
-  async asyncData({ app, route, redirect }) {
+  async asyncData({ app, route, redirect, localePath }) {
     const { locale } = app.i18n
     try {
       const pageNumber = parseInt(route?.params?.number)
       if (pageNumber > 1) {
         // @ts-expect-error
         const blogList = await app
-          .$content(`/${locale}/blog`, { deep: true })
+          .$content(`/blog/${locale}`, { deep: true })
           .only([
             'img',
             'title',
@@ -67,10 +63,10 @@ export default Vue.extend({
           ...getPrevNextPage(pageNumber, lastPage)
         }
       } else {
-        redirect(app.localePath('/blog'))
+        redirect(localePath('/blog'))
       }
     } catch (error) {
-      redirect(app.localePath('/blog'))
+      redirect(localePath('/blog'))
     }
   },
   data() {
@@ -211,7 +207,7 @@ export default Vue.extend({
       if (locale === 'id') {
         return `${HOSTNAME}/blog.xml`
       }
-      return `${HOSTNAME}/${locale}/blog.xml`
+      return `${HOSTNAME}/blog/${locale}.xml`
     }
   }
 })
