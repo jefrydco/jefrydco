@@ -1,8 +1,8 @@
-import type { NuxtVueI18n } from 'nuxt-i18n'
+import type { LocaleObject } from '@nuxtjs/i18n'
 
 export const HOSTNAME = 'https://jefrydco.id'
 
-export const locales: NuxtVueI18n.Options.LocaleObject[] = [
+export const locales: LocaleObject[] = [
   {
     code: 'id',
     iso: 'id-ID',
