@@ -13,7 +13,7 @@ export default Vue.extend({
   head() {
     return {
       title: this.$t('description'),
-      ...this.$nuxtI18nSeo()
+      ...this.$nuxtI18nHead({ addSeoAttributes: true })
     }
   }
 })

@@ -28,7 +28,7 @@
       "@nuxt/content",
       "@nuxtjs/sentry",
       "@nuxtjs/google-analytics",
-      "nuxt-i18n",
+      "@nuxtjs/i18n",
       "vue-i18n",
       "./@types"
     ]

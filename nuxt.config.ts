@@ -204,7 +204,7 @@ export default {
     '@nuxtjs/sentry',
 
     // https://github.com/nuxt-community/nuxt-i18n
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
 
     // https://sitemap.nuxtjs.org/
     '@nuxtjs/sitemap'

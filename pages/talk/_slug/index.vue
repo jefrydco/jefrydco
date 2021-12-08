@@ -256,9 +256,11 @@ export default formatDate.extend({
   }
   &__video {
     background-color: var(--inline-code-bg);
+    min-height: 31rem;
   }
   &__video-sizer {
     @apply w-full mx-auto sm:w-2/3;
+    min-height: 31rem;
   }
   &__card {
     @apply mb-4 p-6 mx-4 rounded overflow-hidden shadow relative sm:px-16 sm:py-14;
