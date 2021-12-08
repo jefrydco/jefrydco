@@ -250,17 +250,25 @@ export default formatDate.extend({
 
 <style lang="postcss">
 /* purgecss start ignore */
+@media (min-width: 640px) {
+  .td {
+    &__video,
+    &__video-sizer {
+      min-height: 31rem;
+    }
+  }
+}
 .td {
   &__poster {
     @apply h-128;
   }
   &__video {
     background-color: var(--inline-code-bg);
-    min-height: 31rem;
+    min-height: 14rem;
   }
   &__video-sizer {
     @apply w-full mx-auto sm:w-2/3;
-    min-height: 31rem;
+    min-height: 14rem;
   }
   &__card {
     @apply mb-4 p-6 mx-4 rounded overflow-hidden shadow relative sm:px-16 sm:py-14;
