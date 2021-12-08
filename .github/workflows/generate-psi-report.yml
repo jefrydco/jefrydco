@@ -20,6 +20,7 @@ jobs:
           urls: |
             https://jefrydco.id/
             https://jefrydco.id/blog/
+            https://jefrydco.id/talk/
           devices: |
             mobile
             desktop
