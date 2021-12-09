@@ -219,6 +219,68 @@ export default formatDate.extend({
           // @ts-expect-error
           content: this.talk && this.talk.description
         }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'EducationEvent',
+            // @ts-expect-error
+            name: this.talk && this.talk.title,
+            // @ts-expect-error
+            startDate: this.talk && this.talk.startDate,
+            // @ts-expect-error
+            endDate: this.talk && this.talk.endDate,
+            eventStatus: 'https://schema.org/EventScheduled',
+            eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+            location: {
+              '@type': 'VirtualLocation',
+              url:
+                // @ts-expect-error
+                (this.talk && this.talk.playback) ||
+                `${HOSTNAME}${
+                  // @ts-expect-error
+                  this.talk &&
+                  this.localePath({
+                    name: 'talk-slug',
+                    // @ts-expect-error
+                    params: { slug: this.talk.slug }
+                  })
+                }/`
+            },
+            image: {
+              '@type': 'imageObject',
+              url: `${HOSTNAME}${require(`~/assets/images${
+                // @ts-expect-error
+                this.talk && this.talk.poster
+              }`)}`,
+              height: '1920',
+              width: '614'
+            },
+            // @ts-expect-error
+            description: this.talk && this.talk.description,
+            performer: {
+              '@type': 'Person',
+              name: 'Jefry Dewangga',
+              alternateName: 'Jefrydco',
+              logo: {
+                '@type': 'imageObject',
+                url: `${HOSTNAME}/icon.png`,
+                width: '2739',
+                height: '3102'
+              }
+            },
+            organizer: {
+              '@type': 'Organization',
+              // @ts-expect-error
+              name: this.talk && this.talk.organizer,
+              // @ts-expect-error
+              url: this.talk && this.talk.organizerUrl
+            }
+          })
+        }
       ]
     }
   },
@@ -284,7 +346,7 @@ export default formatDate.extend({
   }
   &__switch-illustration,
   &__resources {
-    @apply mb-4;
+    @apply mb-8;
   }
   &__resources {
     p:not(:last-child) {

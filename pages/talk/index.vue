@@ -74,6 +74,7 @@ export default Vue.extend({
       talkListByYear: [] as TalkYearItemType[]
     }
   },
+  // @ts-expect-error
   head() {
     const { locales } = this.$i18n
     // @ts-expect-error
@@ -91,10 +92,26 @@ export default Vue.extend({
       title: 'Talk',
       meta: [
         {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Talk - Jefrydco'
+        },
+        {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
           content: `${HOSTNAME}${this.localePath({ name: 'talk' })}/`
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('talkDescription')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('talkDescription')
         }
       ],
       link: [

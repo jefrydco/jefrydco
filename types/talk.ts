@@ -11,6 +11,8 @@ export type TalkDataType = {
   startDate: string
   endDate: string
   slug: string
+  organizer: string
+  organizerUrl: string
   dir: string
   body: Record<string, unknown>
   readingTime: ReadingTimeType

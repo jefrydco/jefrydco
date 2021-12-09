@@ -62,6 +62,7 @@ export default Vue.extend({
       blogList: []
     }
   },
+  // @ts-expect-error
   head() {
     const { locales } = this.$i18n
     // @ts-expect-error
@@ -79,10 +80,26 @@ export default Vue.extend({
       title: 'Blog',
       meta: [
         {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Blog - Jefrydco'
+        },
+        {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
           content: `${HOSTNAME}${this.localePath({ name: 'blog' })}/`
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('blogDescription')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('blogDescription')
         }
       ],
       link: [
@@ -99,10 +116,10 @@ export default Vue.extend({
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org/',
             '@type': 'Blog',
-            name: 'Jefrydco',
-            headline: 'A personal site of Jefry Dewangga',
-            description: 'A personal site of Jefry Dewangga',
-            about: 'A personal site of Jefry Dewangga',
+            name: 'Blog - Jefrydco',
+            headline: this.$t('blogDescription'),
+            description: this.$t('blogDescription'),
+            about: this.$t('blogDescription'),
             keywords: 'jefrydco, Jefry Dewangga',
             genre: ['Personal', 'Tutorial', 'Programming', 'Review', 'Science'],
             copyrightYear: new Date().getFullYear(),
@@ -118,9 +135,9 @@ export default Vue.extend({
               height: '3102'
             },
             publisher: {
-              '@type': 'Organization',
-              name: 'Jefrydco',
-              sameAs: 'https://www.facebook.com/jefrydco.id',
+              '@type': 'Person',
+              name: 'Jefry Dewangga',
+              alternateName: 'Jefrydco',
               logo: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,
@@ -152,9 +169,9 @@ export default Vue.extend({
                 width: '614'
               },
               publisher: {
-                '@type': 'Organization',
-                name: 'Jefrydco',
-                sameAs: 'https://www.facebook.com/jefrydco.id',
+                '@type': 'Person',
+                name: 'Jefry Dewangga',
+                alternateName: 'Jefrydco',
                 logo: {
                   '@type': 'imageObject',
                   url: `${HOSTNAME}/icon.png`,

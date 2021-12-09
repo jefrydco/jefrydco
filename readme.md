@@ -16,7 +16,7 @@ To run locally, run `yarn`, then `yarn dev`, after that open https://localhost:3
 
 You can contribute to this site by submitting pull request. You can also help me to fix gramatical error, since my mother tounge isn't English. Or if you have more sparetime, you can help me to translate this site into your language as well. :)
 
-To translate the content into your language, add a Markdown file with the translation to corresponding content folder using following format `contents/<language-code>/<section>/<file-name>.md`. For instance, if you want to add Javanese language for blog section, add new file in `contents/jv/blog/halo-dunia.md`.
+To translate the content into your language, add a Markdown file with the translation to corresponding content folder using following format `contents/<section>/<language-code>/<file-name>.md`. For instance, if you want to add Javanese language for blog section, add new file in `contents/blog/jv/halo-dunia.md`.
 
 ## License
 

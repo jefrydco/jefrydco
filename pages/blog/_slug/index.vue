@@ -242,9 +242,9 @@ export default Vue.extend({
               width: '1080'
             },
             publisher: {
-              '@type': 'Organization',
-              name: 'Jefrydco',
-              sameAs: 'https://www.facebook.com/jefrydco.id',
+              '@type': 'Person',
+              name: 'Jefry Dewangga',
+              alternateName: 'Jefrydco',
               logo: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,

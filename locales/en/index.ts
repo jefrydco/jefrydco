@@ -1,5 +1,7 @@
 export default {
   description: 'A personal site of Jefry Dewangga',
+  blogDescription: 'My learning journey in a form of writing',
+  talkDescription: 'My learning journey in a form of talk',
   discussTwitter: 'Discuss on Twitter',
   editGithub: 'Edit on Github',
   minRead: 'min read',

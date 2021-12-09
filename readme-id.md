@@ -15,7 +15,7 @@ Untuk menjalankan situs ini secara lokal, jalankan perintah `yarn`, kemudian `ya
 
 Anda dapat berkontribusi pada situs ini dengan mengirimkan _pull request_. Anda juga dapat membantu saya membetulkan tata bahasa yang salah, karena bahasa ibu saya juga bukanlah Bahasa Inggris. Atau jika Anda mempunyai waktu luang, Anda juga dapat membantu saya untuk menerjemahkan situs ini kedalam bahasa Anda juga. :)
 
-Untuk menerjemahkan konten ke dalam bahasa Anda, tambahkan berkas Markdown dengan terjemahan ke dalam direktori konten yang sesuai dengan format berikut `contents/<kode-bahasa>/<bagian>/<nama-berkas>.md`. Sebagai contoh, jika Anda ingin menambahkan Bahasa Jawa untuk bagian blog, tambahkan berkas baru di `contents/jv/blog/halo-dunia.md`.
+Untuk menerjemahkan konten ke dalam bahasa Anda, tambahkan berkas Markdown dengan terjemahan ke dalam direktori konten yang sesuai dengan format berikut `contents/<bagian>/<kode-bahasa>/<nama-berkas>.md`. Sebagai contoh, jika Anda ingin menambahkan Bahasa Jawa untuk bagian blog, tambahkan berkas baru di `contents/blog/jv/halo-dunia.md`.
 
 ## Perizinan
 

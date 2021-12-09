@@ -1,5 +1,7 @@
 export default {
   description: 'Situs pribadi Jefry Dewangga',
+  blogDescription: 'Perjalanan belajar saya tertuang dalam bentuk tulisan',
+  talkDescription: 'Perjalanan belajar saya tertuang dalam bentuk talk',
   discussTwitter: 'Diskusikan di Twitter',
   editGithub: 'Sunting di Github',
   minRead: 'mnt dibaca',
