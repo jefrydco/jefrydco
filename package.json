@@ -104,7 +104,7 @@
     "remark-toc": "^7.2.0",
     "responsive-loader": "^2.3.0",
     "sharp": "^0.29.2",
-    "shiki": "^0.9.14",
+    "shiki": "^0.9.15",
     "shiki-languages": "^0.2.7",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
