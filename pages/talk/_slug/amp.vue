@@ -119,11 +119,25 @@ export default Page.extend({
             },
             // @ts-expect-error
             description: this.talk && this.talk.description,
+            offers: {
+              '@type': 'Offer',
+              url: `${HOSTNAME}${
+                this.talk &&
+                this.localePath({
+                  name: 'talk-slug',
+                  // @ts-expect-error
+                  params: { slug: this.talk.slug }
+                })
+              }/`,
+              price: '0',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock'
+            },
             performer: {
               '@type': 'Person',
               name: 'Jefry Dewangga',
               alternateName: 'Jefrydco',
-              logo: {
+              image: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,
                 width: '2739',

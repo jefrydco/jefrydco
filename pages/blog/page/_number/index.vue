@@ -150,7 +150,7 @@ export default Vue.extend({
               '@type': 'Person',
               name: 'Jefry Dewangga',
               alternateName: 'Jefrydco',
-              logo: {
+              image: {
                 '@type': 'imageObject',
                 url: `${HOSTNAME}/icon.png`,
                 width: '2739',
@@ -184,7 +184,7 @@ export default Vue.extend({
                 '@type': 'Person',
                 name: 'Jefry Dewangga',
                 alternateName: 'Jefrydco',
-                logo: {
+                image: {
                   '@type': 'imageObject',
                   url: `${HOSTNAME}/icon.png`,
                   width: '2739',
