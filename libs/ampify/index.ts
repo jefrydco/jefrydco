@@ -10,17 +10,17 @@ const ampYoutubeScript = `<script async custom-element="amp-youtube" src="https:
 const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>`
 const ampAnalytics = `<amp-analytics type="gtag" data-credentials="include"><script type="application/json">{"vars":{"gtag_id":"${process.env.GOOGLE_ANALYTICS}","config":{"${process.env.GOOGLE_ANALYTICS}":{"groups":"default"}}}}</script></amp-analytics>`
 const colorMap = {
-  '--bg': '#2d3748',
-  '--bg-disabled': '#718096',
-  '--text-normal': '#e2e8f0',
-  '--text-disabled': '#a0aec0',
-  '--text-title': '#edf2f7',
-  '--text-link': '#f6ad55',
-  '--card-bg': '#4a5568',
-  '--inline-code-bg': '#1a202c',
-  '--inline-code-border': '#2d3748',
-  '--inline-code-text': '#e2e8f0',
-  '--error': '#fc8181'
+  '--bg': '#1f2937',
+  '--bg-disabled': '#6b7280',
+  '--text-normal': '#d1d5db',
+  '--text-disabled': '#9ca3af',
+  '--text-title': '#e5e7eb',
+  '--text-link': '#fbbf24',
+  '--card-bg': '#4b5563',
+  '--inline-code-bg': '#111827',
+  '--inline-code-border': '#1f2937',
+  '--inline-code-text': '#d1d5db',
+  '--error': '#f87171'
 } as Record<string, string>
 
 export default (html: string) => {

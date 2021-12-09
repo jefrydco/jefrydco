@@ -18,7 +18,7 @@ html {
     --text-normal: theme('colors.gray.700');
     --text-disabled: theme('colors.gray.400');
     --text-title: theme('colors.gray.700');
-    --text-link: theme('colors.yellow.500');
+    --text-link: theme('colors.yellow.900');
     --card-bg: theme('colors.white');
     --inline-code-bg: theme('colors.gray.300');
     --inline-code-border: theme('colors.gray.300');
