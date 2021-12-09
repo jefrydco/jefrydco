@@ -19,6 +19,10 @@
         ></app-talk-item>
       </section>
     </app-talk-section>
+    <app-pagination-link
+      :is-paginated="false"
+      :rss-link="rssLink"
+    ></app-pagination-link>
     <app-to-top />
     <app-scroll-indicator />
   </main>
@@ -34,30 +38,34 @@ import type { TalkYearItemType, TalkDataType } from '~/types/talk'
 
 export default Vue.extend({
   // @ts-ignore
-  async asyncData({ app }) {
-    const { locale } = app.i18n
+  async asyncData({ app, redirect, localePath }) {
+    try {
+      const { locale } = app.i18n
 
-    const talkList: TalkDataType[] = await app
-      .$content(`/talk/${locale}`, { deep: true })
-      .sortBy('startDate', 'desc')
-      .fetch()
+      const talkList: TalkDataType[] = await app
+        .$content(`/talk/${locale}`, { deep: true })
+        .sortBy('startDate', 'desc')
+        .fetch()
 
-    const talkListByYear = Object.entries(
-      groupBy<TalkDataType, number>(talkList, (item) =>
-        new Date(item.startDate).getFullYear()
+      const talkListByYear = Object.entries(
+        groupBy<TalkDataType, number>(talkList, (item) =>
+          new Date(item.startDate).getFullYear()
+        )
       )
-    )
-      .map(
-        ([key, value]) =>
-          ({
-            year: key,
-            list: value
-          } as TalkYearItemType)
-      )
-      .sort((a, z) => parseInt(z.year, 10) - parseInt(a.year, 10))
+        .map(
+          ([key, value]) =>
+            ({
+              year: key,
+              list: value
+            } as TalkYearItemType)
+        )
+        .sort((a, z) => parseInt(z.year, 10) - parseInt(a.year, 10))
 
-    return {
-      talkListByYear
+      return {
+        talkListByYear
+      }
+    } catch (error) {
+      redirect(localePath('/'))
     }
   },
   data() {
@@ -67,6 +75,18 @@ export default Vue.extend({
     }
   },
   head() {
+    const { locales } = this.$i18n
+    // @ts-expect-error
+    const link = locales.map((locale) => ({
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      href:
+        locale.code === 'id'
+          ? `${HOSTNAME}/talk.xml`
+          : `${HOSTNAME}/${locale.code}/talk.xml`,
+      title: `Talk - Jefrydco`
+    }))
+
     return {
       title: 'Talk',
       meta: [
@@ -78,6 +98,7 @@ export default Vue.extend({
         }
       ],
       link: [
+        ...link,
         {
           rel: 'amphtml',
           href: `${HOSTNAME}${this.localePath({ name: 'talk-amp' })}/`
@@ -89,6 +110,13 @@ export default Vue.extend({
     talkSectionTitle() {
       return (year: string, talkCount: number) =>
         `${year} (${this.$tc('talk', talkCount, { count: talkCount })})`
+    },
+    rssLink() {
+      const { locale } = this.$i18n
+      if (locale === 'id') {
+        return `${HOSTNAME}/talk.xml`
+      }
+      return `${HOSTNAME}/${locale}/talk.xml`
     }
   }
 })

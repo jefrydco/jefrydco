@@ -207,7 +207,7 @@ export default Vue.extend({
       if (locale === 'id') {
         return `${HOSTNAME}/blog.xml`
       }
-      return `${HOSTNAME}/blog/${locale}.xml`
+      return `${HOSTNAME}/${locale}/blog.xml`
     }
   }
 })

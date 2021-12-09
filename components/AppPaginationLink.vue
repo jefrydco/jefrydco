@@ -14,46 +14,54 @@
 </i18n>
 
 <template>
-  <footer id="pagination" class="pagination">
-    <nuxt-link v-if="prevLink" :to="prevLink" class="pagination__link">
-      {{ $t('prev') }}
-    </nuxt-link>
-    <a
-      v-else
-      href=""
-      aria-disabled="true"
-      class="pagination__link pagination__link--disabled"
-      @click="preventDefault"
-      @keydown.space.enter="preventDefault"
-    >
-      {{ $t('prev') }}
-    </a>
+  <footer
+    id="pagination"
+    class="pagination"
+    :class="{ 'pagination--rss-only': !isPaginated }"
+  >
+    <template v-if="isPaginated">
+      <nuxt-link v-if="prevLink" :to="prevLink" class="pagination__link">
+        {{ $t('prev') }}
+      </nuxt-link>
+      <a
+        v-else
+        href=""
+        aria-disabled="true"
+        class="pagination__link pagination__link--disabled"
+        @click="preventDefault"
+        @keydown.space.enter="preventDefault"
+      >
+        {{ $t('prev') }}
+      </a>
+    </template>
     <app-rss-link :link="rssLink"></app-rss-link>
-    <nuxt-link v-if="nextLink" :to="nextLink" class="pagination__link">
-      {{ $t('next') }}
-    </nuxt-link>
-    <a
-      v-else
-      href=""
-      aria-disabled="true"
-      class="pagination__link pagination__link--disabled"
-      @click="preventDefault"
-      @keydown.space.enter="preventDefault"
-    >
-      {{ $t('next') }}
-    </a>
+    <template v-if="isPaginated">
+      <nuxt-link v-if="nextLink" :to="nextLink" class="pagination__link">
+        {{ $t('next') }}
+      </nuxt-link>
+      <a
+        v-else
+        href=""
+        aria-disabled="true"
+        class="pagination__link pagination__link--disabled"
+        @click="preventDefault"
+        @keydown.space.enter="preventDefault"
+      >
+        {{ $t('next') }}
+      </a>
+    </template>
   </footer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AppRssLink from '~/components/AppRssLink.vue'
 
 export default Vue.extend({
-  components: {
-    AppRssLink
-  },
   props: {
+    isPaginated: {
+      type: Boolean,
+      default: true
+    },
     prevLink: {
       type: String,
       default: ''
@@ -79,6 +87,10 @@ export default Vue.extend({
 <style lang="postcss">
 .pagination {
   @apply my-12 mx-4 flex flex-wrap justify-between content-center;
+
+  &--rss-only {
+    @apply justify-center;
+  }
 
   &__link {
     @apply mb-3;
