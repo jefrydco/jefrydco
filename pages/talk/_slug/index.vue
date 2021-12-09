@@ -137,7 +137,7 @@ export default formatDate.extend({
         availableLocales,
         talk: {
           ...talk,
-          editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/blog/${locale}/${slug}.md`
+          editLink: `https://github.com/jefrydco/jefrydco/edit/main/contents/talk/${locale}/${slug}.md`
         },
         illustration
       }
@@ -294,6 +294,40 @@ export default formatDate.extend({
               // @ts-expect-error
               url: this.talk && this.talk.organizerUrl
             }
+          })
+        },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'talk' })}/`,
+                  name: 'Talk'
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                item: {
+                  '@id': `${HOSTNAME}${
+                    // @ts-expect-error
+                    this.talk &&
+                    this.localePath({
+                      name: 'talk-slug',
+                      // @ts-expect-error
+                      params: { slug: this.talk.slug }
+                    })
+                  }/`,
+                  // @ts-expect-error
+                  name: this.talk && this.talk.title
+                }
+              }
+            ]
           })
         }
       ]

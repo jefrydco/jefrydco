@@ -120,6 +120,26 @@ export default Vue.extend({
           rel: 'amphtml',
           href: `${HOSTNAME}${this.localePath({ name: 'talk-amp' })}/`
         }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'talk' })}/`,
+                  name: 'Talk'
+                }
+              }
+            ]
+          })
+        }
       ]
     }
   },

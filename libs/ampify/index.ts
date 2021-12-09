@@ -131,7 +131,6 @@ export default (html: string) => {
         const youtubeUrl = /src="([^"]*)"/gi.exec(sub)?.[1] || ''
         // RegEx taken from: https://stackoverflow.com/a/7882155/7711812
         const youtubeId = /\/vi\/(.*)\//gi.exec(youtubeUrl)?.[1] || ''
-        console.log(youtubeId)
         return `<amp-youtube data-videoid="${youtubeId}" layout=responsive width=736 height=446><amp-img src="${youtubeUrl}" layout=fill placeholder/></amp-youtube>`
       }
     )

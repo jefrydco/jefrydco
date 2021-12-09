@@ -152,6 +152,39 @@ export default Page.extend({
               url: this.talk && this.talk.organizerUrl
             }
           })
+        },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': `${HOSTNAME}${this.localePath({ name: 'talk' })}/`,
+                  name: 'Talk'
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                item: {
+                  '@id': `${HOSTNAME}${
+                    this.talk &&
+                    this.localePath({
+                      name: 'talk-slug',
+                      // @ts-expect-error
+                      params: { slug: this.talk.slug }
+                    })
+                  }/`,
+                  // @ts-expect-error
+                  name: this.talk && this.talk.title
+                }
+              }
+            ]
+          })
         }
       ]
     }
