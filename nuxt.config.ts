@@ -449,9 +449,12 @@ export default {
             })
 
             // @ts-expect-error
-            const contents: BlogListDataType = await $content(`/blog/id`, {
-              deep: true
-            })
+            const contents: BlogListDataType = await $content(
+              `/blog/${locale.code}`,
+              {
+                deep: true
+              }
+            )
               .only(['title', 'slug', 'img', 'postedDate', 'summary'])
               .sortBy('postedDate', 'desc')
               .fetch<BlogListDataType>()
@@ -500,9 +503,12 @@ export default {
             })
 
             // @ts-expect-error
-            const contents: TalkDataType[] = await $content(`/talk/id`, {
-              deep: true
-            })
+            const contents: TalkDataType[] = await $content(
+              `/talk/${locale.code}`,
+              {
+                deep: true
+              }
+            )
               .only(['title', 'slug', 'img', 'startDate', 'description'])
               .sortBy('startDate', 'desc')
               .fetch<TalkDataType[]>()

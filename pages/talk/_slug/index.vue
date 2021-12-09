@@ -58,13 +58,15 @@
           >
             <button
               class="td__btn"
-              @click="illustration = ILLUSTRATION_OPTIONS.PLAYBACK"
+              @click="
+                onSwitchIllustrationClicked(ILLUSTRATION_OPTIONS.PLAYBACK)
+              "
             >
               {{ $t('playback') }}
             </button>
             <button
               class="td__btn"
-              @click="illustration = ILLUSTRATION_OPTIONS.POSTER"
+              @click="onSwitchIllustrationClicked(ILLUSTRATION_OPTIONS.POSTER)"
             >
               {{ $t('poster') }}
             </button>
@@ -355,6 +357,15 @@ export default formatDate.extend({
         }
         return this.addTrailingSlash(localePath)
       }
+    }
+  },
+  methods: {
+    onSwitchIllustrationClicked(illustration: ILLUSTRATION_OPTIONS) {
+      this.illustration = illustration
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     }
   }
 })
