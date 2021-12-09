@@ -4,7 +4,7 @@
     <app-talk-section
       v-for="(yearItem, i) in talkListByYear"
       :key="i"
-      :title="yearItem.year"
+      :title="talkSectionTitle(yearItem.year, yearItem.list.length)"
       open
     >
       <section class="talks__item">
@@ -85,6 +85,12 @@ export default Vue.extend({
         }
       ]
     }
+  },
+  computed: {
+    talkSectionTitle() {
+      return (year: string, talkCount: number) =>
+        `${year} (${this.$tc('talk', talkCount, { count: talkCount })})`
+    }
   }
 })
 </script>
@@ -100,3 +106,14 @@ export default Vue.extend({
 }
 /* purgecss end ignore */
 </style>
+
+<i18n>
+{
+  "en": {
+    "talk": "1 talk | {count} talks"
+  },
+  "id": {
+    "talk": "1 talk | {count} talks"
+  }
+}
+</i18n>
