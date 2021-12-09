@@ -155,6 +155,7 @@ export default {
           innerHTML: JSON.stringify({
             '@context': 'http://schema.org',
             '@type': 'BreadcrumbList',
+            name: 'Blog',
             itemListElement: [
               {
                 '@type': 'ListItem',

@@ -158,6 +158,7 @@ export default Page.extend({
           innerHTML: JSON.stringify({
             '@context': 'http://schema.org',
             '@type': 'BreadcrumbList',
+            name: 'Talk',
             itemListElement: [
               {
                 '@type': 'ListItem',
