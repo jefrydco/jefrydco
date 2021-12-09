@@ -7,7 +7,7 @@
       :id="id"
       :value="value"
       type="text"
-      class="input form__input"
+      class="app-demo__form form__input"
       :class="computedClass"
       v-on="{
         ...$listeners,

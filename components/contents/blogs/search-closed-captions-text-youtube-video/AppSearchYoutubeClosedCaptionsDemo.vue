@@ -122,10 +122,10 @@
         ></p>
         <p class="app-demo__p">{{ $t('timer', { timer }) }}</p>
       </div>
-      <button class="btn" @click="toggleAutoDemo">
+      <button class="app-demo__form" @click="toggleAutoDemo">
         {{ isAutoDemoRun ? $t('auto_demo_stop') : $t('auto_demo_start') }}
       </button>
-      <button class="btn" @click="resetAll({ isToggling: false })">
+      <button class="app-demo__form" @click="resetAll({ isToggling: false })">
         {{ $t('reset') }}
       </button>
 
@@ -145,7 +145,7 @@
         v-for="nav in navButtonStructure"
         :key="nav"
         :disabled="!results[nav] || isOnlyPage"
-        class="btn"
+        class="app-demo__form"
         @click="navigate(results[nav])"
       >
         {{ $t(`${nav}_page`) }}
@@ -156,7 +156,7 @@
       <ul>
         <li v-for="(item, i) in results.data" :key="i">
           <p v-html="item.text"></p>
-          <button class="btn" @click="onSelectItemText(item)">
+          <button class="app-demo__form" @click="onSelectItemText(item)">
             {{ $t('play_video_at', { time: item.start }) }}
           </button>
         </li>
