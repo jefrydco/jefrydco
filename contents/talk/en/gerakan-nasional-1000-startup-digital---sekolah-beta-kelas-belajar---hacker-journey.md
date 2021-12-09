@@ -9,6 +9,8 @@ writeUp:
 startDate: 2021-11-04T12:00:00.000Z
 endDate: 2021-11-04T13:30:00.000Z
 slug: gerakan-nasional-1000-startup-digital---sekolah-beta-kelas-belajar---hacker-journey
+organizer: Gerakan 1000 Startup Digital
+organizerUrl: https://1000startupdigital.id/
 ---
 
 The National 1000 Startup Digital Movement is a collaborative effort to connect and exchange information and experiences in Indonesia's digital startup ecosystem.

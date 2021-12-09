@@ -8,6 +8,8 @@ writeUp:
 startDate: 2021-11-20T13:30:00.000Z
 endDate: 2021-11-20T16:50:00.000Z
 slug: himit-pens---vuejs-clean-architecture-workshop
+organizer: Himpunan Mahasiswa Informatika PENS
+organizerUrl: https://himitpens.com/
 ---
 
 HIMIT adalah Himpunan Mahasiswa Informatika PENS.

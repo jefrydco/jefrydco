@@ -9,6 +9,8 @@ writeUp: https://jefrydco.id/en/blog/create-reactivity-system-vuejs-javascript-p
 startDate: 2020-07-31T11:00:00.000Z
 endDate: 2020-07-31T14:00:00.000Z
 slug: surabayajs-meetup-10---recreate-a-simplified-version-of-vuejs-reactivity
+organizer: SurabayaJS
+organizerUrl: https://surabayajs.org/
 ---
 
 SurabayaJS is a group of developers & industry leaders interested in JavaScript and its ecosystem in the Surabaya area.

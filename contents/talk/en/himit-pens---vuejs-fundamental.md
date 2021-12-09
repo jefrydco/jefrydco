@@ -9,6 +9,8 @@ writeUp:
 startDate: 2020-07-26T13:30:00.000Z
 endDate: 2020-07-26T05:10:00.000Z
 slug: himit-pens---vuejs-fundamental
+organizer: Himpunan Mahasiswa Informatika PENS
+organizerUrl: https://himitpens.com/
 ---
 
 HIMIT (Himpunan Mahasiswa Informatika PENS) is Informatics Student Association of PENS.

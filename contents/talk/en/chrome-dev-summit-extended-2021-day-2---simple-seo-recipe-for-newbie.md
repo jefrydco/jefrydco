@@ -9,6 +9,8 @@ writeUp:
 startDate: 2021-01-23T06:00:00.000Z
 endDate: 2021-01-23T08:30:00.000Z
 slug: chrome-dev-summit-extended-2021-day-2---simple-seo-recipe-for-newbie
+organizer: GDG Jakarta
+organizerUrl: https://gdg.community.dev/gdg-jakarta/
 ---
 
 Chrome Dev Summit is an annual conference where developers can learn about the latest tools and updates coming to the Google Chrome browser.

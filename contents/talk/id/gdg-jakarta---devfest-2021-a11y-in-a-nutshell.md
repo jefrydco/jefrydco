@@ -8,6 +8,8 @@ writeUp:
 startDate: 2021-11-28T05:45:00.000Z
 endDate: 2021-11-28T09:00:00.000Z
 slug: gdg-jakarta---devfest-2021-a11y-in-a-nutshell
+organizer: GDG Jakarta
+organizerUrl: https://gdg.community.dev/gdg-jakarta/
 ---
 
 DevFest menyatukan ribuan pengembang secara global untuk even belajar teknis virtual terbesar yang diadakan oleh komunitas dan orang-orang yang memiliki kesamaan minat dengan teknologi Google.

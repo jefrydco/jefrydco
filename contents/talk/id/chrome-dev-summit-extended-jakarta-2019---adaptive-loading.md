@@ -9,6 +9,8 @@ writeUp:
 startDate: 2019-12-07T03:00:00.000Z
 endDate: 2019-12-07T08:00:00.000Z
 slug: chrome-dev-summit-extended-jakarta-2019---adaptive-loading
+organizer: GDG Jakarta
+organizerUrl: https://gdg.community.dev/gdg-jakarta/
 ---
 
 Chrome Dev Summit adalah konferensi tahunan dimana developer dapat mempelajari teknologi termutakhir dari peramban Google Chrome.

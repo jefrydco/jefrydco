@@ -9,6 +9,8 @@ writeUp: https://jefrydco.id/en/blog/create-reactivity-system-vuejs-javascript-p
 startDate: 2020-02-20T12:00:00.000Z
 endDate: 2020-02-20T14:00:00.000Z
 slug: jakartajs-meetup-56-x-mekari---recreate-a-simplified-version-of-vuejs-reactivity
+organizer: JakartaJS
+organizerUrl: https://www.jakartajs.org/
 ---
 
 JakartaJS is a group of developers & industry leaders interested in JavaScript and its ecosystem in the Greater Jakarta area.
