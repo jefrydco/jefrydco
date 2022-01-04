@@ -18,17 +18,7 @@
 <template>
   <div id="notification">
     <div
-      class="
-        max-w-lg
-        mx-auto
-        flex
-        p-6
-        bg-white
-        rounded-lg
-        shadow-lg
-        hover:shadow-2xl
-        mb-10
-      "
+      class="max-w-lg mx-auto flex p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl mb-10"
     >
       <div class="flex-shrink-0">
         <svg
@@ -75,17 +65,7 @@
     </div>
 
     <div
-      class="
-        max-w-lg
-        mx-auto
-        flex
-        p-6
-        bg-green-500
-        rounded-lg
-        shadow-lg
-        hover:shadow-2xl
-        mb-10
-      "
+      class="max-w-lg mx-auto flex p-6 bg-green-500 rounded-lg shadow-lg hover:shadow-2xl mb-10"
     >
       <div class="flex-shrink-0">
         <svg
@@ -132,17 +112,7 @@
     </div>
 
     <div
-      class="
-        max-w-lg
-        mx-auto
-        flex
-        p-6
-        bg-red-500
-        rounded-lg
-        shadow-lg
-        hover:shadow-2xl
-        mb-10
-      "
+      class="max-w-lg mx-auto flex p-6 bg-red-500 rounded-lg shadow-lg hover:shadow-2xl mb-10"
     >
       <div class="flex-shrink-0">
         <svg
