@@ -64,7 +64,7 @@ export default Vue.extend({
       type: String,
       default: 'all',
       validator(value) {
-        return ['all', 'none', 'top'].includes(value)
+        return ['all', 'none', 'top'].includes(value as string)
       }
     }
   },

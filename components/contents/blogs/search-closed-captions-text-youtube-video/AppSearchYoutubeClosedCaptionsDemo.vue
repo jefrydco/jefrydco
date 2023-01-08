@@ -278,7 +278,6 @@ export default ExtendableSearchText.extend({
             this.intervalIdAutoType.pop() as SetTimeoutReturnType
           ]
         } else {
-          // @ts-expect-error
           clearInterval(this.intervalIdAutoType.shift())
         }
         this.initAutoType()
@@ -376,7 +375,6 @@ export default ExtendableSearchText.extend({
                 this.intervalTimer.pop() as SetTimeoutReturnType
               ]
             } else {
-              // @ts-expect-error
               clearInterval(this.intervalTimer.shift())
             }
           }
@@ -422,7 +420,6 @@ export default ExtendableSearchText.extend({
             this.intervalIdAutoTypeKeyword.pop() as SetTimeoutReturnType
           ]
         } else {
-          // @ts-expect-error
           clearInterval(this.intervalIdAutoTypeKeyword.shift())
         }
       }

@@ -18,7 +18,7 @@ export default Vue.extend({
     size: {
       type: String,
       default: '16/9',
-      validator: (val) => ['square', '16/9', '4/3', '21/9'].includes(val)
+      validator: (val) => ['square', '16/9', '4/3', '21/9'].includes(val as string)
     }
   }
 })

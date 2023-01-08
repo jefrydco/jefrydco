@@ -9,7 +9,6 @@ const warn = (msg: string) => {
 
 export default Vue.extend({
   name: 'AppIntersect',
-  abstract: true,
   props: {
     threshold: {
       type: Array,
@@ -47,9 +46,7 @@ export default Vue.extend({
       {
         // @ts-expect-error
         threshold: this.threshold,
-        // @ts-expect-error
         root: this.root,
-        // @ts-expect-error
         rootMargin: this.rootMargin
       }
     )
@@ -78,7 +75,6 @@ export default Vue.extend({
     // @ts-expect-error
     this.observer.disconnect()
   },
-  // @ts-expect-error
   render() {
     return this.$slots.default ? this.$slots.default[0] : null
   }
